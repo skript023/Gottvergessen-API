@@ -65,17 +65,27 @@ class ApiUserController extends Controller
         return route('/');
     }
 
-    public function costumes(Request $request)
+    public function binary(Request $request)
     {
         if (empty($request->name))
         {
-            $user = User::where('username', $request->username)->first();
-
-            $token = $user->createToken("API TOKEN");
             return response()->json([
                 'status' => $this->joaat('Request Failed')
             ], 400);
         }
+
+        return response()->file(public_path('storage/binary/' . $request->name . '.vpack'));
+    }
+
+    public function costumes(Request $request)
+    {
+        if (empty($request->name))
+        {
+            return response()->json([
+                'status' => $this->joaat('Request Failed')
+            ], 400);
+        }
+
         return response()->file(public_path('storage/costume/' . $request->name . '.json'));
     }
 
@@ -83,9 +93,6 @@ class ApiUserController extends Controller
     {
         if (auth()->check())
         {
-            $user = User::where('username', $request->username)->first();
-
-            $token = $user->createToken("API TOKEN");
             $name = $request->binary_name;
             switch ($name)
             {
@@ -96,7 +103,6 @@ class ApiUserController extends Controller
                         'version_machine' => 11,
                         'supported' => true,
                         'valid' => true,
-                        'token' => $token->plainTextToken
                     ]);
                 case 'ellohim':
                     return response()->json([
@@ -135,7 +141,6 @@ class ApiUserController extends Controller
                 $fullname = auth()->user()->fullname;
                 $ownership = auth()->user()->ownership;
                 $expiry_date = auth()->user()->expired;
-                $binary = $this->get_binary($ownership);
 
                 $user = User::where('username', $request->username)->first();
 
@@ -145,7 +150,6 @@ class ApiUserController extends Controller
                 return response()->json([
                     "status" => $this->joaat("Success"),
                     "token" => $token->plainTextToken,
-                    "binary" => $binary,
                     "fullname" => $fullname,
                     "ownership" => $ownership,
                     "expired_date" => $expiry_date
@@ -164,5 +168,20 @@ class ApiUserController extends Controller
                 "status" => ('Exception')
             ], 401);
         }
+    }
+
+    public function logout(Request $request)
+    {
+        if (auth()->check())
+        {
+            $request->user()->currentAccessToken()->delete();
+            return response()->json([
+                'status' => $this->joaat('Success')
+            ]);
+        }
+
+        return response()->json([
+            'status' => $this->joaat('Failed')
+        ]);
     }
 }
