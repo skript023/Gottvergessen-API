@@ -149,6 +149,7 @@ class ApiUserController extends Controller
 
                 return response()->json([
                     "status" => $this->joaat("Success"),
+                    "message" => 'Login Success',
                     "token" => $token->plainTextToken,
                     "fullname" => $fullname,
                     "ownership" => $ownership,
@@ -158,14 +159,16 @@ class ApiUserController extends Controller
             else
             {
                 return response()->json([
-                    "status" => ('Failed')
+                    "status" => $this->joaat('Failed'),
+                    "message" => 'Login Failed',
                 ], 401);
             }
         }
         catch (\Throwable $th) 
         {
             return response()->json([
-                "status" => ('Exception')
+                "status" => $this->joaat('Exception'),
+                "message" => 'Error : ' . $th,
             ], 401);
         }
     }
@@ -176,12 +179,14 @@ class ApiUserController extends Controller
         {
             $request->user()->currentAccessToken()->delete();
             return response()->json([
-                'status' => $this->joaat('Success')
+                'status' => $this->joaat('Success'),
+                'message' => 'Logout Success'
             ]);
         }
 
         return response()->json([
-            'status' => $this->joaat('Failed')
+            'status' => $this->joaat('Failed'),
+            'message' => 'Logout Failed'
         ]);
     }
 }
