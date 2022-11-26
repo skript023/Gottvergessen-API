@@ -22,8 +22,11 @@ Route::post('/signup', [UserController::class, 'add_user']);
 
 Route::get('/logout', [UserController::class, 'logout']);
 
-Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('auth');
-Route::get('/dashboard/profile', [UserController::class, 'profile'])->middleware('auth');
-Route::get('/dashboard/users', [UserController::class, 'view_user'])->middleware('auth');
-Route::post('/dashboard/users/add', [UserController::class, 'add_user'])->middleware('auth');
-Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user'])->middleware('auth');
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::get('/dashboard', [UserController::class, 'dashboard']);
+    Route::get('/dashboard/profile', [UserController::class, 'profile']);
+    Route::get('/dashboard/users', [UserController::class, 'view_user']);
+    Route::post('/dashboard/users/add', [UserController::class, 'add_user']);
+    Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user']);
+});

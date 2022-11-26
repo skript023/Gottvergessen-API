@@ -110,6 +110,8 @@ class UserController extends Controller
         $data['role'] = 'user';
         $data['status'] = 'active';
         $data['created_date'] = now();
+        $data['recent_login'] = now();
+        $data['expired'] = now();
         $data['password'] = Hash::make($data['password']);
 
         try 

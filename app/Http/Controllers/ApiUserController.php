@@ -91,36 +91,30 @@ class ApiUserController extends Controller
 
     public function binary_version(Request $request)
     {
-        if (auth()->check())
+        switch ($request->name)
         {
-            $name = $request->binary_name;
-            switch ($name)
-            {
-                case 'gottvergessen':
-                    return response()->json([
-                        'file' => 'Gottvergessen',
-                        'version' => '1.1',
-                        'version_machine' => 11,
-                        'supported' => true,
-                        'valid' => true,
-                    ]);
-                case 'ellohim':
-                    return response()->json([
-                        'file' => 'Ellohim',
-                        'version' => '2.1',
-                        'version_machine' => 21,
-                        'supported' => false,
-                        'valid' => false
-                    ]);
-            }
+            case 'gottvergessen':
+                return response()->json([
+                    'file' => 'Gottvergessen',
+                    'version' => '1.1',
+                    'version_machine' => 11,
+                    'supported' => true
+                ]);
+            case 'ellohim':
+                return response()->json([
+                    'file' => 'Ellohim',
+                    'version' => '2.1',
+                    'version_machine' => 21,
+                    'supported' => false
+                ]);
         }
+
         return response()->json([
             'file' => 'NONE',
             'version' => 'NONE',
-            'version_machine' => null,
-            'supported' => null,
-            'valid' => null
-        ], 401);
+            'version_machine' => 0,
+            'supported' => false
+        ], 500);
     }
 
     public function login(Request $request)
@@ -136,15 +130,13 @@ class ApiUserController extends Controller
         {
             if (Auth::attempt($credentials)) 
             {
-                
-
                 $fullname = auth()->user()->fullname;
                 $ownership = auth()->user()->ownership;
                 $expiry_date = auth()->user()->expired;
 
                 $user = User::where('username', $request->username)->first();
 
-                $token = $user->createToken("API TOKEN");
+                $token = $user->createToken(auth()->user()->fullname);
                 $access_token = $token->accessToken;
 
                 return response()->json([
@@ -161,6 +153,10 @@ class ApiUserController extends Controller
                 return response()->json([
                     "status" => $this->joaat('Failed'),
                     "message" => 'Login Failed',
+                    "token" => "",
+                    "fullname" => "FAILED",
+                    "ownership" => 0,
+                    "expired_date" => "FAILED"
                 ], 401);
             }
         }
@@ -169,24 +165,20 @@ class ApiUserController extends Controller
             return response()->json([
                 "status" => $this->joaat('Exception'),
                 "message" => 'Error : ' . $th,
+                "token" => "",
+                "fullname" => "EXCEPTION",
+                "ownership" => 0,
+                "expired_date" => "EXCEPTION"
             ], 401);
         }
     }
 
     public function logout(Request $request)
     {
-        if (auth()->check())
-        {
-            $request->user()->currentAccessToken()->delete();
-            return response()->json([
-                'status' => $this->joaat('Success'),
-                'message' => 'Logout Success'
-            ]);
-        }
-
+        $request->user()->currentAccessToken()->delete();
         return response()->json([
-            'status' => $this->joaat('Failed'),
-            'message' => 'Logout Failed'
+            'status' => $this->joaat('Success'),
+            'message' => 'Logout Success'
         ]);
     }
 }
