@@ -2,7 +2,7 @@
 
 
 
-<h1 align="center">Ellohim Project</h1>
+<h1 align="center">Gottvergessen REST API</h1>
 <p align="center">
   <a href="https://github.com/skript023/Gottvergessen-API/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/skript023/Gottvergessen-API.svg?style=flat-square"/>
