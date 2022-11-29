@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/github/license/skript023/Gottvergessen-API.svg?style=flat-square"/>
    </a>
   <a href="https://github.com/skript023/Gottvergessen-API/actions">
-      <img src="https://github.com/skript023/Gottvergessen-Loader/workflows/main.yml/badge.svg"/>
+      <img src="https://github.com/skript023/Gottvergessen-Loader/actions/workflows/main.yml/badge.svg"/>
    </a>
   <br>
   A simple DLL API handlig for <a href="https://github.com/skript023/Gottvergessen-Loader">Gottvergessen Loader</a>
