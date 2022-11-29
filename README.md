@@ -11,7 +11,7 @@
       <img src="https://img.shields.io/github/workflow/status/skript023/Gottvergessen-API/CI/main?style=flat-square"/>
    </a>
   <br>
-  A simple DLL API handlig for [Gottvergessen Loader](https://github.com/skript023/Gottvergessen-Loader).
+  A simple DLL API handlig for <a href="https://github.com/skript023/Gottvergessen-Loader">Gottvergessen Loader</a>
   Strictly for educational purposes.
 </p>
 
