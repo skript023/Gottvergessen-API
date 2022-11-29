@@ -7,8 +7,8 @@
   <a href="https://github.com/skript023/Gottvergessen-API/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/skript023/Gottvergessen-API.svg?style=flat-square"/>
    </a>
-  <a href="https://github.com/skript023/Ellohim-Project/actions">
-      <img src="https://img.shields.io/github/workflow/status/skript023/Gottvergessen-API/CI/main?style=flat-square"/>
+  <a href="https://github.com/skript023/Gottvergessen-API/actions">
+      <img src="https://img.shields.io/github/workflow/status/skript023/Gottvergessen-API/workflows/main.yml/badge.svg"/>
    </a>
   <br>
   A simple DLL API handlig for <a href="https://github.com/skript023/Gottvergessen-Loader">Gottvergessen Loader</a>
