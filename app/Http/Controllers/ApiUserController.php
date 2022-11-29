@@ -133,6 +133,7 @@ class ApiUserController extends Controller
                 $fullname = auth()->user()->fullname;
                 $ownership = auth()->user()->ownership;
                 $expiry_date = auth()->user()->expired;
+                $role = auth()->user()->role;
 
                 $user = User::where('username', $request->username)->first();
 
@@ -140,10 +141,11 @@ class ApiUserController extends Controller
                 $access_token = $token->accessToken;
 
                 return response()->json([
-                    "status" => $this->joaat("Success"),
+                    "status" => $this->joaat("AUTH_SUCCESS"),
                     "message" => 'Login Success',
                     "token" => $token->plainTextToken,
                     "fullname" => $fullname,
+                    "role" => $role,
                     "ownership" => $ownership,
                     "expired_date" => $expiry_date
                 ]);
@@ -151,24 +153,26 @@ class ApiUserController extends Controller
             else
             {
                 return response()->json([
-                    "status" => $this->joaat('Failed'),
+                    "status" => $this->joaat('AUTH_FAILED'),
                     "message" => 'Login Failed',
                     "token" => "",
-                    "fullname" => "FAILED",
+                    "fullname" => "AUTH_FAILED",
+                    "role" => "AUTH_FAILED",
                     "ownership" => 0,
-                    "expired_date" => "FAILED"
+                    "expired_date" => "AUTH_FAILED"
                 ], 401);
             }
         }
         catch (\Throwable $th) 
         {
             return response()->json([
-                "status" => $this->joaat('Exception'),
+                "status" => $this->joaat('BAD_REQUEST'),
                 "message" => 'Error : ' . $th,
                 "token" => "",
-                "fullname" => "EXCEPTION",
+                "fullname" => "BAD_REQUEST",
+                "role" => "BAD_REQUEST",
                 "ownership" => 0,
-                "expired_date" => "EXCEPTION"
+                "expired_date" => "BAD_REQUEST"
             ], 401);
         }
     }
@@ -177,7 +181,7 @@ class ApiUserController extends Controller
     {
         $request->user()->currentAccessToken()->delete();
         return response()->json([
-            'status' => $this->joaat('Success'),
+            'status' => $this->joaat('LOGOUT_SUCCESS'),
             'message' => 'Logout Success'
         ]);
     }

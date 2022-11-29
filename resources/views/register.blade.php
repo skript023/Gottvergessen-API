@@ -39,15 +39,23 @@
 					</div>
 				</div>
 				<div class="form-group">
-				<label for="exampleInputPassword" class="sr-only">Password</label>
-				<div class="position-relative has-icon-right">
-					<input type="password" name="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Choose Password" required>
-					<div class="form-control-position">
-						<i class="icon-lock"></i>
+					<label for="exampleInputPassword" class="sr-only">Password</label>
+					<div class="position-relative has-icon-right">
+						<input type="password" name="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Choose Password" required>
+						<div class="form-control-position">
+							<i class="icon-lock"></i>
+						</div>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword" class="sr-only">Confirm Password</label>
+					<div class="position-relative has-icon-right">
+						<input type="password" name="password_confirmation" id="exampleInputPassword" class="form-control input-shadow" placeholder="Re-enter Password" required>
+						<div class="form-control-position">
+							<i class="icon-lock"></i>
+						</div>
+					</div>
 				</div>
-				
 				<div class="form-group">
 					<div class="icheck-material-white">
 					<input type="checkbox" id="user-checkbox" checked="" name="agree" required>

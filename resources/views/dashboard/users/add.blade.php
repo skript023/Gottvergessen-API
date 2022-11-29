@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <label for="input-10">Confirm Password</label>
-                    <input type="password" name="confirm_password" class="form-control form-control-rounded" id="input-10" placeholder="Confirm Password" required>
+                    <input type="password" name="password_confirmation" class="form-control form-control-rounded" id="input-10" placeholder="Confirm Password" required>
                     <span id='message'></span>
                 </div>
                 <div class="form-group">

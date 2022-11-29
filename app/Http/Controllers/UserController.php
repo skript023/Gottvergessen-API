@@ -52,7 +52,6 @@ class UserController extends Controller
         }
         catch (\Throwable $th) 
         {
-            dd($th);
             return back()->withErrors([
                 'username' => 'The provided credentials do not match our records.',
             ]);
@@ -121,7 +120,6 @@ class UserController extends Controller
         } 
         catch (\Throwable $th) 
         {
-            dd($th);
             return redirect()->back();
         }
     }
@@ -167,7 +165,7 @@ class UserController extends Controller
             'fullname' => 'required',
             'username' => 'required',
             'email' => 'required:|email:dns', 
-            'password' => 'required'
+            'password' => 'required|confirmed|min:6'
         ]);
 
         $data = $request->only([
