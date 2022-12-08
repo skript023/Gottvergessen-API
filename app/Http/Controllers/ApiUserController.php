@@ -8,8 +8,8 @@ use Illuminate\Http\Response;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Sanctum\SanctumServiceProvider;
 use Illuminate\Support\Facades\Http;
+use Laravel\Sanctum\SanctumServiceProvider;
 
 class ApiUserController extends Controller
 {
@@ -32,9 +32,10 @@ class ApiUserController extends Controller
     private function joaat($name)
     {
         $hash = 0;
+        $name = strtolower($name);
         foreach(str_split($name) as $letter)
         {
-            $hash += $this->tolower(ord($letter));
+            $hash += ord($letter);
             $hash = $this->UInt32($hash);
             $hash += $hash << 10;
             $hash ^= $this->UInt32($hash) >> 6;
@@ -104,6 +105,20 @@ class ApiUserController extends Controller
             case 'ellohim':
                 return response()->json([
                     'file' => 'Ellohim',
+                    'version' => '2.1',
+                    'version_machine' => 21,
+                    'supported' => false
+                ]);
+            case 'scarlet-nexus':
+                return response()->json([
+                    'file' => 'scarlet-nexus',
+                    'version' => '2.1',
+                    'version_machine' => 21,
+                    'supported' => true
+                ]);
+            case 'tower-of-fantasy':
+                return response()->json([
+                    'file' => 'tower-of-fantasy',
                     'version' => '2.1',
                     'version_machine' => 21,
                     'supported' => false
