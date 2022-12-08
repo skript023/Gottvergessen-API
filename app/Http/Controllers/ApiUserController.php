@@ -69,7 +69,7 @@ class ApiUserController extends Controller
 
     public function binary(Request $request)
     {
-        if (empty($request->name))
+        if (empty($request->name) || !file_exists(public_path('storage/binary/' . $request->name . '.vpack')))
         {
             return response()->json([
                 'status' => $this->joaat('Request Failed')
