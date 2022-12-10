@@ -12,6 +12,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Fullname</th>
                         <th scope="col">Ownership</th>
+                        <th scope="col">Computer</th>
                         <th scope="col">Role</th>
                         <th scope="col">Status</th>
                         </tr>
@@ -21,24 +22,9 @@
                             <tr>
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $user->fullname }}</td>
-                                @switch($user->ownership)
-                                    @case(0)
-                                        <td>{{ "NOT OWNED" }}</td>
-                                        @break
-                                    @case(1)
-                                        <td>{{ "STANDARD EDITION" }}</td>
-                                        @break
-                                    @case(2)
-                                        <td>{{ "SILVER EDITION" }}</td>
-                                        @break
-                                    @case(3)
-                                        <td>{{ "GOLD EDITION" }}</td>
-                                        @break
-                                    @default
-                                        <td>{{ "DEVELOPER VERSION" }}</td>
-                                        @break
-                                @endswitch
-                                <td>{{ $user->role }}</td>
+                                <td>{{ $user->ownerships->ownership }}</td>
+                                <td>{{ $user->computer_name }}</td>
+                                <td>{{ $user->roles->role }}</td>
                                 <td>{{ $user->status }}</td>
                                 <td>
                                 <div class="btn-group">

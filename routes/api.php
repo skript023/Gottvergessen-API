@@ -24,10 +24,11 @@ Route::get('/v1/test', function () {
 })->middleware('auth:sanctum');
 
 Route::post('/v1/auth/login', [ApiUserController::class, 'login']);
-Route::post('/v1/binary/version', [ApiUserController::class, 'binary_version']);
+Route::get('/v1/version', [ApiUserController::class, 'get_loader_version']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/v1/costume', [ApiUserController::class, 'costumes']);
+    Route::post('/v1/binary/version', [ApiUserController::class, 'binary_version']);
     Route::post('/v1/binary/shellcode', [ApiUserController::class, 'binary']);
     Route::post('/v1/auth/logout', [ApiUserController::class, 'logout']);
 });

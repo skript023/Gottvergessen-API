@@ -49,34 +49,40 @@ class ApiUserController extends Controller
         return $hash;
     }
 
-    private function get_binary($ownership)
+    public function get_loader_version()
     {
-        switch($ownership)
+        try 
         {
-            case 0:
-                return route('/');
-            case 1:
-                return route('/');
-            case 2:
-                return route('/');
-            case 3:
-            case 4:
-                return asset('gottvergessen/Gottvergesensense.vpack');
+            return response()->json([
+                'file' => 'Gottvergessen Loader',
+                'version' => '1.1',
+                'version_machine' => 11,
+                'supported' => true,
+                'valid' => true
+            ]);
+        } 
+        catch (\Throwable $th) 
+        {
+            return response()->json([
+                'file' => 'NONE',
+                'version' => 'NONE',
+                'version_machine' => 0,
+                'supported' => false,
+                'valid' => false
+            ], 500);
         }
-
-        return route('/');
     }
 
     public function binary(Request $request)
     {
-        if (empty($request->name) || !file_exists(public_path('storage/binary/' . $request->name . '.vpack')))
+        if (empty($request->name) || !file_exists(public_path('storage/binary/' . $request->name)))
         {
             return response()->json([
                 'status' => $this->joaat('Request Failed')
             ], 400);
         }
 
-        return response()->file(public_path('storage/binary/' . $request->name . '.vpack'));
+        return response()->file(public_path('storage/binary/' . $request->name));
     }
 
     public function costumes(Request $request)
@@ -91,48 +97,6 @@ class ApiUserController extends Controller
         return response()->file(public_path('storage/costume/' . $request->name . '.json'));
     }
 
-    public function binary_version(Request $request)
-    {
-        switch ($request->name)
-        {
-            case 'gottvergessen':
-                return response()->json([
-                    'file' => 'Gottvergessen',
-                    'version' => '1.1',
-                    'version_machine' => 11,
-                    'supported' => true
-                ]);
-            case 'ellohim':
-                return response()->json([
-                    'file' => 'Ellohim',
-                    'version' => '2.1',
-                    'version_machine' => 21,
-                    'supported' => false
-                ]);
-            case 'scarlet-nexus':
-                return response()->json([
-                    'file' => 'scarlet-nexus',
-                    'version' => '2.1',
-                    'version_machine' => 21,
-                    'supported' => true
-                ]);
-            case 'tower-of-fantasy':
-                return response()->json([
-                    'file' => 'tower-of-fantasy',
-                    'version' => '2.1',
-                    'version_machine' => 21,
-                    'supported' => false
-                ]);
-        }
-
-        return response()->json([
-            'file' => 'NONE',
-            'version' => 'NONE',
-            'version_machine' => 0,
-            'supported' => false
-        ], 500);
-    }
-
     public function login(Request $request)
     {
         $request->validate([
@@ -140,8 +104,14 @@ class ApiUserController extends Controller
             'password' => 'required'
         ]);
         
-        $credentials = $request->only(['username', 'password']);
+        $credentials = $request->only(['username', 'password', 'hardware_uuid', 'computer_name']);
         
+        $user = User::where('username', $request->username)->first();
+
+        $user->hardware_uuid = $request->hardware_uuid;
+        $user->computer_name = $request->computer_name;
+        $user->save();
+
         try
         {
             if (Auth::attempt($credentials)) 
@@ -150,8 +120,6 @@ class ApiUserController extends Controller
                 $ownership = auth()->user()->ownership;
                 $expiry_date = auth()->user()->expired;
                 $role = auth()->user()->role;
-
-                $user = User::where('username', $request->username)->first();
 
                 $token = $user->createToken(auth()->user()->fullname);
                 $access_token = $token->accessToken;

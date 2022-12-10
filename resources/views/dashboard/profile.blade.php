@@ -18,6 +18,7 @@
             @else
             <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
             @endif
+            <br>
             <h5 class="card-title">{{ auth()->user()->fullname }}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="icon-block">
@@ -30,35 +31,35 @@
         <div class="card-body border-top border-light">
             <div class="media align-items-center">
                 <div>
-                    <img src="{{ asset('assets') }}/images/timeline/html5.svg" class="skill-img" alt="skill img">
+                    <img src="https://seeklogo.com/images/G/grand-theft-auto-v-logo-5039B47914-seeklogo.com.png" class="skill-img" alt="skill img">
                 </div>
                 <div class="media-body text-left ml-3">
                     <div class="progress-wrapper">
-                        <p>HTML5 <span class="float-right">65%</span></p>
+                        <p>GTA5 <span class="float-right">90%</span></p>
                         <div class="progress" style="height: 5px;">
-                            <div class="progress-bar" style="width:65%"></div>
+                            <div class="progress-bar" style="width:90%"></div>
                             </div>
-                        </div>                   
+                        </div>
                     </div>
                 </div>
                 <hr>
                 <div class="media align-items-center">
-                    <div><img src="{{ asset('assets') }}/images/timeline/bootstrap-4.svg" class="skill-img" alt="skill img"></div>
+                    <div><img src="https://upload.wikimedia.org/wikipedia/en/f/f8/Scarlet_Nexus_cover.jpg" class="skill-img" alt="skill img"></div>
                         <div class="media-body text-left ml-3">
                             <div class="progress-wrapper">
-                                <p>Bootstrap 4 <span class="float-right">50%</span></p>
+                                <p>Scarlet Nexus <span class="float-right">100%</span></p>
                                 <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" style="width:50%"></div>
+                                <div class="progress-bar" style="width:100%"></div>
                             </div>
                         </div>                   
                     </div>
                 </div>
                 <hr>
                 <div class="media align-items-center">
-                    <div><img src="{{ asset('assets') }}/images/timeline/angular-icon.svg" class="skill-img" alt="skill img"></div>
+                    <div><img src="https://play-lh.googleusercontent.com/3RsTIdcpIxIUDdCAHGr9HAZvCZKwij_GKlxiRIPjbjueOtG5O3ZL62tGXiD9VR3YVA=s48-rw" class="skill-img" alt="skill img"></div>
                         <div class="media-body text-left ml-3">
                             <div class="progress-wrapper">
-                                <p>AngularJS <span class="float-right">70%</span></p>
+                                <p>Tower of Fantasy <span class="float-right">70%</span></p>
                                 <div class="progress" style="height: 5px;">
                                 <div class="progress-bar" style="width:70%"></div>
                             </div>
@@ -67,12 +68,12 @@
                 </div>
                 <hr>
                 <div class="media align-items-center">
-                    <div><img src="{{ asset('assets') }}/images/timeline/react.svg" class="skill-img" alt="skill img"></div>
+                    <div><img src="https://seeklogo.com/images/C/csgo-logo-CAA0A4D48A-seeklogo.com.png" class="skill-img" alt="skill img"></div>
                         <div class="media-body text-left ml-3">
                             <div class="progress-wrapper">
-                                <p>React JS <span class="float-right">35%</span></p>
+                                <p>Counter Strike : Global Offensive <span class="float-right">95%</span></p>
                                 <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" style="width:35%"></div>
+                                <div class="progress-bar" style="width:95%"></div>
                             </div>
                         </div>                   
                     </div>
@@ -100,28 +101,26 @@
                     <h5 class="mb-3">User Profile</h5>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>About</h6>
-                            <p>
-                                Web Designer, UI/UX Engineer
-                            </p>
-                            <h6>Hobbies</h6>
-                            <p>
-                                Indie music, skiing and hiking. I love the great outdoors.
-                            </p>
+                            <h6>Information</h6>
+                            <p>{{ "Name : " . auth()->user()->fullname }}</p>
+                            <p>{{ "Username : " . auth()->user()->username }}</p>
+                            <p>{{ "Status : " . auth()->user()->roles->role }}</p>
+                            <p>{{ "Email : " . auth()->user()->email }}</p>
+                            <p>{{ "Ownership : " . auth()->user()->ownerships->ownership }}</p>
                         </div>
                         <div class="col-md-6">
                             <h6>Recent badges</h6>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">html5</a>
+                            {{-- <a href="javascript:void();" class="badge badge-dark badge-pill">html5</a>
                             <a href="javascript:void();" class="badge badge-dark badge-pill">react</a>
                             <a href="javascript:void();" class="badge badge-dark badge-pill">codeply</a>
                             <a href="javascript:void();" class="badge badge-dark badge-pill">angularjs</a>
                             <a href="javascript:void();" class="badge badge-dark badge-pill">css3</a>
                             <a href="javascript:void();" class="badge badge-dark badge-pill">jquery</a>
                             <a href="javascript:void();" class="badge badge-dark badge-pill">bootstrap</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a>
+                            <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a> --}}
                             <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
+                            <span class="badge badge-primary"><i class="fa fa-user"></i> All Game Access</span>
+                            <span class="badge badge-success"><i class="fa fa-cog"></i> {{ auth()->user()->ownerships->ownership }}</span>
                             <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
                         </div>
                         <div class="col-md-12">

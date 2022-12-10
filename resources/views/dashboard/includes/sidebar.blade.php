@@ -7,25 +7,24 @@
     </div>
     <ul class="sidebar-menu do-nicescrol">
         <li class="sidebar-header">MAIN NAVIGATION</li>
-        <li>
-            <a href="/dashboard">
-            <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
-            </a>
-        </li>
-        
-        @if(auth()->user()->role == 'admin')
+        @if(auth()->user()->roles->id == 3)
+            <li>
+                <a href="/dashboard">
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+                </a>
+            </li>
             <li>
                 <a href="/dashboard/users">
                 <i class="zmdi zmdi-format-list-bulleted"></i> <span>Users</span>
                 </a>
             </li>
             <li>
-                <a href="/dashboard/users?page=add" target="_blank">
+                <a href="/dashboard/users?page=add">
                 <i class="zmdi zmdi-account-circle"></i> <span>Add User</span>
                 </a>
             </li>
             <li>
-                <a href="/dashboard/logging" target="_blank">
+                <a href="/dashboard/logging">
                 <i class="zmdi zmdi-lock"></i> <span>Logging</span>
                 </a>
             </li>

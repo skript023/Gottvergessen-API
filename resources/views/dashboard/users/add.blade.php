@@ -11,7 +11,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="input-6">Name</label>
+                    <label for="input-6">Fullname</label>
+                    <input type="text" name="fullname" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="input-6">Duration</label>
+                    <input type="text" name="access_duration" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="input-6">Fullname</label>
                     <input type="text" name="fullname" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
                 </div>
                 <div class="form-group">

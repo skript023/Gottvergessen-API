@@ -18,15 +18,19 @@ Route::get('/', [UserController::class, 'home'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 
 Route::get('/register', fn() => view('register'));
-Route::post('/signup', [UserController::class, 'add_user']);
+Route::post('/signup', [UserController::class, 'user_registration']);
 
 Route::get('/logout', [UserController::class, 'logout']);
 
-Route::group(['middleware' => 'auth'], function()
+Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 {
     Route::get('/dashboard', [UserController::class, 'dashboard']);
-    Route::get('/dashboard/profile', [UserController::class, 'profile']);
     Route::get('/dashboard/users', [UserController::class, 'view_user']);
     Route::post('/dashboard/users/add', [UserController::class, 'add_user']);
     Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user']);
+});
+
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::get('/dashboard/profile', [UserController::class, 'profile']);
 });

@@ -6,7 +6,7 @@
             @foreach ($users as $user)
                 @if ($user->id == request()->uid)
                     <form action="/dashboard/users/edit_status" method="post">
-                        @if ($user->status === 'pending')
+                        @if ($user->status === 'unverified')
                             <button class="btn btn-outline-primary waves-effect waves-light" type="submit" name="active">Verified User</button>
                         @else
                             <button class="btn btn-outline-danger waves-effect waves-light" type="submit" name="pending">Unverified User</button>
@@ -16,7 +16,7 @@
                     <form action="/dashboard/users/update/{{ request()->uid }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            @if (isset($user->image))
+                            @isset ($user->image)
                             <img src="{{ asset('storage/uploads/avatar') . '/' . $user->image }}" class="rounded-circle img-fluid img-thumbnail mx-auto d-block" id="profile-img" alt="profile-img">
                             @else
                             <img src="https://via.placeholder.com/400x400" class="rounded-circle img-fluid img-thumbnail mx-auto my-5 d-block" id="profile-img" alt="">
@@ -42,11 +42,11 @@
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control form-control-rounded" id="password" placeholder="Enter Password" required>
                         </div>
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
-                            <input type="password" name="confirm_password" class="form-control form-control-rounded" id="input-10" placeholder="Confirm Password" required>
+                            <input type="password" name="password_confirmation" class="form-control form-control-rounded" id="input-10" placeholder="Confirm Password" required>
                             <span id='message'></span>
-                        </div> --}}
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Update Account</button>
                         </div>

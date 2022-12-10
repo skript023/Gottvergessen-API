@@ -17,18 +17,20 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'fullname',
         'username',
         'email',
         'password',
-        'ownership',
-        'role',
+        'ownership_id',
+        'role_id',
         'status',
         'image',
         'created_date',
+        'hardware_uuid',
+        'computer_name',
         'expired'
     ];
 
@@ -41,7 +43,9 @@ class User extends Authenticatable
         'password',
         'ownership',
         'expired',
-        'remember_token'
+        'remember_token',
+        'hardware_uuid',
+        'computer_name'
     ];
 
     /**
@@ -50,6 +54,16 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        
+        'email_verified_at' => 'datetime',
     ];
+
+    public function ownerships()
+    {
+        return $this->belongsTo(ownership::class, 'ownership_id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsTo(role::class, 'role_id');
+    }
 }
