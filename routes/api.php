@@ -29,7 +29,10 @@ Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/v1/costume', [ApiUserController::class, 'costumes']);
+    Route::post('/v1/auth/logout', [ApiUserController::class, 'logout']);
+});
+
+Route::group(['middleware' => ['auth:sanctum', 'ownership']], function() {
     Route::post('/v1/binary/version', [BinaryController::class, 'binary_version']);
     Route::post('/v1/binary/shellcode', [BinaryController::class, 'binary']);
-    Route::post('/v1/auth/logout', [ApiUserController::class, 'logout']);
 });

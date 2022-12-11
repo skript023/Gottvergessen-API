@@ -21,6 +21,7 @@ class BinarySeeder extends Seeder
                 'target' => 'GTA5.exe',
                 'version' => '1.1',
                 'version_machine' => 11,
+                'ownership_id' => 1,
                 'supported' => true,
                 'valid' => true
             ],
@@ -30,6 +31,7 @@ class BinarySeeder extends Seeder
                 'target' => 'GTA5.exe',
                 'version' => '2.1',
                 'version_machine' => 21,
+                'ownership_id' => 2,
                 'supported' => false,
                 'valid' => true
             ],
@@ -39,6 +41,7 @@ class BinarySeeder extends Seeder
                 'target' => 'ScarletNexus-Win64-Shipping.exe',
                 'version' => '2.1',
                 'version_machine' => 21,
+                'ownership_id' => 1,
                 'supported' => true,
                 'valid' => true
             ],
@@ -48,6 +51,7 @@ class BinarySeeder extends Seeder
                 'target' => 'QRSL.exe',
                 'version' => '2.1',
                 'version_machine' => 21,
+                'ownership_id' => 4,
                 'supported' => false,
                 'valid' => true
             ],
@@ -57,6 +61,7 @@ class BinarySeeder extends Seeder
                 'target' => 'z2project.exe',
                 'version' => '1.0',
                 'version_machine' => 10,
+                'ownership_id' => 3,
                 'supported' => false,
                 'valid' => false
             ]

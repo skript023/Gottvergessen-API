@@ -27,5 +27,20 @@ class OwnershipsMiddleware
                 return $next($request);
             }
         }
+
+        if ($request->expectsJson())
+        {
+            return response()->json([
+                'game' => '',
+                'file' => 'NONE',
+                'target' => 'game.exe',
+                'version' => 'NONE',
+                'version_machine' => 0,
+                'supported' => false,
+                'valid' => false
+            ], 401);
+        }
+
+        abort(401);
     }
 }
