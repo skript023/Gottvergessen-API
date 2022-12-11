@@ -6,20 +6,20 @@
     <div class="col-lg-4">
         <div class="card profile-card-2">
         <div class="card-img-block">
-            @if (isset(auth()->user()->image))
+            @if (isset($user->image))
                 <img class="img-fluid" src="{{ asset('storage/uploads/avatar') . '/' . $user->image }}" alt="Card image cap">
             @else
                 <img class="img-fluid" src="https://via.placeholder.com/800x500" alt="Card image cap">
             @endif
         </div>
         <div class="card-body pt-5">
-            @if (isset(auth()->user()->image))
+            @if (isset($user->image))
             <img src="{{ asset('storage/uploads/avatar') . '/' . $user->image }}" alt="profile-image" class="profile">
             @else
             <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
             @endif
             <br>
-            <h5 class="card-title">{{ auth()->user()->fullname }}</h5>
+            <h5 class="card-title">{{ $user->fullname }}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="icon-block">
                 <a href="javascript:void();"><i class="fa fa-facebook bg-facebook text-white"></i></a>
@@ -93,7 +93,7 @@
                             <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="/dashboard/users?page=edit&uid={{auth()->user()->id}}" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
+                            <a href="/dashboard/users?page=edit&uid={{$user->id}}" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
                         </li>
                     </ul>
                 <div class="tab-content p-3">
@@ -102,11 +102,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h6>Information</h6>
-                            <p>{{ "Name : " . auth()->user()->fullname }}</p>
-                            <p>{{ "Username : " . auth()->user()->username }}</p>
-                            <p>{{ "Status : " . auth()->user()->roles->role }}</p>
-                            <p>{{ "Email : " . auth()->user()->email }}</p>
-                            <p>{{ "Ownership : " . auth()->user()->ownerships->ownership }}</p>
+                            <p>{{ "Name : " . $user->fullname }}</p>
+                            <p>{{ "Username : " . $user->username }}</p>
+                            <p>{{ "Status : " . $user->roles->role }}</p>
+                            <p>{{ "Email : " . $user->email }}</p>
+                            <p>{{ "Ownership : " . $user->ownerships->ownership }}</p>
                         </div>
                         <div class="col-md-6">
                             <h6>Recent badges</h6>
@@ -120,7 +120,7 @@
                             <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a> --}}
                             <hr>
                             <span class="badge badge-primary"><i class="fa fa-user"></i> All Game Access</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> {{ auth()->user()->ownerships->ownership }}</span>
+                            <span class="badge badge-success"><i class="fa fa-cog"></i> {{ $user->ownerships->ownership }}</span>
                             <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
                         </div>
                         <div class="col-md-12">

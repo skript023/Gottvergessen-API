@@ -17,10 +17,12 @@ class binary extends Model
     public $timestamps = true;
 
     protected $fillable = [
+        'game',
         'file',
         'target',
         'version',
         'version_machine',
+        'ownership_id',
         'supported',
         'valid'
     ];
@@ -31,9 +33,7 @@ class binary extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'file',
-        'supported',
-        'valid'
+        'ownership_id'
     ];
 
     /**
@@ -42,7 +42,11 @@ class binary extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'created_at',
-        'updated_at'
+        
     ];
+
+    public function version()
+    {
+        return $this->belongsTo(ownership::class, 'ownership_id');
+    }
 }

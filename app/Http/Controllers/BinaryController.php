@@ -2,68 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\binary;
 use Illuminate\Http\Request;
 
 class BinaryController extends Controller
 {
+    public function binary(Request $request)
+    {
+        if (empty($request->name) || !file_exists(public_path('storage/binary/' . $request->name)))
+        {
+            return response()->json([
+                'status' => $this->joaat('Request Failed')
+            ], 400);
+        }
+
+        return response()->file(public_path('storage/binary/' . $request->name));
+    }
+    
     public function binary_version(Request $request)
     {
-        switch ($request->name)
+
+        if (isset($request->name))
         {
-            case 'gta':
-                return response()->json([
-                    'id' => 1,
-                    'file' => 'Gottvergessen.vpack',
-                    'target' => 'GTA5.exe',
-                    'version' => '1.1',
-                    'version_machine' => 11,
-                    'supported' => true,
-                    'valid' => true
-                ]);
-            case 'ellohim':
-                return response()->json([
-                    'id' => 2,
-                    'file' => 'Ellohim.vpack',
-                    'target' => 'GTA5.exe',
-                    'version' => '2.1',
-                    'version_machine' => 21,
-                    'supported' => false,
-                    'valid' => true
-                ]);
-            case 'scarlet-nexus':
-                return response()->json([
-                    'id' => 3,
-                    'file' => 'scarlet-nexus.vpack',
-                    'target' => 'ScarletNexus-Win64-Shipping.exe',
-                    'version' => '2.1',
-                    'version_machine' => 21,
-                    'supported' => true,
-                    'valid' => true
-                ]);
-            case 'tower-of-fantasy':
-                return response()->json([
-                    'id' => 4,
-                    'file' => 'tower-of-fantasy.vpack',
-                    'target' => 'QRSL.exe',
-                    'version' => '2.1',
-                    'version_machine' => 21,
-                    'supported' => false,
-                    'valid' => true
-                ]);
-            case 'ElsZero':
-                return response()->json([
-                    'id' => 5,
-                    'file' => 'elszero.vpack',
-                    'target' => 'z2project.exe',
-                    'version' => '1.0',
-                    'version_machine' => 10,
-                    'supported' => false,
-                    'valid' => false
-                ]);
+            $binary_version = binary::where('game', $request->name)->get();
+            
+            return response()->json($binary_version);
         }
 
         return response()->json([
-            'id' => -1,
+            'game' => '',
             'file' => 'NONE',
             'target' => 'game.exe',
             'version' => 'NONE',
@@ -71,5 +38,29 @@ class BinaryController extends Controller
             'supported' => false,
             'valid' => false
         ], 500);
+    }
+
+    public function get_loader_version()
+    {
+        try 
+        {
+            return response()->json([
+                'file' => 'Gottvergessen Loader',
+                'version' => '1.1',
+                'version_machine' => 11,
+                'supported' => true,
+                'valid' => true
+            ]);
+        } 
+        catch (\Throwable $th) 
+        {
+            return response()->json([
+                'file' => 'NONE',
+                'version' => 'NONE',
+                'version_machine' => 0,
+                'supported' => false,
+                'valid' => false
+            ], 500);
+        }
     }
 }

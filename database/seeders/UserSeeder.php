@@ -23,7 +23,8 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123'),
                 'ownership_id' => 4,
                 'role_id' => 3,
-                'status' => 'verified'
+                'status' => 'verified',
+                'image' => 'Administrator.jpg'
             ],
             [
                 'fullname' => 'Staff',
@@ -32,7 +33,8 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123'),
                 'ownership_id' => 4,
                 'role_id' => 2,
-                'status' => 'verified'
+                'status' => 'verified',
+                'image' => 'Staff.jpg'
             ]
         ];
 

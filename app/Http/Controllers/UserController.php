@@ -89,7 +89,7 @@ class UserController extends Controller
         } 
         catch (\Throwable $th) 
         {
-            return redirect()->back();
+            return back();
         }
     }
 
@@ -123,7 +123,7 @@ class UserController extends Controller
         catch (\Throwable $th) 
         {
             //dd($th);
-            return redirect()->back()->with("Failed", "Registration Failed");
+            return back()->with("Failed", "Registration Failed");
         }
     }
 
@@ -142,12 +142,10 @@ class UserController extends Controller
         if (isset($user))
         {
             $user->delete();
+            return redirect()->intended('/dashboard/users');
         }
-        else
-        {
-            return back()->with("Failed", "Failed delete user");
-        }
-        return redirect('/');
+
+        return back()->with("Failed", "Failed delete user");
     }
 
     public function update_user(Request $request)
@@ -195,16 +193,12 @@ class UserController extends Controller
     {
         $request->validate([
             'fullname' => 'required',
-            'username' => 'required',
-            'email' => 'required:|email:dns', 
-            'password' => 'required|confirmed|min:6'
+            'username' => 'required'
         ]);
 
         $data = $request->only([
             'fullname', 
-            'username', 
-            'email',
-            'password'
+            'username'
         ]);
 
         if ($request->hasFile('image'))
@@ -216,8 +210,6 @@ class UserController extends Controller
 
             $data['image'] = $filename;
         }
-
-        $data['password'] = Hash::make($data['password']);
 
         $user = user::find($request->selected_user);
 
@@ -243,7 +235,11 @@ class UserController extends Controller
     {
         $user = User::find($request->selected_user);
 
-        $user->delete();
+        $user->status = 'suspended';
+
+        $user->save();
+
+        return redirect()->intended('/dashboard/users');
     }
 
     public function home()

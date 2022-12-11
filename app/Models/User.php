@@ -41,11 +41,13 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'ownership',
-        'expired',
-        'remember_token',
+        'ownership_id',
+        'role_id',
+        'status',
         'hardware_uuid',
-        'computer_name'
+        'computer_name',
+        'expired',
+        'remember_token'
     ];
 
     /**
@@ -56,6 +58,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function binaries()
+    {
+        return $this->hasMany(binary::class, 'ownership_id', 'ownership_id');
+    }
 
     public function ownerships()
     {

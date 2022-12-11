@@ -16,6 +16,7 @@ class BinarySeeder extends Seeder
     {
         $binaries = [
             [
+                'game' => 'gta',
                 'file' => 'Gottvergessen.vpack',
                 'target' => 'GTA5.exe',
                 'version' => '1.1',
@@ -24,6 +25,7 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
+                'game' => 'ellohim',
                 'file' => 'Ellohim.vpack',
                 'target' => 'GTA5.exe',
                 'version' => '2.1',
@@ -32,6 +34,7 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
+                'game' => 'scarlet-nexus',
                 'file' => 'scarlet-nexus.vpack',
                 'target' => 'ScarletNexus-Win64-Shipping.exe',
                 'version' => '2.1',
@@ -40,6 +43,7 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
+                'game' => 'tower-of-fantasy',
                 'file' => 'tower-of-fantasy.vpack',
                 'target' => 'QRSL.exe',
                 'version' => '2.1',
@@ -48,6 +52,7 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
+                'game' => 'ElsZero',
                 'file' => 'elszero.vpack',
                 'target' => 'z2project.exe',
                 'version' => '1.0',

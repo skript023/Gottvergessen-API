@@ -16,10 +16,13 @@ class CreateBinariesTable extends Migration
     {
         Schema::create('binaries', function (Blueprint $table) {
             $table->id();
+            $table->string('game');
             $table->string('file');
             $table->string('target');
             $table->string('version');
             $table->integer('version_machine');
+            $table->unsignedBigInteger('ownership_id')->default(1);
+            $table->foreign('ownership_id')->references('id')->on('ownerships')->cascadeOnDelete()->cascadeOnUpdate();
             $table->boolean('supported');
             $table->boolean('valid');
             $table->timestamps();
