@@ -78,6 +78,7 @@ class UserController extends Controller
         $data['role_id'] = $request->role;
         $data['expired'] = now()->addDays($request->access_duration);
         $data['status'] = $request->user_status;
+        $data['email_verified_at'] = now();
         $data['created_date'] = now();
         $data['recent_login'] = now();
         $data['password'] = Hash::make($data['password']);
@@ -111,6 +112,7 @@ class UserController extends Controller
         ]);
 
         $data_user['status'] = 'verified';
+        $data_user['email_verified_at'] = now();
         $data_user['recent_login'] = now();
         $data_user['password'] = Hash::make($data_user['password']);
 

@@ -17,6 +17,9 @@ class CreateClientMonitorsTable extends Migration
             $table->id();
             $table->string('prefix')->nullable();
             $table->string('message')->nullable();
+            $table->string('owner')->nullable();
+            $table->unsignedBigInteger('owner_id')->default(1);
+            $table->foreign('owner_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

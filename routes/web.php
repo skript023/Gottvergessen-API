@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,8 +34,25 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/users/delete/{selected_user}', [UserController::class, 'update_user']);
 });
 
-Route::group(['middleware' => 'auth'], function()
+Route::group(['middleware' => ['auth', 'verified']], function()
 {
     Route::post('/dashboard/users/profile/update/{selected_user}', [UserController::class, 'update_profile']);
     Route::get('/dashboard/profile', [UserController::class, 'profile']);
 });
+
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/dashboard/profile');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');

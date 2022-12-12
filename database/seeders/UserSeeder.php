@@ -24,7 +24,8 @@ class UserSeeder extends Seeder
                 'ownership_id' => 4,
                 'role_id' => 3,
                 'status' => 'verified',
-                'image' => 'Administrator.jpg'
+                'image' => 'Administrator.jpg',
+                'email_verified_at' => now()
             ],
             [
                 'fullname' => 'Staff',
@@ -34,7 +35,8 @@ class UserSeeder extends Seeder
                 'ownership_id' => 4,
                 'role_id' => 2,
                 'status' => 'verified',
-                'image' => 'Staff.jpg'
+                'image' => 'Staff.jpg',
+                'email_verified_at' => now()
             ]
         ];
 
