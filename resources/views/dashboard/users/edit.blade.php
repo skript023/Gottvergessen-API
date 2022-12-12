@@ -4,8 +4,8 @@
             <div class="card-title">Update User Information</div>
             <hr>
             @foreach ($users as $user)
-                @if ($user->id == request()->uid)
-                    <form action="/dashboard/users/edit_status" method="post">
+                @if ($user->id == auth()->user()->id)
+                    <form action="/dashboard/users/status/update" method="post">
                         @if ($user->status === 'unverified')
                             <button class="btn btn-outline-primary waves-effect waves-light" type="submit" name="active">Verified User</button>
                         @else
@@ -13,7 +13,7 @@
                         @endif
                     </form>
 
-                    <form action="/dashboard/users/update/{{ request()->uid }}" method="post" enctype="multipart/form-data">
+                    <form action="/dashboard/users/update/{{ $user->id }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             @isset ($user->image)

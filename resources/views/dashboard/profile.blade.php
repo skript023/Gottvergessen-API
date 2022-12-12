@@ -93,74 +93,186 @@
                             <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="/dashboard/users?page=edit&uid={{$user->id}}" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
+                            <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
                         </li>
                     </ul>
                 <div class="tab-content p-3">
                     <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3">User Profile</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6>Information</h6>
-                            <p>{{ "Name : " . $user->fullname }}</p>
-                            <p>{{ "Username : " . $user->username }}</p>
-                            <p>{{ "Status : " . $user->roles->role }}</p>
-                            <p>{{ "Email : " . $user->email }}</p>
-                            <p>{{ "Ownership : " . $user->ownerships->ownership }}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Recent badges</h6>
-                            {{-- <a href="javascript:void();" class="badge badge-dark badge-pill">html5</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">react</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">codeply</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">angularjs</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">css3</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">jquery</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">bootstrap</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a> --}}
-                            <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i> All Game Access</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> {{ $user->ownerships->ownership }}</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
-                        </div>
-                        <div class="col-md-12">
-                            <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                            <div class="table-responsive">
-                                <table class="table table-hover table-striped">
-                                    <tbody>                                    
-                                        <tr>
-                                            <td>
-                                                <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <h5 class="mb-3">User Profile</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Information</h6>
+                                <p>{{ "Name : " . $user->fullname }}</p>
+                                <p>{{ "Username : " . $user->username }}</p>
+                                <p>{{ "Status : " . $user->roles->role }}</p>
+                                <p>{{ "Email : " . $user->email }}</p>
+                                <p>{{ "Ownership : " . $user->ownerships->ownership }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Recent badges</h6>
+                                {{-- <a href="javascript:void();" class="badge badge-dark badge-pill">html5</a>
+                                <a href="javascript:void();" class="badge badge-dark badge-pill">react</a>
+                                <a href="javascript:void();" class="badge badge-dark badge-pill">codeply</a>
+                                <a href="javascript:void();" class="badge badge-dark badge-pill">angularjs</a>
+                                <a href="javascript:void();" class="badge badge-dark badge-pill">css3</a>
+                                <a href="javascript:void();" class="badge badge-dark badge-pill">jquery</a>
+                                <a href="javascript:void();" class="badge badge-dark badge-pill">bootstrap</a>
+                                <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a> --}}
+                                <hr>
+                                <span class="badge badge-primary"><i class="fa fa-user"></i> All Game Access</span>
+                                <span class="badge badge-success"><i class="fa fa-cog"></i> {{ $user->ownerships->ownership }}</span>
+                                <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                            </div>
+                            <div class="col-md-12">
+                                <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <tbody>                                    
+                                            <tr>
+                                                <td>
+                                                    <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 <!--/row-->
+                    </div>
+                    <div class="tab-pane" id="messages">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <div class="alert-icon">
+                                <i class="icon-info"></i>
+                            </div>
+                            <div class="alert-message">
+                                <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <tbody>                                    
+                                    <tr>
+                                        <td>
+                                        <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
+                                        </td>
+                                    </tr>
+                                </tbody> 
+                            </table>
+                        </div>
+                    </div>
+                    {{-- end message --}}
+                    <div class="tab-pane" id="edit">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Fullname</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" name="fullname" type="text" value="{{ auth()->user()->fullname }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" name="email" type="email" value="{{ auth()->user()->email }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="file" name="image">
+                                </div>
+                            </div>
+                            {{-- <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="url" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" value="" placeholder="Street">
+                                </div>
+                            </div> --}}
+                            {{-- <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" value="" placeholder="City">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="text" value="" placeholder="State">
+                                </div>
+                            </div> --}}
+                            
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" name="username" type="text" value="{{ auth()->user()->username }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="password" name="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="password" name="password_confirmation">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="reset" class="btn btn-secondary" value="Cancel">
+                                    <input type="button" class="btn btn-primary" value="Save Changes">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 @endsection

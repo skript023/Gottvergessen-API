@@ -59,7 +59,7 @@
                 {{-- <li class="dropdown-divider"></li>
                 <a href="#"><li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li></a>
                 <li class="dropdown-divider"></li> --}}
-                <a href="/dashboard/users?page=edit&uid={{ auth()->user()->id }}"><li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li></a>
+                <a href="/dashboard/users?page=edit"><li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li></a>
                 {{-- <li class="dropdown-divider"></li>
                 <a href="#"><li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li></a>
                 <li class="dropdown-divider"></li> --}}
