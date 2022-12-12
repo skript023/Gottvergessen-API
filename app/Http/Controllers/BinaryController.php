@@ -67,6 +67,42 @@ class BinaryController extends Controller
 
     public function add_binary(Request $request)
     {
-        
+        $request->validate([
+            'game' => 'required', 
+            'file' => 'required',
+            'target' => 'required', 
+        ]);
+
+        $data = $request->only([
+            'game', 
+            'file', 
+            'target'
+        ]);
+
+        $data['version'] = '1.0';
+        $data['version_machine'] = 10;
+        $data['supported'] = 1;
+        $data['valid'] = 1;
+
+        if ($request->hasFile('file'))
+        {
+            $file = $request->file('file');
+            $extension = $file->getClientOriginalExtension();
+            $filename = $file->getClientOriginalName() . '.' . $extension;
+            $file->storePubliclyAs('storage/binary/', $filename, "public");
+
+            $data['file'] = $filename;
+        }
+
+        try 
+        {
+            binary::create($data);
+
+            return redirect()->intended();
+        } 
+        catch (\Throwable $th) 
+        {
+            return back()->withErrors("Binary Uploader", "Upload Binary Failed");
+        }
     }
 }

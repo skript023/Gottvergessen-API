@@ -89,7 +89,7 @@ class UserController extends Controller
         } 
         catch (\Throwable $th) 
         {
-            return back();
+            return back()->withErrors("Registration", "Redigstration Failed");
         }
     }
 
@@ -123,7 +123,7 @@ class UserController extends Controller
         catch (\Throwable $th) 
         {
             //dd($th);
-            return back()->with("Failed", "Registration Failed");
+            return back()->withErrors("Registration", "Registration Failed");
         }
     }
 

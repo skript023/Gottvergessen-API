@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\BinaryController;
+use App\Http\Controllers\ClientMonitorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::get('/v1/test', function () {
 
 Route::post('/v1/auth/login', [ApiUserController::class, 'login']);
 Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
+Route::post('/v1/logging', [ClientMonitorController::class, 'save_client_information']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/v1/costume', [ApiUserController::class, 'costumes']);
