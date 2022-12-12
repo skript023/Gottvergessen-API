@@ -33,7 +33,9 @@ class binary extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        
+        'ownership_id',
+        'created_at',
+        'updated_at'
     ];
 
     /**

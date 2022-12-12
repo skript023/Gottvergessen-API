@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\binary;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -16,17 +17,12 @@ class OwnershipsMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        foreach (auth()->user()->binaries as $binary) 
+        $binary = binary::where('game', $request->name)->first();
+        if (auth()->user()->ownership_id >= $binary->ownership_id)
         {
-            if (auth()->user()->ownership_id == $binary->ownership_id)
-            {
-                return $next($request);
-            }
-            else if (auth()->user()->ownership_id > $binary->ownership_id)
-            {
-                return $next($request);
-            }
+            return $next($request);
         }
+        
 
         if ($request->expectsJson())
         {

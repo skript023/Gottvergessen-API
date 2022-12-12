@@ -24,19 +24,20 @@ class BinaryController extends Controller
 
         if (isset($request->name))
         {
-            $binary_version = binary::where('game', $request->name)->get();
+            $binary_version = binary::where('game', $request->name)->first();
             
             return response()->json($binary_version);
         }
 
         return response()->json([
+            'id' => 0,
             'game' => '',
-            'file' => 'NONE',
-            'target' => 'game.exe',
-            'version' => 'NONE',
+            'file' => '',
+            'target' => '',
+            'version' => '',
             'version_machine' => 0,
-            'supported' => false,
-            'valid' => false
+            'supported' => 0,
+            'valid' => 0
         ], 500);
     }
 
@@ -62,5 +63,10 @@ class BinaryController extends Controller
                 'valid' => false
             ], 500);
         }
+    }
+
+    public function add_binary(Request $request)
+    {
+        
     }
 }
