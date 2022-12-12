@@ -34,5 +34,6 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 
 Route::group(['middleware' => 'auth'], function()
 {
+    Route::post('/dashboard/users/profile/update/{selected_user}', [UserController::class, 'update_profile']);
     Route::get('/dashboard/profile', [UserController::class, 'profile']);
 });

@@ -22,21 +22,16 @@ class OwnershipsMiddleware
         {
             return $next($request);
         }
-        
 
-        if ($request->expectsJson())
-        {
-            return response()->json([
-                'game' => '',
-                'file' => 'NONE',
-                'target' => 'game.exe',
-                'version' => 'NONE',
-                'version_machine' => 0,
-                'supported' => false,
-                'valid' => false
-            ], 401);
-        }
-
-        abort(401);
+        return response()->json([
+            'id' => 0,
+            'game' => 'NO_ACCESS',
+            'file' => 'NO_ACCESS',
+            'target' => 'NO_ACCESS',
+            'version' => 'NO_ACCESS',
+            'version_machine' => 0,
+            'supported' => 0,
+            'valid' => 0
+        ], 401);
     }
 }

@@ -28,7 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('computer_name')->nullable();
             $table->string('status')->default('unverified');
             $table->string('image')->nullable();
-            $table->timestamp('expired')->default(now()->addDays(30));
+            $table->date('expired')->default(now()->addDays(30));
+            $table->date('created_date')->default(now());
             $table->timestamp('recent_login')->useCurrent();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

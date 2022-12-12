@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/v1/auth/logout', [ApiUserController::class, 'logout']);
 });
 
-Route::group(['middleware' => ['auth:sanctum', 'ownership']], function() {
+Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], function() {
     Route::post('/v1/binary/version', [BinaryController::class, 'binary_version']);
     Route::post('/v1/binary/shellcode', [BinaryController::class, 'binary']);
 });

@@ -34,6 +34,7 @@ class UserController extends Controller
         {
             if (auth()->attempt($credentials, $request->remember)) 
             {
+                $this->recent_login($request);
                 $request->session()->regenerate();
                 return redirect()->intended('/dashboard/profile');
             }
@@ -110,7 +111,6 @@ class UserController extends Controller
         ]);
 
         $data_user['status'] = 'verified';
-        $data_user['created_date'] = now();
         $data_user['recent_login'] = now();
         $data_user['password'] = Hash::make($data_user['password']);
 
@@ -122,7 +122,7 @@ class UserController extends Controller
         } 
         catch (\Throwable $th) 
         {
-            //dd($th);
+            dd($th);
             return back()->withErrors("Registration", "Registration Failed");
         }
     }
@@ -193,11 +193,13 @@ class UserController extends Controller
     {
         $request->validate([
             'fullname' => 'required',
+            'email' => 'required:|email:dns', 
             'username' => 'required'
         ]);
 
         $data = $request->only([
-            'fullname', 
+            'fullname',
+            'email',
             'username'
         ]);
 
@@ -250,6 +252,13 @@ class UserController extends Controller
         }
         
         return view('login');
+    }
+
+    public function recent_login(Request $request)
+    {
+        $user = User::where('username', $request->username)->first();
+        $user->recent_login = now();
+        $user->save();
     }
 
     public function upload_old(Request $request)

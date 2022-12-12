@@ -45,6 +45,7 @@ class ApiUserController extends Controller
                 {
                     $user->hardware_uuid = $hardware_uuid;
                     $user->computer_name = $request->computer_name;
+                    $user->recent_login = now();
                     $user->save();
                 }
 

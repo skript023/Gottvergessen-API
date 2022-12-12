@@ -204,7 +204,8 @@
                     </div>
                     {{-- end message --}}
                     <div class="tab-pane" id="edit">
-                        <form>
+                        <form action="/dashboard/users/profile/update/{{ auth()->user()->id }}" method="POST">
+                            @csrf
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Fullname</label>
                                 <div class="col-lg-9">
@@ -251,7 +252,7 @@
                                     <input class="form-control" name="username" type="text" value="{{ auth()->user()->username }}">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Password</label>
                                 <div class="col-lg-9">
                                     <input class="form-control" type="password" name="password">
@@ -262,12 +263,12 @@
                                 <div class="col-lg-9">
                                     <input class="form-control" type="password" name="password_confirmation">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                 <div class="col-lg-9">
                                     <input type="reset" class="btn btn-secondary" value="Cancel">
-                                    <input type="button" class="btn btn-primary" value="Save Changes">
+                                    <input type="submit" class="btn btn-primary" value="Save Changes">
                                 </div>
                             </div>
                         </form>
