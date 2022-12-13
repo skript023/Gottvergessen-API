@@ -10,14 +10,11 @@ class ClientMonitorController extends Controller
 {
     public function save_client_information(Request $request)
     {
-        $data = $request->only([
-            "prefix",
-            "message",
-            "owner"
-        ]);
-        
+        $data['prefix'] = $request->prefix;
+        $data['message'] = $request->message;
+        $data['owner'] = $request->owner;
         $user = User::where('fullname', $request->owner)->first();
-        $data["owner_id"] = $user->id;
+        if (isset($user)) $data["owner_id"] = $user->id;
 
         try 
         {

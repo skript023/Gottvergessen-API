@@ -18,7 +18,9 @@ class client_monitor extends Model
 
     protected $fillable = [
         'prefix',
-        'message'
+        'message',
+        'owner',
+        'owner_id'
     ];
 
     /**
@@ -38,4 +40,9 @@ class client_monitor extends Model
     protected $casts = [
         
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
 }
