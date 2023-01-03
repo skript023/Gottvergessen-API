@@ -52,7 +52,7 @@ class BinarySeeder extends Seeder
                 'version' => '2.1',
                 'version_machine' => 21,
                 'ownership_id' => 4,
-                'supported' => false,
+                'supported' => true,
                 'valid' => true
             ],
             [
@@ -61,9 +61,19 @@ class BinarySeeder extends Seeder
                 'target' => 'z2project.exe',
                 'version' => '1.0',
                 'version_machine' => 10,
-                'ownership_id' => 3,
-                'supported' => false,
-                'valid' => false
+                'ownership_id' => 4,
+                'supported' => true,
+                'valid' => true
+            ],
+            [
+                'game' => 'Closers',
+                'file' => 'closers.vpack',
+                'target' => 'CW.exe',
+                'version' => '1.0',
+                'version_machine' => 10,
+                'ownership_id' => 4,
+                'supported' => true,
+                'valid' => true
             ]
         ];
 

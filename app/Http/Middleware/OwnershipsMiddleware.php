@@ -17,7 +17,22 @@ class OwnershipsMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $binary = binary::where('game', $request->name)->first();
+        $binary = binary::where('game', $request->name)->orWhere('file', $request->name)->first();
+
+        if (!$binary)
+        {
+            return response()->json([
+            'id' => 0,
+            'game' => 'BAD_REQUEST',
+            'file' => 'BAD_REQUEST',
+            'target' => 'BAD_REQUEST',
+            'version' => 'BAD_REQUEST',
+            'version_machine' => 0,
+            'supported' => 0,
+            'valid' => 0
+            ], 404);
+        }
+
         if (auth()->user()->ownership_id >= $binary->ownership_id)
         {
             return $next($request);

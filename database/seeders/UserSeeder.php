@@ -37,6 +37,17 @@ class UserSeeder extends Seeder
                 'status' => 'verified',
                 'image' => 'Staff.jpg',
                 'email_verified_at' => now()
+            ],
+            [
+                'fullname' => 'Putra Hadi',
+                'username' => 'QuinCantik12',
+                'email' => 'putrahadi1132@gmail.com',
+                'password' => Hash::make('QuinCantik12'),
+                'ownership_id' => 3,
+                'role_id' => 1,
+                'status' => 'verified',
+                'image' => 'QuinCantik12.jpg',
+                'email_verified_at' => now()
             ]
         ];
 

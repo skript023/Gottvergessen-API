@@ -21,7 +21,6 @@ class BinaryController extends Controller
     
     public function binary_version(Request $request)
     {
-
         if (isset($request->name))
         {
             $binary_version = binary::where('game', $request->name)->first();
@@ -38,7 +37,7 @@ class BinaryController extends Controller
             'version_machine' => 0,
             'supported' => 0,
             'valid' => 0
-        ], 500);
+        ], 400);
     }
 
     public function get_loader_version()
@@ -61,7 +60,7 @@ class BinaryController extends Controller
                 'version_machine' => 0,
                 'supported' => false,
                 'valid' => false
-            ], 500);
+            ], 400);
         }
     }
 

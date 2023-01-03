@@ -31,7 +31,7 @@ Route::post('/v1/logging', [ClientMonitorController::class, 'save_client_informa
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/v1/costume', [ApiUserController::class, 'costumes']);
-    Route::post('/v1/auth/logout', [ApiUserController::class, 'logout']);
+    Route::get('/v1/auth/logout', [ApiUserController::class, 'logout']);
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], function() {
