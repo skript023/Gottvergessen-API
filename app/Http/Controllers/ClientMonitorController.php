@@ -46,6 +46,12 @@ class ClientMonitorController extends Controller
         }
     }
 
+    public function delete_log(Request $request)
+    {
+        $log = client_monitor::where('id', $request->id)->first();
+        $log->delete();
+    }
+
     public function clean_up()
     {
         $client = client_monitor::all();

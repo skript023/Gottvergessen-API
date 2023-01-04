@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user']);
     Route::post('/dashboard/users/delete/{selected_user}', [UserController::class, 'update_user']);
     Route::get('/dashboard/logging',[ClientMonitorController::class, 'load_logs']);
+    Route::post('/dashboard/logs/delete/{id}', [ClientMonitorController::class, 'delete_log']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()
