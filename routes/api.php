@@ -45,4 +45,9 @@ check carent sudah pernah TSQ ulang atau belum -> check status telkom metro node
 TSQ maka TSQ failed bila deliver maka Provision failed -> Milestone TSQ in progress ke TSQ Failed.
 Check siebel apakah tombol cancel udah muncul atau belum -> lalu submit & tunggu 1-2 menit. -> check OSM lagi.
 bila belum muncul IN_PROGRESS pada ORDER STATUS -> lalu buka EAI dan lakukan Retry
+
+BASO
+Buka Sygap -> check OSM statusnya Completed & deliver -> buka EAI buka child  bila service id tidak ada maka check carent
+copy INT ID -> lalu paste di OSM -> click preview -> bila progress sudah BASO maka langsung resolve
+
 */
