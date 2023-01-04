@@ -46,9 +46,14 @@ TSQ maka TSQ failed bila deliver maka Provision failed -> Milestone TSQ in progr
 Check siebel apakah tombol cancel udah muncul atau belum -> lalu submit & tunggu 1-2 menit. -> check OSM lagi.
 bila belum muncul IN_PROGRESS pada ORDER STATUS -> lalu buka EAI dan lakukan Retry
 
+Jika proses TSQ di OSM sudah in progress maka cek WFM bagian LAST STEP = STARTWORK jika sudah langsung resolve
+
 BASO
 Buka Sygap -> check OSM statusnya Completed & deliver -> buka EAI buka child  bila service id tidak ada maka check carent
 copy INT ID -> lalu paste di OSM -> click preview -> bila progress sudah BASO maka langsung resolve
+bila sudah baso check di Carent untuk meyakinkan
+
+
 
 Belajar NCX dasar & cari SID dari antara 2 line item berbeda & resolve tiket di sygap
 */
