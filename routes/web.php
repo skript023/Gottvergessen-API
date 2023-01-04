@@ -42,6 +42,9 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/logs/delete/all', [ClientMonitorController::class, 'clean_up']);
 
     Route::get('/dashboard/role', [RoleController::class, 'roles']);
+    Route::post('/dashboard/role/add', [RoleController::class, 'create_role']);
+    Route::post('/dashboard/role/edit/{id}', [RoleController::class, 'update_role']);
+    Route::get('/dashboard/role/delete/{id}', [RoleController::class, 'delete_role']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()

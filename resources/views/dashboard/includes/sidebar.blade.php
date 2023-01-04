@@ -28,6 +28,11 @@
                 <i class="zmdi zmdi-lock"></i> <span>Logging</span>
                 </a>
             </li>
+            <li>
+                <a href="/dashboard/role">
+                <i class="zmdi zmdi-account-circle"></i> <span>Role</span>
+                </a>
+            </li>
         @endif
 
         <li>

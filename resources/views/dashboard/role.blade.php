@@ -8,7 +8,7 @@
             <div class="card-content p-2">
                 <div class="card-body">
                     <div class="card-title text-uppercase text-center py-3">Add Role</div>
-                    <form action="/dashboard/users/add" method="post">
+                    <form action="/dashboard/role/add" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="input-6" class="text-center">Role</label>
@@ -16,9 +16,12 @@
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Add Account</button>
+                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Add Role</button>
                         </div>
                     </form>
+                    @isset(request()->edit)
+                        @include('dashboard.roles.edit')
+                    @endisset
                 </div>
             </div>
         </div>
@@ -30,7 +33,7 @@
                     <table class="table table-boardered">
                         <thead>
                         <tr>
-                       <th>Category Name</th>
+                       <th>Role Name</th>
                        <th>Action</th>
                         </tr>
                         </thead>
@@ -39,8 +42,8 @@
                             <tr>
                                 <td>{{$role->role}}</td>
                                 <td>
-                                    <a href="/dashboard/role/edit/{{$role->id}}" class="btn btn-warning">Update</a>
-                                    <a href="/dashboard/role/delete/{{$role->id}}" class="btn btn-danger">Delete</a>
+                                    <a href="/dashboard/role?edit={{$role->id}}" class="btn btn-light">Update</a>
+                                    <a href="/dashboard/role/delete/{{$role->id}}" class="btn btn-light">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
