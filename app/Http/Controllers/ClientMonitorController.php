@@ -8,11 +8,23 @@ use Illuminate\Http\Request;
 
 class ClientMonitorController extends Controller
 {
-    public function save_client_information(Request $request)
+    public function load_logs(Request $request)
+    {
+        $log = client_monitor::all();
+
+        return view('dashboard.logger', [
+            'logs' => $log
+        ]);
+    }
+
+    public function receive_log(Request $request)
     {
         $data['prefix'] = $request->prefix;
         $data['message'] = $request->message;
         $data['owner'] = $request->owner;
+        $data['file'] = $request->file;
+        $data['line'] = $request->line;
+
         $user = User::where('fullname', $request->owner)->first();
         if (isset($user)) $data["owner_id"] = $user->id;
 

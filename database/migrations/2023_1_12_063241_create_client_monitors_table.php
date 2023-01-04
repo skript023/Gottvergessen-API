@@ -15,13 +15,20 @@ class CreateClientMonitorsTable extends Migration
     {
         Schema::create('client_monitors', function (Blueprint $table) {
             $table->id();
-            $table->string('prefix')->nullable();
-            $table->string('message')->nullable();
-            $table->string('owner')->nullable();
             $table->unsignedBigInteger('owner_id')->default(1);
             $table->foreign('owner_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->string('prefix')->nullable();
+            $table->string('owner')->nullable();
+            $table->string('file')->nullable();
+            $table->integer('line')->nullable();
+            $table->string('message')->nullable();
             $table->timestamps();
         });
+
+        Artisan::call( 'db:seed', [
+            '--class' => 'ClientMonitor',
+            '--force' => true ]
+        );
     }
 
     /**

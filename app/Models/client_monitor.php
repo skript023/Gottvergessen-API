@@ -19,6 +19,8 @@ class client_monitor extends Model
     protected $fillable = [
         'prefix',
         'message',
+        'file',
+        'line',
         'owner',
         'owner_id'
     ];

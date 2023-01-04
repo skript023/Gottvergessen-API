@@ -27,7 +27,7 @@ Route::get('/v1/test', function () {
 
 Route::post('/v1/auth/login', [ApiUserController::class, 'login']);
 Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
-Route::post('/v1/logging', [ClientMonitorController::class, 'save_client_information']);
+Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/v1/costume', [ApiUserController::class, 'costumes']);
@@ -38,3 +38,10 @@ Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], fu
     Route::post('/v1/binary/version', [BinaryController::class, 'binary_version']);
     Route::post('/v1/binary/shellcode', [BinaryController::class, 'binary']);
 });
+/*
+Copy Order -> Check di OSM -> jika sudah abort & TSQ/Deliver -> Lanjut ke EAI copy ordernya 
+check carent sudah pernah TSQ ulang atau belum -> check status telkom metro node -> lalu diubah ke failed
+TSQ maka TSQ failed bila deliver maka Provision failed -> Milestone TSQ in progress ke TSQ Failed.
+Check siebel apakah tombol cancel udah muncul atau belum -> lalu submit & tunggu 1-2 menit. -> check OSM lagi.
+bila belum muncul IN_PROGRESS pada ORDER STATUS -> lalu buka EAI dan lakukan Retry
+*/
