@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientMonitorController;
+use App\Http\Controllers\RoleController;
+
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -28,14 +30,18 @@ Route::get('/logout', [UserController::class, 'logout']);
 Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 {
     Route::get('/dashboard', [UserController::class, 'dashboard']);
+    
     Route::get('/dashboard/users', [UserController::class, 'view_user']);
     Route::post('/dashboard/users/add', [UserController::class, 'add_user']);
     Route::get('/dashboard/users?page={page}', [UserController::class, 'view_user']);
     Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user']);
     Route::post('/dashboard/users/delete/{selected_user}', [UserController::class, 'update_user']);
+    
     Route::get('/dashboard/logging',[ClientMonitorController::class, 'load_logs']);
     Route::get('/dashboard/logs/delete/{id}', [ClientMonitorController::class, 'delete_log']);
     Route::get('/dashboard/logs/delete/all', [ClientMonitorController::class, 'clean_up']);
+
+    Route::get('/dashboard/role', [RoleController::class, 'roles']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()
