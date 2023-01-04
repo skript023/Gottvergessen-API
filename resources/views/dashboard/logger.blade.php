@@ -13,9 +13,9 @@
                         <th scope="col">#</th>
                         <th scope="col">Log Level</th>
                         <th scope="col">Username</th>
-                        <th scope="col">Message</th>
                         <th scope="col">File</th>
                         <th scope="col">Line</th>
+                        <th scope="col">Message</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,9 +24,9 @@
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $log->prefix }}</td>
                                 <td>{{ $log->owner }}</td>
-                                <td>{{ $log->message }}</td>
                                 <td>{{ $log->file }}</td>
                                 <td>{{ $log->line }}</td>
+                                <td>{{ $log->message }}</td>
                                 <td>
                                 <div class="btn-group">
                                 <a type="button" href="logs/delete/{{$log->id}}" class="btn btn-light btn-block waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
