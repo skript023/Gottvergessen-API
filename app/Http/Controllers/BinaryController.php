@@ -64,7 +64,7 @@ class BinaryController extends Controller
         }
     }
 
-    public function add_binary(Request $request)
+    public function upload_binary(Request $request)
     {
         $request->validate([
             'game' => 'required', 
@@ -80,8 +80,8 @@ class BinaryController extends Controller
 
         $data['version'] = '1.0';
         $data['version_machine'] = 10;
-        $data['supported'] = 1;
-        $data['valid'] = 1;
+        $data['supported'] = true;
+        $data['valid'] = true;
 
         if ($request->hasFile('file'))
         {
@@ -103,5 +103,50 @@ class BinaryController extends Controller
         {
             return back()->withErrors("Binary Uploader", "Upload Binary Failed");
         }
+
+        return back()->withErrors("Binary Uploader", "Upload Binary Failed");
+    }
+
+    public function update_binary(Request $request)
+    {
+        $request->validate([
+            'game' => 'required', 
+            'file' => 'required',
+            'target' => 'required', 
+        ]);
+
+        $data = $request->only([
+            'game', 
+            'file', 
+            'target'
+        ]);
+
+        $data['version'] = $request->version;
+        $data['version_machine'] = $request->version_machine;
+        $data['supported'] = true;
+        $data['valid'] = true;
+
+        $binary = binary::where('id', $request->id)->first();
+        if (empty($binary)) return response(404);
+
+        if ($request->hasFile('file'))
+        {
+            $file = $request->file('file');
+            $extension = $file->getClientOriginalExtension();
+            $filename = $file->getClientOriginalName() . '.' . $extension;
+            $file->storePubliclyAs('storage/binary/', $filename, "public");
+
+            $data['file'] = $filename;
+        }
+    }
+    
+    public function delete_binary(Request $request)
+    {
+        $binary = binary::where('id', $request->id)->first();
+        if (empty($binary)) return response(404);
+
+        $binary->delete();
+
+        return redirect()->back();
     }
 }

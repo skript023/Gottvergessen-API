@@ -33,6 +33,11 @@
                 <i class="zmdi zmdi-account-circle"></i> <span>Role</span>
                 </a>
             </li>
+            <li>
+                <a href="/dashboard/binary">
+                <i class="zmdi zmdi-ungroup"></i> <span>Binary</span>
+                </a>
+            </li>
         @endif
 
         <li>
