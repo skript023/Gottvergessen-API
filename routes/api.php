@@ -50,4 +50,5 @@ BASO
 Buka Sygap -> check OSM statusnya Completed & deliver -> buka EAI buka child  bila service id tidak ada maka check carent
 copy INT ID -> lalu paste di OSM -> click preview -> bila progress sudah BASO maka langsung resolve
 
+Belajar NCX dasar & cari SID dari antara 2 line item berbeda & resolve tiket di sygap
 */

@@ -49,7 +49,11 @@ class ClientMonitorController extends Controller
     public function delete_log(Request $request)
     {
         $log = client_monitor::where('id', $request->id)->first();
+
+        if (!$log) return redirect()->back()->withErrors('Data not found');
         $log->delete();
+
+        return redirect()->back();
     }
 
     public function clean_up()

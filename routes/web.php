@@ -34,7 +34,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user']);
     Route::post('/dashboard/users/delete/{selected_user}', [UserController::class, 'update_user']);
     Route::get('/dashboard/logging',[ClientMonitorController::class, 'load_logs']);
-    Route::post('/dashboard/logs/delete/{id}', [ClientMonitorController::class, 'delete_log']);
+    Route::get('/dashboard/logs/delete/{id}', [ClientMonitorController::class, 'delete_log']);
+    Route::get('/dashboard/logs/delete/all', [ClientMonitorController::class, 'clean_up']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()
@@ -42,7 +43,6 @@ Route::group(['middleware' => ['auth', 'verified']], function()
     Route::post('/dashboard/users/profile/update/{selected_user}', [UserController::class, 'update_profile']);
     Route::get('/dashboard/profile', [UserController::class, 'profile']);
 });
-
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
