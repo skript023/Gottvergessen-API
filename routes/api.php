@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], fu
     Route::post('/v1/binary/shellcode', [BinaryController::class, 'binary']);
 });
 /*
+TSQ ulang / Resubmit / Munculkan di WFM
 Copy Order -> Check di OSM -> jika sudah abort & TSQ/Deliver -> Lanjut ke EAI copy ordernya 
 check carent sudah pernah TSQ ulang atau belum -> check status telkom metro node -> lalu diubah ke failed
 TSQ maka TSQ failed bila deliver maka Provision failed -> Milestone TSQ in progress ke TSQ Failed.
