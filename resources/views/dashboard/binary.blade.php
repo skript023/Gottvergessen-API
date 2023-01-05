@@ -2,7 +2,7 @@
 @section('title', 'Binary Information')
 @section('content')
 
-<div class="container-fluid mb-auto">
+<div class="container-fluid">
     <div class="row mt-3 mb-4">
         <div class="card col-md-4 mx-auto my-4">
             <div class="card-content p-2">

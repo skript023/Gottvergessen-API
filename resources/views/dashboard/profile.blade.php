@@ -6,17 +6,17 @@
     <div class="col-lg-4">
         <div class="card profile-card-2">
         <div class="card-img-block">
-            @if (isset($user->image))
+            @isset ($user->image)
                 <img class="img-fluid" src="{{ asset('storage/uploads/avatar') . '/' . $user->image }}" alt="Card image cap">
             @else
                 <img class="img-fluid" src="https://via.placeholder.com/800x500" alt="Card image cap">
             @endif
         </div>
         <div class="card-body pt-5">
-            @if (isset($user->image))
-            <img src="{{ asset('storage/uploads/avatar') . '/' . $user->image }}" alt="profile-image" class="profile">
+            @isset ($user->image)
+                <img src="{{ asset('storage/uploads/avatar') . '/' . $user->image }}" alt="profile-image" class="profile">
             @else
-            <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
+                <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
             @endif
             <br>
             <h5 class="card-title">{{ $user->fullname }}</h5>

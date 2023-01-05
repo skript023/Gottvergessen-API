@@ -1,12 +1,8 @@
-<form action="/dashboard/role/edit/{{ request()->edit }}" method="post">
+<form action="/dashboard/role/edit/{{ request()->edit }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label>Update Binary</label>
-        @foreach ($binaries as $bin)
-            @if ($bin->id == request()->bin)
-                <input type="text" class="form-control" name="role_name" value="{{ $bin->file }}">
-            @endif
-        @endforeach
+        <input type="file" class="form-control" name="file">
     </div>
 
     <div class="form-group">
