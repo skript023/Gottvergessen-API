@@ -38,6 +38,11 @@
                 <i class="zmdi zmdi-ungroup"></i> <span>Binary</span>
                 </a>
             </li>
+            <li>
+                <a href="/dashboard/bin?page=add">
+                <i class="zmdi zmdi-ungroup"></i> <span>Add Binary</span>
+                </a>
+            </li>
         @endif
 
         <li>

@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/role/delete/{id}', [RoleController::class, 'delete_role']);
 
     Route::get('/dashboard/bin', [BinaryController::class, 'load_binaries_data']);
+
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()
