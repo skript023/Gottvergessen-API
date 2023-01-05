@@ -17,7 +17,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->call(fn () => client_monitor::all()->delete())->lastDayOfMonth('15:00');;
+        $schedule->call(fn () => client_monitor::all()->delete())->lastDayOfMonth('15:00');
     }
 
     /**
