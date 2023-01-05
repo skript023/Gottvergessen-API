@@ -7,7 +7,7 @@
         <div class="card col-md-4 mx-auto my-4">
             <div class="card-content p-2">
                 <div class="card-body">
-                    <div class="card-title text-uppercase text-center py-3">Add Binary</div>
+                    <div class="card-title text-uppercase text-center py-3">Upload Binary</div>
                     <form action="/dashboard/role/add" method="post">
                         @csrf
                         <div class="form-group">

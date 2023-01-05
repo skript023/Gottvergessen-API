@@ -10,6 +10,6 @@
     </div>
 
     <div class="form-group">
-        <button type="submit" name="update" class="btn btn-light btn-block">Update Category</button>
+        <button type="submit" name="update" class="btn btn-light btn-block">Update Role</button>
     </div>
 </form>
