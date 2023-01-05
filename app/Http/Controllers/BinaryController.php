@@ -107,6 +107,15 @@ class BinaryController extends Controller
         return back()->withErrors("Binary Uploader", "Upload Binary Failed");
     }
 
+    public function load_binaries_data(Request $request)
+    {
+        $binaries = binary::all();
+
+        return view('dashboard.binary', [
+            'binaries' => $binaries
+        ]);
+    }
+
     public function update_binary(Request $request)
     {
         $request->validate([

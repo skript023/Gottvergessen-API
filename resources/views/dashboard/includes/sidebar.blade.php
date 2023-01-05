@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li>
-                <a href="/dashboard/binary">
+                <a href="/dashboard/bin">
                 <i class="zmdi zmdi-ungroup"></i> <span>Binary</span>
                 </a>
             </li>
