@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class BinaryController extends Controller
 {
+    public function all_games()
+    {
+        $binaries = binary::all();
+        return response()->json($binaries);
+    }
+
     public function binary(Request $request)
     {
         if (empty($request->name) || !file_exists(public_path('storage/binary/' . $request->name)))

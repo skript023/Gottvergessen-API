@@ -31,6 +31,7 @@ Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/v1/costume', [ApiUserController::class, 'costumes']);
+    Route::get('/v1/binary/all', [BinaryController::class, 'all_games']);
     Route::get('/v1/auth/logout', [ApiUserController::class, 'logout']);
 });
 
