@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\binary;
+use App\Http\Controllers\Jenkins;
 use Illuminate\Database\Seeder;
 
 class BinarySeeder extends Seeder
@@ -16,7 +17,8 @@ class BinarySeeder extends Seeder
     {
         $binaries = [
             [
-                'game' => 'gta',
+                'game' => 'Grand Theft Auto V',
+                'code' => Jenkins::hash("GOTTVERGESSEN"),
                 'file' => 'Gottvergessen.vpack',
                 'target' => 'GTA5.exe',
                 'version' => '1.1',
@@ -26,7 +28,8 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
-                'game' => 'ellohim',
+                'game' => 'Grand Theft Auto V',
+                'code' => Jenkins::hash('ELLOHIM'),
                 'file' => 'Ellohim.vpack',
                 'target' => 'GTA5.exe',
                 'version' => '2.1',
@@ -36,7 +39,8 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
-                'game' => 'scarlet-nexus',
+                'game' => 'Scarlet Nexus',
+                'code' => Jenkins::hash('SCARLET_NEXUS'),
                 'file' => 'scarlet-nexus.vpack',
                 'target' => 'ScarletNexus-Win64-Shipping.exe',
                 'version' => '2.1',
@@ -46,7 +50,8 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
-                'game' => 'tower-of-fantasy',
+                'game' => 'Tower of Fantasy',
+                'code' => Jenkins::hash('TOWER_OF_FANTASY'),
                 'file' => 'tower-of-fantasy.vpack',
                 'target' => 'QRSL.exe',
                 'version' => '2.1',
@@ -56,7 +61,8 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
-                'game' => 'ElsZero',
+                'game' => 'Elsword Zero',
+                'code' => Jenkins::hash('ELSWORD_ZERO'),
                 'file' => 'elszero.vpack',
                 'target' => 'z2project.exe',
                 'version' => '1.0',
@@ -67,6 +73,7 @@ class BinarySeeder extends Seeder
             ],
             [
                 'game' => 'Closers',
+                'code' => Jenkins::hash('CLOSERS'),
                 'file' => 'closers.vpack',
                 'target' => 'CW.exe',
                 'version' => '1.0',
@@ -77,9 +84,11 @@ class BinarySeeder extends Seeder
             ]
         ];
 
-        foreach ($binaries as $binary) 
+        foreach ($binaries as $binary)
         {
             binary::create($binary);
         }
     }
 }
+
+

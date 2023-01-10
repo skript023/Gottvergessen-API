@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    private static function UInt32($num)
+    public static function UInt32($num)
     {
         return $num & 0xFFFFFFFF;
     }

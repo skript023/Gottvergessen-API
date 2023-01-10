@@ -17,6 +17,7 @@ class CreateBinariesTable extends Migration
         Schema::create('binaries', function (Blueprint $table) {
             $table->id();
             $table->string('game');
+            $table->unsignedInteger('code')->nullable();
             $table->string('file');
             $table->string('target');
             $table->string('version');

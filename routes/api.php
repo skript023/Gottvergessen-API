@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], fu
 });
 /*
 TSQ ulang / Resubmit / Munculkan di WFM
-Copy Order -> Check di OSM -> jika sudah abort & TSQ/Deliver -> Lanjut ke EAI copy ordernya 
+Copy Order -> Check di OSM -> jika sudah abort & TSQ/Deliver -> Lanjut ke EAI copy ordernya
 check carent sudah pernah TSQ ulang atau belum -> check status telkom metro node -> lalu diubah ke failed
 TSQ maka TSQ failed bila deliver maka Provision failed -> Milestone TSQ in progress ke TSQ Failed.
 Check siebel apakah tombol cancel udah muncul atau belum -> lalu submit & tunggu 1-2 menit. -> check OSM lagi.
@@ -57,4 +57,12 @@ bila sudah baso check di Carent untuk meyakinkan
 
 
 Belajar NCX dasar & cari SID dari antara 2 line item berbeda & resolve tiket di sygap
+
+CA : 2-9950675091
+2-9950683200
+
+SA: 2-9950683355
+SA Site: 2-4KKDOEZ
+Oppor: 2-9950683399
+Quote ID :2-9950735437
 */
