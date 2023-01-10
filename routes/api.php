@@ -29,10 +29,10 @@ Route::get('/v1/test', function () {
 Route::post('/v1/auth/login', [ApiUserController::class, 'login']);
 Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
 Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
-Route::post('/v1/costume', [CostumeController::class, 'costumes']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
 
+    Route::post('/v1/costume', [CostumeController::class, 'costumes']);
     Route::get('/v1/binary/all', [BinaryController::class, 'all_games']);
     Route::get('/v1/auth/logout', [ApiUserController::class, 'logout']);
 });
