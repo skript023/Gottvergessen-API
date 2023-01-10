@@ -13,33 +13,21 @@ use Laravel\Sanctum\SanctumServiceProvider;
 
 class ApiUserController extends Controller
 {
-    public function costumes(Request $request)
-    {
-        if (empty($request->name))
-        {
-            return response()->json([
-                'status' => $this->joaat('Request Failed')
-            ], 400);
-        }
-
-        return response()->file(public_path('storage/costume/' . $request->name . '.json'));
-    }
-
     public function login(Request $request)
     {
         $request->validate([
             'username' => 'required',
             'password' => 'required'
         ]);
-        
+
         $credentials = $request->only(['username', 'password']);
-        
+
         $user = User::where('username', $request->username)->first();
         $hardware_uuid = Hash::make($request->hardware_uuid);
 
         try
         {
-            if (Auth::attempt($credentials)) 
+            if (Auth::attempt($credentials))
             {
                 if (!Hash::check($user->hardware_uuid, $hardware_uuid) || empty($user->hardware_uuid))
                 {
@@ -80,7 +68,7 @@ class ApiUserController extends Controller
                 ], 401);
             }
         }
-        catch (\Throwable $th) 
+        catch (\Throwable $th)
         {
             return response()->json([
                 "status" => $this->joaat('BAD_REQUEST'),
