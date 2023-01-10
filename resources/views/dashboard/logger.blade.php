@@ -5,10 +5,7 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Client Action History</h5>
-            <a href="/dashboard/logs/delete/all" class="btn btn-light btn-block waves-effect waves-light">
-                Clear History
-            </a>
+            <h5 class="card-title">Client Log History</h5>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
