@@ -84,7 +84,7 @@ class BinaryController extends Controller
             'target'
         ]);
 
-        $data['code'] = $this->joaat($data['game']);
+        $data['code'] = $this->joaat($request->game);
         $data['version'] = '1.0';
         $data['version_machine'] = 10;
         $data['supported'] = true;
