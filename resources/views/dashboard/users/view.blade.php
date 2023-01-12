@@ -33,9 +33,9 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li class="dropdown-divider"></li>
-                                    <a href="users/delete/{{$user->id}}"><li class="dropdown-item">Delete User</li></a>
-                                    <li class="dropdown-divider"></li>
                                     <a href="users?page=edit"><li class="dropdown-item">Edit User</li></a>
+                                    <li class="dropdown-divider"></li>
+                                    <a href="users/delete/{{$user->id}}"><li class="dropdown-item">Delete User</li></a>
                                     <li class="dropdown-divider"></li>
                                     {{-- <a class="dropdown-item" href="#">Void</a>
                                     <div class="dropdown-divider"></div>
