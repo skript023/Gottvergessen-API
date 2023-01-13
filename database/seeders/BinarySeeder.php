@@ -28,7 +28,7 @@ class BinarySeeder extends Seeder
                 'valid' => true
             ],
             [
-                'game' => 'Grand Theft Auto V',
+                'game' => 'Grand Theft Auto V(Old)',
                 'code' => Jenkins::hash('ELLOHIM'),
                 'file' => 'Ellohim.vpack',
                 'target' => 'GTA5.exe',

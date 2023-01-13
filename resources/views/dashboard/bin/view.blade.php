@@ -4,7 +4,7 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Binaries</h5>
+            <h5 class="card-title text-center">Existed Binaries in Server</h5>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
