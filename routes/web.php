@@ -3,6 +3,7 @@
 use App\Http\Controllers\BinaryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientMonitorController;
+use App\Http\Controllers\OwnershipController;
 use App\Http\Controllers\RoleController;
 
 use Illuminate\Http\Request;
@@ -49,6 +50,11 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 
     Route::get('/dashboard/bin', [BinaryController::class, 'load_binaries_data']);
     Route::post('/dashboard/bin/add', [BinaryController::class, 'upload_binary']);
+
+    Route::get('/dashboard/ownership', [OwnershipController::class, 'load_ownerships']);
+    Route::post('/dashboard/ownership/add', [RoleController::class, 'create_ownership']);
+    Route::post('/dashboard/ownership/edit/{id}', [RoleController::class, 'update_ownership']);
+    Route::get('/dashboard/ownership/delete/{id}', [RoleController::class, 'delete_ownership']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()

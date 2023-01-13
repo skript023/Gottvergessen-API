@@ -7,16 +7,16 @@
         <div class="card col-md-4 mx-auto my-4">
             <div class="card-content p-2">
                 <div class="card-body">
-                    <div class="card-title text-uppercase text-center py-3">Add Role</div>
+                    <div class="card-title text-uppercase text-center py-3">Add Ownership</div>
                     <form action="/dashboard/role/add" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="input-6" class="text-center">Role</label>
-                            <input type="text" name="role" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
+                            <label for="input-6" class="text-center">Ownerships</label>
+                            <input type="text" name="role" class="form-control form-control-rounded text-center" id="input-6" placeholder="Enter Ownership Name" required>
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Add Role</button>
+                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i> Add Ownership</button>
                         </div>
                     </form>
                     @isset(request()->edit)
@@ -40,10 +40,10 @@
                         <tbody>
                             @foreach ($ownerships as $ownership)
                             <tr>
-                                <td>{{$ownership->role}}</td>
+                                <td>{{$ownership->ownership}}</td>
                                 <td>
-                                    <a href="/dashboard/role?edit={{$ownership->id}}" class="btn btn-light">Update</a>
-                                    <a href="/dashboard/role/delete/{{$ownership->id}}" class="btn btn-light">Delete</a>
+                                    <a href="/dashboard/ownership?edit={{$ownership->id}}" class="btn btn-light">Update</a>
+                                    <a href="/dashboard/ownership/delete/{{$ownership->id}}" class="btn btn-light">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

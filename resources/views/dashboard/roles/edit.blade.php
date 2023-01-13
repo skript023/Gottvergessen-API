@@ -4,7 +4,7 @@
         <label>Update Role</label>
         @foreach ($roles as $role)
             @if ($role->id == request()->edit)
-                <input type="text" class="form-control" name="role_name" value="{{ $role->role }}">
+                <input type="text" class="form-control text-center" name="role_name" value="{{ $role->role }}">
             @endif
         @endforeach
     </div>

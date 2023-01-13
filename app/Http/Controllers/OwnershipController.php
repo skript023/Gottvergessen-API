@@ -8,9 +8,35 @@ use Illuminate\Http\Request;
 
 class OwnershipController extends Controller
 {
+    public function load_ownerships(Request $request)
+    {
+        $ownerships = ownership::all();
+
+        return view('dashboard.ownerships', [
+            'ownerships' => $ownerships
+        ]);
+    }
+
     public function update_ownership(Request $request)
     {
-        $owner = User::find(auth()->user()->id);
+        $product = ownership::find($request->id);
+
+        $product->ownership = $request->ownership;
+
+        try 
+        {
+            $product->save();
+            return redirect()->intended('/dashboard/users');
+        } 
+        catch (\Throwable $th) 
+        {
+            return back()->withErrors('Update Error', 'Failed Update Ownerships');
+        }
+    }
+
+    public function update_user_ownership(Request $request)
+    {
+        $owner = User::find($request->owner);
 
         $owner->ownership_id = $request->ownership;
 

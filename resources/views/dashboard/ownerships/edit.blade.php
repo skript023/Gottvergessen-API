@@ -4,7 +4,7 @@
         <label>Update Ownerships</label>
         @foreach ($ownerships as $ownership)
             @if ($ownership->id == request()->edit)
-                <input type="text" class="form-control" name="ownership" value="{{ $ownership->role }}">
+                <input type="text" class="form-control text-center" name="ownership" value="{{ $ownership->ownership }}">
             @endif
         @endforeach
     </div>

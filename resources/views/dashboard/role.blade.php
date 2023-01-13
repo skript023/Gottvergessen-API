@@ -12,11 +12,11 @@
                         @csrf
                         <div class="form-group">
                             <label for="input-6" class="text-center">Role</label>
-                            <input type="text" name="role" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
+                            <input type="text" name="role" class="form-control form-control-rounded text-center" id="input-6" placeholder="Enter Role Name" required>
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Add Role</button>
+                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i> Add Role</button>
                         </div>
                     </form>
                     @isset(request()->edit)
