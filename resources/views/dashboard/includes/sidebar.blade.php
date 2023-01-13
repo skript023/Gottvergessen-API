@@ -43,6 +43,11 @@
                 <i class="zmdi zmdi-ungroup"></i> <span>Add Binary</span>
                 </a>
             </li>
+            <li>
+                <a href="/dashboard/ownership">
+                <i class="zmdi zmdi-chart"></i> <span>Binary</span>
+                </a>
+            </li>
         @endif
 
         <li>
