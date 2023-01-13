@@ -45,7 +45,7 @@
             </li>
             <li>
                 <a href="/dashboard/ownership">
-                <i class="zmdi zmdi-chart"></i> <span>Binary</span>
+                <i class="zmdi zmdi-chart"></i> <span>Ownerships</span>
                 </a>
             </li>
         @endif
