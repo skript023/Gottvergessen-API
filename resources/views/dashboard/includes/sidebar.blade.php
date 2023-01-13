@@ -1,13 +1,13 @@
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
         <div class="brand-logo">
-        <a href="index.html">
+        <a href="/dashboard/profile">
         <img src="{{asset('assets')}}/images/logo-icon.png" class="logo-icon" alt="logo icon">
         <h5 class="logo-text">Dashboard</h5>
         </a>
     </div>
     <ul class="sidebar-menu do-nicescrol">
         <li class="sidebar-header">MAIN NAVIGATION</li>
-        @if(auth()->user()->roles->id == 3)
+        @if(auth()->user()->roles->role === 'admin')
             <li>
                 <a href="/dashboard">
                 <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>

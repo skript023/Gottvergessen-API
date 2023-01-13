@@ -2,6 +2,7 @@
 @section('title', 'Ownerships Information')
 @section('content')
 
+@include('components.modal-popup')
 <div class="container">
     <div class="row">
         <div class="card col-md-4 mx-auto my-4">
@@ -43,7 +44,7 @@
                                 <td>{{$ownership->ownership}}</td>
                                 <td>
                                     <a href="/dashboard/ownership?edit={{$ownership->id}}" class="btn btn-light">Update</a>
-                                    <a href="/dashboard/ownership/delete/{{$ownership->id}}" class="btn btn-light">Delete</a>
+                                    <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-light">Delete</button>
                                 </td>
                             </tr>
                             @endforeach

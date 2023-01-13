@@ -52,9 +52,9 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/bin/add', [BinaryController::class, 'upload_binary']);
 
     Route::get('/dashboard/ownership', [OwnershipController::class, 'load_ownerships']);
-    Route::post('/dashboard/ownership/add', [RoleController::class, 'create_ownership']);
-    Route::post('/dashboard/ownership/edit/{id}', [RoleController::class, 'update_ownership']);
-    Route::get('/dashboard/ownership/delete/{id}', [RoleController::class, 'delete_ownership']);
+    Route::post('/dashboard/ownership/add', [OwnershipController::class, 'create_ownership']);
+    Route::post('/dashboard/ownership/edit/{id}', [OwnershipController::class, 'update_ownership']);
+    Route::get('/dashboard/ownership/delete/{id}', [OwnershipController::class, 'delete_ownership']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()

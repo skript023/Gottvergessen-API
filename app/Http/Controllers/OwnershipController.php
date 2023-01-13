@@ -13,8 +13,26 @@ class OwnershipController extends Controller
         $ownerships = ownership::all();
 
         return view('dashboard.ownerships', [
-            'ownerships' => $ownerships
+            'ownerships' => $ownerships,
+            'popup_header' => 'Are you sure want to delete the ownership?',
+            'popup_message' => 'Ownership will not be able to restored after deletion',
+            'popup_action' => '/dashboard/ownership/delete/{{$ownership->id}}'
         ]);
+    }
+    
+    public function delete_ownership(Request $request)
+    {
+        $product = ownership::find($request->id);
+
+        try 
+        {
+            $product->delete();
+            return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removed successfully')->with('error_code', 0);
+        } 
+        catch (\Throwable $th) 
+        {
+            return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removal failed, must be contain valid data')->with('error_code', $this->joaat('DELETE_ERROR'));
+        }
     }
 
     public function update_ownership(Request $request)
