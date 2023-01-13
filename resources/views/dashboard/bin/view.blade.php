@@ -33,9 +33,9 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li class="dropdown-divider"></li>
-                                    <a href="bin/delete/{{$bin->id}}"><li class="dropdown-item">Delete Bin</li></a>
-                                    <li class="dropdown-divider"></li>
                                     <a href="bin?page=edit&bin={{$bin->id}}"><li class="dropdown-item">Edit Bin</li></a>
+                                    <li class="dropdown-divider"></li>
+                                    <a href="bin/delete/{{$bin->id}}"><li class="dropdown-item">Delete Bin</li></a>
                                     <li class="dropdown-divider"></li>
                                     {{-- <a class="dropdown-item" href="#">Void</a>
                                     <div class="dropdown-divider"></div>

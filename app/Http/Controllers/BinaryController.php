@@ -84,6 +84,7 @@ class BinaryController extends Controller
             'target'
         ]);
 
+        $data['code'] = $this->joaat($request->game);
         $data['version'] = '1.0';
         $data['version_machine'] = 10;
         $data['supported'] = true;
@@ -103,7 +104,7 @@ class BinaryController extends Controller
         {
             binary::create($data);
 
-            return redirect()->intended();
+            return redirect()->intended('/dashboard/bin');
         } 
         catch (\Throwable $th) 
         {
