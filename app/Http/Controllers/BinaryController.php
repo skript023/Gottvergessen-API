@@ -19,10 +19,10 @@ class BinaryController extends Controller
         {
             return response()->json([
                 'status' => $this->joaat('Request Failed')
-            ], 400);
+            ], 404);
         }
 
-        return response()->file(public_path('storage/binary/' . $request->name));
+        return response()->download(public_path('storage/binary/' . $request->name));
     }
     
     public function binary_version(Request $request)
