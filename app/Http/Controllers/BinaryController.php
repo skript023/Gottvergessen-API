@@ -18,11 +18,11 @@ class BinaryController extends Controller
         if (empty($request->name) || !file_exists(public_path('storage/binary/' . $request->name)))
         {
             return response()->json([
-                'status' => Jenkins::hash('Request Failed')
+                'status' => Jenkins::hash('Request Failed'),
             ], 400);
         }
 
-        return response()->file(public_path('storage/binary/' . $request->name));
+        return response()->download(public_path('storage/binary/' . $request->name));
     }
     
     public function binary_version(Request $request)
