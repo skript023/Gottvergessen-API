@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
-use Laravel\Sanctum\SanctumServiceProvider;
 
 class ApiUserController extends Controller
 {
@@ -46,7 +43,7 @@ class ApiUserController extends Controller
                 //$access_token = $token->accessToken;
 
                 return response()->json([
-                    "status" => $this->joaat("AUTH_SUCCESS"),
+                    "status" => Jenkins::hash("AUTH_SUCCESS"),
                     "message" => 'Login Success',
                     "token" => $token->plainTextToken,
                     "fullname" => $fullname,
@@ -58,7 +55,7 @@ class ApiUserController extends Controller
             else
             {
                 return response()->json([
-                    "status" => $this->joaat('AUTH_FAILED'),
+                    "status" => Jenkins::hash('AUTH_FAILED'),
                     "message" => 'Login Failed',
                     "token" => "",
                     "fullname" => "",
@@ -71,7 +68,7 @@ class ApiUserController extends Controller
         catch (\Throwable $th)
         {
             return response()->json([
-                "status" => $this->joaat('BAD_REQUEST'),
+                "status" => Jenkins::hash('BAD_REQUEST'),
                 "message" => 'Error : ' . $th,
                 "token" => "",
                 "fullname" => "",
@@ -90,7 +87,7 @@ class ApiUserController extends Controller
 
         $request->user()->currentAccessToken()->delete();
         return response()->json([
-            'status' => $this->joaat('LOGOUT_SUCCESS'),
+            'status' => Jenkins::hash('LOGOUT_SUCCESS'),
             'message' => 'Logout Success'
         ]);
     }

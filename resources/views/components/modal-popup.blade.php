@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
             <p>
-                @yield('modal-body')
+                @yield('modal-message')
             </p>
             </div>
             <div class="modal-footer">

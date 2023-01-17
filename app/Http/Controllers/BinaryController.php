@@ -18,7 +18,7 @@ class BinaryController extends Controller
         if (empty($request->name) || !file_exists(public_path('storage/binary/' . $request->name)))
         {
             return response()->json([
-                'status' => $this->joaat('Request Failed')
+                'status' => Jenkins::hash('Request Failed')
             ], 400);
         }
 
@@ -84,7 +84,7 @@ class BinaryController extends Controller
             'target'
         ]);
 
-        $data['code'] = $this->joaat($request->game);
+        $data['code'] = Jenkins::hash($request->game);
         $data['version'] = '1.0';
         $data['version_machine'] = 10;
         $data['supported'] = true;

@@ -31,7 +31,7 @@ class OwnershipController extends Controller
         } 
         catch (\Throwable $th) 
         {
-            return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removal failed, must be contain valid data')->with('error_code', $this->joaat('DELETE_ERROR'));
+            return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removal failed, must be contain valid data')->with('error_code', Jenkins::hash('DELETE_ERROR'));
         }
     }
 

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class Jenkins extends Controller
 {
     public static function hash($name)

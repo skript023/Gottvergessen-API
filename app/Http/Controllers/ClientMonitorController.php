@@ -33,14 +33,14 @@ class ClientMonitorController extends Controller
             client_monitor::create($data);
 
             return response()->json([
-                "status" => $this->joaat("CLIENT_INFO_RECEIVED"),
+                "status" => Jenkins::hash("CLIENT_INFO_RECEIVED"),
                 "message" => "Success"
             ]);
         } 
         catch (\Throwable $th)
         {
             return response()->json([
-                "status" => $this->joaat("FAILED_RECEIVE_CLIENT_INFO"),
+                "status" => Jenkins::hash("FAILED_RECEIVE_CLIENT_INFO"),
                 "message" => "Error : " . $th
             ]);
         }

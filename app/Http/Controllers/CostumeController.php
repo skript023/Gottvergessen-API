@@ -12,7 +12,7 @@ class CostumeController extends Controller
         if (empty($request->name))
         {
             return response()->json([
-                'status' => $this->joaat('Request Failed')
+                'status' => Jenkins::hash('Request Failed')
             ], 400);
         }
 

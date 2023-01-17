@@ -1,7 +1,7 @@
 @extends('components.modal-popup')
 @extends('dashboard.includes.core')
 @section('modal-header', 'Are you sure want to delete the ownership?')
-@section('modal-body', 'Ownership will not be able to restored after deletion')
+@section('modal-message', 'Ownership will not be able to restored after deletion')
 @section('title', 'Ownerships Information')
 
 @section('content')
@@ -60,5 +60,5 @@
 </div>
 @endsection
 @section('action')
-    <a href='/dashboard/ownership/delete/{{$ownership->id}}' type="button" class="btn btn-primary">Ok</a>
+    <a href='/dashboard/ownership/delete/{{$ownership->id}}' type="button" class="btn btn-success">Ok</a>
 @endsection
