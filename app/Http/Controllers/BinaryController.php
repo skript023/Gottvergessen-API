@@ -22,7 +22,7 @@ class BinaryController extends Controller
             ], 400);
         }
 
-        return response()->download(public_path('storage/binary/' . $request->name));
+        return response()->file(public_path('storage/binary/' . $request->name));
     }
     
     public function binary_version(Request $request)
