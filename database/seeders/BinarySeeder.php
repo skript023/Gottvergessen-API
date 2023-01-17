@@ -81,6 +81,17 @@ class BinarySeeder extends Seeder
                 'ownership_id' => 4,
                 'supported' => true,
                 'valid' => true
+            ],
+            [
+                'game' => 'Experiment',
+                'code' => Jenkins::hash('Experiment'),
+                'file' => 'Experiment.vpack',
+                'target' => 'GFXTest64.exe',
+                'version' => '1.0',
+                'version_machine' => 10,
+                'ownership_id' => 4,
+                'supported' => true,
+                'valid' => true
             ]
         ];
 
