@@ -14,7 +14,7 @@
                         <th scope="col">Bin</th>
                         <th scope="col">Target</th>
                         <th scope="col">Version</th>
-                        <th scope="col">Support</th>
+                        <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,7 +25,7 @@
                                 <td>{{ $bin->file }}</td>
                                 <td>{{ $bin->target }}</td>
                                 <td>{{ $bin->version }}</td>
-                                <td>{{ $bin->support }}</td>
+                                <td>{{ $bin->supported == 1 ? "Supported" : "Abanddoned" }}</td>
                                 <td>
                                 <div class="btn-group">
                                 <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
