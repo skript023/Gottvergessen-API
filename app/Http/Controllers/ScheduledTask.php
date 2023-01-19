@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\client_monitor;
-use Illuminate\Http\Request;
 
 class ScheduledTask extends Controller
 {
