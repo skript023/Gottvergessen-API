@@ -23,7 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/v1/test', function () {
+Route::get('/v1/test', function () 
+{
     return response()->json(['message' => 'Test API Success']);
 })->middleware('auth:sanctum');
 
@@ -32,13 +33,15 @@ Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
 Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
 Route::get('v1/scheduled', [Controller::class, 'scheduled_task']);
 
-Route::group(['middleware' => 'auth:sanctum'], function() {
+Route::group(['middleware' => 'auth:sanctum'], function() 
+{
     Route::post('/v1/costume', [CostumeController::class, 'costumes']);
     Route::get('/v1/binary/all', [BinaryController::class, 'all_games']);
     Route::get('/v1/auth/logout', [ApiUserController::class, 'logout']);
 });
 
-Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], function() {
+Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], function() 
+{
     Route::post('/v1/binary/version', [BinaryController::class, 'binary_version']);
     Route::post('/v1/binary/shellcode', [BinaryController::class, 'binary']);
 });
