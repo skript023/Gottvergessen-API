@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use App\Models\client_monitor;
+use App\Http\Controllers\ScheduledTask;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,14 +17,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->call(function ()
-        {
-            $data = client_monitor::where('created_at', '<', now()->subDays(30))->get();
-            foreach($data as $datum)
-            {
-                $datum->delete();
-            }
-        })->lastDayOfMonth('15:00');
+        $schedule->call(fn () => ScheduledTask::clean_client_logs())->lastDayOfMonth('15:00');
     }
 
     /**
