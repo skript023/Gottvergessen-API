@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\BinaryController;
 use App\Http\Controllers\ClientMonitorController;
@@ -29,6 +30,7 @@ Route::get('/v1/test', function () {
 Route::post('/v1/auth/login', [ApiUserController::class, 'login']);
 Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
 Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
+Route::get('v1/scheduled', [Controller::class, 'scheduled_task']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/v1/costume', [CostumeController::class, 'costumes']);
