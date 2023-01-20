@@ -27,23 +27,25 @@
                                 <td>{{ $bin->version }}</td>
                                 <td>{{ $bin->supported == 1 ? "Supported" : "Abanddoned" }}</td>
                                 <td>
-                                <div class="btn-group">
-                                <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Action
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-divider"></li>
-                                    <a href="bin?page=edit&bin={{$bin->id}}"><li class="dropdown-item">Edit Bin</li></a>
-                                    <li class="dropdown-divider"></li>
-                                    <a href="bin/delete/{{$bin->id}}"><li class="dropdown-item">Delete Bin</li></a>
-                                    <li class="dropdown-divider"></li>
-                                    {{-- <a class="dropdown-item" href="#">Void</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">
-                                        <button class="btn btn-info">Void</button>
-                                    </a> --}}
-                                </ul>
-                            </div>
+                                <div class="btn-group mx-auto">
+                                    <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Action
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-divider"></li>
+                                        <a href="bin?page=upload&bin={{$bin->id}}"><li class="dropdown-item">Upload New Version</li></a>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-divider"></li>
+                                        <a href="bin?page=edit&bin={{$bin->id}}"><li class="dropdown-item">Update Binary Info</li></a>
+                                        <li class="dropdown-divider"></li>
+                                        <a href="bin/delete/{{$bin->id}}"><li class="dropdown-item">Delete Binary</li></a>
+                                        {{-- <a class="dropdown-item" href="#">Void</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">
+                                            <button class="btn btn-info">Void</button>
+                                        </a> --}}
+                                    </ul>
+                                </div>
                                 </td>
                             </tr>
                         @endforeach
