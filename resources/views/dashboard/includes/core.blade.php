@@ -48,6 +48,7 @@
         <div class="container-fluid">
 
     <!--Start Dashboard Content-->
+    @include('components.modal-popup')
     @yield('content')
     <!--End Row-->
 

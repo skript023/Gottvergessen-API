@@ -1,4 +1,3 @@
-@extends('components.modal-popup')
 @extends('dashboard.includes.core')
 @section('modal-header', 'Are you sure want to delete the ownership?')
 @section('modal-message', 'Ownership will not be able to restored after deletion')

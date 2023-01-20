@@ -1,5 +1,7 @@
 @extends('dashboard.includes.core')
 @section('title', 'Role Information')
+@section('modal-header', 'Are you sure want to delete the role?')
+@section('modal-message', 'Role will not be able to restored after deletion')
 @section('content')
 
 <div class="container">
@@ -43,7 +45,7 @@
                                 <td>{{$role->role}}</td>
                                 <td>
                                     <a href="/dashboard/role?edit={{$role->id}}" class="btn btn-light">Update</a>
-                                    <a href="/dashboard/role/delete/{{$role->id}}" class="btn btn-light">Delete</a>
+                                    <button type="button" data-toggle="modal" data-target="#confirmation-modal" class="btn btn-light">Delete</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -55,4 +57,7 @@
 
     </div>
 </div>
+@endsection
+@section('action')
+    <a href="/dashboard/role/delete/{{$role->id}}" type="button" class="btn btn-success">Ok</a>
 @endsection
