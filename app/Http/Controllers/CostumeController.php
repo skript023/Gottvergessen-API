@@ -19,6 +19,8 @@ class CostumeController extends Controller
         $url = sprintf('https://raw.githubusercontent.com/root-cause/v-clothingnames/master/%s.json', $request->name);
         $response = Http::get($url);
         $result = json_decode($response->body());
+        
+        if (empty($result)) return response()->json(['status' => Jenkins::hash('Request Failed')], 400);
 
         return response()->json($result);
     }
