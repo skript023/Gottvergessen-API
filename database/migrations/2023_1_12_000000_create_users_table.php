@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('hardware_uuid')->nullable();
             $table->string('computer_name')->nullable();
+            $table->string('activity')->default('inactivity');
             $table->string('status')->default('unverified');
             $table->string('image')->nullable();
             $table->date('expired')->default(now()->addDays(30));

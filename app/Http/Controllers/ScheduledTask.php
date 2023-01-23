@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\client_monitor;
+use App\Models\User;
 
 class ScheduledTask extends Controller
 {
@@ -12,6 +13,16 @@ class ScheduledTask extends Controller
         foreach($data as $datum)
         {
             $datum->delete();
+        }
+    }
+
+    public static function update_activity()
+    {
+        $data = User::where('recent_login', '<', now()->subMinute())->get();
+        foreach ($data as $datum) 
+        {
+            $datum->recent_login = 'Offline';
+            $datum->save();
         }
     }
 }
