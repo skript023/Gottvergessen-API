@@ -81,6 +81,7 @@ class UserController extends Controller
         $data['email_verified_at'] = now();
         $data['created_date'] = now();
         $data['recent_login'] = now();
+        $data['activity'] = 'Online';
         $data['password'] = Hash::make($data['password']);
 
         try 
