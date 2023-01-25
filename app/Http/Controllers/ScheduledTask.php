@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\client_monitor;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class ScheduledTask extends Controller
 {
@@ -24,5 +25,13 @@ class ScheduledTask extends Controller
             $datum->recent_login = 'Offline';
             $datum->save();
         }
+    }
+
+    public function update_login_time(Request $request)
+    {
+        $user = User::where('hardware_id', $request->hardware)->first();
+        
+        $user->recent_login = now();
+        $user->save();
     }
 }
