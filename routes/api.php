@@ -5,6 +5,7 @@ use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\BinaryController;
 use App\Http\Controllers\ClientMonitorController;
 use App\Http\Controllers\CostumeController;
+use App\Http\Controllers\ScheduledTask;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,5 +45,6 @@ Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], fu
 {
     Route::post('/v1/binary/version', [BinaryController::class, 'binary_version']);
     Route::post('/v1/binary/shellcode', [BinaryController::class, 'binary']);
+    Route::get('/v1/heartbeat/device-check', [ScheduledTask::class, 'update_login_time']);
 });
 
