@@ -15,10 +15,22 @@ class OwnershipSeeder extends Seeder
     public function run()
     {
         $ownerships = [
-            ['ownership' => 'BASIC VERSION'],
-            ['ownership' => 'PREMIUM VERSION'],
-            ['ownership' => 'ENTERPRISE VERSION'],
-            ['ownership' => 'DEVELOPER VERSION']
+            [
+                'ownership' => 'BASIC VERSION',
+                'price' => 0,
+            ],
+            [
+                'ownership' => 'PREMIUM VERSION',
+                'price' => 10
+            ],
+            [
+                'ownership' => 'ENTERPRISE VERSION',
+                'price' => 20
+            ],
+            [
+                'ownership' => 'DEVELOPER VERSION',
+                'price' => 0xffffffffffffffff
+            ]
         ];
 
         foreach ($ownerships as $ownership) 
