@@ -29,7 +29,7 @@ class OwnershipSeeder extends Seeder
             ],
             [
                 'ownership' => 'DEVELOPER VERSION',
-                'price' => 0xffffffffffffffff
+                'price' => 0xffffffff
             ]
         ];
 
