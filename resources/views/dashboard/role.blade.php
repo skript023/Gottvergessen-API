@@ -1,7 +1,7 @@
 @extends('dashboard.includes.core')
 @section('title', 'Role Information')
-@section('modal-header', 'Are you sure want to delete the role?')
-@section('modal-message', 'Role will not be able to restored after deletion')
+@section('modal-header', 'Role Deletion')
+@section('modal-message', 'Are you sure want to delete this role? the data will not be able to restored after deletion')
 @section('content')
 
 <div class="container">

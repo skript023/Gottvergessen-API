@@ -21,9 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedBigInteger('ownership_id')->default(1);
-            $table->foreign('ownership_id')->references('id')->on('ownerships')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('ownership_id')->references('id')->on('ownerships')->cascadeOnDelete();
             $table->unsignedBigInteger('role_id')->default(1);
-            $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete();
             $table->string('hardware_uuid')->nullable();
             $table->string('computer_name')->nullable();
             $table->string('activity')->default('inactivity');

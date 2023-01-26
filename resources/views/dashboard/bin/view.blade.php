@@ -1,5 +1,7 @@
 @extends('includes.core')
 @section('title', 'Binaries Management')
+@section('modal-header', 'Binary Deletion')
+@section('modal-message', 'Are you sure want to delete this binary? the data will not be able to restored after deletion')
 @section('content')
 <div class="col-lg-12">
     <div class="my-4">
@@ -42,7 +44,7 @@
                                         <li class="dropdown-divider"></li>
                                         <a href="bin?page=edit&bin={{$bin->id}}"><li class="dropdown-item">Edit</li></a>
                                         <li class="dropdown-divider"></li>
-                                        <a href="bin/delete/{{$bin->id}}"><li class="dropdown-item">Delete</li></a>
+                                        <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete</li></a>
                                         {{-- <a class="dropdown-item" href="#">Void</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#">
@@ -59,4 +61,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('action')
+    <a href="bin/delete/{{$bin->id}}"  type="button" class="btn btn-success">Ok</a>
 @endsection

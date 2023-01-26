@@ -1,6 +1,6 @@
 @extends('dashboard.includes.core')
 @section('modal-header', 'Are you sure want to delete the ownership?')
-@section('modal-message', 'Ownership will not be able to restored after deletion')
+@section('modal-message', 'Are you sure want to delete this ownership? the data will not be able to restored after deletion')
 @section('title', 'Ownerships Information')
 
 @section('content')

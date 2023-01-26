@@ -1,5 +1,7 @@
 @extends('includes.core')
 @section('title', 'Users')
+@section('modal-header', 'User Deletion')
+@section('modal-message', 'Are you sure want to delete this user? the data will not be able to restored after deletion')
 @section('content')
 <div class="col-lg-12">
     <div class="my-4">
@@ -39,7 +41,7 @@
                                     <li class="dropdown-divider"></li>
                                     <a href="users?page=edit"><li class="dropdown-item">Edit User</li></a>
                                     <li class="dropdown-divider"></li>
-                                    <a href="users/delete/{{$user->id}}"><li class="dropdown-item">Delete User</li></a>
+                                    <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
                                     <li class="dropdown-divider"></li>
                                     {{-- <a class="dropdown-item" href="#">Void</a>
                                     <div class="dropdown-divider"></div>
@@ -57,4 +59,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('action')
+    <a href="users/delete/{{$user->id}}"  type="button" class="btn btn-success">Ok</a>
 @endsection

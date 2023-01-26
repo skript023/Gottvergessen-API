@@ -23,7 +23,7 @@ class CreateBinariesTable extends Migration
             $table->string('version');
             $table->integer('version_machine');
             $table->unsignedBigInteger('ownership_id')->default(1);
-            $table->foreign('ownership_id')->references('id')->on('ownerships')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('ownership_id')->references('id')->on('ownerships')->cascadeOnDelete();
             $table->boolean('supported');
             $table->boolean('valid');
             $table->timestamps();

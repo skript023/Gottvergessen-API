@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\BinaryController;
 use App\Http\Controllers\ClientMonitorController;
 use App\Http\Controllers\CostumeController;
+use App\Http\Controllers\IntegrationTask;
 use App\Http\Controllers\ScheduledTask;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +32,7 @@ Route::get('/v1/test', function ()
 Route::post('/v1/auth/login', [ApiUserController::class, 'login']);
 Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
 Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
-Route::get('v1/scheduled', [Controller::class, 'scheduled_task']);
+Route::get('v1/scheduled', [ScheduledTask::class, 'scheduled_task']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() 
 {
@@ -45,6 +45,6 @@ Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], fu
 {
     Route::post('/v1/binary/version', [BinaryController::class, 'binary_version']);
     Route::post('/v1/binary/shellcode', [BinaryController::class, 'binary']);
-    Route::get('/v1/heartbeat/device-check', [ScheduledTask::class, 'update_login_time']);
+    Route::get('/v1/heartbeat/device-check', [IntegrationTask::class, 'update_login_time']);
 });
 
