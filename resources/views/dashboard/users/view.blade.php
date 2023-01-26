@@ -2,6 +2,9 @@
 @section('title', 'Users')
 @section('content')
 <div class="col-lg-12">
+    <div class="my-4">
+        <a class="btn btn-light zmdi zmdi-account-add" href="users?page=add"> Add Account</a>
+    </div>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title text-center">Users List</h5>

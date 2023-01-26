@@ -2,6 +2,9 @@
 @section('title', 'Binaries Management')
 @section('content')
 <div class="col-lg-12">
+    <div class="my-4">
+        <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/bin?page=add"> Add Binary</a>
+    </div>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title text-center">Existed Binaries in Server</h5>

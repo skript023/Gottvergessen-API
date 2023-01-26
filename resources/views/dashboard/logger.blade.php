@@ -5,7 +5,7 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Client Log History</h5>
+            <h5 class="card-title text-center">Client Log History</h5>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>

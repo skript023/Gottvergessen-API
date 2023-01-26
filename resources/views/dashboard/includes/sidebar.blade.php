@@ -15,17 +15,12 @@
             </li>
             <li>
                 <a href="/dashboard/users">
-                <i class="zmdi zmdi-format-list-bulleted"></i> <span>Users</span>
-                </a>
-            </li>
-            <li>
-                <a href="/dashboard/users?page=add">
-                <i class="zmdi zmdi-account-circle"></i> <span>Add User</span>
+                <i class="zmdi zmdi-accounts-list"></i> <span>Users</span>
                 </a>
             </li>
             <li>
                 <a href="/dashboard/logging">
-                <i class="zmdi zmdi-lock"></i> <span>Logging</span>
+                <i class="zmdi zmdi-alert-triangle"></i> <span>Logging</span>
                 </a>
             </li>
             <li>
@@ -35,12 +30,7 @@
             </li>
             <li>
                 <a href="/dashboard/bin">
-                <i class="zmdi zmdi-ungroup"></i> <span>Binary</span>
-                </a>
-            </li>
-            <li>
-                <a href="/dashboard/bin?page=add">
-                <i class="zmdi zmdi-ungroup"></i> <span>Add Binary</span>
+                <i class="zmdi zmdi-folder-star"></i> <span>Binary</span>
                 </a>
             </li>
             <li>
