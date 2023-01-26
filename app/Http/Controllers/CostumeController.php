@@ -12,15 +12,16 @@ class CostumeController extends Controller
         if (empty($request->name))
         {
             return response()->json([
-                'status' => Jenkins::hash('Request Failed')
-            ], 400);
+                'status' => Jenkins::hash('REQUEST_NOT_FOUND'),
+                'message' => 'Data not found'
+            ], 404);
         }
 
         $url = sprintf('https://raw.githubusercontent.com/root-cause/v-clothingnames/master/%s.json', $request->name);
         $response = Http::get($url);
         $result = json_decode($response->body());
         
-        if (empty($result)) return response()->json(['status' => Jenkins::hash('Request Failed')], 400);
+        if (empty($result)) return response()->json(['status' => Jenkins::hash('Request Failed'), 'message' => 'Data not found'], 404);
 
         return response()->json($result);
     }

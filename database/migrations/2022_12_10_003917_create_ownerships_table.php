@@ -17,6 +17,8 @@ class CreateOwnershipsTable extends Migration
         Schema::create('ownerships', function (Blueprint $table) {
             $table->id();
             $table->string('ownership');
+            $table->unsignedBigInteger('price')->default(0);
+            $table->string('subscription_type')->default('monthly');
             $table->timestamps();
         });
 
