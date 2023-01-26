@@ -19,7 +19,7 @@ class ScheduledTask extends Controller
 
     public static function update_activity()
     {
-        $data = User::where('recent_login', '<', now()->subMinute())->get();
+        $data = User::where('recent_login', '<', now()->subMinuteS(5))->get();
         foreach ($data as $datum) 
         {
             $datum->recent_login = 'Offline';
@@ -31,7 +31,20 @@ class ScheduledTask extends Controller
     {
         $user = User::where('hardware_id', $request->hardware)->first();
         
-        $user->recent_login = now();
-        $user->save();
+        if (isset($user))
+        {
+            $user->recent_login = now();
+            $user->save();
+
+            return response()->json([
+                'message' => 'success',
+                'injection' => true
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'failed',
+            'injection' => false
+        ], 404);
     }
 }

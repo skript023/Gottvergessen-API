@@ -4,7 +4,7 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Users List</h5>
+            <h5 class="card-title text-center">Users List</h5>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -15,6 +15,7 @@
                         <th scope="col">Computer</th>
                         <th scope="col">Role</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,7 +32,7 @@
                                 <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Action
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-right">
+                                <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                     <li class="dropdown-divider"></li>
                                     <a href="users?page=edit"><li class="dropdown-item">Edit User</li></a>
                                     <li class="dropdown-divider"></li>
