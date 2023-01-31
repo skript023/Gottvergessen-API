@@ -39,7 +39,7 @@ class OwnershipController extends Controller
     {
         $product = ownership::find($request->id);
 
-        $product->ownership = $request->ownership;
+        $product->type = $request->ownership;
 
         try 
         {

@@ -54,7 +54,7 @@ class RoleController extends Controller
     {
         $role = role::where('id', $request->id)->first();
 
-        if (empty($role)) return response(404);
+        if (empty($role)) return abort(404);
 
         $role->delete();
 
