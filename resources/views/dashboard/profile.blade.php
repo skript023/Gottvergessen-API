@@ -106,7 +106,7 @@
                                 <p>{{ "Username : " . $user->username }}</p>
                                 <p>{{ "Status : " . $user->roles->role }}</p>
                                 <p>{{ "Email : " . $user->email }}</p>
-                                <p>{{ "Ownership : " . $user->ownerships->ownership }}</p>
+                                <p>{{ "Ownership : " . $user->ownerships->type }}</p>
                             </div>
                             <div class="col-md-6">
                                 <h6>Recent badges</h6>
@@ -120,7 +120,7 @@
                                 <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a> --}}
                                 <hr>
                                 <span class="badge badge-primary"><i class="fa fa-user"></i> All Game Access</span>
-                                <span class="badge badge-success"><i class="fa fa-cog"></i> {{ $user->ownerships->ownership }}</span>
+                                <span class="badge badge-success"><i class="fa fa-cog"></i> {{ $user->ownerships->type }}</span>
                                 <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
                             </div>
                             <div class="col-md-12">

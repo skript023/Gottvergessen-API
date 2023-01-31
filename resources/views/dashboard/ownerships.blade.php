@@ -42,7 +42,7 @@
                         <tbody>
                             @foreach ($ownerships as $ownership)
                             <tr>
-                                <td>{{$ownership->ownership}}</td>
+                                <td>{{$ownership->type}}</td>
                                 <td>
                                     <a href="/dashboard/ownership?edit={{$ownership->id}}" class="btn btn-light">Update</a>
                                     <button type="button" data-toggle="modal" data-target="#confirmation-modal" class="btn btn-light">Delete</button>

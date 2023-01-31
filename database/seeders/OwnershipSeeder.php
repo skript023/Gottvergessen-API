@@ -16,19 +16,19 @@ class OwnershipSeeder extends Seeder
     {
         $ownerships = [
             [
-                'ownership' => 'BASIC VERSION',
+                'type' => 'BASIC VERSION',
                 'price' => 0,
             ],
             [
-                'ownership' => 'PREMIUM VERSION',
+                'type' => 'PREMIUM VERSION',
                 'price' => 10
             ],
             [
-                'ownership' => 'ENTERPRISE VERSION',
+                'type' => 'ENTERPRISE VERSION',
                 'price' => 20
             ],
             [
-                'ownership' => 'DEVELOPER VERSION',
+                'type' => 'DEVELOPER VERSION',
                 'price' => 0xffffffff
             ]
         ];
