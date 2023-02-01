@@ -31,7 +31,7 @@
                                 <td>{{ $user->ownerships->type }}</td>
                                 <td>{{ $user->computer_name }}</td>
                                 <td>{{ $user->roles->role }}</td>
-                                <td>{{ $user->status }}</td>
+                                <td>{{ $user->activity }}</td>
                                 <td>
                                 <div class="btn-group">
                                 <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
