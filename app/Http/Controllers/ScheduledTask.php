@@ -25,11 +25,14 @@ class ScheduledTask extends Controller
 
     public static function update_activity()
     {
-        $data = User::where('recent_login', '<', now()->subMinuteS(5))->get();
-        foreach ($data as $datum) 
+        if (auth()->check())
         {
-            $datum->recent_login = 'Offline';
-            $datum->save();
+            $data = User::where('recent_login', '<', now()->subMinutes(5))->get();
+            foreach ($data as $datum) 
+            {
+                $datum->recent_login = 'Offline';
+                $datum->save();
+            }
         }
     }
 }
