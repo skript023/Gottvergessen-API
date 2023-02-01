@@ -28,7 +28,7 @@
                             <tr>
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $user->fullname }}</td>
-                                <td>{{ $user->ownerships->ownership }}</td>
+                                <td>{{ $user->ownerships->type }}</td>
                                 <td>{{ $user->computer_name }}</td>
                                 <td>{{ $user->roles->role }}</td>
                                 <td>{{ $user->status }}</td>
