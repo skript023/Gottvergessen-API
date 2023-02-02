@@ -119,7 +119,7 @@
                                 <a href="javascript:void();" class="badge badge-dark badge-pill">bootstrap</a>
                                 <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a> --}}
                                 <hr>
-                                <span class="badge badge-primary"><i class="fa fa-user"></i> All Game Access</span>
+                                <span class="badge badge-primary"><i class="fa fa-user"></i> {{ $user->roles->role }}</span>
                                 <span class="badge badge-success"><i class="fa fa-cog"></i> {{ $user->ownerships->type }}</span>
                                 <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
                             </div>

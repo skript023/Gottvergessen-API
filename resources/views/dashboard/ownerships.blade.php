@@ -9,16 +9,16 @@
         <div class="card col-md-4 mx-auto my-4">
             <div class="card-content p-2">
                 <div class="card-body">
-                    <div class="card-title text-uppercase text-center py-3">Add Ownership</div>
+                    <div class="card-title text-uppercase text-center py-3">Add Product</div>
                     <form action="/dashboard/role/add" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="input-6" class="text-center">Ownerships</label>
-                            <input type="text" name="role" class="form-control form-control-rounded text-center" id="input-6" placeholder="Enter Ownership Name" required>
+                            <label for="input-6" class="text-center">Products</label>
+                            <input type="text" name="role" class="form-control form-control-rounded text-center" id="input-6" placeholder="Enter Product Name" required>
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i> Add Ownership</button>
+                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i> Add Product</button>
                         </div>
                     </form>
                     @isset(request()->edit)
@@ -31,11 +31,11 @@
         <div class="card col-md-6 mx-auto my-4">
             <div class="card-content p-2">
                 <div class="card-body">
-                    <div class="card-title text-uppercase text-center py-3">List Ownerships</div>
+                    <div class="card-title text-uppercase text-center py-3">Existed Products</div>
                     <table class="table table-boardered">
                         <thead>
                         <tr>
-                       <th>Ownerships</th>
+                       <th>Products</th>
                        <th>Action</th>
                         </tr>
                         </thead>
