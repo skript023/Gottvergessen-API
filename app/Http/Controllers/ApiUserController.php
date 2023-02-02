@@ -33,7 +33,7 @@ class ApiUserController extends Controller
                 }
 
                 $user->recent_login = now();
-                $user->activity = 'Playing';
+                $user->activity = 'Online [Launcher]';
                 $user->save();
 
                 $fullname = auth()->user()->fullname;

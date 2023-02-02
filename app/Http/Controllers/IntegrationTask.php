@@ -14,6 +14,7 @@ class IntegrationTask extends Controller
         if (isset($user))
         {
             $user->recent_login = now();
+            $user->activity = 'Online [Playing]';
             $user->save();
 
             return response()->json([
