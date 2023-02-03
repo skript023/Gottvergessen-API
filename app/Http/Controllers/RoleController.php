@@ -19,9 +19,7 @@ class RoleController extends Controller
 
     public function create_role(Request $request)
     {
-        $request->validate([
-            'role',
-        ]);
+        $request->validate(['role']);
 
         $data = $request->only(['role']);
 

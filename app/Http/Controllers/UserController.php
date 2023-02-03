@@ -112,7 +112,7 @@ class UserController extends Controller
             'password'
         ]);
 
-        $data_user['activity'] = 'Online [Web]';
+        $data_user['activity'] = 'Just Registered';
         $data_user['status'] = 'verified';
         $data_user['email_verified_at'] = now();
         $data_user['recent_login'] = now();
