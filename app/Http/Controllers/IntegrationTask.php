@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class IntegrationTask extends Controller
 {
@@ -27,5 +28,30 @@ class IntegrationTask extends Controller
             'message' => 'failed',
             'injection' => false
         ], 404);
+    }
+
+    public function validate_injection(Request $request)
+    {
+        $user = User::where('computer_name', $request->computer_name)->first();
+
+        if (isset($user))
+        {
+            if (!empty($user) && Hash::check($user->hardware_uuid, $request->hardware))
+            {
+                return response()->json([
+                    'message' => 'Integration Success',
+                    'data' => [
+                        'token' => $user->token(),
+                        'fullname' => $user->fullname,
+                        'username' => $user->username,
+                        'role' => $user->role
+                    ]
+                ]);
+            }
+        }
+
+        return response()->json([
+            'message' => 'Integration Failed'
+        ], 401);
     }
 }

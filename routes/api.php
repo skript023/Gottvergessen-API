@@ -33,6 +33,13 @@ Route::post('/v1/auth/login', [ApiUserController::class, 'login']);
 Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
 Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
 Route::get('v1/scheduled', [ScheduledTask::class, 'scheduled_task']);
+Route::post('/v1/integration/grants-access', [IntegrationTask::class, 'validate_injection']);
+
+
+Route::group(['middleware' => ['auth']], function() 
+{
+    
+});
 
 Route::group(['middleware' => 'auth:sanctum'], function() 
 {
