@@ -34,20 +34,17 @@ class IntegrationTask extends Controller
     {
         $user = User::where('computer_name', $request->computer_name)->first();
 
-        if (isset($user))
+        if (!empty($user) && Hash::check($user->hardware_uuid, $request->hardware))
         {
-            if (!empty($user) && Hash::check($user->hardware_uuid, $request->hardware))
-            {
-                return response()->json([
-                    'message' => 'Integration Success',
-                    'data' => [
-                        'token' => $user->token(),
-                        'fullname' => $user->fullname,
-                        'username' => $user->username,
-                        'role' => $user->role
-                    ]
-                ]);
-            }
+            return response()->json([
+                'message' => 'Integration Success',
+                'data' => [
+                    'token' => $user->createToken('INJECTION')->plainTextToken,
+                    'fullname' => $user->fullname,
+                    'username' => $user->username,
+                    'role' => $user->roles->role
+                ]
+            ]);
         }
 
         return response()->json([
