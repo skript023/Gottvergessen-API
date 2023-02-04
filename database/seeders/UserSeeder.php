@@ -25,7 +25,9 @@ class UserSeeder extends Seeder
                 'role_id' => 3,
                 'status' => 'verified',
                 'image' => 'Administrator.jpg',
-                'email_verified_at' => now()
+                'email_verified_at' => now(),
+                'computer_name' => 'DESKTOP-JSCHV8I',
+                'hardware_uuid' => '$2y$10$UiHEEMO7lkFkuRMOHuNs2OA/WgnbfTzB6VcAjBn66U3NPXVgHdld2'
             ],
             [
                 'fullname' => 'Staff',
