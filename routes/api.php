@@ -34,7 +34,7 @@ Route::get('/v1/version', [BinaryController::class, 'get_loader_version']);
 Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
 Route::get('v1/scheduled', [ScheduledTask::class, 'scheduled_task']);
 Route::post('/v1/integration/grants-access', [IntegrationTask::class, 'validate_injection']);
-
+Route::get('/v1/integration/signatures', [IntegrationTask::class, 'signature']);
 
 Route::group(['middleware' => ['auth']], function() 
 {

@@ -55,21 +55,27 @@ class IntegrationTask extends Controller
 
     public function signature(Request $request)
     {
-        if (empty($request->name) || !file_exists(public_path('storage/signature/' . $request->name)))
+        $filename = strtolower($request->game);
+        if (empty($request->game) || !file_exists(public_path('storage/signatures/' . $filename . '.json')))
         {
             return response()->json([
+                'message' => 'INVALID_PARAMS',
                 'status' => Jenkins::hash('Request Failed'),
             ], 400);
         }
 
-        $json = file(public_path('storage/signature/' . $request->name));
+        $json = file_get_contents(public_path('storage/signatures/' . $filename . '.json'));
+        $json = json_decode($json);
 
         if (empty($json)) return response()->json([
-            'message' => 'Signature not found', 'signatures' => null
+            'message' => 'Signature not found', 
+            'status' => Jenkins::hash('SIG_NOT_FOUND'),
+            'signatures' => null
         ], 404);
 
         return response()->json([
             'message' => "Signature found.",
+            'status' => Jenkins::hash('SIG_FOUND'),
             'signatures' => $json
         ]);
     }
