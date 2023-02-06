@@ -14,9 +14,6 @@ class OwnershipController extends Controller
 
         return view('dashboard.ownerships', [
             'ownerships' => $ownerships,
-            'popup_header' => 'Are you sure want to delete the ownership?',
-            'popup_message' => 'Ownership will not be able to restored after deletion',
-            'popup_action' => '/dashboard/ownership/delete/{{$ownership->id}}'
         ]);
     }
     

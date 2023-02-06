@@ -10,9 +10,9 @@ class IntegrationTask extends Controller
 {
     public function update_login_time(Request $request)
     {
-        $user = User::where('hardware_id', $request->hardware)->first();
+        $user = User::where('computer_name', $request->computer)->first();
         
-        if (isset($user))
+        if (isset($user) && Hash::check($user->hardware_uuid, Hash::make($request->hardware)))
         {
             $user->recent_login = now();
             $user->activity = 'Online [Playing]';
@@ -32,14 +32,15 @@ class IntegrationTask extends Controller
 
     public function validate_injection(Request $request)
     {
+        $hashed_hardware = Hash::make($request->hardware);
         $user = User::where('computer_name', $request->computer_name)->first();
 
-        if (!empty($user) && Hash::check($user->hardware_uuid, $request->hardware))
+        if (!empty($user) && Hash::check($user->hardware_uuid, $hashed_hardware))
         {
             return response()->json([
                 'message' => 'Integration Success',
                 'data' => [
-                    'token' => $user->createToken('INJECTION')->plainTextToken,
+                    'token' => $user->createToken('Injection validated by '.$user->fullname)->plainTextToken,
                     'fullname' => $user->fullname,
                     'username' => $user->username,
                     'role' => $user->roles->role
@@ -50,5 +51,26 @@ class IntegrationTask extends Controller
         return response()->json([
             'message' => 'Integration Failed'
         ], 401);
+    }
+
+    public function signature(Request $request)
+    {
+        if (empty($request->name) || !file_exists(public_path('storage/signature/' . $request->name)))
+        {
+            return response()->json([
+                'status' => Jenkins::hash('Request Failed'),
+            ], 400);
+        }
+
+        $json = file(public_path('storage/signature/' . $request->name));
+
+        if (empty($json)) return response()->json([
+            'message' => 'Signature not found', 'signatures' => null
+        ], 404);
+
+        return response()->json([
+            'message' => "Signature found.",
+            'signatures' => $json
+        ]);
     }
 }
