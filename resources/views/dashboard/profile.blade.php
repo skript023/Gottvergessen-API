@@ -95,6 +95,9 @@
                         <li class="nav-item">
                             <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
                         </li>
+                        <li class="nav-item">
+                            <a href="javascript:void();" data-target="#password" data-toggle="pill" class="nav-link"><i class="icon-settings"></i> <span class="hidden-xs">Setting</span></a>
+                        </li>
                     </ul>
                 <div class="tab-content p-3">
                     <div class="tab-pane active" id="profile">
@@ -224,27 +227,6 @@
                                     <input class="form-control" type="file" name="image">
                                 </div>
                             </div>
-                            {{-- <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="url" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="" placeholder="Street">
-                                </div>
-                            </div> --}}
-                            {{-- <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label"></label>
-                                <div class="col-lg-6">
-                                    <input class="form-control" type="text" value="" placeholder="City">
-                                </div>
-                                <div class="col-lg-3">
-                                    <input class="form-control" type="text" value="" placeholder="State">
-                                </div>
-                            </div> --}}
                             
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Username</label>
@@ -252,7 +234,19 @@
                                     <input class="form-control" name="username" type="text" value="{{ auth()->user()->username }}">
                                 </div>
                             </div>
-                            {{-- <div class="form-group row">
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="reset" class="btn btn-secondary" value="Cancel">
+                                    <input type="submit" class="btn btn-primary" value="Save Changes">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="password">
+                        <form action="/dashboard/users/password/update/{{ auth()->user()->id }}" method="POST">
+                            @csrf
+                            <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Password</label>
                                 <div class="col-lg-9">
                                     <input class="form-control" type="password" name="password">
@@ -263,7 +257,7 @@
                                 <div class="col-lg-9">
                                     <input class="form-control" type="password" name="password_confirmation">
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                 <div class="col-lg-9">

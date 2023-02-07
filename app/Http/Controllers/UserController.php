@@ -230,6 +230,30 @@ class UserController extends Controller
         }
     }
 
+    public function update_password(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|confirmed|min:6'
+        ]);
+
+        $data = $request->only([
+            'password'
+        ]);
+
+        $user = user::find($request->selected_user);
+        $data['password'] = Hash::make($data['password']);
+
+        try
+        {
+            $user->update($data);
+            return redirect()->intended('/dashboard/profile');
+        }
+        catch (\Throwable $th) 
+        {
+            return back()->with("Failed", "Failed update password");
+        }
+    }
+
     public function profile()
     {
         return view('dashboard.profile', [

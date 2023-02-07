@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/logging',[ClientMonitorController::class, 'load_logs']);
     Route::get('/dashboard/logs/delete/{id}', [ClientMonitorController::class, 'delete_log']);
     Route::get('/dashboard/logs/delete/all', [ClientMonitorController::class, 'clean_up']);
-
+    
     Route::get('/dashboard/role', [RoleController::class, 'roles']);
     Route::post('/dashboard/role/add', [RoleController::class, 'create_role']);
     Route::post('/dashboard/role/edit/{id}', [RoleController::class, 'update_role']);
@@ -59,6 +59,7 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 Route::group(['middleware' => ['auth', 'verified']], function()
 {
     Route::post('/dashboard/users/profile/update/{selected_user}', [UserController::class, 'update_profile']);
+    Route::post('/dashboard/users/password/update/{selected_user}', [UserController::class, 'update_password']);
     Route::get('/dashboard/profile', [UserController::class, 'profile']);
 });
 
