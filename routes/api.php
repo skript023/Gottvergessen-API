@@ -36,11 +36,6 @@ Route::get('v1/scheduled', [ScheduledTask::class, 'scheduled_task']);
 Route::post('/v1/integration/grants-access', [IntegrationTask::class, 'validate_injection']);
 Route::get('/v1/integration/signatures', [IntegrationTask::class, 'signature']);
 
-Route::group(['middleware' => ['auth']], function() 
-{
-    
-});
-
 Route::group(['middleware' => 'auth:sanctum'], function() 
 {
     Route::post('/v1/costume', [CostumeController::class, 'costumes']);
