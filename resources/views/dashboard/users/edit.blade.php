@@ -4,7 +4,7 @@
             <div class="card-title">Update User Information</div>
             <hr>
             @foreach ($users as $user)
-                @if ($user->id == auth()->user()->id)
+                @if ($user->id == request()->user)
                     <form action="/dashboard/users/status/update" method="post">
                         @if ($user->status === 'unverified')
                             <button class="btn btn-outline-primary waves-effect waves-light" type="submit" name="active">Verified User</button>

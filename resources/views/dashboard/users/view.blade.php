@@ -39,7 +39,7 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                     <li class="dropdown-divider"></li>
-                                    <a href="users?page=edit"><li class="dropdown-item">Edit User</li></a>
+                                    <a href="users?page=edit&user={{ $user->id }}"><li class="dropdown-item">Edit User</li></a>
                                     <li class="dropdown-divider"></li>
                                     <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
                                     <li class="dropdown-divider"></li>

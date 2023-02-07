@@ -35,7 +35,6 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     
     Route::get('/dashboard/users', [UserController::class, 'view_user']);
     Route::post('/dashboard/users/add', [UserController::class, 'add_user']);
-    Route::get('/dashboard/users?page={page}', [UserController::class, 'view_user']);
     Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user']);
     Route::post('/dashboard/users/delete/{selected_user}', [UserController::class, 'update_user']);
     
