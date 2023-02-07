@@ -60,7 +60,7 @@ class IntegrationTask extends Controller
         {
             return response()->json([
                 'message' => 'INVALID_PARAMS',
-                'status' => Jenkins::hash('Request Failed'),
+                'status' => Jenkins::hash('SIG_REQ_FAILED'),
             ], 400);
         }
 
