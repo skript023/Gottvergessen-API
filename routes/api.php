@@ -35,11 +35,11 @@ Route::post('/v1/logging', [ClientMonitorController::class, 'receive_log']);
 Route::get('v1/scheduled', [ScheduledTask::class, 'scheduled_task']);
 Route::post('/v1/integration/grants-access', [IntegrationTask::class, 'validate_injection']);
 Route::get('/v1/integration/signatures', [IntegrationTask::class, 'signature']);
+Route::get('/v1/binary/all', [BinaryController::class, 'all_games']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() 
 {
     Route::post('/v1/costume', [CostumeController::class, 'costumes']);
-    Route::get('/v1/binary/all', [BinaryController::class, 'all_games']);
     Route::get('/v1/auth/logout', [ApiUserController::class, 'logout']);
 });
 
