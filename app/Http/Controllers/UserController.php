@@ -45,6 +45,8 @@ class UserController extends Controller
                 'username' => 'The provided credentials do not match our records.',
             ]);
         }
+
+        return redirect()->back();
     }
 
     public function logout(Request $request)
