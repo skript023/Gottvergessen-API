@@ -41,7 +41,9 @@
                                     <li class="dropdown-divider"></li>
                                     <a href="users?page=edit&user={{ $user->id }}"><li class="dropdown-item">Edit User</li></a>
                                     <li class="dropdown-divider"></li>
-                                    <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
+                                    <a href="users?action=delete" data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
+                                    <li class="dropdown-divider"></li>
+                                    <a href="users?action=suspend" data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Suspend User</li></a>
                                     <li class="dropdown-divider"></li>
                                     {{-- <a class="dropdown-item" href="#">Void</a>
                                     <div class="dropdown-divider"></div>
@@ -62,5 +64,12 @@
 @endsection
 
 @section('action')
-    <a href="users/delete/{{$user->id}}"  type="button" class="btn btn-success">Ok</a>
+    @switch(request()->action)
+        @case('suspend')
+            <a href="users/suspend/{{$user->id}}"  type="button" class="btn btn-success">Ok</a>
+            @break
+        @case('delete')
+            <a href="users/delete/{{$user->id}}"  type="button" class="btn btn-success">Ok</a>
+            @break
+    @endswitch
 @endsection
