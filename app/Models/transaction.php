@@ -20,7 +20,8 @@ class transaction extends Model
         'title',
         'description',
         'outcome',
-        'income'
+        'income',
+        'transaction_date'
     ];
 
     
@@ -39,6 +40,7 @@ class transaction extends Model
      * @var array<string, string>
      */
     protected $casts = [
+        'transaction_date' => 'datetime'
     ];
 
 }

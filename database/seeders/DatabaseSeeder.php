@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(BinarySeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ClientMonitor::class);
+        $this->call(TransactionSeeder::class);
     }
 }

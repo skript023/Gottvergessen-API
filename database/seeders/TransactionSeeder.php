@@ -19,7 +19,8 @@ class TransactionSeeder extends Seeder
                 'title' => 'test',
                 'description' => 'transaction test',
                 'outcome' => 0,
-                'income' => 0
+                'income' => 0,
+                'transaction_date' => now()
             ],
         ];
         

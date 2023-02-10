@@ -26,27 +26,31 @@
                         @foreach ($transactions as $transaction)
                             <tr>
                                 <th scope="row">{{ $loop->index + 1 }}</th>
-                                <td>{{ $transaction->fullname }}</td>
-                                <td>{{ $transaction->ownerships->type }}</td>
-                                <td>{{ $transaction->computer_name }}</td>
-                                <td>{{ $transaction->roles->role }}</td>
-                                <td>{{ $transaction->activity }}</td>
+                                <td>{{ $transaction->title }}</td>
+                                <td>{{ $transaction->description }}</td>
+                                <td>{{ $transaction->outcome }}</td>
+                                <td>{{ $transaction->income }}</td>
+                                <td>{{ $transaction->transaction_dates }}</td>
                                 <td>
-                                <div class="btn-group">
-                                <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Action
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
-                                    <li class="dropdown-divider"></li>
-                                    <a href="users?page=edit&user={{ $transaction->id }}"><li class="dropdown-item">Edit User</li></a>
-                                    <li class="dropdown-divider"></li>
-                                    <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
-                                    <li class="dropdown-divider"></li>
-                                </ul>
-                            </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
+                                            <li class="dropdown-divider"></li>
+                                            <a href="users?page=edit&user={{ $transaction->id }}"><li class="dropdown-item">Edit User</li></a>
+                                            <li class="dropdown-divider"></li>
+                                            <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
+                                            <li class="dropdown-divider"></li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
+                        <tr>
+                            <td>Total</td>
+                            <td>Outcome : {{ $total_outcome }}</td>
+                            <td>Income : {{ $total_income }}</td>
                     </tbody>
                 </table>
             </div>
