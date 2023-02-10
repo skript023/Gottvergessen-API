@@ -30,7 +30,7 @@
                                 <td>{{ $transaction->description }}</td>
                                 <td>{{ $transaction->outcome }}</td>
                                 <td>{{ $transaction->income }}</td>
-                                <td>{{ $transaction->transaction_dates }}</td>
+                                <td>{{ $transaction->transaction_date }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
