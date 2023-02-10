@@ -1,11 +1,11 @@
 @extends('includes.core')
-@section('title', 'Users')
-@section('modal-header', 'User Deletion')
-@section('modal-message', 'Are you sure want to delete this user? the data will not be able to restored after deletion')
+@section('title', 'Transaction')
+@section('modal-header', 'Transaction Deletion')
+@section('modal-message', 'Are you sure want to delete this tranaction? the data will not be able to restored after deletion')
 @section('content')
 <div class="col-lg-12">
     <div class="my-4">
-        <a class="btn btn-light zmdi zmdi-account-add" href="users?page=add"> Add Account</a>
+        <a class="btn btn-light zmdi zmdi-account-add" href="transaction-history?page=add"> Add Transaction</a>
     </div>
     <div class="card">
         <div class="card-body">
@@ -28,8 +28,8 @@
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $transaction->title }}</td>
                                 <td>{{ $transaction->description }}</td>
-                                <td>{{ $transaction->outcome }}</td>
-                                <td>{{ $transaction->income }}</td>
+                                <td>IDR {{ $transaction->outcome }}</td>
+                                <td>IDR {{ $transaction->income }}</td>
                                 <td>{{ $transaction->transaction_date }}</td>
                                 <td>
                                     <div class="btn-group">
@@ -38,7 +38,7 @@
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                             <li class="dropdown-divider"></li>
-                                            <a href="users?page=edit&user={{ $transaction->id }}"><li class="dropdown-item">Edit User</li></a>
+                                            <a href="transaction-history?page=edit&transaction={{ $transaction->id }}"><li class="dropdown-item">Edit User</li></a>
                                             <li class="dropdown-divider"></li>
                                             <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
                                             <li class="dropdown-divider"></li>
@@ -48,9 +48,12 @@
                             </tr>
                         @endforeach
                         <tr>
+                            <td>#</td>
                             <td>Total</td>
-                            <td>Outcome : {{ $total_outcome }}</td>
-                            <td>Income : {{ $total_income }}</td>
+                            <td></td>
+                            <td>IDR {{ $total_outcome }}</td>
+                            <td>IDR {{ $total_income }}</td>
+                        </tr>   
                     </tbody>
                 </table>
             </div>
