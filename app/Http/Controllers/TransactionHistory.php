@@ -9,26 +9,12 @@ class TransactionHistory extends Controller
 {
     public function index()
     {
-        $outcomes = transaction::all()->get('outcome');
-        $incomes = transaction::all()->get('income');
-        $transaction = transaction::all()->first();
-
-        $result_outcome = 0;
-        $result_income = 0;
-
-        foreach ($outcomes as $outcome)
-        {
-            $result_outcome = $outcome + $outcome;
-        }
-
-        foreach ($incomes as $income) 
-        {
-            $result_income = $income + $income;
-        }
+        $transactions = transaction::all();
 
         return view("dashboard.transaction-history", [
-            'transactions' => $transaction,
-            'total_outcome' => $result_outcome
+            'transactions' => $transactions,
+            'total_outcome' => $transactions->sum('outcome'),
+            'total_income' => $transactions->sum('income')
         ]);
     }
 

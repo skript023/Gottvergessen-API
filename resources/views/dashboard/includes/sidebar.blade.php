@@ -38,6 +38,11 @@
                 <i class="zmdi zmdi-chart"></i> <span>Ownerships</span>
                 </a>
             </li>
+            <li>
+                <a href="/dashboard/transaction-history">
+                <i class="zmdi zmdi-chart"></i> <span>Transaction</span>
+                </a>
+            </li>
         @endif
 
         <li>

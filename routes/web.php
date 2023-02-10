@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientMonitorController;
 use App\Http\Controllers\OwnershipController;
 use App\Http\Controllers\RoleController;
-
+use App\Http\Controllers\TransactionHistory;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +55,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/ownership/add', [OwnershipController::class, 'create_ownership']);
     Route::post('/dashboard/ownership/edit/{id}', [OwnershipController::class, 'update_ownership']);
     Route::get('/dashboard/ownership/delete/{id}', [OwnershipController::class, 'delete_ownership']);
+
+    Route::get('/dashboard/transaction-history', [TransactionHistory::class, 'index']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()
