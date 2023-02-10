@@ -13,7 +13,7 @@ class TransactionHistory extends Controller
 
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,
-            'total_outcome' => $transactions->sum('outcome'),
+            'total_expenditure' => $transactions->sum('expenditure'),
             'total_income' => $transactions->sum('income')
         ]);
     }
@@ -29,11 +29,11 @@ class TransactionHistory extends Controller
             'title', 
             'description', 
             'income',
-            'outcome'
+            'expenditure'
         ]);
 
         $data['income'] = empty($data['income']) ? 0 : $data['income'];
-        $data['outcome'] = empty($data['outcome']) ? 0 : ($data['outcome'] > 0 ? $data['outcome'] - ($data['outcome'] * 2) : $data['outcome']);
+        $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
 
         try 
         {
@@ -71,11 +71,11 @@ class TransactionHistory extends Controller
             'title', 
             'description', 
             'income',
-            'outcome'
+            'expenditure'
         ]);
 
         $data['income'] = empty($data['income']) ? 0 : $data['income'];
-        $data['outcome'] = empty($data['outcome']) ? 0 : ($data['outcome'] > 0 ? $data['outcome'] - ($data['outcome'] * 2) : $data['outcome']);
+        $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
 
         $transaction = transaction::find($request->selected_transaction);
 

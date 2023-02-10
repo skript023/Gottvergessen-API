@@ -17,8 +17,9 @@
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Outcome</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Income</th>
+                        <th scope="col">Expenditure</th>
                         <th scope="col">Date</th>
                         </tr>
                     </thead>
@@ -28,8 +29,9 @@
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $transaction->title }}</td>
                                 <td>{{ $transaction->description }}</td>
-                                <td>IDR {{ $transaction->outcome }}</td>
+                                <td>{{ $transaction->type }}</td>
                                 <td>IDR {{ $transaction->income }}</td>
+                                <td>IDR {{ $transaction->expenditure }}</td>
                                 <td>{{ $transaction->transaction_date }}</td>
                                 <td>
                                     <div class="btn-group">
@@ -48,10 +50,10 @@
                             </tr>
                         @endforeach
                         <tr>
-                            <td>#</td>
+                            <td></td>
                             <td>Total</td>
                             <td></td>
-                            <td>IDR {{ $total_outcome }}</td>
+                            <td>IDR {{ $total_expenditure }}</td>
                             <td>IDR {{ $total_income }}</td>
                         </tr>   
                     </tbody>

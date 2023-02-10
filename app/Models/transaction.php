@@ -19,7 +19,7 @@ class transaction extends Model
     protected $fillable = [
         'title',
         'description',
-        'outcome',
+        'expenditure',
         'income',
         'transaction_date'
     ];

@@ -16,9 +16,10 @@ class TransactionSeeder extends Seeder
     {
         $transactions = [
             [
-                'title' => 'test',
-                'description' => 'transaction test',
-                'outcome' => 0,
+                'title' => 'Transaction title',
+                'description' => 'transaction description',
+                'type' => 'cash/bank',
+                'expenditure' => 0,
                 'income' => 0,
                 'transaction_date' => now()
             ],

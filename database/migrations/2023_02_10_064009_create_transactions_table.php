@@ -18,7 +18,8 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->bigInteger('outcome')->default(0);
+            $table->string('type');
+            $table->bigInteger('expenditure')->default(0);
             $table->bigInteger('income')->default(0);
             $table->timestamp('transaction_date');
             $table->timestamps();
