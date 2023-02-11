@@ -12,7 +12,7 @@ class TransactionHistory extends Controller
     {
         $transactions = transaction::all();
         $balance = balance::where('user_id', auth()->user()->id)->first();
-        $balance->amount = (int)$balance->amount + $transactions->sum('income') - ($transactions->sum('expenditure'));
+        $balance->bank = (int)$balance->bank + $transactions->sum('income') - ($transactions->sum('expenditure'));
 
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,

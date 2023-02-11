@@ -41,7 +41,7 @@ class ScheduledTask extends Controller
 
         try 
         {
-            $balance->amount += 5926000;
+            $balance->bank += 5926000;
             $balance->save();
         } 
         catch (\Throwable $th) 
