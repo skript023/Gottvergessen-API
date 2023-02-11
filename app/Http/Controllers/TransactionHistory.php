@@ -38,13 +38,24 @@ class TransactionHistory extends Controller
             'expenditure'
         ]);
 
+        $balance = balance::where('user_id', auth()->user()->id);
         $data['user_id'] = auth()->user()->id;
         $data['income'] = (int)$data['income'];
         $data['expenditure'] = (int)$data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : (int)$data['expenditure'];
 
+        if ($data['expenditure'] < 0)
+        {
+            $balance->bank += $data['expenditure'];
+        }
+        else if ($data['income'] > 0)
+        {
+            $balance->bank += $data['income'];
+        }
+
         try 
         {
             transaction::create($data);
+            $balance->save();
 
             return redirect()->intended('/dashboard/transaction-history');
         } 
@@ -52,6 +63,51 @@ class TransactionHistory extends Controller
         {
             dd($th);
             return back()->withErrors("Registration", "Redigstration Failed");
+        }
+    }
+    
+    public function update_transaction(Request $request)
+    {
+        $request->validate([
+            'type' => 'required', 
+            'title' => 'required', 
+            'description' => 'required',
+        ]);
+        
+        $data = $request->only([
+            'type',
+            'title', 
+            'description', 
+            'income',
+            'expenditure'
+        ]);
+
+        $balance = balance::where('user_id', auth()->user()->id);
+        $data['user_id'] = auth()->user()->id;
+        $data['income'] = empty($data['income']) ? 0 : $data['income'];
+        $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
+        
+        $transaction = transaction::find($request->selected_transaction);
+
+        if ($data['expenditure'] < 0)
+        {
+            $balance->bank += $data['expenditure'];
+        }
+        else if ($data['income'] > 0)
+        {
+            $balance->bank += $data['income'];
+        }
+        
+        try 
+        {
+            $transaction->update($data);
+            $balance->save();
+            
+            return redirect()->intended('/dashboard/transaction-history');
+        } 
+        catch (\Throwable $th) 
+        {
+            return back()->withErrors("Registration", "Update Failed");
         }
     }
 
@@ -65,39 +121,5 @@ class TransactionHistory extends Controller
         }
 
         return back()->with("Failed", "Failed delete transaction");
-    }
-
-    public function update_transaction(Request $request)
-    {
-        $request->validate([
-            'type' => 'required', 
-            'title' => 'required', 
-            'description' => 'required',
-        ]);
-
-        $data = $request->only([
-            'type',
-            'title', 
-            'description', 
-            'income',
-            'expenditure'
-        ]);
-
-        $data['user_id'] = auth()->user()->id;
-        $data['income'] = empty($data['income']) ? 0 : $data['income'];
-        $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
-
-        $transaction = transaction::find($request->selected_transaction);
-
-        try 
-        {
-            $transaction->update($data);
-
-            return redirect()->intended('/dashboard/transaction-history');
-        } 
-        catch (\Throwable $th) 
-        {
-            return back()->withErrors("Registration", "Update Failed");
-        }
     }
 }
