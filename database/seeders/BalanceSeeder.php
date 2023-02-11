@@ -17,15 +17,18 @@ class BalanceSeeder extends Seeder
         $balances = [
             [
                 'user_id' => 1,
-                'amount' => 0,
+                'bank' => 0,
+                'cash' => 0,
             ],
             [
                 'user_id' => 2,
-                'amount' => 0,
+                'bank' => 0,
+                'cash' => 0,
             ],
             [
                 'user_id' => 3,
-                'amount' => 0,
+                'bank' => 0,
+                'cash' => 0,
             ],
         ];
         

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,6 +12,8 @@ class UserController extends Controller
 {
     public function dashboard(Request $request)
     {
+        $transaction = transaction::where('user_id', auth()->user()->id);
+        
         return view('dashboard.home', [
             'user_data' => User::all(),
             'username' => auth()->user()->username,
@@ -18,7 +21,10 @@ class UserController extends Controller
             'status' => auth()->user()->status,
             'created_date' => auth()->user()->user_date,
             'image' => auth()->user()->image,
-            'total_user' => User::select('username')->get()->count()
+            'total_user' => User::select('username')->get()->count(),
+            'total_expenditure' => $transaction->sum('expenditure'),
+            'total_income' => $transaction->sum('income'),
+            'transaction' => $transaction
         ]);
     }
 

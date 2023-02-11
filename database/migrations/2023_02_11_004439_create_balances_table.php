@@ -17,7 +17,8 @@ class CreateBalancesTable extends Migration
         Schema::create('balances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->default(1);
-            $table->unsignedBigInteger('amount')->default(0);
+            $table->unsignedBigInteger('bank')->default(0);
+            $table->unsignedBigInteger('cash')->default(0);
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
