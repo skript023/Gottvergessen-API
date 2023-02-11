@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 class CreateBalancesTable extends Migration
@@ -20,6 +21,11 @@ class CreateBalancesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
+
+        Artisan::call( 'db:seed', [
+            '--class' => 'BalanceSeeder',
+            '--force' => true ]
+        );
     }
 
     /**

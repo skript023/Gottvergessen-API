@@ -22,7 +22,8 @@ class transaction extends Model
         'expenditure',
         'income',
         'transaction_date',
-        'user_id'
+        'user_id',
+        'type'
     ];
 
     

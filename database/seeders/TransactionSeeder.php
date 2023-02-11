@@ -17,11 +17,11 @@ class TransactionSeeder extends Seeder
         $transactions = [
             [
                 'user_id' => 1,
-                'title' => 'Transaction title',
-                'description' => 'transaction description',
-                'type' => 'cash/bank',
+                'title' => 'First Income',
+                'description' => 'First income',
+                'type' => 'bank',
                 'expenditure' => 0,
-                'income' => 0,
+                'income' => 5926000,
                 'transaction_date' => now()
             ],
         ];
