@@ -51,7 +51,7 @@
                         @endforeach
                         <tr>
                             <td></td>
-                            <td>Total</td>
+                            <td>Total {{ $total }}</td>
                             <td></td>
                             <td>IDR {{ $total_expenditure }}</td>
                             <td>IDR {{ $total_income }}</td>

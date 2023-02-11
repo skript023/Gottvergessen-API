@@ -8,6 +8,10 @@
                     <form action="/dashboard/transaction/update/{{ $transaction->id }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
+                            <label for="input-6">Type</label>
+                            <input type="text" name="type" class="form-control form-control-rounded" id="input-6" placeholder="Enter Type" required>
+                        </div>
+                        <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" class="form-control form-control-rounded" id="title" placeholder="{{ $transaction->title }}">
                         </div>
