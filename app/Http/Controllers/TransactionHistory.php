@@ -32,6 +32,7 @@ class TransactionHistory extends Controller
             'expenditure'
         ]);
 
+        $data['user_id'] = auth()->user()->id;
         $data['income'] = empty($data['income']) ? 0 : $data['income'];
         $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
 

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class transaction extends Model
+class balance extends Model
 {
     use HasFactory;
 
@@ -17,11 +17,7 @@ class transaction extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
-        'description',
-        'expenditure',
-        'income',
-        'transaction_date',
+        'amount',
         'user_id'
     ];
 
@@ -41,7 +37,6 @@ class transaction extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'transaction_date' => 'datetime'
+        
     ];
-
 }

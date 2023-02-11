@@ -65,5 +65,5 @@
 @endsection
 
 @section('action')
-    <a href="users/delete/{{$transaction->id}}"  type="button" class="btn btn-success">Ok</a>
+    <a href="transaction/delete/{{$transaction->id}}"  type="button" class="btn btn-success">Ok</a>
 @endsection

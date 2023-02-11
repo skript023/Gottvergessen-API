@@ -20,8 +20,8 @@
                             <input type="text" name="income" class="form-control form-control-rounded" id="income" placeholder="{{ $transaction->income }}">
                         </div>
                         <div class="form-group">
-                            <label for="outcome">Outcome</label>
-                            <input type="text" name="outcome" class="form-control form-control-rounded" id="outcome" placeholder="{{ $transaction->outcome }}">
+                            <label for="expenditure">Expenditure</label>
+                            <input type="text" name="expenditure" class="form-control form-control-rounded" id="expenditure" placeholder="{{ $transaction->expenditure }}">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Update Account</button>

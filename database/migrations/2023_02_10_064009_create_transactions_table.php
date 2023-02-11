@@ -16,11 +16,13 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->default(1);
             $table->string('title');
             $table->string('description');
             $table->string('type');
             $table->bigInteger('expenditure')->default(0);
             $table->bigInteger('income')->default(0);
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamp('transaction_date');
             $table->timestamps();
         });

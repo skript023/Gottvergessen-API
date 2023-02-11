@@ -18,8 +18,8 @@
                     <input type="text" name="income" class="form-control form-control-rounded" id="input-6" placeholder="Enter Income">
                 </div>
                 <div class="form-group">
-                    <label for="input-7">Outcome</label>
-                    <input type="text" name="outcome" class="form-control form-control-rounded" id="input-7" placeholder="Enter Outcome">
+                    <label for="input-7">Expenditure</label>
+                    <input type="text" name="expenditure" class="form-control form-control-rounded" id="input-7" placeholder="Enter Outcome">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i> Add Transaction</button>
