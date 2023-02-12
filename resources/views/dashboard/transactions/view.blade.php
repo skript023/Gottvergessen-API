@@ -96,6 +96,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                             <td>IDR {{ $total_expenditure }}</td>
                             <td>IDR {{ $total_income }}</td>
                         </tr>   
