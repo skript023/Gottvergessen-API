@@ -12,13 +12,14 @@ class TransactionHistory extends Controller
     {
         $transactions = transaction::all();
         $balance = balance::where('user_id', auth()->user()->id)->first();
-        $balance->bank = (int)$balance->bank + $transactions->sum('income') - ($transactions->sum('expenditure'));
+        $balance->bank = $transactions->sum('income') - ($transactions->sum('expenditure'));
 
+        $balance->save();
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,
             'total_expenditure' => $transactions->sum('expenditure'),
             'total_income' => $transactions->sum('income'),
-            'total' => $balance->amount
+            'total' => $balance->bank
         ]);
     }
 
@@ -38,24 +39,13 @@ class TransactionHistory extends Controller
             'expenditure'
         ]);
 
-        $balance = balance::where('user_id', auth()->user()->id);
         $data['user_id'] = auth()->user()->id;
         $data['income'] = (int)$data['income'];
         $data['expenditure'] = (int)$data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : (int)$data['expenditure'];
 
-        if ($data['expenditure'] < 0)
-        {
-            $balance->bank += $data['expenditure'];
-        }
-        else if ($data['income'] > 0)
-        {
-            $balance->bank += $data['income'];
-        }
-
         try 
         {
             transaction::create($data);
-            $balance->save();
 
             return redirect()->intended('/dashboard/transaction-history');
         } 
@@ -82,26 +72,15 @@ class TransactionHistory extends Controller
             'expenditure'
         ]);
 
-        $balance = balance::where('user_id', auth()->user()->id);
         $data['user_id'] = auth()->user()->id;
         $data['income'] = empty($data['income']) ? 0 : $data['income'];
         $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
         
         $transaction = transaction::find($request->selected_transaction);
 
-        if ($data['expenditure'] < 0)
-        {
-            $balance->bank += $data['expenditure'];
-        }
-        else if ($data['income'] > 0)
-        {
-            $balance->bank += $data['income'];
-        }
-        
         try 
         {
             $transaction->update($data);
-            $balance->save();
             
             return redirect()->intended('/dashboard/transaction-history');
         } 

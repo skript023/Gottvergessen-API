@@ -17,6 +17,15 @@ class TransactionSeeder extends Seeder
         $transactions = [
             [
                 'user_id' => 1,
+                'title' => 'Owned Income',
+                'description' => 'Owned income',
+                'type' => 'cash',
+                'expenditure' => 0,
+                'income' => 2550000,
+                'transaction_date' => now()
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'First Income',
                 'description' => 'First income',
                 'type' => 'bank',
