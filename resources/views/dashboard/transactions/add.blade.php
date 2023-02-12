@@ -5,10 +5,22 @@
             <div class="card-title text-uppercase text-center py-3">Add Transaction</div>
             <form action="/dashboard/transaction/add" method="post">
                 @csrf
-                <div class="form-group">
+                <div class="text-center">
                     <label for="input-6">Type</label>
-                    <input type="text" name="type" class="form-control form-control-rounded" id="input-6" placeholder="Enter Type" required>
                 </div>
+                <div class="form-group text-center">
+                    <label class="mr-3">
+                        <input type="radio" id="administrator" name="type" value="bank"> Bank
+                    </label>
+                    <label class="mr-auto">
+                        <input type="radio" id="moderator" name="type" value="cash"> Cash
+                    </label>
+                </div>
+                {{-- <label for="designation">Designation</label>
+                <select id="designation" name="designation" class="form-control">
+                    <option value="">--- Select designation ---</option>
+                    <option value="EE">Test</option>
+                </select> --}}
                 <div class="form-group">
                     <label for="input-6">Title</label>
                     <input type="text" name="title" class="form-control form-control-rounded" id="input-6" placeholder="Enter Title" required>
