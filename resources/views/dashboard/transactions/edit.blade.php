@@ -7,17 +7,12 @@
                 @if ($transaction->id == request()->transaction)
                     <form action="/dashboard/transaction/update/{{ $transaction->id }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="text-center">
-                            <label for="input-6">Type</label>
-                        </div>
-                        <div class="form-group text-center">
-                            <label class="mr-3">
-                                <input type="radio" id="administrator" name="type" value="bank"> Bank
-                            </label>
-                            <label class="mr-auto">
-                                <input type="radio" id="moderator" name="type" value="cash"> Cash
-                            </label>
-                        </div>
+                        <label for="input-6">Type</label>
+                        <select id="type" name="type" class="form-control text-center mb-3">
+                            <option class="bg-dark-light" value="">--- Select type ---</option>
+                            <option class="bg-dark-light" value="bank">Bank</option>
+                            <option class="bg-dark-light" value="cash">Cash</option>
+                        </select>
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" class="form-control form-control-rounded" id="title" placeholder="{{ $transaction->title }}">
