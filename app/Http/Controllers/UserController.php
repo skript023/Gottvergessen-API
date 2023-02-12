@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\balance;
 use App\Models\transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -13,6 +14,7 @@ class UserController extends Controller
     public function dashboard(Request $request)
     {
         $transaction = transaction::where('user_id', auth()->user()->id);
+        $balance = balance::where('user_id', auth()->user()->id)->first();
         
         return view('dashboard.home', [
             'user_data' => User::all(),
@@ -24,7 +26,8 @@ class UserController extends Controller
             'total_user' => User::select('username')->get()->count(),
             'total_expenditure' => $transaction->sum('expenditure'),
             'total_income' => $transaction->sum('income'),
-            'transaction' => $transaction
+            'transaction' => $transaction,
+            'balance' => $balance
         ]);
     }
 

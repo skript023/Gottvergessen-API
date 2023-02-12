@@ -11,15 +11,27 @@ class TransactionHistory extends Controller
     public function index()
     {
         $transactions = transaction::all();
+        $expenditure = transaction::where('transaction_date', '>', now()->subDays(30))->where('expenditure', '<', 0);
+        $income = transaction::where('transaction_date', '>', now()->subDays(30))->where('income', '>', 0);
+        $transaction = transaction::where('user_id', auth()->user()->id);
+        $bank = transaction::where('type', 'bank');
+        $cash = transaction::where('type', 'cash');
         $balance = balance::where('user_id', auth()->user()->id)->first();
-        $balance->bank = $transactions->sum('income') - ($transactions->sum('expenditure'));
+        $balance->bank = $bank->sum('income') - $bank->sum('expenditure');
+        $balance->cash = $cash->sum('income') - $cash->sum('expenditure');
+        $avg_exp = $expenditure->count() / $transaction->count();
+        $avg_inc = $income->count() / $transaction->count();
 
         $balance->save();
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,
             'total_expenditure' => $transactions->sum('expenditure'),
             'total_income' => $transactions->sum('income'),
-            'total' => $balance->bank
+            'total' => $balance->bank,
+            'transaction' => $transaction,
+            'balance' => $balance,
+            'avg_exp' => round($avg_exp, 1),
+            'avg_inc' => round($avg_inc, 1)
         ]);
     }
 

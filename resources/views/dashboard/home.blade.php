@@ -15,7 +15,7 @@
             </div>
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                <h5 class="text-white mb-0">{{ $total_income }} <span class="float-right"><i class="fa fa-usd"></i></span></h5>
+                <h5 class="text-white mb-0">{{ $total_income }} <span class="float-right"><i class="fa fa-bar-chart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                     <div class="progress-bar" style="width:55%"></div>
                     </div>
@@ -24,20 +24,20 @@
             </div>
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                <h5 class="text-white mb-0">6200 <span class="float-right"><i class="fa fa-eye"></i></span></h5>
+                <h5 class="text-white mb-0">{{ $balance->bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                     <div class="progress-bar" style="width:55%"></div>
                     </div>
-                <p class="mb-0 text-white small-font">Visitors <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                <p class="mb-0 text-white small-font">Bank <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                <h5 class="text-white mb-0">5630 <span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                <h5 class="text-white mb-0">{{ $balance->cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                     <div class="progress-bar" style="width:55%"></div>
                     </div>
-                <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                <p class="mb-0 text-white small-font">Cash <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
             </div>
         </div>
