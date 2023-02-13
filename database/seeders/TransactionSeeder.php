@@ -48,7 +48,7 @@ class TransactionSeeder extends Seeder
             [
                 'user_id' => 1,
                 'title' => 'KRL Commuter Line',
-                'description' => 'Commuter Line Depok-Gondangdia',
+                'description' => 'Commuter Line Depok - Gondangdia',
                 'office' => 'STO Gambir',
                 'type' => 'e-money',
                 'expenditure' => -3000,
@@ -58,7 +58,7 @@ class TransactionSeeder extends Seeder
             [
                 'user_id' => 1,
                 'title' => 'Trans Jakarta',
-                'description' => 'Trans Jakarta 2Q Balaikota-Gondangdia',
+                'description' => 'Trans Jakarta 2Q Gondangdia - Balaikota',
                 'office' => 'STO Gambir',
                 'type' => 'e-money',
                 'expenditure' => -3500,
@@ -74,6 +74,26 @@ class TransactionSeeder extends Seeder
                 'expenditure' => -18000,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 13, 12, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'KRL Commuter Line',
+                'description' => 'Commuter Line Gondangdia - Depok',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 13, 6, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Trans Jakarta',
+                'description' => 'Trans Jakarta 2Q Balaikota-Gondangdia',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 13, 8, 13)
             ],
         ];
         
