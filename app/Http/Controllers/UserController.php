@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Artisan;
 
 class UserController extends Controller
 {
@@ -308,5 +309,10 @@ class UserController extends Controller
         $file->move('uploads/avatar/', $filename);
 
         $data['image'] = $filename;
+    }
+
+    public function migrasi_database_and_seeder()
+    {
+        Artisan::call('php artisan migrate');
     }
 }

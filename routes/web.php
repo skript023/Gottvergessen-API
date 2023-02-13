@@ -60,6 +60,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/transaction/add', [TransactionHistory::class, 'create_transaction']);
     Route::post('/dashboard/transaction/update/{selected_transaction}', [TransactionHistory::class, 'update_transaction']);
     Route::post('/dashboard/transaction/delete/{selected_transaction}', [TransactionHistory::class, 'delete_transaction']);
+
+    Route::get('/admin/command/migration', [UserController::class, 'migrasi_database_and_seeder']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()
