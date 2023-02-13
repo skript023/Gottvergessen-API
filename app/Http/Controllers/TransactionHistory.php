@@ -14,11 +14,13 @@ class TransactionHistory extends Controller
         $expenditure = transaction::where('transaction_date', '>', now()->subDays(30))->where('expenditure', '<', 0);
         $income = transaction::where('transaction_date', '>', now()->subDays(30))->where('income', '>', 0);
         $transaction = transaction::where('user_id', auth()->user()->id);
-        $bank = transaction::where('type', 'bank');
-        $cash = transaction::where('type', 'cash');
+        
         $balance = balance::where('user_id', auth()->user()->id)->first();
-        $balance->bank = $bank->sum('income') - $bank->sum('expenditure');
-        $balance->cash = $cash->sum('income') - $cash->sum('expenditure');
+        $balance->bank = $transactions->where('type', 'bank')->sum('income') - abs($transactions->where('type', 'bank')->sum('expenditure'));
+        $balance->cash = $transactions->where('type', 'cash')->sum('income') - abs($transactions->where('type', 'cash')->sum('expenditure'));
+        $balance->emoney = $transactions->where('type', 'e-money')->sum('income') - abs($transactions->where('type', 'e-money')->sum('expenditure'));
+        $balance->gopay = $transactions->where('type', 'gopay')->sum('income') - abs($transactions->where('type', 'gopay')->sum('expenditure'));
+        
         $avg_exp = $expenditure->count() / $transaction->count();
         $avg_inc = $income->count() / $transaction->count();
         $rate_income = abs($transactions->sum('expenditure')) / $transactions->sum('income');
@@ -35,7 +37,8 @@ class TransactionHistory extends Controller
             'avg_exp' => round($avg_exp, 2),
             'avg_inc' => round($avg_inc, 2),
             'rate_income' => round($rate_income, 2),
-            'SALARY' => controller::SALARY
+            'SALARY' => controller::SALARY,
+            'balance_types' => $balance->collumns()
         ]);
     }
 
@@ -58,6 +61,7 @@ class TransactionHistory extends Controller
         $data['user_id'] = auth()->user()->id;
         $data['income'] = (int)$data['income'];
         $data['expenditure'] = (int)$data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : (int)$data['expenditure'];
+        $data['type'] = $data['type'] == 'emoney' ? 'e-money' : $data['type'];
 
         try 
         {
@@ -91,7 +95,8 @@ class TransactionHistory extends Controller
         $data['user_id'] = auth()->user()->id;
         $data['income'] = empty($data['income']) ? 0 : $data['income'];
         $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
-        
+        $data['type'] = $data['type'] == 'emoney' ? 'e-money' : $data['type'];
+
         $transaction = transaction::find($request->selected_transaction);
 
         try 

@@ -17,7 +17,14 @@ class balance extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'amount',
+        'bank',
+        'cash',
+        'gopay',
+        'ovo',
+        'dana',
+        'emoney',
+        'link_aja',
+        'shopee_pay',
         'user_id'
     ];
 
@@ -39,4 +46,9 @@ class balance extends Model
     protected $casts = [
         
     ];
+
+    public function collumns()
+    {
+        return $this->setHidden(['id', 'user_id', 'created_at', 'updated_at'])->toArray();
+    }
 }

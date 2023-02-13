@@ -17,8 +17,8 @@ class TransactionSeeder extends Seeder
         $transactions = [
             [
                 'user_id' => 1,
-                'title' => 'Tarik Tunai Gaji Disnaker',
-                'description' => 'Tarik Tunai Gaji Tukang Service Disnaker Depok',
+                'title' => 'Sisa Uang Tunai & Gaji Disnaker',
+                'description' => 'Sisa Uang Tunai & Gaji Disnaker Depok',
                 'office' => 'Wisma Hijau Depok',
                 'type' => 'cash',
                 'expenditure' => 0,
