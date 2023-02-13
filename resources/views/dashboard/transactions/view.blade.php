@@ -13,11 +13,11 @@
             <div class="row row-group m-0">
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $total_expenditure }} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <h5 class="text-white mb-0">{{ abs($total_expenditure) }} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
                         </div>
-                    <p class="mb-0 text-white small-font">Total Expenditure <span class="float-right">+{{ $avg_exp }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    <p class="mb-0 text-white small-font">Total Expenditure <span class="float-right">{{ $avg_exp > 0 ? "+" : "-" }}{{ $avg_exp }}% <i class="{{ $avg_exp > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
@@ -26,25 +26,25 @@
                         <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
                         </div>
-                    <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">+{{ $avg_inc }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">{{ $avg_inc > 0 ? "+" : "-" }}{{ $avg_inc }}% <i class="{{ $avg_inc > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
                     <h5 class="text-white mb-0">{{ $balance->bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                        <div class="progress-bar" style="width:55%"></div>
+                        <div class="progress-bar" style="width:{{ $balance->bank / $SALARY * 100 }}%"></div>
                         </div>
-                    <p class="mb-0 text-white small-font">Bank <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    <p class="mb-0 text-white small-font">Bank <span class="float-right">+{{ $rate_income }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
                     <h5 class="text-white mb-0">{{ $balance->cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                        <div class="progress-bar" style="width:55%"></div>
+                        <div class="progress-bar" style="width:{{ $balance->cash / $balance->cash * 100 }}%"></div>
                         </div>
-                    <p class="mb-0 text-white small-font">Cash <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    <p class="mb-0 text-white small-font">Cash <span class="float-right">+{{ $rate_income }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
                 </div>
             </div>
@@ -97,8 +97,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>IDR {{ $total_expenditure }}</td>
                             <td>IDR {{ $total_income }}</td>
+                            <td>IDR {{ $total_expenditure }}</td>
                         </tr>   
                     </tbody>
                 </table>

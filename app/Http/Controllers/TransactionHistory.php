@@ -21,8 +21,10 @@ class TransactionHistory extends Controller
         $balance->cash = $cash->sum('income') - $cash->sum('expenditure');
         $avg_exp = $expenditure->count() / $transaction->count();
         $avg_inc = $income->count() / $transaction->count();
+        $rate_income = abs($transactions->sum('expenditure')) / $transactions->sum('income');
 
         $balance->save();
+
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,
             'total_expenditure' => $transactions->sum('expenditure'),
@@ -30,8 +32,10 @@ class TransactionHistory extends Controller
             'total' => $balance->bank,
             'transaction' => $transaction,
             'balance' => $balance,
-            'avg_exp' => round($avg_exp, 1),
-            'avg_inc' => round($avg_inc, 1)
+            'avg_exp' => round($avg_exp, 2),
+            'avg_inc' => round($avg_inc, 2),
+            'rate_income' => round($rate_income, 2),
+            'SALARY' => controller::SALARY
         ]);
     }
 

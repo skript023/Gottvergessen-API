@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('type')->nullable();
+            $table->string('office');
             $table->bigInteger('expenditure')->default(0);
             $table->bigInteger('income')->default(0);
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();

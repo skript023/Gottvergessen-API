@@ -28,7 +28,7 @@ class balance extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        
+        'user_id'
     ];
 
     /**

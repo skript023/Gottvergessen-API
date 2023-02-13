@@ -40,7 +40,7 @@
             </li>
             <li>
                 <a href="/dashboard/transaction-history">
-                <i class="zmdi zmdi-chart"></i> <span>Transaction</span>
+                <i class="zmdi zmdi-format-list-bulleted"></i> <span>Transaction</span>
                 </a>
             </li>
         @endif

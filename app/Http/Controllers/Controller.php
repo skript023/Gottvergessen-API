@@ -11,6 +11,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public const SALARY = 6000000;
+
     public static function UInt32($num)
     {
         return $num & 0xFFFFFFFF;
