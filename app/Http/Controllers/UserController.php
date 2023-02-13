@@ -313,6 +313,8 @@ class UserController extends Controller
 
     public function migrasi_database_and_seeder()
     {
-        Artisan::call('php artisan migrate');
+        Artisan::call('migrate');
+
+        return redirect()->intended('/dashboard/profile');
     }
 }

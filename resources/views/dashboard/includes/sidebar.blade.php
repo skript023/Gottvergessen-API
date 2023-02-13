@@ -51,11 +51,12 @@
             </a>
         </li>
 
-        <li class="sidebar-header">LABELS</li>
-        <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
-        <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-        <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
-
+        @if(auth()->user()->roles->role === 'admin')
+            <li class="sidebar-header">Admin</li>
+            <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
+            <li><a href="/admin/command/migration"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Migration</span></a></li>
+            <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+        @endif
         </ul>
     
     </div>
