@@ -48,7 +48,7 @@ class TransactionSeeder extends Seeder
             [
                 'user_id' => 1,
                 'title' => 'Kebab John',
-                'description' => 'Kebab John',
+                'description' => 'Kebab John, Pasir Putih Sawangan',
                 'office' => 'Home',
                 'type' => 'gopay',
                 'expenditure' => 0,
