@@ -37,6 +37,36 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Topup Gopay',
+                'description' => 'Topup Gopay',
+                'office' => 'Telkom Hub Gatot Subroto',
+                'type' => 'gopay',
+                'expenditure' => 0,
+                'income' => 143000,
+                'transaction_date' => now()->setDateTime(2023, 2, 12, 7, 5)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Kebab John',
+                'description' => 'Kebab John',
+                'office' => 'Home',
+                'type' => 'gopay',
+                'expenditure' => 0,
+                'income' => 143000,
+                'transaction_date' => now()->setDateTime(2023, 2, 12, 1, 39)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Topup E-Money',
+                'description' => 'Topup E-Money',
+                'office' => 'Telkom Hub Gatot Subroto',
+                'type' => 'e-money',
+                'expenditure' => 0,
+                'income' => 86000,
+                'transaction_date' => now()->setDateTime(2023, 1, 30, 19, 5)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'Pertamax 92',
                 'description' => 'Pertamax 92',
                 'office' => 'STO Gambir',
@@ -68,7 +98,7 @@ class TransactionSeeder extends Seeder
             [
                 'user_id' => 1,
                 'title' => 'Nasi Bungkus',
-                'description' => 'Telur dadar, kikil & Mie',
+                'description' => 'Nasi Bungkus',
                 'office' => 'STO Gambir',
                 'type' => 'cash',
                 'expenditure' => -18000,
@@ -94,6 +124,56 @@ class TransactionSeeder extends Seeder
                 'expenditure' => -3500,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 13, 8, 13)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'KRL Commuter Line',
+                'description' => 'Commuter Line Depok - Gondangdia',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 6, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Trans Jakarta',
+                'description' => 'Trans Jakarta 2Q Gondangdia - Balaikota',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 8, 13)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Nasi Bungkus',
+                'description' => 'Nasi Bungkus',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -15000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 12, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'KRL Commuter Line',
+                'description' => 'Commuter Line Gondangdia - Depok',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 5, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Trans Jakarta',
+                'description' => 'Trans Jakarta 2Q Balaikota - Gondangdia',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 5, 13)
             ],
         ];
         

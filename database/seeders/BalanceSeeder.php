@@ -19,6 +19,8 @@ class BalanceSeeder extends Seeder
                 'user_id' => 1,
                 'bank' => 5926000,
                 'cash' => 2550000,
+                'emoney' => 86000,
+                'gopay' => 99000,
             ],
             [
                 'user_id' => 2,
