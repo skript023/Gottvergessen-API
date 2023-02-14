@@ -51,8 +51,8 @@ class TransactionSeeder extends Seeder
                 'description' => 'Kebab John, Pasir Putih Sawangan',
                 'office' => 'Home',
                 'type' => 'gopay',
-                'expenditure' => 0,
-                'income' => 143000,
+                'expenditure' => -44000,
+                'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 12, 1, 39)
             ],
             [
