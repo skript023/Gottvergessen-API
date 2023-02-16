@@ -277,11 +277,11 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'title' => 'Nasi Bungkus',
-                'description' => 'Nasi Bungkus',
+                'title' => 'Pecel Ayam',
+                'description' => 'Pecel Ayam',
                 'office' => 'STO Gambir',
                 'type' => 'cash',
-                'expenditure' => -15000,
+                'expenditure' => -18000,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 16, 12, 30)
             ],
