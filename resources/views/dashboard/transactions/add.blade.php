@@ -9,7 +9,7 @@
                 <select id="type" name="type" class="form-control text-center mb-3">
                     <option class="bg-dark-light" value="">--- Select type ---</option>
                     @foreach ($balance_types as $key => $value)
-                        <option class="bg-dark-light" value="{{ $key }}">{{ $key == 'emoney' ? 'e-money' : $key}}</option>
+                        <option class="bg-dark-light" value="{{ $key }}">{{ $key == 'emoney' ? 'E-Money' : ucwords($key)}}</option>
                     @endforeach
                 </select>
                 <div class="form-group">
