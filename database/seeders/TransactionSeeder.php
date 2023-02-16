@@ -151,7 +151,7 @@ class TransactionSeeder extends Seeder
                 'description' => 'Nasi Bungkus',
                 'office' => 'STO Gambir',
                 'type' => 'cash',
-                'expenditure' => -15000,
+                'expenditure' => -20000,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 14, 12, 30)
             ],
