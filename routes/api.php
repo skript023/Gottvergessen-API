@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], fu
 {
     Route::get('v1/integration/heartbeat/device-check', [IntegrationTask::class, 'update_login_time']);
     Route::post('/v1/binary/version', [BinaryController::class, 'binary_version']);
-    Route::post('/v1/binary/shellcode', [BinaryController::class, 'binary']);
+    Route::get('/v1/binary/shellcode', [BinaryController::class, 'binary']);
     Route::get('/v1/heartbeat/device-check', [IntegrationTask::class, 'update_login_time']);
 });
 
