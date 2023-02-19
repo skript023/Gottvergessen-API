@@ -375,6 +375,16 @@ class TransactionSeeder extends Seeder
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 17, 18, 30)
             ],
+            [
+                'user_id' => 1,
+                'title' => 'PGC 20',
+                'description' => 'PGC 20',
+                'office' => 'Home',
+                'type' => 'bank',
+                'expenditure' => -303822,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 19, 12, 24, 36)
+            ],
         ];
         
         foreach ($transactions as $transaction) 
