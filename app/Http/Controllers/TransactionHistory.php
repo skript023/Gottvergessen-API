@@ -39,14 +39,13 @@ class TransactionHistory extends Controller
             'transactions' => $transactions,
             'total_expenditure' => $transactions->sum('expenditure'),
             'total_income' => $transactions->sum('income'),
-            'total' => $this->bank(),
             'transaction' => $transaction,
             'balance' => $balance,
             'avg_exp' => round($avg_exp, 2),
             'avg_inc' => round($avg_inc, 2),
             'rate_income' => round($rate_income, 2),
             'SALARY' => controller::SALARY,
-            'balance_types' => $wallets,
+            'wallets' => $wallets,
             'bank' => $this->bank(),
             'cash' => $this->cash()
         ]);
@@ -65,14 +64,14 @@ class TransactionHistory extends Controller
             'title', 
             'description', 
             'income',
-            'expenditure'
+            'expenditure',
+            'office'
         ]);
 
         $data['user_id'] = auth()->user()->id;
         $data['income'] = (int)$data['income'];
         $data['expenditure'] = (int)$data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : (int)$data['expenditure'];
-        $data['type'] = $data['type'] == 'emoney' ? 'e-money' : $data['type'];
-
+        
         try 
         {
             transaction::create($data);
@@ -105,8 +104,7 @@ class TransactionHistory extends Controller
         $data['user_id'] = auth()->user()->id;
         $data['income'] = empty($data['income']) ? 0 : $data['income'];
         $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
-        $data['type'] = $data['type'] == 'emoney' ? 'e-money' : $data['type'];
-
+        
         $transaction = transaction::find($request->selected_transaction);
 
         try 

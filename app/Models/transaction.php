@@ -23,7 +23,8 @@ class transaction extends Model
         'income',
         'transaction_date',
         'user_id',
-        'type'
+        'type',
+        'office'
     ];
 
     

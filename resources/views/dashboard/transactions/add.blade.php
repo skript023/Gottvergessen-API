@@ -8,10 +8,14 @@
                 <label for="input-6">Type</label>
                 <select id="type" name="type" class="form-control text-center mb-3">
                     <option class="bg-dark-light" value="">--- Select type ---</option>
-                    @foreach ($balance_types as $key => $value)
-                        <option class="bg-dark-light" value="{{ $key }}">{{ $key == 'emoney' ? 'E-Money' : ucwords($key)}}</option>
+                    @foreach ($wallets as $key => $wallet)
+                        <option class="bg-dark-light" value="{{ $wallet->symbol }}">{{ $wallet->name }}</option>
                     @endforeach
                 </select>
+                <div class="form-group">
+                    <label for="input-6">Office</label>
+                    <input type="text" name="office" class="form-control form-control-rounded" id="input-6" placeholder="Enter Office" required>
+                </div>
                 <div class="form-group">
                     <label for="input-6">Title</label>
                     <input type="text" name="title" class="form-control form-control-rounded" id="input-6" placeholder="Enter Title" required>
