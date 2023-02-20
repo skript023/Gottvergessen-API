@@ -197,6 +197,26 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Makaroni Pedas Manis',
+                'description' => 'Makaroni Pedas Manis',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -13000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 19, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Topup E-Money',
+                'description' => 'Topup E-Money',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => 0,
+                'income' => 100000,
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 20, 30)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'KRL Commuter Line',
                 'description' => 'Commuter Line Depok - Gondangdia',
                 'office' => 'STO Gambir',
@@ -317,6 +337,16 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Makaroni Pedas',
+                'description' => 'Makaroni Pedas',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -16000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 17, 18, 30)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'KRL Commuter Line',
                 'description' => 'Commuter Line Depok - Gondangdia',
                 'office' => 'STO Gambir',
@@ -377,6 +407,16 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Makaroni Pedas',
+                'description' => 'Makaroni Pedas',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -16000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 17, 18, 30)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'PGC 20',
                 'description' => 'PGC 20',
                 'office' => 'Home',
@@ -384,6 +424,66 @@ class TransactionSeeder extends Seeder
                 'expenditure' => -303822,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 19, 12, 24, 36)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'KRL Commuter Line',
+                'description' => 'Commuter Line Depok - Gondangdia',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -4000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 20, 6, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Trans Jakarta',
+                'description' => 'Trans Jakarta 2Q Gondangdia - Balaikota',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 20, 8, 13)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Ayam Geprek',
+                'description' => 'Ayam Geprek',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -15000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 20, 12, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'KRL Commuter Line',
+                'description' => 'Commuter Line Gondangdia - Depok',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -4000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 20, 5, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Trans Jakarta',
+                'description' => 'Trans Jakarta 2Q Balaikota - Gondangdia',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 20, 5, 13)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Parkir Penitipan Motor',
+                'description' => 'Parkir Penitipan Motor [ST. Depok]',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -6000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 20, 18, 30)
             ],
         ];
         

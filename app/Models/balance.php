@@ -17,15 +17,9 @@ class balance extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'bank',
-        'cash',
-        'gopay',
-        'ovo',
-        'dana',
-        'emoney',
-        'link_aja',
-        'shopee_pay',
-        'user_id'
+        'user_id',
+        'wallet_id',
+        'amount'
     ];
 
     
@@ -50,5 +44,15 @@ class balance extends Model
     public function collumns()
     {
         return $this->setHidden(['id', 'user_id', 'created_at', 'updated_at'])->toArray();
+    }
+
+    public function wallet()
+    {
+        return $this->hasOne(wallet::class, 'id', 'wallet_id');
+    }
+
+    public function owner()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 }

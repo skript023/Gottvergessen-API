@@ -17,15 +17,10 @@ class CreateBalancesTable extends Migration
         Schema::create('balances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->default(1);
-            $table->bigInteger('bank')->default(0);
-            $table->bigInteger('cash')->default(0);
-            $table->bigInteger('emoney')->default(0);
-            $table->bigInteger('gopay')->default(0);
-            $table->bigInteger('ovo')->default(0);
-            $table->bigInteger('dana')->default(0);
-            $table->bigInteger('link_aja')->default(0);
-            $table->bigInteger('shopee_pay')->default(0);
+            $table->unsignedBigInteger('wallet_id')->nullable();
+            $table->string('amount')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('wallet_id')->references('id')->on('wallets')->cascadeOnDelete();
             $table->timestamps();
         });
 

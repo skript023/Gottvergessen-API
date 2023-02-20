@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\balance;
 use App\Models\transaction;
+use App\Models\wallet;
 use Illuminate\Http\Request;
 
 class TransactionHistory extends Controller
@@ -11,34 +12,43 @@ class TransactionHistory extends Controller
     public function index()
     {
         $transactions = transaction::all();
+        $wallets = wallet::all();
+        $balance = balance::with(['wallet', 'owner'])->get();
         $expenditure = transaction::where('transaction_date', '>', now()->subDays(30))->where('expenditure', '<', 0);
         $income = transaction::where('transaction_date', '>', now()->subDays(30))->where('income', '>', 0);
         $transaction = transaction::where('user_id', auth()->user()->id);
-        
-        $balance = balance::where('user_id', auth()->user()->id)->first();
-        $balance->bank = $transactions->where('type', 'bank')->sum('income') - abs($transactions->where('type', 'bank')->sum('expenditure'));
-        $balance->cash = $transactions->where('type', 'cash')->sum('income') - abs($transactions->where('type', 'cash')->sum('expenditure'));
-        $balance->emoney = $transactions->where('type', 'e-money')->sum('income') - abs($transactions->where('type', 'e-money')->sum('expenditure'));
-        $balance->gopay = $transactions->where('type', 'gopay')->sum('income') - abs($transactions->where('type', 'gopay')->sum('expenditure'));
+
+        foreach ($wallets as $wallet) 
+        {
+            $overall_income = transaction::where('type', $wallet->symbol);
+            $overtall_expenditure = transaction::where('type', $wallet->symbol);
+            $account = balance::where('wallet_id', $wallet->id)->where('user_id', auth()->user()->id)->first();
+
+            if (isset($account))
+            {
+                $account->amount = $overall_income->sum('income') - abs($overtall_expenditure->sum('expenditure'));
+                $account->save();
+            }
+        }
         
         $avg_exp = $expenditure->count() / $transaction->count();
         $avg_inc = $income->count() / $transaction->count();
         $rate_income = abs($transactions->sum('expenditure')) / $transactions->sum('income');
 
-        $balance->save();
-
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,
             'total_expenditure' => $transactions->sum('expenditure'),
             'total_income' => $transactions->sum('income'),
-            'total' => $balance->bank,
+            'total' => $this->bank(),
             'transaction' => $transaction,
             'balance' => $balance,
             'avg_exp' => round($avg_exp, 2),
             'avg_inc' => round($avg_inc, 2),
             'rate_income' => round($rate_income, 2),
             'SALARY' => controller::SALARY,
-            'balance_types' => $balance->collumns()
+            'balance_types' => $wallets,
+            'bank' => $this->bank(),
+            'cash' => $this->cash()
         ]);
     }
 
@@ -121,5 +131,25 @@ class TransactionHistory extends Controller
         }
 
         return back()->with("Failed", "Failed delete transaction");
+    }
+
+    public function bank()
+    {
+        return balance::where('user_id', auth()->user()->id)->where('wallet_id', 1)->first()->amount;
+    }
+
+    public function cash()
+    {
+        return balance::where('user_id', auth()->user()->id)->where('wallet_id', 2)->first()->amount;
+    }
+
+    public function emoney()
+    {
+        return balance::where('user_id', auth()->user()->id)->where('wallet_id', 3)->first()->amount;
+    }
+
+    public function gopay()
+    {
+        return balance::where('user_id', auth()->user()->id)->where('wallet_id', 4)->first()->amount;
     }
 }

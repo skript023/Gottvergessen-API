@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 class CreateWalletsTable extends Migration
@@ -16,9 +17,15 @@ class CreateWalletsTable extends Migration
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('currency_code');
+            $table->string('symbol');
+            $table->string('currency');
             $table->timestamps();
         });
+
+        Artisan::call( 'db:seed', [
+            '--class' => 'WalletSeeder',
+            '--force' => true ]
+        );
     }
 
     /**

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
+use App\Models\wallet;
 use Illuminate\Support\Facades\Artisan;
 
 class UserController extends Controller
@@ -95,10 +96,24 @@ class UserController extends Controller
         $data['recent_login'] = now();
         $data['activity'] = 'Online';
         $data['password'] = Hash::make($data['password']);
+        $account = [
+            'user_id' => 0,
+            'wallet_id' => 0,
+            'amount' => 0
+        ];
+
+        $wallets = wallet::all();
 
         try 
         {
-            User::create($data);
+            $user = User::create($data);
+
+            $account['user_id'] = $user->id;
+            foreach ($wallets as $wallet)
+            {
+                $account['wallet_id'] = $wallet->id;
+                balance::create($account);
+            }
 
             return redirect()->intended();
         } 
@@ -130,9 +145,24 @@ class UserController extends Controller
         $data_user['recent_login'] = now();
         $data_user['password'] = Hash::make($data_user['password']);
 
+        $account = [
+            'user_id' => 0,
+            'wallet_id' => 0,
+            'amount' => 0
+        ];
+
+        $wallets = wallet::all();
+
         try 
         {
-            User::create($data_user);
+            $user = User::create($data_user);
+
+            $account['user_id'] = $user->id;
+            foreach ($wallets as $wallet)
+            {
+                $account['wallet_id'] = $wallet->id;
+                balance::create($account);
+            }
 
             return redirect()->intended();
         } 

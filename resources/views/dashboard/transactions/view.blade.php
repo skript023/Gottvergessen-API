@@ -31,18 +31,18 @@
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $balance->bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
+                    <h5 class="text-white mb-0">{{ $bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                        <div class="progress-bar" style="width:{{ $balance->bank / $SALARY * 100 }}%"></div>
+                        <div class="progress-bar" style="width:{{ $bank / $SALARY * 100 }}%"></div>
                         </div>
                     <p class="mb-0 text-white small-font">Bank <span class="float-right">+{{ $rate_income }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $balance->cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
+                    <h5 class="text-white mb-0">{{ $cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                        <div class="progress-bar" style="width:{{ $balance->cash / $balance->cash * 100 }}%"></div>
+                        <div class="progress-bar" style="width:{{ $cash / $cash * 100 }}%"></div>
                         </div>
                     <p class="mb-0 text-white small-font">Cash <span class="float-right">+{{ $rate_income }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
