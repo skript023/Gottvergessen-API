@@ -11,7 +11,7 @@ class TransactionHistory extends Controller
 {
     public function index()
     {
-        $transactions = transaction::all();
+        $transactions = transaction::with('user')->get();
         $wallets = wallet::all();
         $balance = balance::with(['wallet', 'owner'])->get();
         $expenditure = transaction::where('transaction_date', '>', now()->subDays(30))->where('expenditure', '<', 0);

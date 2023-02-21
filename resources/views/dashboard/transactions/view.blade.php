@@ -73,8 +73,8 @@
                                 <td>{{ $transaction->title }}</td>
                                 <td>{{ $transaction->description }}</td>
                                 <td>{{ $transaction->type }}</td>
-                                <td>IDR {{ $transaction->income }}</td>
-                                <td>IDR {{ $transaction->expenditure }}</td>
+                                <td>{{ $transaction->user->balance->wallet->currency }} {{ $transaction->income }}</td>
+                                <td>{{ $transaction->user->balance->wallet->currency }} {{ $transaction->expenditure }}</td>
                                 <td>{{ $transaction->transaction_date }}</td>
                                 <td>
                                     <div class="btn-group">

@@ -46,4 +46,8 @@ class transaction extends Model
         'transaction_date' => 'datetime'
     ];
 
+    public function user()
+    {
+        return $this->hasOne(user::class, 'id', 'user_id');
+    }
 }
