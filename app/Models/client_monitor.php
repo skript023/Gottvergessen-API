@@ -43,7 +43,7 @@ class client_monitor extends Model
         
     ];
 
-    public function owner()
+    public function users()
     {
         return $this->belongsTo(User::class, 'owner_id');
     }
