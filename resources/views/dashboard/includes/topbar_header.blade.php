@@ -40,7 +40,7 @@
                     <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
                 @endif
             </a>
-            <ul class="dropdown-menu dropdown-menu-right">
+            <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                 <li class="dropdown-item user-details">
                     <a href="javaScript:void();">
                         <div class="media">
