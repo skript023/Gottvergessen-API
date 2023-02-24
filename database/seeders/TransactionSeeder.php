@@ -757,8 +757,8 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'title' => 'Ayam Geprek',
-                'description' => 'Ayam Geprek',
+                'title' => 'Ketoprak',
+                'description' => 'Ketoprak',
                 'office' => 'STO Gambir',
                 'type' => 'cash',
                 'expenditure' => -15000,
