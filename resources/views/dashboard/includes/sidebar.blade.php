@@ -53,9 +53,9 @@
 
         @if(auth()->user()->roles->role === 'admin')
             <li class="sidebar-header">Admin</li>
-            <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
+            <li><a href="/admin/command/maintenance"><i class="zmdi zmdi-alert-triangle text-danger"></i> <span>Maintenance</span></a></li>
             <li><a href="/admin/command/migration"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Migration</span></a></li>
-            <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+            <li><a href="/admin/command/server-up"><i class="zmdi zmdi-cloud-done text-info"></i> <span>Information</span></a></li>
         @endif
         </ul>
     

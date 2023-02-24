@@ -9,11 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
 use App\Models\wallet;
-use Illuminate\Support\Facades\Artisan;
 
 class UserController extends Controller
 {
-    public function dashboard(Request $request)
+    public function dashboard()
     {
         $transaction = transaction::where('user_id', auth()->user()->id);
         $balance = balance::where('user_id', auth()->user()->id)->first();
@@ -339,12 +338,5 @@ class UserController extends Controller
         $file->move('uploads/avatar/', $filename);
 
         $data['image'] = $filename;
-    }
-
-    public function migrasi_database_and_seeder()
-    {
-        Artisan::call('migrate');
-
-        return redirect()->intended('/dashboard/profile');
     }
 }

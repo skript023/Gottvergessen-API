@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCommand;
 use App\Http\Controllers\BinaryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientMonitorController;
@@ -61,7 +62,9 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/transaction/update/{selected_transaction}', [TransactionHistory::class, 'update_transaction']);
     Route::get('/dashboard/transaction/delete/{selected_transaction}', [TransactionHistory::class, 'delete_transaction']);
 
-    Route::get('/admin/command/migration', [UserController::class, 'migrasi_database_and_seeder']);
+    Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
+    Route::get('/admin/command/maintenance', [AdminCommand::class, 'maintenance']);
+    Route::get('/admin/command/server-up', [AdminCommand::class, 'server_up']);
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function()
