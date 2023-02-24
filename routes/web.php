@@ -32,7 +32,8 @@ Route::get('/logout', [UserController::class, 'logout']);
 
 Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 {
-    Route::get('/dashboard', [UserController::class, 'dashboard']);
+    Route::get('/dashboard/statistic', [UserController::class, 'dashboard']);
+    Route::get('/admin', [UserController::class, 'dashboard']);
     
     Route::get('/dashboard/users', [UserController::class, 'view_user']);
     Route::post('/dashboard/users/add', [UserController::class, 'add_user']);
@@ -72,6 +73,7 @@ Route::group(['middleware' => ['auth', 'verified']], function()
     Route::post('/dashboard/users/profile/update/{selected_user}', [UserController::class, 'update_profile']);
     Route::post('/dashboard/users/password/update/{selected_user}', [UserController::class, 'update_password']);
     Route::get('/dashboard/profile', [UserController::class, 'profile']);
+    Route::get('/dashboard/', [UserController::class, 'profile']);
 });
 
 Route::get('/email/verify', function () 
