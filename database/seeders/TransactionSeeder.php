@@ -727,6 +727,16 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Makaroni',
+                'description' => 'Makaroni',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -16000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 23, 18, 30)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'KRL Commuter Line',
                 'description' => 'Commuter Line Depok - Gondangdia',
                 'office' => 'STO Gambir',
