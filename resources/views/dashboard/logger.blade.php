@@ -35,9 +35,7 @@
                                 <td>{{ $log->line }}</td>
                                 <td>{{ $log->message }}</td>
                                 <td>
-                                <div class="btn-group">
                                     <button type="button" data-toggle="modal" data-target="#log-delete-{{ $log->id }}" class="btn btn-light">Delete</button>
-                            </div>
                                 </td>
                             </tr>
                         @endforeach
