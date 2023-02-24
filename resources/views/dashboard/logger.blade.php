@@ -1,7 +1,14 @@
 @extends('dashboard.includes.core')
 @section('title', 'Profile')
+@section('modal-header', 'Log Deletion')
+@section('modal-message', 'Are you sure want to delete this log? the data will not be able to restored after deletion')
 
 @section('content')
+@include('components.modal-popup', [
+    'data' => $logs, 
+    'url' => '/dashboard/logs/delete/',
+    'tag' => 'log-delete-'
+])
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body">
@@ -29,9 +36,7 @@
                                 <td>{{ $log->message }}</td>
                                 <td>
                                 <div class="btn-group">
-                                <a href="/dashboard/logs/delete/{{$log->id}}" class="btn btn-light btn-block waves-effect waves-light">
-                                    Delete
-                                </a>
+                                    <button type="button" data-toggle="modal" data-target="#log-delete-{{ $log->id }}" class="btn btn-light">Delete</button>
                             </div>
                                 </td>
                             </tr>
