@@ -3,6 +3,11 @@
 @section('modal-header', 'Binary Deletion')
 @section('modal-message', 'Are you sure want to delete this binary? the data will not be able to restored after deletion')
 @section('content')
+@include('components.modal-popup', [
+    'data' => $binaries, 
+    'url' => 'bin/delete/',
+    'tag' => 'binary-delete-'
+])
 <div class="col-lg-12">
     <div class="my-4">
         <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/bin?page=add"> Add Binary</a>
@@ -44,12 +49,7 @@
                                         <li class="dropdown-divider"></li>
                                         <a href="bin?page=edit&bin={{$bin->id}}"><li class="dropdown-item">Edit</li></a>
                                         <li class="dropdown-divider"></li>
-                                        <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete</li></a>
-                                        {{-- <a class="dropdown-item" href="#">Void</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">
-                                            <button class="btn btn-info">Void</button>
-                                        </a> --}}
+                                        <a data-toggle="modal" data-target="#binary-delete-{{ $bin->id }}"><li class="dropdown-item">Delete</li></a>
                                     </ul>
                                 </div>
                                 </td>
@@ -61,8 +61,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('action')
-    <a href="bin/delete/{{$bin->id}}"  type="button" class="btn btn-success">Ok</a>
 @endsection

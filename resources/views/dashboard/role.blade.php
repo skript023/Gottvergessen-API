@@ -3,7 +3,11 @@
 @section('modal-header', 'Role Deletion')
 @section('modal-message', 'Are you sure want to delete this role? the data will not be able to restored after deletion')
 @section('content')
-
+@include('components.modal-popup', [
+    'data' => $roles, 
+    'url' => '/dashboard/role/delete/',
+    'tag' => 'role-delete-'
+])
 <div class="container">
     <div class="row">
         <div class="card col-md-4 mx-auto my-4">
@@ -45,7 +49,7 @@
                                 <td>{{$role->role}}</td>
                                 <td>
                                     <a href="/dashboard/role?edit={{$role->id}}" class="btn btn-light">Update</a>
-                                    <button type="button" data-toggle="modal" data-target="#confirmation-modal" class="btn btn-light">Delete</button>
+                                    <button type="button" data-toggle="modal" data-target="#role-delete-{{ $role->id }}" class="btn btn-light">Delete</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -57,7 +61,4 @@
 
     </div>
 </div>
-@endsection
-@section('action')
-    <a href="/dashboard/role/delete/{{$role->id}}" type="button" class="btn btn-success">Ok</a>
 @endsection

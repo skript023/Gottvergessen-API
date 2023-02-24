@@ -4,6 +4,11 @@
 @section('title', 'Ownerships Information')
 
 @section('content')
+@include('components.modal-popup', [
+    'data' => $ownerships, 
+    'url' => '/dashboard/ownership/delete/',
+    'tag' => 'product-delete-'
+])
 <div class="container">
     <div class="row">
         <div class="card col-md-4 mx-auto my-4">
@@ -45,7 +50,7 @@
                                 <td>{{$ownership->type}}</td>
                                 <td>
                                     <a href="/dashboard/ownership?edit={{$ownership->id}}" class="btn btn-light">Update</a>
-                                    <button type="button" data-toggle="modal" data-target="#confirmation-modal" class="btn btn-light">Delete</button>
+                                    <button type="button" data-toggle="modal" data-target="#product-delete-{{ $ownership->id }}" class="btn btn-light">Delete</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -57,7 +62,4 @@
 
     </div>
 </div>
-@endsection
-@section('action')
-    <a href='/dashboard/ownership/delete/{{$ownership->id}}' type="button" class="btn btn-success">Ok</a>
 @endsection

@@ -3,7 +3,11 @@
 @section('modal-header', 'Transaction Deletion')
 @section('modal-message', 'Are you sure want to delete this tranaction? the data will not be able to restored after deletion')
 @section('content')
-
+@include('components.modal-popup', [
+    'data' => $transactions, 
+    'url' => 'transaction/delete/',
+    'tag' => 'transaction-delete-'
+])
 <div class="col-lg-12">
     <div class="my-4">
         <a class="btn btn-light zmdi zmdi-account-add" href="transaction-history?page=add"> Add Transaction</a>
@@ -85,7 +89,7 @@
                                             <li class="dropdown-divider"></li>
                                             <a href="transaction-history?page=edit&transaction={{ $transaction->id }}"><li class="dropdown-item">Edit User</li></a>
                                             <li class="dropdown-divider"></li>
-                                            <a data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
+                                            <a data-toggle="modal" data-target="#transaction-delete-{{ $transaction->id }}"><li class="dropdown-item">Delete User</li></a>
                                             <li class="dropdown-divider"></li>
                                         </ul>
                                     </div>
@@ -106,8 +110,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('action')
-    <a href="transaction/delete/{{$transaction->id}}"  type="button" class="btn btn-success">Ok</a>
 @endsection

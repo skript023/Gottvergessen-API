@@ -3,6 +3,17 @@
 @section('modal-header', 'User Deletion')
 @section('modal-message', 'Are you sure want to delete this user? the data will not be able to restored after deletion')
 @section('content')
+
+@include('components.modal-popup', [
+    'data' => $users, 
+    'url' => 'users/suspend/',
+    'tag' => 'user-suspend-'
+])
+@include('components.modal-popup', [
+    'data' => $users, 
+    'url' => 'users/delete/',
+    'tag' => 'user-delete-'
+])
 <div class="col-lg-12">
     <div class="my-4">
         <a class="btn btn-light zmdi zmdi-account-add" href="users?page=add"> Add Account</a>
@@ -41,15 +52,9 @@
                                     <li class="dropdown-divider"></li>
                                     <a href="users?page=edit&user={{ $user->id }}"><li class="dropdown-item">Edit User</li></a>
                                     <li class="dropdown-divider"></li>
-                                    <a href="users?action=delete" data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Delete User</li></a>
+                                    <a data-toggle="modal" data-target="#user-delete-{{ $user->id }}"><li class="dropdown-item">Delete User</li></a>
                                     <li class="dropdown-divider"></li>
-                                    <a href="users?action=suspend" data-toggle="modal" data-target="#confirmation-modal"><li class="dropdown-item">Suspend User</li></a>
-                                    <li class="dropdown-divider"></li>
-                                    {{-- <a class="dropdown-item" href="#">Void</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">
-                                        <button class="btn btn-info">Void</button>
-                                    </a> --}}
+                                    <a data-toggle="modal" data-target="#user-suspend-{{ $user->id }}"><li class="dropdown-item">Suspend User</li></a>
                                 </ul>
                             </div>
                                 </td>
@@ -61,15 +66,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('action')
-    @switch(request()->action)
-        @case('suspend')
-            <a href="users/suspend/{{$user->id}}"  type="button" class="btn btn-success">Ok</a>
-            @break
-        @case('delete')
-            <a href="users/delete/{{$user->id}}"  type="button" class="btn btn-success">Ok</a>
-            @break
-    @endswitch
 @endsection
