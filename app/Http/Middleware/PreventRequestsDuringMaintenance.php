@@ -12,7 +12,7 @@ class PreventRequestsDuringMaintenance extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        '/admin/command/maintenance-done',
+        '/admin/command/server-up',
         '/dashboard/users',
         '/dashboard/transaction-history',
         '/dashboard/'
