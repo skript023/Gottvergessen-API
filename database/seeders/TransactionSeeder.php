@@ -800,8 +800,18 @@ class TransactionSeeder extends Seeder
                 'title' => 'SSD M.2 NVMe 1TB',
                 'description' => 'V-Gen SSD M.2 NVMe 1TB',
                 'office' => 'STO Gambir',
-                'type' => 'cash',
+                'type' => 'bank',
                 'expenditure' => -1181770,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 24, 18, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Restaurant',
+                'description' => 'Restaurant',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -100000,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 24, 18, 30)
             ],
