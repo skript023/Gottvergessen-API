@@ -687,6 +687,16 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Sekrup M.2 NVMe',
+                'description' => 'Sekrup SSD M.2 NVMe',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -13600,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 23, 8, 14)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'Ayam Geprek',
                 'description' => 'Ayam Geprek',
                 'office' => 'STO Gambir',

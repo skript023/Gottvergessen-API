@@ -31,26 +31,33 @@ class TransactionHistory extends Controller
             }
         }
         
-        $avg_exp = abs($transactions->sum('expenditure')) / $transaction->sum('income') * 100;
+        $total_rate_expenditure = abs($transactions->sum('expenditure')) / $transaction->sum('income') * 100;
         $emoney_expenditure = abs($transactions->where('type', 'e-money')->sum('expenditure')) / $transaction->where('type', 'e-money')->sum('income') * 100;
         $avg_inc = $income->count() / $transaction->count() * 100;
-        $avarage_cash = abs($transactions->where('type', 'cash')->sum('expenditure')) / $transactions->where('type', 'cash')->sum('income') * 100;
-        $avarage_bank = abs($transactions->where('type', 'bank')->sum('expenditure')) / $transactions->where('type', 'bank')->sum('income') * 100;
+        $rate_cash_expenditure = abs($transactions->where('type', 'cash')->sum('expenditure')) / $transactions->where('type', 'cash')->sum('income') * 100;
+        $rate_bank_expenditure = abs($transactions->where('type', 'bank')->sum('expenditure')) / $transactions->where('type', 'bank')->sum('income') * 100;
 
+        $emoney_usage = $transaction->where('type', 'e-money')->count() / $transaction->count() * 100;
+        $gopay_usage = $transaction->where('type', 'gopay')->count() / $transaction->count() * 100;
+        $bank_usage = $transaction->where('type', 'bank')->count() / $transaction->count() * 100;
+        $cash_usage = $transaction->where('type',  'cash')->count() / $transaction->count() * 100;
+        
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,
             'total_expenditure' => $transactions->sum('expenditure'),
             'total_income' => $transactions->sum('income'),
             'transaction' => $transaction,
             'balance' => $balance,
-            'avg_exp' => round($avg_exp, 2),
+            'total_rate_expenditure' => round($total_rate_expenditure, 2),
             'avg_inc' => round($avg_inc, 2),
-            'avarage_cash' => round($avarage_cash, 2),
-            'avarage_bank' => round($avarage_bank, 2),
+            'rate_cash_expenditure' => round($rate_cash_expenditure, 2),
+            'rate_bank_expenditure' => round($rate_bank_expenditure, 2),
             'SALARY' => controller::SALARY,
             'wallets' => $wallets,
             'bank' => $this->bank(),
             'cash' => $this->cash(),
+            'emoney' => $this->emoney(),
+            'gopay' => $this->gopay(),
             'emoney_expenditure' => round($emoney_expenditure, 2)
         ]);
     }
