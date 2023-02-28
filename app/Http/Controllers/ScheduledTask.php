@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\balance;
 use App\Models\client_monitor;
+use App\Models\transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -36,13 +37,20 @@ class ScheduledTask extends Controller
 
     public function add_monthly_income()
     {
-        $user = User::where('role_id', 3)->first();
-        $balance = balance::where('user_id', $user->id);
+        $data = [
+            'user_id' => 1,
+            'title' => 'Gaji Devops',
+            'description' => 'Gaji IT Devops & Support Neuron',
+            'office' => 'Telkom Hub Gatot Subroto',
+            'type' => 'bank',
+            'expenditure' => 0,
+            'income' => 5926000,
+            'transaction_date' => now()
+        ];
 
         try 
         {
-            $balance->bank += 5926000;
-            $balance->save();
+            transaction::create($data);
         } 
         catch (\Throwable $th) 
         {
