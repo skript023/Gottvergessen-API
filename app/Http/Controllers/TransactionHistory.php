@@ -11,7 +11,7 @@ class TransactionHistory extends Controller
 {
     public function index()
     {
-        $transactions = transaction::with('user')->get();
+        $transactions = transaction::with('user')->orderBy('transaction_date', 'DESC')->get();
         $wallets = wallet::all();
         $balance = balance::with(['wallet', 'owner'])->get();
         $expenditure = transaction::where('transaction_date', '>', now()->subDays(30))->where('expenditure', '<', 0);
@@ -31,9 +31,11 @@ class TransactionHistory extends Controller
             }
         }
         
-        $avg_exp = $expenditure->count() / $transaction->count();
-        $avg_inc = $income->count() / $transaction->count();
-        $rate_income = abs($transactions->sum('expenditure')) / $transactions->sum('income');
+        $avg_exp = abs($transactions->sum('expenditure')) / $transaction->sum('income') * 100;
+        $emoney_expenditure = abs($transactions->where('type', 'e-money')->sum('expenditure')) / $transaction->where('type', 'e-money')->sum('income') * 100;
+        $avg_inc = $income->count() / $transaction->count() * 100;
+        $avarage_cash = abs($transactions->where('type', 'cash')->sum('expenditure')) / $transactions->where('type', 'cash')->sum('income') * 100;
+        $avarage_bank = abs($transactions->where('type', 'bank')->sum('expenditure')) / $transactions->where('type', 'bank')->sum('income') * 100;
 
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,
@@ -43,11 +45,13 @@ class TransactionHistory extends Controller
             'balance' => $balance,
             'avg_exp' => round($avg_exp, 2),
             'avg_inc' => round($avg_inc, 2),
-            'rate_income' => round($rate_income, 2),
+            'avarage_cash' => round($avarage_cash, 2),
+            'avarage_bank' => round($avarage_bank, 2),
             'SALARY' => controller::SALARY,
             'wallets' => $wallets,
             'bank' => $this->bank(),
-            'cash' => $this->cash()
+            'cash' => $this->cash(),
+            'emoney_expenditure' => round($emoney_expenditure, 2)
         ]);
     }
 

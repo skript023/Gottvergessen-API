@@ -12,48 +12,112 @@
     <div class="my-4">
         <a class="btn btn-light zmdi zmdi-account-add" href="transaction-history?page=add"> Add Transaction</a>
     </div>
+    <div class="card mt-3 col-xl-4">
+        <div class="card-content">
+            <div class="row row-group m-0">
+                <div class="card-body">
+                    <p class="mb-3 text-white small-font">Total Revenue</p>
+                    <h5 class="text-white mb-0">{{ $total_income }} <span class="float-right"><i class="fa fa-bar-chart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                    <div class="progress-bar" style="width:55%"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">Rate Revenue <span class="float-right">{{ $avg_inc > 0 ? "+" : "-" }}{{ $avg_inc }}% <i class="{{ $avg_inc > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card mt-3">
         <div class="card-content">
             <div class="row row-group m-0">
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
-                    <h5 class="text-white mb-0">{{ abs($total_expenditure) }} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                        <p class="mb-3 text-white small-font">Total Expenditure</p>
+                        <h5 class="text-white mb-0">{{ abs($total_expenditure) }} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
-                        </div>
-                    <p class="mb-0 text-white small-font">Total Expenditure <span class="float-right">{{ $avg_exp > 0 ? "+" : "-" }}{{ $avg_exp }}% <i class="{{ $avg_exp > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
+                    </div>
+                    <p class="mb-0 text-white small-font">Rate Expenditure <span class="float-right">{{ $avg_exp > 0 ? "+" : "-" }}{{ $avg_exp }}% <i class="{{ $avg_exp > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $total_income }} <span class="float-right"><i class="fa fa-bar-chart"></i></span></h5>
+                        <p class="mb-3 text-white small-font">E-Money Expenditure</p>
+                        <h5 class="text-white mb-0">{{ abs($transactions->where('type', 'e-money')->sum('expenditure')) }} <span class="float-right"><i class="fa fa-bar-chart"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
-                        </div>
-                    <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">{{ $avg_inc > 0 ? "+" : "-" }}{{ $avg_inc }}% <i class="{{ $avg_inc > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
+                    </div>
+                    <p class="mb-0 text-white small-font">Avg. Expenditure<span class="float-right">{{ $emoney_expenditure > 0 ? "+" : "-" }}{{ $emoney_expenditure }}% <i class="{{ $emoney_expenditure > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
+                        <p class="mb-3 text-white small-font">Bank Expenditure</p>
+                        <h5 class="text-white mb-0">{{ $bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                        <div class="progress-bar" style="width:{{ $bank / $SALARY * 100 }}%"></div>
+                            <div class="progress-bar" style="width:{{ $bank / $SALARY * 100 }}%"></div>
                         </div>
-                    <p class="mb-0 text-white small-font">Bank <span class="float-right">+{{ $rate_income }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                        <p class="mb-0 text-white small-font">Avg. Expenditure<span class="float-right">+{{ $avarage_bank }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
+                        <p class="mb-3 text-white small-font">Cash Expenditure</p>
+                        <h5 class="text-white mb-0">{{ $cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                        <div class="progress-bar" style="width:{{ $cash / $cash * 100 }}%"></div>
+                            <div class="progress-bar" style="width:{{ $cash / $cash * 100 }}%"></div>
                         </div>
-                    <p class="mb-0 text-white small-font">Cash <span class="float-right">+{{ $rate_income }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                        <p class="mb-0 text-white small-font">Avg. Expenditure <span class="float-right">+{{ $avarage_cash }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
+    <div class="card mt-3">
+        <div class="card-content">
+            <div class="row row-group m-0">
+                <div class="col-12 col-lg-6 col-xl-3 border-light">
+                    <div class="card-body">
+                        <p class="mb-3 text-white small-font">Total Expenditure</p>
+                        <h5 class="text-white mb-0">{{ abs($total_expenditure) }} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                        <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:55%"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">Rate Expenditure <span class="float-right">{{ $avg_exp > 0 ? "+" : "-" }}{{ $avg_exp }}% <i class="{{ $avg_exp > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-3 border-light">
+                    <div class="card-body">
+                        <p class="mb-3 text-white small-font">Total Revenue</p>
+                        <h5 class="text-white mb-0">{{ $total_income }} <span class="float-right"><i class="fa fa-bar-chart"></i></span></h5>
+                        <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:55%"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">Rate Revenue <span class="float-right">{{ $avg_inc > 0 ? "+" : "-" }}{{ $avg_inc }}% <i class="{{ $avg_inc > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-3 border-light">
+                    <div class="card-body">
+                        <p class="mb-3 text-white small-font">Bank Balance</p>
+                        <h5 class="text-white mb-0">{{ $bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
+                        <div class="progress my-3" style="height:3px;">
+                            <div class="progress-bar" style="width:{{ $bank / $SALARY * 100 }}%"></div>
+                        </div>
+                        <p class="mb-0 text-white small-font">Avg. Expenditure<span class="float-right">+{{ $avarage_bank }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-3 border-light">
+                    <div class="card-body">
+                        <p class="mb-3 text-white small-font">Cash Balance</p>
+                        <h5 class="text-white mb-0">{{ $cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
+                        <div class="progress my-3" style="height:3px;">
+                            <div class="progress-bar" style="width:{{ $cash / $cash * 100 }}%"></div>
+                        </div>
+                        <p class="mb-0 text-white small-font">Avg. Expenditure <span class="float-right">+{{ $avarage_cash }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title text-center">Transaction History</h5>

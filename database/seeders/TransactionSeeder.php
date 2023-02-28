@@ -53,7 +53,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'gopay',
                 'expenditure' => -44000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 12, 1, 39)
+                'transaction_date' => now()->setDateTime(2023, 2, 12, 13, 39)
             ],
             [
                 'user_id' => 1,
@@ -63,7 +63,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => 0,
                 'income' => 86000,
-                'transaction_date' => now()->setDateTime(2023, 1, 30, 19, 5)
+                'transaction_date' => now()->setDateTime(2023, 2, 13, 19, 5)
             ],
             [
                 'user_id' => 1,
@@ -113,7 +113,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 13, 6, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 13, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -123,7 +123,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 13, 8, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 13, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -173,7 +173,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 14, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -183,7 +183,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 14, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 14, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -253,7 +253,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 15, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 15, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -263,7 +263,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 15, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 15, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -323,7 +323,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 16, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 16, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -333,7 +333,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 16, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 16, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -393,7 +393,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 17, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 17, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -403,7 +403,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 17, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 17, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -473,7 +473,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 20, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 20, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -483,7 +483,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 20, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 20, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -563,7 +563,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 22, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 22, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -573,7 +573,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 22, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 22, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -593,7 +593,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'cash',
                 'expenditure' => -10000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 21, 18, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 21, 19, 30)
             ],
             [
                 'user_id' => 1,
@@ -643,7 +643,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 22, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 22, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -653,7 +653,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 22, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 22, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -703,7 +703,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 23, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 23, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -713,7 +713,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 23, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 23, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -773,7 +773,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 24, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 24, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -783,7 +783,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 24, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 24, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -814,6 +814,26 @@ class TransactionSeeder extends Seeder
                 'expenditure' => -100000,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 24, 18, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Biaya Admin',
+                'description' => 'Biaya Admin',
+                'office' => 'STO Gambir',
+                'type' => 'bank',
+                'expenditure' => -5000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 25, 1, 1)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'E-Money Topup',
+                'description' => 'E-Money Topup',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => 0,
+                'income' => 50000,
+                'transaction_date' => now()->setDateTime(2023, 2, 27, 5, 30)
             ],
             [
                 'user_id' => 1,
@@ -853,7 +873,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 27, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 27, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -863,7 +883,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 27, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 27, 17, 13)
             ],
             [
                 'user_id' => 1,
@@ -923,7 +943,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 28, 5, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 28, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -933,7 +953,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 28, 5, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 28, 17, 13)
             ],
             [
                 'user_id' => 1,
