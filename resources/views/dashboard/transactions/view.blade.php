@@ -52,7 +52,7 @@
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
                         <p class="mb-3 text-white small-font">Bank Expenditure</p>
-                        <h5 class="text-white mb-0">{{ $bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
+                        <h5 class="text-white mb-0">{{ abs($transactions->where('type', 'bank')->sum('expenditure')) }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
                             <div class="progress-bar" style="width:{{ $rate_bank_expenditure }}%"></div>
                         </div>
@@ -62,7 +62,7 @@
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
                     <div class="card-body">
                         <p class="mb-3 text-white small-font">Cash Expenditure</p>
-                        <h5 class="text-white mb-0">{{ $cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
+                        <h5 class="text-white mb-0">{{ abs($transactions->where('type', 'cash')->sum('expenditure')) }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
                             <div class="progress-bar" style="width:{{ $rate_cash_expenditure }}%"></div>
                         </div>
@@ -82,7 +82,7 @@
                         <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Rate Expenditure <span class="float-right">{{ $emoney_usage > 0 ? "+" : "-" }}{{ $emoney_usage }}% <i class="{{ $emoney_usage > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
+                    <p class="mb-0 text-white small-font">E-Money Usage<span class="float-right">{{ $emoney_usage > 0 ? "+" : "-" }}{{ $emoney_usage }}% <i class="{{ $emoney_usage > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
@@ -92,7 +92,7 @@
                         <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Avg. Gopay <span class="float-right">+{{ $gopay_usage }}% <i class="{{ $gopay_usage > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
+                    <p class="mb-0 text-white small-font">Gopay Usage<span class="float-right">+{{ $gopay_usage }}% <i class="{{ $gopay_usage > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
@@ -102,7 +102,7 @@
                         <div class="progress my-3" style="height:3px;">
                             <div class="progress-bar" style="width:{{ $bank / $SALARY * 100 }}%"></div>
                         </div>
-                        <p class="mb-0 text-white small-font">Avg. Expenditure<span class="float-right">+{{ $bank_usage }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                        <p class="mb-0 text-white small-font">Bank Usage<span class="float-right">+{{ $bank_usage }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
@@ -112,7 +112,7 @@
                         <div class="progress my-3" style="height:3px;">
                             <div class="progress-bar" style="width:{{ $cash / $cash * 100 }}%"></div>
                         </div>
-                        <p class="mb-0 text-white small-font">Avg. Expenditure <span class="float-right">+{{ $bank_usage }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                        <p class="mb-0 text-white small-font">Cash Usage <span class="float-right">+{{ $cash_usage }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
                 </div>
             </div>

@@ -690,8 +690,8 @@ class TransactionSeeder extends Seeder
                 'title' => 'Sekrup M.2 NVMe',
                 'description' => 'Sekrup SSD M.2 NVMe',
                 'office' => 'STO Gambir',
-                'type' => 'e-money',
-                'expenditure' => -13600,
+                'type' => 'gopay',
+                'expenditure' => -14600,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 23, 8, 14)
             ],
