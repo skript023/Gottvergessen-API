@@ -37,10 +37,10 @@ class TransactionHistory extends Controller
         $rate_cash_expenditure = abs($transactions->where('type', 'cash')->sum('expenditure')) / $transactions->where('type', 'cash')->sum('income') * 100;
         $rate_bank_expenditure = abs($transactions->where('type', 'bank')->sum('expenditure')) / $transactions->where('type', 'bank')->sum('income') * 100;
 
-        $emoney_usage = $transactions->where('user_id', auth()->user()->id)->where('type', 'e-money')->count() / $transaction->count() * 100;
-        $gopay_usage = $transactions->where('user_id', auth()->user()->id)->where('type', 'gopay')->count() / $transaction->count() * 100;
-        $bank_usage = $transactions->where('user_id', auth()->user()->id)->where('type', 'bank')->count() / $transaction->count() * 100;
-        $cash_usage = $transactions->where('user_id', auth()->user()->id)->where('type',  'cash')->count() / $transaction->count() * 100;
+        $emoney_usage = $transactions->where('user_id', auth()->user()->id)->where('type', 'e-money')->count() / $transactions->count() * 100;
+        $gopay_usage = $transactions->where('user_id', auth()->user()->id)->where('type', 'gopay')->count() / $transactions->count() * 100;
+        $bank_usage = $transactions->where('user_id', auth()->user()->id)->where('type', 'bank')->count() / $transactions->count() * 100;
+        $cash_usage = $transactions->where('user_id', auth()->user()->id)->where('type',  'cash')->count() / $transactions->count() * 100;
         
         return view("dashboard.transaction-history", [
             'transactions' => $transactions,
