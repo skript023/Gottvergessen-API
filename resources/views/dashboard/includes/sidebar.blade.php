@@ -55,6 +55,7 @@
             <li class="sidebar-header">Admin</li>
             <li><a href="/admin/command/maintenance"><i class="zmdi zmdi-alert-triangle text-danger"></i> <span>Maintenance</span></a></li>
             <li><a href="/admin/command/migration"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Migration</span></a></li>
+            <li><a href="/admin/command/migration-fresh"><i class="zmdi zmdi-chart-donut text-info"></i> <span>Migration Fresh</span></a></li>
             <li><a href="/admin/command/server-up"><i class="zmdi zmdi-cloud-done text-info"></i> <span>Server Up</span></a></li>
         @endif
         </ul>

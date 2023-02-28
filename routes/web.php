@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/transaction/delete/{selected_transaction}', [TransactionHistory::class, 'delete_transaction']);
 
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
+    Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);
     Route::get('/admin/command/maintenance', [AdminCommand::class, 'maintenance']);
     Route::get('/admin/command/server-up', [AdminCommand::class, 'server_up']);
 });
@@ -73,7 +74,7 @@ Route::group(['middleware' => ['auth', 'verified']], function()
     Route::post('/dashboard/users/profile/update/{selected_user}', [UserController::class, 'update_profile']);
     Route::post('/dashboard/users/password/update/{selected_user}', [UserController::class, 'update_password']);
     Route::get('/dashboard/profile', [UserController::class, 'profile']);
-    Route::get('/dashboard/', [UserController::class, 'profile']);
+    Route::get('/dashboard', [UserController::class, 'profile']);
 });
 
 Route::get('/email/verify', function () 
