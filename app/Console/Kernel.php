@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->call(fn () => ScheduledTask::clean_client_logs())->lastDayOfMonth('15:00');
         $schedule->call(fn () => ScheduledTask::update_activity())->everyMinute();
+        $schedule->call(fn () => ScheduledTask::add_monthly_income())->monthly();
     }
 
     /**

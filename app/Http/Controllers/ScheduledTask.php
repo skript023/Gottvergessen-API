@@ -35,7 +35,7 @@ class ScheduledTask extends Controller
         }
     }
 
-    public function add_monthly_income()
+    public static function add_monthly_income()
     {
         $data = [
             'user_id' => 1,
