@@ -46,7 +46,7 @@
                         <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:{{ $emoney_expenditure }}%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Avg. Expenditure<span class="float-right">{{ $emoney_expenditure > 0 ? "+" : "-" }}{{ $emoney_expenditure }}% <i class="{{ $emoney_expenditure > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
+                    <p class="mb-0 text-white small-font">E-Money Expenditure<span class="float-right">{{ $emoney_expenditure > 0 ? "+" : "-" }}{{ $emoney_expenditure }}% <i class="{{ $emoney_expenditure > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-3 border-light">
