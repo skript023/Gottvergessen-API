@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientMonitorController;
 use App\Http\Controllers\OwnershipController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TransactionHistory;
+use App\Http\Controllers\UserWallets;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/transaction/update/{selected_transaction}', [TransactionHistory::class, 'update_transaction']);
     Route::get('/dashboard/transaction/delete/{selected_transaction}', [TransactionHistory::class, 'delete_transaction']);
 
+    Route::get('/dashboard/wallet', [UserWallets::class, 'index']);
+    Route::get('/dashboard/wallet/delete/{id}', [UserWallets::class, 'delete_wallet']);
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
     Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);
     Route::get('/admin/command/maintenance', [AdminCommand::class, 'maintenance']);
