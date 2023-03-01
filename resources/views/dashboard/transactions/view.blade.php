@@ -80,7 +80,7 @@
                         <p class="mb-3 text-white small-font">E-Money Balance</p>
                         <h5 class="text-white mb-0">{{ $emoney }} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                        <div class="progress-bar" style="width:55%"></div>
+                        <div class="progress-bar" style="width:{{ $emoney_usage }}%"></div>
                     </div>
                     <p class="mb-0 text-white small-font">E-Money Usage<span class="float-right">{{ $emoney_usage > 0 ? "+" : "-" }}{{ $emoney_usage }}% <i class="{{ $emoney_usage > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
@@ -90,7 +90,7 @@
                         <p class="mb-3 text-white small-font">Gopay Balance</p>
                         <h5 class="text-white mb-0">{{ $gopay }} <span class="float-right"><i class="fa fa-bar-chart"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                        <div class="progress-bar" style="width:55%"></div>
+                        <div class="progress-bar" style="width:{{ $gopay_usage }}%"></div>
                     </div>
                     <p class="mb-0 text-white small-font">Gopay Usage<span class="float-right">+{{ $gopay_usage }}% <i class="{{ $gopay_usage > 0 ? "zmdi zmdi-long-arrow-up"  : "zmdi zmdi-long-arrow-down"}}"></i></span></p>
                     </div>
@@ -100,7 +100,7 @@
                         <p class="mb-3 text-white small-font">Bank Balance</p>
                         <h5 class="text-white mb-0">{{ $bank }} <span class="float-right"><i class="fa fa-cc-visa"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                            <div class="progress-bar" style="width:{{ $bank / $SALARY * 100 }}%"></div>
+                            <div class="progress-bar" style="width:{{ $bank_usage }}%"></div>
                         </div>
                         <p class="mb-0 text-white small-font">Bank Usage<span class="float-right">+{{ $bank_usage }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
@@ -110,7 +110,7 @@
                         <p class="mb-3 text-white small-font">Cash Balance</p>
                         <h5 class="text-white mb-0">{{ $cash }} <span class="float-right"><i class="fa fa-money"></i></span></h5>
                         <div class="progress my-3" style="height:3px;">
-                            <div class="progress-bar" style="width:{{ $cash / $cash * 100 }}%"></div>
+                            <div class="progress-bar" style="width:{{ $cash_usage }}%"></div>
                         </div>
                         <p class="mb-0 text-white small-font">Cash Usage <span class="float-right">+{{ $cash_usage }}% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                     </div>
