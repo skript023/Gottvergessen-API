@@ -8,16 +8,16 @@
                     <form action="/dashboard/wallet/update/{{ $wallet->id }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="title">Wallet</label>
-                            <input type="text" name="name" class="form-control form-control-rounded" id="name" placeholder="{{ $wallet->name }}">
+                            <label for="name">Wallet</label>
+                            <input type="text" name="name" class="form-control form-control-rounded" id="name" placeholder="{{ $wallet->name }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="description">Symbol</label>
-                            <input type="text" name="symbol" class="form-control form-control-rounded" id="symbol" placeholder="{{ $wallet->symbol }}">
+                            <label for="symbol">Symbol</label>
+                            <input type="text" name="symbol" class="form-control form-control-rounded" id="symbol" placeholder="{{ $wallet->symbol }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="income">Currency</label>
-                            <input type="text" name="currency" class="form-control form-control-rounded" id="currency" placeholder="{{ $wallet->currency }}">
+                            <label for="currency">Currency</label>
+                            <input type="text" name="currency" class="form-control form-control-rounded" id="currency" placeholder="{{ $wallet->currency }}" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Update Account</button>
