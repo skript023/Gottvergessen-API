@@ -5,12 +5,12 @@
 @section('content')
 @include('components.modal-popup', [
     'data' => $wallets, 
-    'url' => 'wallet/delete/',
+    'url' => 'wallets/delete/',
     'tag' => 'wallet-delete-'
 ])
 <div class="col-lg-12">
     <div class="my-4">
-        <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/wallet?page=add"> Add Wallet</a>
+        <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/wallets?page=add"> Add Wallet</a>
     </div>
     <div class="card">
         <div class="card-body">
@@ -40,7 +40,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                         <li class="dropdown-divider"></li>
-                                        <a href="wallet?page=edit&bin={{$wallet->id}}"><li class="dropdown-item">Edit</li></a>
+                                        <a href="wallets?page=edit&wallet_id={{ $wallet->id }}"><li class="dropdown-item">Edit</li></a>
                                         <li class="dropdown-divider"></li>
                                         <a data-toggle="modal" data-target="#wallet-delete-{{ $wallet->id }}"><li class="dropdown-item">Delete</li></a>
                                     </ul>
