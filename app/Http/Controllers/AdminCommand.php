@@ -11,14 +11,14 @@ class AdminCommand extends Controller
     {
         Artisan::call('migrate');
 
-        return redirect()->intended('/dashboard/profile');
+        return redirect()->intended('/dashboard/transaction-history');
     }
     
     public function refresh_migration()
     {
         Artisan::call('migrate:fresh');
 
-        return redirect()->intended('/dashboard/profile');
+        return redirect()->intended('/dashboard/transaction-history');
     }
 
     public function maintenance()
