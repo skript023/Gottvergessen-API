@@ -975,6 +975,26 @@ class TransactionSeeder extends Seeder
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 28, 18, 30)
             ],
+            [
+                'user_id' => 1,
+                'title' => 'Gaji IT Devops & Support Neuron',
+                'description' => 'Gaji IT Devops & Support Neuron',
+                'office' => 'STO Gambir',
+                'type' => 'bank',
+                'expenditure' => 0,
+                'income' => 5926000,
+                'transaction_date' => now()->setDateTime(2023, 2, 28, 19, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Kripik Kentang',
+                'description' => 'Kripik Kentang',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -18000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 2, 28, 20, 30)
+            ],
         ];
         
         foreach ($transactions as $transaction) 
