@@ -61,7 +61,7 @@ class UserWallets extends Controller
             'currency'
         ]);
 
-        $wallet = wallet::where('id', $request->wallet_id)->first();
+        $wallet = wallet::where('id', $request->id)->first();
 
         try 
         {
@@ -75,7 +75,7 @@ class UserWallets extends Controller
 
     public function delete_wallet(Request $request)
     {
-        $wallet = wallet::where('id', $request->wallet_id)->first();
+        $wallet = wallet::where('id', $request->id)->first();
 
         $wallet->delete();
     }

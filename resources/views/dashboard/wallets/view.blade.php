@@ -40,7 +40,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                         <li class="dropdown-divider"></li>
-                                        <a href="wallets?page=edit&wallet_id={{ $wallet->id }}"><li class="dropdown-item">Edit</li></a>
+                                        <a href="wallets?page=edit&wallet={{ $wallet->id }}"><li class="dropdown-item">Edit</li></a>
                                         <li class="dropdown-divider"></li>
                                         <a data-toggle="modal" data-target="#wallet-delete-{{ $wallet->id }}"><li class="dropdown-item">Delete</li></a>
                                     </ul>

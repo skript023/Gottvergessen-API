@@ -7,15 +7,15 @@
                 @csrf
                 <div class="form-group">
                     <label for="title">Wallet</label>
-                    <input type="text" name="name" class="form-control form-control-rounded" id="name" placeholder="{{ $wallet->name }}">
+                    <input type="text" name="name" class="form-control form-control-rounded" id="name" placeholder="Enter Wallet Name">
                 </div>
                 <div class="form-group">
                     <label for="description">Symbol</label>
-                    <input type="text" name="symbol" class="form-control form-control-rounded" id="symbol" placeholder="{{ $wallet->symbol }}">
+                    <input type="text" name="symbol" class="form-control form-control-rounded" id="symbol" placeholder="Enter Wallet Symbol">
                 </div>
                 <div class="form-group">
                     <label for="income">Currency</label>
-                    <input type="text" name="currency" class="form-control form-control-rounded" id="currency" placeholder="{{ $wallet->currency }}">
+                    <input type="text" name="currency" class="form-control form-control-rounded" id="currency" placeholder="Enter Wallet Currency">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i> Add New Wallet</button>
