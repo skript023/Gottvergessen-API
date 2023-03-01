@@ -10,12 +10,12 @@
         @if(auth()->user()->roles->role === 'admin')
             <li>
                 <a href="/dashboard">
-                <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+                    <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
             <li>
                 <a href="/dashboard/users">
-                <i class="zmdi zmdi-accounts-list"></i> <span>Users</span>
+                    <i class="zmdi zmdi-accounts-list"></i> <span>Users</span>
                 </a>
             </li>
             <li>
@@ -30,17 +30,22 @@
             </li>
             <li>
                 <a href="/dashboard/bin">
-                <i class="zmdi zmdi-folder-star"></i> <span>Binary</span>
+                    <i class="zmdi zmdi-folder-star"></i> <span>Binary</span>
                 </a>
             </li>
             <li>
                 <a href="/dashboard/ownership">
-                <i class="zmdi zmdi-chart"></i> <span>Ownerships</span>
+                    <i class="zmdi zmdi-chart"></i> <span>Ownerships</span>
                 </a>
             </li>
             <li>
                 <a href="/dashboard/transaction-history">
-                <i class="zmdi zmdi-format-list-bulleted"></i> <span>Transaction</span>
+                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Transaction</span>
+                </a>
+            </li>
+            <li>
+                <a href="/dashboard/wallets">
+                    <i class="zmdi zmdi-balance-wallet"></i> <span>Wallets</span>
                 </a>
             </li>
         @endif
