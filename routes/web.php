@@ -64,8 +64,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/transaction/update/{selected_transaction}', [TransactionHistory::class, 'update_transaction']);
     Route::get('/dashboard/transaction/delete/{selected_transaction}', [TransactionHistory::class, 'delete_transaction']);
 
-    Route::get('/dashboard/wallet', [UserWallets::class, 'index']);
-    Route::get('/dashboard/wallet/delete/{id}', [UserWallets::class, 'delete_wallet']);
+    Route::get('/dashboard/wallets', [UserWallets::class, 'index']);
+    Route::get('/dashboard/wallets/delete/{id}', [UserWallets::class, 'delete_wallet']);
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
     Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);
     Route::get('/admin/command/maintenance', [AdminCommand::class, 'maintenance']);

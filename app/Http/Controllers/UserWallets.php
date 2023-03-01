@@ -9,11 +9,11 @@ class UserWallets extends Controller
 {
     public function index()
     {
-        return view('dashboard.wallets', [
+        return view('dashboard.user-wallets', [
             'wallets' => wallet::all()
         ]);
     }
-    
+
     public function create_new_wallet(Request $request)
     {
         $request->validate([
