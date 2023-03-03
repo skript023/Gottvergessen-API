@@ -1021,7 +1021,7 @@ class TransactionSeeder extends Seeder
                 'description' => 'TeamGroup RAM DDR4 3200MHz 2x16 Black Gold',
                 'office' => 'STO Gambir',
                 'type' => 'gopay',
-                'expenditure' => -1551000,
+                'expenditure' => -1552300,
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 2, 28, 20, 33)
             ],
