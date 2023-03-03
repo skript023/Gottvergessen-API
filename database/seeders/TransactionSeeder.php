@@ -1215,6 +1215,16 @@ class TransactionSeeder extends Seeder
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 3, 3, 18, 30)
             ],
+            [
+                'user_id' => 1,
+                'title' => 'Keripik Kentang',
+                'description' => 'Keripik Kentang',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -18000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 3, 18, 30)
+            ],
         ];
         
         foreach ($transactions as $transaction) 
