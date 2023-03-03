@@ -563,7 +563,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 22, 17, 30)
+                'transaction_date' => now()->setDateTime(2023, 2, 21, 17, 30)
             ],
             [
                 'user_id' => 1,
@@ -573,7 +573,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 2, 22, 17, 13)
+                'transaction_date' => now()->setDateTime(2023, 2, 21, 17, 13)
             ],
             [
                 'user_id' => 1,
