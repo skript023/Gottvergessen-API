@@ -1027,16 +1027,6 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'title' => 'E-Money Topup',
-                'description' => 'E-Money Topup',
-                'office' => 'STO Gambir',
-                'type' => 'e-money',
-                'expenditure' => 0,
-                'income' => 50000,
-                'transaction_date' => now()->setDateTime(2023, 2, 28, 20, 33)
-            ],
-            [
-                'user_id' => 1,
                 'title' => 'KRL Commuter Line',
                 'description' => 'Commuter Line Depok - Gondangdia',
                 'office' => 'STO Gambir',
