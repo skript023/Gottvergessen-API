@@ -1227,6 +1227,16 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Bensin Pertamax',
+                'description' => 'Bensin Pertamax',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -22000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 3, 18, 40)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'Topup E-Money',
                 'description' => 'Keripik Kentang',
                 'office' => 'STO Gambir',

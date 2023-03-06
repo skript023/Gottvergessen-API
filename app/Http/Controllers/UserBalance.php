@@ -38,4 +38,13 @@ class UserBalance extends Controller
 
         $balance->save();
     }
+
+    public function set_balance(Request $request)
+    {
+        $balance = balance::where('user_id', $request->user)->where('wallet_id', $request->wallet);
+
+        $balance->amount = $request->amount;
+
+        $balance->save();
+    }
 }
