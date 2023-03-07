@@ -10,14 +10,17 @@ class UserBalance extends Controller
     public function all_user_balance()
     {
         return view('dashboard.balances', [
-            'balances' => balance::all()
+            'balances' => balance::with(['user', 'wallet'])->get()
         ]);
     }
 
     public function user_balance()
     {
-        return view('dashboard.user_balance', [
-            'balance' => balance::where('user_id', auth()->user()->id)->first()
+        return view('dashboard.user-balance', [
+            'emoney' => $this->emoney(),
+            'bank' => $this->bank(),
+            'cash' => $this->cash(),
+            'gopay' => $this->gopay()
         ]);
     }
 

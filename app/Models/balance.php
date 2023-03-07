@@ -51,7 +51,7 @@ class balance extends Model
         return $this->hasOne(wallet::class, 'id', 'wallet_id');
     }
 
-    public function owner()
+    public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }

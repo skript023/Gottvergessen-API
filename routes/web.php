@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientMonitorController;
 use App\Http\Controllers\OwnershipController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TransactionHistory;
+use App\Http\Controllers\UserBalance;
 use App\Http\Controllers\UserWallets;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -41,7 +42,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user']);
     Route::post('/dashboard/users/delete/{selected_user}', [UserController::class, 'delete_user']);
     Route::post('/dashboard/users/suspend/{selected_user}', [UserController::class, 'banned_user']);
-    
+    Route::get('/dashboard/users/balance', [UserBalance::class, 'user_balance']);
+
     Route::get('/dashboard/logging',[ClientMonitorController::class, 'load_logs']);
     Route::get('/dashboard/logs/delete/{id}', [ClientMonitorController::class, 'delete_log']);
     Route::get('/dashboard/logs/delete/all', [ClientMonitorController::class, 'clean_up']);
@@ -68,6 +70,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/wallets/add', [UserWallets::class, 'create_new_wallet']);
     Route::post('/dashboard/wallets/update/{id}', [UserWallets::class, 'update_wallet']);
     Route::get('/dashboard/wallets/delete/{id}', [UserWallets::class, 'delete_wallet']);
+
+    Route::get('/dashboard/balance/', [UserBalance::class, 'all_user_balance']);
     
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
     Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);

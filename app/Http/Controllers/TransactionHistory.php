@@ -145,24 +145,4 @@ class TransactionHistory extends Controller
 
         return back()->with("Failed", "Failed delete transaction");
     }
-
-    public function bank()
-    {
-        return balance::where('user_id', auth()->user()->id)->where('wallet_id', 1)->first()->amount;
-    }
-
-    public function cash()
-    {
-        return balance::where('user_id', auth()->user()->id)->where('wallet_id', 2)->first()->amount;
-    }
-
-    public function emoney()
-    {
-        return balance::where('user_id', auth()->user()->id)->where('wallet_id', 3)->first()->amount;
-    }
-
-    public function gopay()
-    {
-        return balance::where('user_id', auth()->user()->id)->where('wallet_id', 4)->first()->amount;
-    }
 }
