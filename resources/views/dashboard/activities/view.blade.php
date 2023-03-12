@@ -43,7 +43,9 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                         <li class="dropdown-divider"></li>
-                                        <a href="users/activity?page=edit&wallet={{ $activity->id }}"><li class="dropdown-item">Edit</li></a>
+                                        <a href="users/activity?page=edit&id={{ $activity->id }}"><li class="dropdown-item">Edit</li></a>
+                                        <li class="dropdown-divider"></li>
+                                        <a href="users/activity/close/{{ $activity->id }}"><li class="dropdown-item">Close Activity</li></a>
                                         <li class="dropdown-divider"></li>
                                         <a data-toggle="modal" data-target="#activity-delete-{{ $activity->id }}"><li class="dropdown-item">Delete</li></a>
                                     </ul>

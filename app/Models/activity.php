@@ -18,8 +18,9 @@ class activity extends Model
      */
     protected $fillable = [
         'name',
-        'start',
-        'end'
+        'start_date',
+        'end_date',
+        'status'
     ];
 
     
@@ -38,6 +39,6 @@ class activity extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        
+        'start_date' => 'date',
     ];
 }

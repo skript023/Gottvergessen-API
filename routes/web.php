@@ -47,6 +47,10 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/users/balance', [UserBalance::class, 'user_balance']);
 
     Route::get('/dashboard/users/activity', [NeuronReportActivity::class, 'index']);
+    Route::post('/dashboard/users/activity/add', [NeuronReportActivity::class, 'create_activity']);
+    Route::post('/dashboard/users/activity/update/{id}', [NeuronReportActivity::class, 'update_activity']);
+    Route::get('/dashboard/users/activity/delete/{id}', [NeuronReportActivity::class, 'index']);
+    Route::get('/dashboard/users/activity/close/{id}', [NeuronReportActivity::class, 'close_activity']);
     Route::get('/dashboard/users/activity/download', [NeuronReportActivity::class, 'export']);
 
     Route::get('/dashboard/logging',[ClientMonitorController::class, 'load_logs']);
