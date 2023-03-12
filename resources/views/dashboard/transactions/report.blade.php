@@ -27,8 +27,8 @@
         <td></td>
         <td></td>
         <td>Total</td>
-        <td>{{ $total_income }}</td>
         <td>{{ $total_expenditure }}</td>
+        <td>{{ $total_income }}</td>
     </tr>   
     </tbody>
 </table>
