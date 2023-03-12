@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KegiatanNeuron;
 use App\Models\activity;
 use Illuminate\Http\Request;
 
@@ -74,5 +75,10 @@ class NeuronReportActivity extends Controller
         }
 
         return redirect()->intended('/dashboard/users/activity');
+    }
+
+    public function export()
+    {
+        return new KegiatanNeuron;
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminCommand;
 use App\Http\Controllers\BinaryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientMonitorController;
+use App\Http\Controllers\NeuronReportActivity;
 use App\Http\Controllers\OwnershipController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TransactionHistory;
@@ -45,7 +46,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     
     Route::get('/dashboard/users/balance', [UserBalance::class, 'user_balance']);
 
-    Route::get('/dashboard/users/activity', []);
+    Route::get('/dashboard/users/activity', [NeuronReportActivity::class, 'index']);
+    Route::get('/dashboard/users/activity/download', [NeuronReportActivity::class, 'export']);
 
     Route::get('/dashboard/logging',[ClientMonitorController::class, 'load_logs']);
     Route::get('/dashboard/logs/delete/{id}', [ClientMonitorController::class, 'delete_log']);
