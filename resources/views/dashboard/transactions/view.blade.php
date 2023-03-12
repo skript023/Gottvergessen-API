@@ -11,6 +11,7 @@
 <div class="col-lg-12">
     <div class="my-4">
         <a class="btn btn-light zmdi zmdi-account-add" href="transaction-history?page=add"> Add Transaction</a>
+        <a class="btn btn-light zmdi zmdi-account-add" href="transaction-history?page=add-instant"> Instant Add Transaction</a>
         <a class="btn btn-light zmdi zmdi-account-add" href="/dashboard/transaction/download"> Download Report</a>
     </div>
     <div class="card mt-3 col-xl-4">

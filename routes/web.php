@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/ownership/delete/{id}', [OwnershipController::class, 'delete_ownership']);
 
     Route::get('/dashboard/transaction-history', [TransactionHistory::class, 'index']);
+    Route::post('/dashboard/transaction/add-instant', [TransactionHistory::class, 'instant_transaction']);
     Route::post('/dashboard/transaction/add', [TransactionHistory::class, 'create_transaction']);
     Route::post('/dashboard/transaction/update/{selected_transaction}', [TransactionHistory::class, 'update_transaction']);
     Route::get('/dashboard/transaction/delete/{selected_transaction}', [TransactionHistory::class, 'delete_transaction']);

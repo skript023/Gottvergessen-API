@@ -9,7 +9,11 @@
                 @case ('add')
                     @include('dashboard.transactions.add')
                 @break
-                
+
+                @case('add-instant')
+                    @include('dashboard.transactions.instant')
+                @break
+
                 @case ('edit')
                     @include('dashboard.transactions.edit')
                 @break

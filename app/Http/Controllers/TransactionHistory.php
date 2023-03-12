@@ -148,6 +148,97 @@ class TransactionHistory extends Controller
         return back()->with("Failed", "Failed delete transaction");
     }
 
+    public function instant_transaction(Request $request)
+    {
+        $request->validate([
+            'type' => 'required',
+            'title' => 'required', 
+            'description' => 'required',
+        ]);
+
+        $data = $request->only([
+            'type',
+            'title', 
+            'description', 
+            'income',
+            'expenditure',
+            'office'
+        ]);
+
+        $data['user_id'] = auth()->user()->id;
+        $data['income'] = (int)$data['income'];
+        $data['expenditure'] = (int)$data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : (int)$data['expenditure'];
+        
+        $transactions = [
+            [
+                'user_id' => 1,
+                'title' => 'KRL Commuter Line',
+                'description' => 'Commuter Line Depok - Gondangdia',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -4000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 9, 6, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Trans Jakarta',
+                'description' => 'Trans Jakarta 2Q Gondangdia - Balaikota',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 9, 8, 13)
+            ],
+            $data,
+            [
+                'user_id' => 1,
+                'title' => 'KRL Commuter Line',
+                'description' => 'Commuter Line Gondangdia - Depok',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -4000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 9, 17, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Trans Jakarta',
+                'description' => 'Trans Jakarta 2Q Balaikota - Gondangdia',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 9, 17, 13)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Parkir Penitipan Motor',
+                'description' => 'Parkir Penitipan Motor [ST. Depok]',
+                'office' => 'STO Gambir',
+                'type' => 'cash',
+                'expenditure' => -6000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 9, 18, 30)
+            ],
+        ];
+
+        try 
+        {
+            foreach ($transactions as $transaction) 
+            {
+                transaction::create($transaction);
+            }
+
+            return redirect()->intended('/dashboard/transaction-history');
+        } 
+        catch (\Throwable $th) 
+        {
+            dd($th);
+            return back()->withErrors("Registration", "Redigstration Failed");
+        }
+    }
+
     public function export()
     {
         return new TransactionExport;
