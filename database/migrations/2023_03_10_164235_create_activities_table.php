@@ -16,8 +16,8 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->date('start_date')->default(now());
+            $table->date('end_date')->nullable();
             $table->string('status');
             $table->timestamps();
         });

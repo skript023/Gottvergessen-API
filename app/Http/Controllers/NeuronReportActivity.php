@@ -27,6 +27,7 @@ class NeuronReportActivity extends Controller
             'name'
         ]);
 
+        $data['start_date'] = now();
         $data['status'] = 'On Progress';
 
         try 

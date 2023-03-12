@@ -39,6 +39,6 @@ class activity extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'start_date' => 'datetime',
+        
     ];
 }
