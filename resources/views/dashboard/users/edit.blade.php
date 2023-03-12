@@ -28,23 +28,23 @@
                         </div>
                         <div class="form-group">
                             <label for="fullname">Fullname</label>
-                            <input type="text" name="fullname" class="form-control form-control-rounded" id="fullname" placeholder="{{ $user->fullname }}">
+                            <input type="text" name="fullname" class="form-control form-control-rounded" id="fullname" value="{{ $user->fullname }}">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" name="email" class="form-control form-control-rounded" id="email" placeholder="{{ $user->email }}">
+                            <input type="text" name="email" class="form-control form-control-rounded" id="email" value="{{ $user->email }}">
                         </div>
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" name="username" class="form-control form-control-rounded" id="username" placeholder="{{ $user->username }}">
+                            <input type="text" name="username" class="form-control form-control-rounded" id="username" value="{{ $user->username }}">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control form-control-rounded" id="password" placeholder="Enter Password" required>
+                            <input type="password" name="password" class="form-control form-control-rounded" id="password" value="Enter Password" required>
                         </div>
                         <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
-                            <input type="password" name="password_confirmation" class="form-control form-control-rounded" id="input-10" placeholder="Confirm Password" required>
+                            <input type="password" name="password_confirmation" class="form-control form-control-rounded" id="input-10" value="Confirm Password" required>
                             <span id='message'></span>
                         </div>
                         <div class="form-group">

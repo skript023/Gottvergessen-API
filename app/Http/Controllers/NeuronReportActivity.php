@@ -64,7 +64,9 @@ class NeuronReportActivity extends Controller
 
         $data = $request->only([
             'name',
-            'status'
+            'status',
+            'start_date',
+            'end_date'
         ]);
 
         try 

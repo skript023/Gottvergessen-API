@@ -9,18 +9,18 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">Wallet</label>
-                            <input type="text" name="name" class="form-control form-control-rounded" id="name" placeholder="{{ $wallet->name }}" required>
+                            <input type="text" name="name" class="form-control form-control-rounded" id="name" value="{{ $wallet->name }}" required>
                         </div>
                         <div class="form-group">
                             <label for="symbol">Symbol</label>
-                            <input type="text" name="symbol" class="form-control form-control-rounded" id="symbol" placeholder="{{ $wallet->symbol }}" required>
+                            <input type="text" name="symbol" class="form-control form-control-rounded" id="symbol" value="{{ $wallet->symbol }}" required>
                         </div>
                         <div class="form-group">
                             <label for="currency">Currency</label>
-                            <input type="text" name="currency" class="form-control form-control-rounded" id="currency" placeholder="{{ $wallet->currency }}" required>
+                            <input type="text" name="currency" class="form-control form-control-rounded" id="currency" value="{{ $wallet->currency }}" required>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Update Account</button>
+                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Update Wallet</button>
                         </div>
                     </form>
                 @endif
