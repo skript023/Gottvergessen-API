@@ -36,8 +36,11 @@ class TransactionExport implements FromView, Responsable
 
     public function view() : View
     {
+        $transactions = transaction::all();
         return view('dashboard.transactions.report', [
-            'transactions' => transaction::all()
+            'transactions' => $transactions,
+            'total_expenditure' => $transactions->sum('expenditure'),
+            'total_income' => $transactions->sum('income'),
         ]);
     }
 }

@@ -22,5 +22,13 @@
             <td>{{ $transaction->transaction_date }}</td>
         </tr>
     @endforeach
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total</td>
+        <td>{{ $total_income }}</td>
+        <td>{{ $total_expenditure }}</td>
+    </tr>   
     </tbody>
 </table>
