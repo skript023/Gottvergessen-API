@@ -5,7 +5,7 @@
 @section('content')
 @include('components.modal-popup', [
     'data' => $activities, 
-    'url' => 'users/activity/delete/',
+    'url' => '/dashboard/users/activity/delete/',
     'tag' => 'activity-delete-'
 ])
 <div class="col-lg-12">
@@ -43,9 +43,9 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                         <li class="dropdown-divider"></li>
-                                        <a href="users/activity?page=edit&id={{ $activity->id }}"><li class="dropdown-item">Edit</li></a>
+                                        <a href="/dashboard/users/activity?page=edit&id={{ $activity->id }}"><li class="dropdown-item">Edit</li></a>
                                         <li class="dropdown-divider"></li>
-                                        <a href="users/activity/close/{{ $activity->id }}"><li class="dropdown-item">Close Activity</li></a>
+                                        <a href="/dashboard/users/activity/close/{{ $activity->id }}"><li class="dropdown-item">Close Activity</li></a>
                                         <li class="dropdown-divider"></li>
                                         <a data-toggle="modal" data-target="#activity-delete-{{ $activity->id }}"><li class="dropdown-item">Delete</li></a>
                                     </ul>
