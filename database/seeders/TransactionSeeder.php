@@ -1238,7 +1238,7 @@ class TransactionSeeder extends Seeder
             [
                 'user_id' => 1,
                 'title' => 'Topup E-Money',
-                'description' => 'Keripik Kentang',
+                'description' => 'Topup E-Money',
                 'office' => 'STO Gambir',
                 'type' => 'e-money',
                 'expenditure' => 0,

@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::post('/dashboard/transaction/add', [TransactionHistory::class, 'create_transaction']);
     Route::post('/dashboard/transaction/update/{selected_transaction}', [TransactionHistory::class, 'update_transaction']);
     Route::get('/dashboard/transaction/delete/{selected_transaction}', [TransactionHistory::class, 'delete_transaction']);
+    Route::get('/dashboard/transaction/download', [TransactionHistory::class, 'export']);
 
     Route::get('/dashboard/wallets', [UserWallets::class, 'index']);
     Route::post('/dashboard/wallets/add', [UserWallets::class, 'create_new_wallet']);

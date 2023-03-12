@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TransactionExport;
 use App\Models\balance;
 use App\Models\transaction;
 use App\Models\wallet;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TransactionHistory extends Controller
 {
@@ -13,7 +15,7 @@ class TransactionHistory extends Controller
     {
         $transactions = transaction::with('user')->orderBy('transaction_date', 'DESC')->get();
         $wallets = wallet::all();
-        $balance = balance::with(['wallet', 'owner'])->get();
+        $balance = balance::with(['wallet', 'user'])->get();
         $expenditure = transaction::where('transaction_date', '>', now()->subDays(30))->where('expenditure', '<', 0);
         $income = transaction::where('transaction_date', '>', now()->subDays(30))->where('income', '>', 0);
         $transaction = transaction::where('user_id', auth()->user()->id);
@@ -144,5 +146,10 @@ class TransactionHistory extends Controller
         }
 
         return back()->with("Failed", "Failed delete transaction");
+    }
+
+    public function export()
+    {
+        return Excel::download(new TransactionExport, 'Laporan Keuangan.xls');
     }
 }
