@@ -1237,6 +1237,66 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Topup Gopay',
+                'description' => 'Topup Gopay',
+                'office' => 'Home',
+                'type' => 'bank',
+                'expenditure' => -61000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 4, 14, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Topup Gopay',
+                'description' => 'Topup Gopay',
+                'office' => 'Home',
+                'type' => 'gopay',
+                'expenditure' => 0,
+                'income' => 61000,
+                'transaction_date' => now()->setDateTime(2023, 3, 4, 14, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'SW',
+                'description' => 'SW',
+                'office' => 'Home',
+                'type' => 'gopay',
+                'expenditure' => -87480,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 4, 14, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Topup Gopay',
+                'description' => 'Topup Gopay',
+                'office' => 'Home',
+                'type' => 'bank',
+                'expenditure' => -21000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 5, 14, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Topup Gopay',
+                'description' => 'Topup Gopay',
+                'office' => 'Home',
+                'type' => 'gopay',
+                'expenditure' => 0,
+                'income' => 21000,
+                'transaction_date' => now()->setDateTime(2023, 3, 5, 14, 30)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Pulsa Telkomsel 20000',
+                'description' => 'Pulsa Telkomsel 20000',
+                'office' => 'Home',
+                'type' => 'gopay',
+                'expenditure' => -21500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 5, 14, 30)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'Topup E-Money',
                 'description' => 'Topup E-Money',
                 'office' => 'STO Gambir',
