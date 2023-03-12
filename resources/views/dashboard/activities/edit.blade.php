@@ -11,10 +11,11 @@
                             <label for="name">Activity</label>
                             <input type="text" name="name" class="form-control form-control-rounded" id="name" value="{{ $activity->name }}" required>
                         </div>
-                        <div class="form-group">
-                            <label for="symbol">Status</label>
-                            <input type="text" name="status" class="form-control form-control-rounded" id="status" value="{{ $activity->status }}" required>
-                        </div>
+                        <select id="status" name="status" class="form-control text-center mb-3">
+                            <option class="bg-dark-light" value="">--- Select type ---</option>
+                            <option class="bg-dark-light" value="Completed">Completed</option>
+                            <option class="bg-dark-light" value="On Progress">On Progress</option>
+                        </select>
                         <div class="form-group date">
                             <label for="symbol">Start Date</label>
                             <input type="date" name="start_date"  class="form-control form-control-rounded" id="start_date" value={{ $activity->start_date }}>
@@ -27,6 +28,9 @@
                             <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i>Update Activity</button>
                         </div>
                     </form>
+                    <script>
+                        let element = document.getElementById('status').value = '{{ $activity->status }}';
+                    </script>
                 @endif
             @endforeach
         </div>

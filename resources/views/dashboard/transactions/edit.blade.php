@@ -14,6 +14,9 @@
                                 <option class="bg-dark-light" value="{{ $wallet->symbol }}">{{ $wallet->name }}</option>
                             @endforeach
                         </select>
+                        <script>
+                            let element = document.getElementById('type').value = '{{ $wallet->symbol }}';
+                        </script>
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" class="form-control form-control-rounded" id="title" value="{{ $transaction->title }}">
