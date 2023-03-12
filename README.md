@@ -10,6 +10,12 @@
   <a href="https://github.com/skript023/Gottvergessen-API/actions">
       <img src="https://github.com/skript023/Gottvergessen-API/actions/workflows/main.yml/badge.svg"/>
    </a>
+   <a href="https://github.com/skript023/Gottvergessen-API/actions">
+      <img src="https://github.com/skript023/Gottvergessen-API/actions/workflows/databases.yml/badge.svg"/>
+   </a>
+   <a href="https://github.com/skript023/Gottvergessen-API/actions">
+      <img src="https://github.com/skript023/Gottvergessen-API/actions/workflows/facades.yml/badge.svg"/>
+   </a>
   <br>
   A simple DLL API handlig for <a href="https://github.com/skript023/Gottvergessen-Loader">Gottvergessen Loader</a>
   Strictly for educational purposes.
