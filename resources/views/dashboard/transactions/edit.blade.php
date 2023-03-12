@@ -15,7 +15,7 @@
                             @endforeach
                         </select>
                         <script>
-                            let element = document.getElementById('type').value = '{{ $wallet->symbol }}';
+                            document.getElementById('type').value = '{{ $wallet->symbol }}';
                         </script>
                         <div class="form-group">
                             <label for="title">Title</label>
