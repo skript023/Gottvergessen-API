@@ -36,9 +36,10 @@ class NeuronReportActivity extends Controller
         } 
         catch (\Throwable $th) 
         {
-            dd($th);
             return back();
-        }   
+        }
+
+        return redirect()->intended('/dashboard/users/activity');
     }
 
     public function close_activity(Request $request)
