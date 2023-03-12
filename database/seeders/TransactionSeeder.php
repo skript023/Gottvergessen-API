@@ -1243,7 +1243,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'bank',
                 'expenditure' => -61000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 3, 4, 14, 30)
+                'transaction_date' => now()->setDateTime(2023, 3, 4, 12, 30)
             ],
             [
                 'user_id' => 1,
@@ -1253,7 +1253,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'gopay',
                 'expenditure' => 0,
                 'income' => 61000,
-                'transaction_date' => now()->setDateTime(2023, 3, 4, 14, 30)
+                'transaction_date' => now()->setDateTime(2023, 3, 4, 13, 30)
             ],
             [
                 'user_id' => 1,
@@ -1273,7 +1273,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'bank',
                 'expenditure' => -21000,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 3, 5, 14, 30)
+                'transaction_date' => now()->setDateTime(2023, 3, 5, 12, 30)
             ],
             [
                 'user_id' => 1,
@@ -1283,7 +1283,7 @@ class TransactionSeeder extends Seeder
                 'type' => 'gopay',
                 'expenditure' => 0,
                 'income' => 21000,
-                'transaction_date' => now()->setDateTime(2023, 3, 5, 14, 30)
+                'transaction_date' => now()->setDateTime(2023, 3, 5, 13, 30)
             ],
             [
                 'user_id' => 1,
