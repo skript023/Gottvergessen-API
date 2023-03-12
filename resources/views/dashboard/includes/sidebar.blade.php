@@ -48,6 +48,16 @@
                     <i class="zmdi zmdi-balance-wallet"></i> <span>Wallets</span>
                 </a>
             </li>
+            <li>
+                <a href="/dashboard/users/balance">
+                    <i class="zmdi zmdi-balance"></i> <span>Balances</span>
+                </a>
+            </li>
+            <li>
+                <a href="/dashboard/users/activity">
+                    <i class="zmdi zmdi-assignment"></i> <span>Activity</span>
+                </a>
+            </li>
         @endif
 
         <li>
