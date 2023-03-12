@@ -150,6 +150,6 @@ class TransactionHistory extends Controller
 
     public function export()
     {
-        return Excel::download(new TransactionExport, 'Laporan Keuangan.xls');
+        return new TransactionExport;
     }
 }

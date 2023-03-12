@@ -20,7 +20,7 @@ class TransactionExport implements FromView, Responsable
     * It's required to define the fileName within
     * the export class when making use of Responsable.
     */
-    private $fileName = 'invoices.xlsx';
+    private $fileName = 'Laporan Keuangan.xlsx';
     
     /**
     * Optional Writer Type
@@ -31,7 +31,7 @@ class TransactionExport implements FromView, Responsable
     * Optional headers
     */
     private $headers = [
-        'Content-Type' => 'text/csv',
+        'Content-Type' => 'text/xlsx',
     ];
 
     public function view() : View

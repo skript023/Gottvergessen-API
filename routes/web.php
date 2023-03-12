@@ -73,6 +73,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/wallets/delete/{id}', [UserWallets::class, 'delete_wallet']);
 
     Route::get('/dashboard/balance/', [UserBalance::class, 'all_user_balance']);
+
+    Route::get('/dashboard/activity/download', []);
     
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
     Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);
