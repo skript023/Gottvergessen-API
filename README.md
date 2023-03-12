@@ -19,8 +19,8 @@
 ## Features
 
 * Laravel based framework
-
+* User Roles
 * Login Systems
-
+* Transaction History
 * Sanctum auth and API token
 * Binary send request to C++
