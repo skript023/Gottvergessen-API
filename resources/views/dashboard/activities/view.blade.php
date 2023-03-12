@@ -10,7 +10,7 @@
 ])
 <div class="col-lg-12">
     <div class="my-4">
-        <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/users/activity/add"> Add Activity</a>
+        <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/users/activity?page=add"> Add Activity</a>
         <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/users/activity/download"> Download Activity Report</a>
     </div>
     <div class="card">
@@ -43,7 +43,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                         <li class="dropdown-divider"></li>
-                                        <a href="wallets?page=edit&wallet={{ $activity->id }}"><li class="dropdown-item">Edit</li></a>
+                                        <a href="users/activity?page=edit&wallet={{ $activity->id }}"><li class="dropdown-item">Edit</li></a>
                                         <li class="dropdown-divider"></li>
                                         <a data-toggle="modal" data-target="#activity-delete-{{ $activity->id }}"><li class="dropdown-item">Delete</li></a>
                                     </ul>
