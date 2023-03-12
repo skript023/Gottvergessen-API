@@ -178,7 +178,6 @@ class TransactionHistory extends Controller
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()
             ],
             [
                 'user_id' => 1,
@@ -188,7 +187,6 @@ class TransactionHistory extends Controller
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()
             ],
             $data,
             [
@@ -199,7 +197,6 @@ class TransactionHistory extends Controller
                 'type' => 'e-money',
                 'expenditure' => -4000,
                 'income' => 0,
-                'transaction_date' => now()
             ],
             [
                 'user_id' => 1,
@@ -209,7 +206,6 @@ class TransactionHistory extends Controller
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()
             ],
             [
                 'user_id' => 1,
@@ -219,7 +215,6 @@ class TransactionHistory extends Controller
                 'type' => 'cash',
                 'expenditure' => -6000,
                 'income' => 0,
-                'transaction_date' => now()
             ],
         ];
 
