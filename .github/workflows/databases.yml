@@ -3,9 +3,11 @@ name: databases
 on:
   push:
     branches:
-      - master
+      - main
       - '*.x'
   pull_request:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   mysql_57:
@@ -23,6 +25,8 @@ jobs:
 
     strategy:
       fail-fast: true
+      matrix:
+        php: ['8.0', 8.1, 8.2]
 
     name: MySQL 5.7
 
@@ -66,6 +70,8 @@ jobs:
 
     strategy:
       fail-fast: true
+      matrix:
+        php: ['8.0', 8.1, 8.2]
 
     name: MySQL 8.0
 
@@ -109,6 +115,8 @@ jobs:
 
     strategy:
       fail-fast: true
+      matrix:
+        php: ['8.0', 8.1, 8.2]
 
     name: MariaDB 10
 
@@ -153,6 +161,8 @@ jobs:
 
     strategy:
       fail-fast: true
+      matrix:
+        php: ['8.0', 8.1, 8.2]
 
     name: PostgreSQL 14
 
@@ -195,6 +205,8 @@ jobs:
 
     strategy:
       fail-fast: true
+      matrix:
+        php: ['8.0', 8.1, 8.2]
 
     name: SQL Server 2019
 
