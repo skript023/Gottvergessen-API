@@ -39,7 +39,7 @@ class ApiUserController extends Controller
                 $fullname = auth()->user()->fullname;
                 $ownership = auth()->user()->ownerships->id;
                 $expiry_date = auth()->user()->expired;
-                $role = auth()->user()->roles->role;
+                $role = auth()->user()->roles->name;
 
                 $token = $user->createToken(auth()->user()->fullname);
                 //$access_token = $token->accessToken;

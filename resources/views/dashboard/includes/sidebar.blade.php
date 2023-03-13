@@ -7,7 +7,7 @@
     </div>
     <ul class="sidebar-menu do-nicescrol">
         <li class="sidebar-header">MAIN NAVIGATION</li>
-        @if(auth()->user()->roles->role === 'admin')
+        @if (auth()->user()->roles->name === 'admin')
             <li>
                 <a href="/dashboard">
                     <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
@@ -66,7 +66,7 @@
             </a>
         </li>
 
-        @if(auth()->user()->roles->role === 'admin')
+        @if (auth()->user()->roles->name === 'admin')
             <li class="sidebar-header">Admin</li>
             <li><a href="/admin/command/maintenance"><i class="zmdi zmdi-alert-triangle text-danger"></i> <span>Maintenance</span></a></li>
             <li><a href="/admin/command/migration"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Migration</span></a></li>

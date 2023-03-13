@@ -107,7 +107,7 @@
                                 <h6>Information</h6>
                                 <p>{{ "Name : " . $user->fullname }}</p>
                                 <p>{{ "Username : " . $user->username }}</p>
-                                <p>{{ "Status : " . $user->roles->role }}</p>
+                                <p>{{ "Status : " . $user->roles->name }}</p>
                                 <p>{{ "Email : " . $user->email }}</p>
                                 <p>{{ "Ownership : " . $user->ownerships->type }}</p>
                             </div>
@@ -122,7 +122,7 @@
                                 <a href="javascript:void();" class="badge badge-dark badge-pill">bootstrap</a>
                                 <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a> --}}
                                 <hr>
-                                <span class="badge badge-primary"><i class="fa fa-user"></i> {{ $user->roles->role }}</span>
+                                <span class="badge badge-primary"><i class="fa fa-user"></i> {{ $user->roles->name }}</span>
                                 <span class="badge badge-success"><i class="fa fa-cog"></i> {{ $user->ownerships->type }}</span>
                                 <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
                             </div>

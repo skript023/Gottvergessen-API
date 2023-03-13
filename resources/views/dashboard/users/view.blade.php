@@ -41,7 +41,7 @@
                                 <td>{{ $user->fullname }}</td>
                                 <td>{{ $user->ownerships->type }}</td>
                                 <td>{{ $user->computer_name }}</td>
-                                <td>{{ $user->roles->role }}</td>
+                                <td>{{ $user->roles->name }}</td>
                                 <td>{{ $user->activity }}</td>
                                 <td>
                                 <div class="btn-group">
