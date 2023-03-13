@@ -220,7 +220,7 @@ class TransactionHistory extends Controller
 
         try 
         {
-            foreach ($transactions as $transaction) 
+            foreach (array_reverse($transactions) as $transaction) 
             {
                 transaction::create($transaction);
             }
