@@ -20,10 +20,15 @@
             </li>
             <li>
                 <a href="/dashboard/users/balance">
-                    <i class="zmdi zmdi-balance"></i> <span>Balances</span>
+                    <i class="zmdi zmdi-balance"></i> <span>Your Balances</span>
                 </a>
             </li>
             @if (auth()->user()->roles->name === 'admin')
+                <li>
+                    <a href="/dashboard/balances">
+                        <i class="zmdi zmdi-balance"></i> <span>User Balances</span>
+                    </a>
+                </li>
                 <li>
                     <a href="/dashboard/role">
                     <i class="zmdi zmdi-account-circle"></i> <span>Role</span>

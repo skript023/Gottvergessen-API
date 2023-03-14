@@ -51,6 +51,11 @@ class RestrictionRoute extends Seeder
                 'level' => 3,
                 'role_id' => 2
             ],
+            [
+                'route' => '/dashboard/balances',
+                'level' => 3,
+                'role_id' => 2
+            ],
 
             [
                 'route' => '/dashboard/users/activity',
