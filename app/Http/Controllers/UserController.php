@@ -221,7 +221,7 @@ class UserController extends Controller
 
         $data['password'] = Hash::make($data['password']);
 
-        $user = user::find($request->selected_user);
+        $user = user::find($request->id);
 
         try
         {
@@ -304,7 +304,7 @@ class UserController extends Controller
 
     public function banned_user(Request $request)
     {
-        $user = User::find($request->selected_user);
+        $user = User::find($request->id);
 
         $user->status = 'suspended';
 

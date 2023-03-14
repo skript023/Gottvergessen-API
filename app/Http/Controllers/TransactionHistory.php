@@ -122,7 +122,7 @@ class TransactionHistory extends Controller
         $data['income'] = empty($data['income']) ? 0 : $data['income'];
         $data['expenditure'] = empty($data['expenditure']) ? 0 : ($data['expenditure'] > 0 ? $data['expenditure'] - ($data['expenditure'] * 2) : $data['expenditure']);
         
-        $transaction = transaction::find($request->selected_transaction);
+        $transaction = transaction::find($request->id);
 
         try 
         {
@@ -138,7 +138,7 @@ class TransactionHistory extends Controller
 
     public function delete_transaction(Request $request)
     {
-        $transaction = transaction::find($request->selected_transaction);
+        $transaction = transaction::find($request->id);
         if (isset($transaction))
         {
             $transaction->delete();

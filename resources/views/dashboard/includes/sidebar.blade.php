@@ -7,9 +7,9 @@
     </div>
     <ul class="sidebar-menu do-nicescrol">
         <li class="sidebar-header">MAIN NAVIGATION</li>
-        @if (auth()->user()->roles->name === 'admin')
+        @if (auth()->user()->roles->name === 'staff' || auth()->user()->roles->name === 'admin')
             <li>
-                <a href="/dashboard">
+                <a href="/dashboard/statistic">
                     <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
@@ -19,45 +19,47 @@
                 </a>
             </li>
             <li>
-                <a href="/dashboard/logging">
-                <i class="zmdi zmdi-alert-triangle"></i> <span>Logging</span>
-                </a>
-            </li>
-            <li>
-                <a href="/dashboard/role">
-                <i class="zmdi zmdi-account-circle"></i> <span>Role</span>
-                </a>
-            </li>
-            <li>
-                <a href="/dashboard/bin">
-                    <i class="zmdi zmdi-folder-star"></i> <span>Binary</span>
-                </a>
-            </li>
-            <li>
-                <a href="/dashboard/ownership">
-                    <i class="zmdi zmdi-chart"></i> <span>Ownerships</span>
-                </a>
-            </li>
-            <li>
-                <a href="/dashboard/transaction-history">
-                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Transaction</span>
-                </a>
-            </li>
-            <li>
-                <a href="/dashboard/wallets">
-                    <i class="zmdi zmdi-balance-wallet"></i> <span>Wallets</span>
-                </a>
-            </li>
-            <li>
                 <a href="/dashboard/users/balance">
                     <i class="zmdi zmdi-balance"></i> <span>Balances</span>
                 </a>
             </li>
-            <li>
-                <a href="/dashboard/users/activity">
-                    <i class="zmdi zmdi-assignment"></i> <span>Activity</span>
-                </a>
-            </li>
+            @if (auth()->user()->roles->name === 'admin')
+                <li>
+                    <a href="/dashboard/role">
+                    <i class="zmdi zmdi-account-circle"></i> <span>Role</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/bin">
+                        <i class="zmdi zmdi-folder-star"></i> <span>Binary</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/ownership">
+                        <i class="zmdi zmdi-chart"></i> <span>Ownerships</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/transaction-history">
+                        <i class="zmdi zmdi-format-list-bulleted"></i> <span>Transaction</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/wallets">
+                        <i class="zmdi zmdi-balance-wallet"></i> <span>Wallets</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/users/activity">
+                        <i class="zmdi zmdi-assignment"></i> <span>Activity</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/logging">
+                        <i class="zmdi zmdi-alert-triangle"></i> <span>Logging</span>
+                    </a>
+                </li>
+            @endif
         @endif
 
         <li>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\restriction;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -15,12 +16,28 @@ class AdminAuthentication
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
-        if (auth()->user()->roles->id == 3)
+    {   
+        if (is_null($request->id)) 
         {
-            return $next($request);
-        }
+            $access = restriction::where('route', $request->getPathInfo())->first();
 
-        abort(401);
+            if (is_null($access)) abort(404);
+
+            if (auth()->user()->roles->level >= $access->level)
+            {
+                return $next($request);
+            }
+
+            abort(401);
+        }
+        else
+        {
+            if (auth()->user()->roles->name == 'admin')
+            {
+                return $next($request);
+            }
+
+            abort(401);
+        }
     }
 }

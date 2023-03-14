@@ -40,9 +40,9 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     
     Route::get('/dashboard/users', [UserController::class, 'view_user']);
     Route::post('/dashboard/users/add', [UserController::class, 'add_user']);
-    Route::post('/dashboard/users/update/{selected_user}', [UserController::class, 'update_user']);
-    Route::post('/dashboard/users/delete/{selected_user}', [UserController::class, 'delete_user']);
-    Route::post('/dashboard/users/suspend/{selected_user}', [UserController::class, 'banned_user']);
+    Route::post('/dashboard/users/update/{id}', [UserController::class, 'update_user']);
+    Route::post('/dashboard/users/delete/{id}', [UserController::class, 'delete_user']);
+    Route::post('/dashboard/users/suspend/{id}', [UserController::class, 'banned_user']);
     
     Route::get('/dashboard/users/balance', [UserBalance::class, 'user_balance']);
 
@@ -73,8 +73,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/transaction-history', [TransactionHistory::class, 'index']);
     Route::post('/dashboard/transaction/add-instant', [TransactionHistory::class, 'instant_transaction']);
     Route::post('/dashboard/transaction/add', [TransactionHistory::class, 'create_transaction']);
-    Route::post('/dashboard/transaction/update/{selected_transaction}', [TransactionHistory::class, 'update_transaction']);
-    Route::get('/dashboard/transaction/delete/{selected_transaction}', [TransactionHistory::class, 'delete_transaction']);
+    Route::post('/dashboard/transaction/update/{id}', [TransactionHistory::class, 'update_transaction']);
+    Route::get('/dashboard/transaction/delete/{id}', [TransactionHistory::class, 'delete_transaction']);
     Route::get('/dashboard/transaction/download', [TransactionHistory::class, 'export']);
 
     Route::get('/dashboard/wallets', [UserWallets::class, 'index']);
@@ -84,8 +84,6 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 
     Route::get('/dashboard/balance/', [UserBalance::class, 'all_user_balance']);
 
-    Route::get('/dashboard/activity/download', []);
-    
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
     Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);
     Route::get('/admin/command/maintenance', [AdminCommand::class, 'maintenance']);

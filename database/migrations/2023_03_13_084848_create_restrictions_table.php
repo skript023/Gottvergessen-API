@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 class CreateRestrictionsTable extends Migration
@@ -21,6 +22,11 @@ class CreateRestrictionsTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete();
             $table->timestamps();
         });
+
+        Artisan::call( 'db:seed', [
+            '--class' => 'RestrictionRoute',
+            '--force' => true ]
+        );
     }
 
     /**
