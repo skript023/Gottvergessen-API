@@ -25,7 +25,7 @@
             </li>
             @if (auth()->user()->roles->name === 'admin')
                 <li>
-                    <a href="/dashboard/balances">
+                    <a href="/dashboard/balance">
                         <i class="zmdi zmdi-balance"></i> <span>User Balances</span>
                     </a>
                 </li>
