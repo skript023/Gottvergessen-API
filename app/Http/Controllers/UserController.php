@@ -98,11 +98,11 @@ class UserController extends Controller
             $data['image'] = $filename;
         }
 
-        $data['ownership'] = (int)$request->ownership;
-        $data['role_id'] = (int)$request->role;
-        $data['expired'] = now()->addDays((int)$request->access);
+        $data['ownership_id'] = $request->ownership;
+        $data['role_id'] = $request->role;
+        $data['expired'] = now()->addDays($request->access);
 
-        $data['status'] = $request->user_status;
+        $data['status'] = $request->status;
         $data['email_verified_at'] = now();
         $data['created_date'] = now();
         $data['recent_login'] = now();
@@ -127,7 +127,7 @@ class UserController extends Controller
                 balance::create($account);
             }
 
-            return redirect()->intended();
+            return redirect()->intended('/dashboard/users');
         } 
         catch (\Throwable $th) 
         {

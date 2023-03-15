@@ -22,6 +22,12 @@
                         <option class="bg-dark-light" value="{{ $role->id }}">{{ $role->name }}</option>
                     @endforeach
                 </select>
+                <select id="status" name="status" class="form-control text-center mb-3">
+                    <option class="bg-dark-light" value="">--- Select type ---</option>
+                    <option class="bg-dark-light" value="verified">Verified</option>
+                    <option class="bg-dark-light" value="unverified">Unverified</option>
+                    <option class="bg-dark-light" value="suspended">Suspended</option>
+                </select>
                 <div class="form-group">
                     <label for="input-6">Fullname</label>
                     <input type="text" name="fullname" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
@@ -29,10 +35,6 @@
                 <div class="form-group">
                     <label for="input-6">Access</label>
                     <input type="number" name="access" class="form-control form-control-rounded" id="input-6" placeholder="Enter Days" required>
-                </div>
-                <div class="form-group">
-                    <label for="input-6">Fullname</label>
-                    <input type="text" name="fullname" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
                 </div>
                 <div class="form-group">
                     <label for="input-7">Email</label>
