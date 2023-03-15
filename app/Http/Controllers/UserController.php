@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\access_level;
 use App\Models\balance;
 use App\Models\ownership;
 use App\Models\role;
@@ -192,7 +193,8 @@ class UserController extends Controller
         return view('dashboard.users', [
             'users' => user::all(),
             'ownerships' => ownership::all(),
-            'roles' => role::all()
+            'roles' => role::all(),
+            'levels' => access_level::all()
         ]);
 
         return redirect('/dashboard/profile');

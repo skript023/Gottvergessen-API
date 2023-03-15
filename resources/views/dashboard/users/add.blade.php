@@ -10,16 +10,22 @@
                         <input type="file" class="form-control" name="image">
                     </div>
                 </div>
-                <select id="ownership" name="ownership" class="form-control text-center mb-3">
-                    <option class="bg-dark-light" value="">--- Select type ---</option>
-                    @foreach ($ownerships as $key => $ownership)
-                        <option class="bg-dark-light" value="{{ $ownership->id }}">{{ $ownership->type }}</option>
-                    @endforeach
-                </select>
                 <select id="role" name="role" class="form-control text-center mb-3">
                     <option class="bg-dark-light" value="">--- Select type ---</option>
                     @foreach ($roles as $key => $role)
                         <option class="bg-dark-light" value="{{ $role->id }}">{{ $role->name }}</option>
+                    @endforeach
+                </select>
+                <select id="level" name="level" class="form-control text-center mb-3">
+                    <option class="bg-dark-light" value="">--- Select type ---</option>
+                    @foreach ($levels as $key => $level)
+                        <option class="bg-dark-light" value="{{ $level->id }}">{{ $level->name }}</option>
+                    @endforeach
+                </select>
+                <select id="ownership" name="ownership" class="form-control text-center mb-3">
+                    <option class="bg-dark-light" value="">--- Select type ---</option>
+                    @foreach ($ownerships as $key => $ownership)
+                        <option class="bg-dark-light" value="{{ $ownership->id }}">{{ $ownership->type }}</option>
                     @endforeach
                 </select>
                 <select id="status" name="status" class="form-control text-center mb-3">
