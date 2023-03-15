@@ -178,7 +178,7 @@ class UserController extends Controller
                 balance::create($account);
             }
 
-            return redirect()->intended();
+            return redirect()->intended('/');
         } 
         catch (\Throwable $th) 
         {
