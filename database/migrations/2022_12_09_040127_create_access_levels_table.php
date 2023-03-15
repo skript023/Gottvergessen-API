@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 class CreateAccessLevelsTable extends Migration
@@ -19,6 +20,11 @@ class CreateAccessLevelsTable extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Artisan::call( 'db:seed', [
+            '--class' => 'AccessLevel',
+            '--force' => true ]
+        );
     }
 
     /**
