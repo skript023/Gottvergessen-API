@@ -7,16 +7,28 @@
                 @csrf
                 <div class="form-group">
                     <div class="btn btn-light btn-round px-5">
-                        <input type="file" class="form-control" name="user_image">
+                        <input type="file" class="form-control" name="image">
                     </div>
                 </div>
+                <select id="ownership" name="ownership" class="form-control text-center mb-3">
+                    <option class="bg-dark-light" value="">--- Select type ---</option>
+                    @foreach ($ownerships as $key => $ownership)
+                        <option class="bg-dark-light" value="{{ $ownership->id }}">{{ $ownership->type }}</option>
+                    @endforeach
+                </select>
+                <select id="role" name="role" class="form-control text-center mb-3">
+                    <option class="bg-dark-light" value="">--- Select type ---</option>
+                    @foreach ($roles as $key => $role)
+                        <option class="bg-dark-light" value="{{ $role->id }}">{{ $role->name }}</option>
+                    @endforeach
+                </select>
                 <div class="form-group">
                     <label for="input-6">Fullname</label>
                     <input type="text" name="fullname" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
                 </div>
                 <div class="form-group">
-                    <label for="input-6">Duration</label>
-                    <input type="text" name="access_duration" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>
+                    <label for="input-6">Access</label>
+                    <input type="number" name="access" class="form-control form-control-rounded" id="input-6" placeholder="Enter Days" required>
                 </div>
                 <div class="form-group">
                     <label for="input-6">Fullname</label>

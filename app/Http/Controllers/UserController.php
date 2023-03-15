@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\balance;
+use App\Models\ownership;
+use App\Models\role;
 use App\Models\transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -86,9 +88,20 @@ class UserController extends Controller
             'password'
         ]);
 
-        $data['ownership'] = $request->ownership;
-        $data['role_id'] = $request->role;
-        $data['expired'] = now()->addDays($request->access_duration);
+        if ($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = auth()->user()->fullname . '.' . $extension;
+            $file->storePubliclyAs('uploads/avatar', $filename, "public");
+
+            $data['image'] = $filename;
+        }
+
+        $data['ownership'] = (int)$request->ownership;
+        $data['role_id'] = (int)$request->role;
+        $data['expired'] = now()->addDays((int)$request->access);
+
         $data['status'] = $request->user_status;
         $data['email_verified_at'] = now();
         $data['created_date'] = now();
@@ -138,6 +151,8 @@ class UserController extends Controller
             'password'
         ]);
 
+        $data_user['ownership_id'] = ownership::where('type', 'BASIC VERSION')->first()->id;
+        $data_user['role_id'] = role::where('name', 'user')->first()->id;
         $data_user['activity'] = 'Just Registered';
         $data_user['status'] = 'verified';
         $data_user['email_verified_at'] = now();
@@ -176,6 +191,8 @@ class UserController extends Controller
     {
         return view('dashboard.users', [
             'users' => user::all(),
+            'ownerships' => ownership::all(),
+            'roles' => role::all()
         ]);
 
         return redirect('/dashboard/profile');

@@ -33,7 +33,7 @@ class OwnershipSeeder extends Seeder
             ]
         ];
 
-        foreach ($ownerships as $ownership) 
+        foreach (array_reverse($ownerships) as $ownership) 
         {
             ownership::create($ownership);
         }

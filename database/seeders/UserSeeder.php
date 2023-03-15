@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ownership;
 use App\Models\role;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -23,7 +24,7 @@ class UserSeeder extends Seeder
                 'username' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('123'),
-                'ownership_id' => 4,
+                'ownership_id' => ownership::where('type', 'DEVELOPER VERSION')->first()->id,
                 'role_id' => role::where('name', 'admin')->first()->id,
                 'status' => 'verified',
                 'image' => 'Administrator.jpg',
@@ -32,12 +33,12 @@ class UserSeeder extends Seeder
                 'hardware_uuid' => '$2y$10$UiHEEMO7lkFkuRMOHuNs2OA/WgnbfTzB6VcAjBn66U3NPXVgHdld2'
             ],
             [
-                'level' => 3,
+                'level' => 4,
                 'fullname' => 'Staff',
                 'username' => 'staff',
                 'email' => 'staff@gmail.com',
                 'password' => Hash::make('123'),
-                'ownership_id' => 4,
+                'ownership_id' => ownership::where('type', 'DEVELOPER VERSION')->first()->id,
                 'role_id' => role::where('name', 'staff')->first()->id,
                 'status' => 'verified',
                 'image' => 'Staff.jpg',
@@ -48,7 +49,7 @@ class UserSeeder extends Seeder
                 'username' => 'QuinCantik12',
                 'email' => 'putrahadi1132@gmail.com',
                 'password' => Hash::make('QuinCantik12'),
-                'ownership_id' => 3,
+                'ownership_id' => ownership::where('type', 'ENTERPRISE VERSION')->first()->id,
                 'role_id' => role::where('name', 'user')->first()->id,
                 'status' => 'verified',
                 'image' => 'QuinCantik12.jpg',

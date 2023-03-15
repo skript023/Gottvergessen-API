@@ -55,6 +55,11 @@ class RestrictionRoute extends Seeder
                 'role_id' => role::where('name', 'staff')->first()->id
             ],
             [
+                'route' => '/dashboard/users/add',
+                'level' => 5,
+                'role_id' => role::where('name', 'staff')->first()->id
+            ],
+            [
                 'route' => '/dashboard/users/update',
                 'level' => 3,
                 'role_id' => role::where('name', 'admin')->first()->id
