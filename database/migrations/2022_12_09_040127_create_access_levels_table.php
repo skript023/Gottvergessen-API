@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class CreateAccessLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +13,12 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('access_levels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('level')->nullable();
-            $table->foreign('level')->references('id')->on('access_levels')->cascadeOnDelete();
+            $table->string('description');
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'RoleSeeder',
-            '--force' => true ]
-        );
     }
 
     /**
@@ -35,6 +28,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('access_levels');
     }
 }
