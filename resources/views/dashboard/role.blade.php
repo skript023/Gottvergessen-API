@@ -46,7 +46,7 @@
                         <tbody>
                             @foreach ($roles as $role)
                             <tr>
-                                <td>{{$role->role}}</td>
+                                <td>{{$role->name}}</td>
                                 <td>
                                     <a href="/dashboard/role?edit={{$role->id}}" class="btn btn-light">Update</a>
                                     <button type="button" data-toggle="modal" data-target="#role-delete-{{ $role->id }}" class="btn btn-light">Delete</button>

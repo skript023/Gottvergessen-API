@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\restriction;
+use App\Models\role;
 use Illuminate\Database\Seeder;
 
 class RestrictionRoute extends Seeder
@@ -17,202 +18,225 @@ class RestrictionRoute extends Seeder
         $routes = [
             [
                 'route' => '/dashboard/statistic',
-                'level' => 3,
-                'role_id' => 2
+                'level' => 5,
+                'role_id' => role::where('name', 'staff')->first()->id
             ],
             [
                 'route' => '/admin',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
+            ],
+
+            [
+                'route' => '/dashboard/role',
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
-                'route' => '/dashboard/users',
+                'route' => '/dashboard/role/add',
                 'level' => 3,
-                'role_id' => 2
+                'role_id' => role::where('name', 'admin')->first()->id
+            ],
+            [
+                'route' => '/dashboard/role/edit',
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
+            ],
+            [
+                'route' => '/dashboard/role/delete',
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
+            ],
+
+
+            [
+                'route' => '/dashboard/users',
+                'level' => 5,
+                'role_id' => role::where('name', 'staff')->first()->id
             ],
             [
                 'route' => '/dashboard/users/update',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/delete',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/suspend',
-                'level' => 3,
-                'role_id' => 2
+                'level' => 5,
+                'role_id' => role::where('name', 'staff')->first()->id
             ],
 
             [
                 'route' => '/dashboard/users/balance',
-                'level' => 3,
-                'role_id' => 2
+                'level' => 5,
+                'role_id' => role::where('name', 'staff')->first()->id
             ],
             [
                 'route' => '/dashboard/balance',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 2,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
 
             [
                 'route' => '/dashboard/users/activity',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/add',
                 'level' => 3,
-                'role_id' => 3
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/update',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/delete',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/close',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/download',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
 
             [
                 'route' => '/dashboard/logging',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/logs/delete',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/logs/delete/all',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
 
             [
                 'route' => '/dashboard/bin',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/bin/add',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
 
             [
                 'route' => '/dashboard/ownership',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/add',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/edit',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/delete',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
 
             [
                 'route' => '/dashboard/transaction-history',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/add',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/add-instant',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/update',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/delete',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/download',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
 
             [
                 'route' => '/dashboard/wallets',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/wallets/add',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/wallets/update',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/wallets/delete',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
 
             [
                 'route' => '/dashboard/balances',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 3,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
 
             [
                 'route' => '/admin/command/migration',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 1,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/admin/command/migration-fresh',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 1,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/admin/command/maintenance',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 1,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/admin/command/server-up',
-                'level' => 4,
-                'role_id' => 3
+                'level' => 1,
+                'role_id' => role::where('name', 'admin')->first()->id
             ],
         ];
 

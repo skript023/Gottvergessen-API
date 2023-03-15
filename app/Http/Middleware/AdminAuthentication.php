@@ -23,7 +23,7 @@ class AdminAuthentication
 
             if (is_null($access)) abort(404);
 
-            if (auth()->user()->roles->level >= $access->level)
+            if (auth()->user()->level <= $access->level)
             {
                 return $next($request);
             }
