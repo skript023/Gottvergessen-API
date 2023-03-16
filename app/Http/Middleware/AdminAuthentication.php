@@ -28,7 +28,8 @@ class AdminAuthentication
 
             if (isset($request->page))
             {
-                if ($request->page == 'edit' && auth()->user()->level > $access->id) abort(401);
+                if ($request->page == 'edit' && auth()->user()->level > $access->id) 
+                    abort(401);
             }
 
             if (auth()->user()->level <= $restriction->level)
