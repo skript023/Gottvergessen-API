@@ -6,34 +6,44 @@
             <form action="/dashboard/users/add" method="post">
                 @csrf
                 <div class="form-group">
-                    <div class="btn btn-light btn-round px-5">
-                        <input type="file" class="form-control" name="image">
-                    </div>
+                    <input type="file" class="form-control form-control-rounded" name="image">
                 </div>
-                <select id="role" name="role" class="form-control text-center mb-3">
-                    <option class="bg-dark-light" value="">--- Select type ---</option>
-                    @foreach ($roles as $key => $role)
-                        <option class="bg-dark-light" value="{{ $role->id }}">{{ $role->name }}</option>
-                    @endforeach
-                </select>
-                <select id="level" name="level" class="form-control text-center mb-3">
-                    <option class="bg-dark-light" value="">--- Select type ---</option>
-                    @foreach ($levels as $key => $level)
-                        <option class="bg-dark-light" value="{{ $level->id }}">{{ $level->name }}</option>
-                    @endforeach
-                </select>
-                <select id="ownership" name="ownership" class="form-control text-center mb-3">
-                    <option class="bg-dark-light" value="">--- Select type ---</option>
-                    @foreach ($ownerships as $key => $ownership)
-                        <option class="bg-dark-light" value="{{ $ownership->id }}">{{ $ownership->type }}</option>
-                    @endforeach
-                </select>
-                <select id="status" name="status" class="form-control text-center mb-3">
-                    <option class="bg-dark-light" value="">--- Select type ---</option>
-                    <option class="bg-dark-light" value="verified">Verified</option>
-                    <option class="bg-dark-light" value="unverified">Unverified</option>
-                    <option class="bg-dark-light" value="suspended">Suspended</option>
-                </select>
+                <div class="form-group">
+                    <label for="input-6">Role</label>
+                    <select id="role" name="role" class="form-control form-control-rounded text-center mb-3">
+                        <option class="bg-dark-light" value="">--- Select Role ---</option>
+                        @foreach ($roles as $key => $role)
+                            <option class="bg-dark-light" value="{{ $role->id }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-6">Access Level</label>
+                    <select id="level" name="level" class="form-control form-control-rounded text-center mb-3">
+                        <option class="bg-dark-light" value="">--- Select Access Level ---</option>
+                        @foreach ($levels as $key => $level)
+                            <option class="bg-dark-light" value="{{ $level->id }}">{{ $level->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-6">Ownership</label>
+                    <select id="ownership" name="ownership" class="form-control form-control-rounded text-center mb-3">
+                        <option class="bg-dark-light" value="">--- Select Ownerships ---</option>
+                        @foreach ($ownerships as $key => $ownership)
+                            <option class="bg-dark-light" value="{{ $ownership->id }}">{{ $ownership->type }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-6">Status</label>
+                    <select id="status" name="status" class="form-control form-control-rounded text-center mb-3">
+                        <option class="bg-dark-light" value="">--- Select Status ---</option>
+                        <option class="bg-dark-light" value="verified">Verified</option>
+                        <option class="bg-dark-light" value="unverified">Unverified</option>
+                        <option class="bg-dark-light" value="suspended">Suspended</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="input-6">Fullname</label>
                     <input type="text" name="fullname" class="form-control form-control-rounded" id="input-6" placeholder="Enter Fullname" required>

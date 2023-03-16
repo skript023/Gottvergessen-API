@@ -5,13 +5,15 @@
             <div class="card-title text-uppercase text-center py-3">Add Transaction</div>
             <form action="/dashboard/transaction/add" method="post">
                 @csrf
-                <label for="input-6">Type</label>
-                <select id="type" name="type" class="form-control text-center mb-3">
-                    <option class="bg-dark-light" value="">--- Select type ---</option>
-                    @foreach ($wallets as $key => $wallet)
-                        <option class="bg-dark-light" value="{{ $wallet->symbol }}">{{ $wallet->name }}</option>
-                    @endforeach
-                </select>
+                <div class="form-group">
+                    <label for="input-6">Transaction Type</label>
+                    <select id="type" name="type" class="form-control form-control-rounded text-center mb-3">
+                        <option class="bg-dark-light" value="">--- Select type ---</option>
+                        @foreach ($wallets as $key => $wallet)
+                            <option class="bg-dark-light" value="{{ $wallet->symbol }}">{{ $wallet->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="input-6">Office</label>
                     <input type="text" name="office" class="form-control form-control-rounded" id="input-6" placeholder="Enter Office" required>
