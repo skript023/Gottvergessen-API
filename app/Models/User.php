@@ -81,6 +81,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(role::class, 'role_id', 'id');
     }
 
+    public function access_levels()
+    {
+        return $this->hasOne(access_level::class, 'level', 'id');
+    }
+
     public function balances()
     {
         return $this->hasMany(balance::class, 'user_id', 'id');
