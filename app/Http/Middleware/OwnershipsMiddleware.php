@@ -33,7 +33,7 @@ class OwnershipsMiddleware
             ], 404);
         }
 
-        if (auth()->user()->ownership_id >= $binary->ownership_id)
+        if (auth()->user()->ownership_id <= $binary->ownership_id)
         {
             return $next($request);
         }

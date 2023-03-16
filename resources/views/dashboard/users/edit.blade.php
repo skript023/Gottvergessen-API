@@ -21,11 +21,53 @@
                             @else
                             <img src="https://via.placeholder.com/400x400" class="rounded-circle img-fluid img-thumbnail mx-auto my-5 d-block" id="profile-img" alt="">
                             @endif
-                            <div class="form-group btn btn-light btn-round px-5 mx-auto d-block">
+                            <div class="form-group">
                                 <label for="avatar">Avatar</label>
-                                <input type="file" class="form-control" name="image">
+                                <input type="file" class="form-control form-control-rounded" name="image">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="input-6">Role</label>
+                            <select id="role" name="role" class="form-control form-control-rounded text-center mb-3">
+                                <option class="bg-dark-light" value="">--- Select Role ---</option>
+                                @foreach ($roles as $key => $role)
+                                    <option class="bg-dark-light" value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-6">Access Level</label>
+                            <select id="level" name="level" class="form-control form-control-rounded text-center mb-3">
+                                <option class="bg-dark-light" value="">--- Select Access Level ---</option>
+                                @foreach ($levels as $key => $level)
+                                    <option class="bg-dark-light" value="{{ $level->id }}">{{ $level->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-6">Ownership</label>
+                            <select id="ownership" name="ownership" class="form-control form-control-rounded text-center mb-3">
+                                <option class="bg-dark-light" value="">--- Select Ownerships ---</option>
+                                @foreach ($ownerships as $key => $ownership)
+                                    <option class="bg-dark-light" value="{{ $ownership->id }}">{{ $ownership->type }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-6">Status</label>
+                            <select id="status" name="status" class="form-control form-control-rounded text-center mb-3">
+                                <option class="bg-dark-light" value="">--- Select Status ---</option>
+                                <option class="bg-dark-light" value="verified">Verified</option>
+                                <option class="bg-dark-light" value="unverified">Unverified</option>
+                                <option class="bg-dark-light" value="suspended">Suspended</option>
+                            </select>
+                        </div>
+                        <script>
+                            document.getElementById('role').value = '{{ $user->roles->id }}';
+                            document.getElementById('level').value = '{{ $user->access_level->id }}';
+                            document.getElementById('ownership').value = '{{ $user->ownerships->id }}';
+                            document.getElementById('status').value = '{{ $user->status }}';
+                        </script>
                         <div class="form-group">
                             <label for="fullname">Fullname</label>
                             <input type="text" name="fullname" class="form-control form-control-rounded" id="fullname" value="{{ $user->fullname }}">
