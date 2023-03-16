@@ -43,11 +43,11 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                         <li class="dropdown-divider"></li>
-                                        <a href="/dashboard/users/activity?page=edit&id={{ $activity->id }}"><li class="dropdown-item">Edit</li></a>
+                                        <a href="{{ auth()->user()->level <= 4 ? '/dashboard/users/activity?page=edit&id=' . $activity->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 4 ? 'disabled' : '' }}">Edit</li></a>
                                         <li class="dropdown-divider"></li>
                                         <a href="/dashboard/users/activity/close/{{ $activity->id }}"><li class="dropdown-item">Close Activity</li></a>
                                         <li class="dropdown-divider"></li>
-                                        <a data-toggle="modal" data-target="#activity-delete-{{ $activity->id }}"><li class="dropdown-item">Delete</li></a>
+                                        <a data-toggle="modal" data-target="{{ auth()->user()->level <= 3 ? '#activity-delete-' . $activity->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 3 ? 'disabled' : '' }}">Delete</li></a>
                                     </ul>
                                 </div>
                                 </td>

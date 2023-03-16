@@ -50,11 +50,11 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                     <li class="dropdown-divider"></li>
-                                    <a href="users?page=edit&user={{ $user->id }}"><li class="dropdown-item">Edit User</li></a>
+                                    <a href="{{ auth()->user()->level <= 4 ? 'users?page=edit&user='.$user->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 4 ? 'disabled' : '' }}">Edit User</li></a>
                                     <li class="dropdown-divider"></li>
-                                    <a data-toggle="modal" data-target="#user-delete-{{ $user->id }}"><li class="dropdown-item">Delete User</li></a>
+                                    <a data-toggle="modal" data-target="{{ auth()->user()->level <= 3 ? '#user-delete-'.$user->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 3 ? 'disabled' : '' }}">Delete User</li></a>
                                     <li class="dropdown-divider"></li>
-                                    <a data-toggle="modal" data-target="#user-suspend-{{ $user->id }}"><li class="dropdown-item">Suspend User</li></a>
+                                    <a data-toggle="modal" data-target="{{ auth()->user()->level <= 4 ? '#user-suspend-'.$user->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 4 ? 'disabled' : '' }}">Suspend User</li></a>
                                 </ul>
                             </div>
                                 </td>

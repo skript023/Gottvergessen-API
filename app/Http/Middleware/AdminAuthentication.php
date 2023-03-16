@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\access_level;
 use App\Models\restriction;
 use Closure;
 use Illuminate\Http\Request;
@@ -17,13 +18,20 @@ class AdminAuthentication
      */
     public function handle(Request $request, Closure $next)
     {   
+        $access = access_level::where('name', 'First Staff')->first();
+
         if (is_null($request->id)) 
         {
-            $access = restriction::where('route', $request->getPathInfo())->first();
+            $restriction = restriction::where('route', $request->getPathInfo())->first();
 
-            if (is_null($access)) abort(404);
+            if (is_null($restriction)) abort(404);
 
-            if (auth()->user()->level <= $access->level)
+            if (isset($request->page))
+            {
+                if ($request->page == 'edit' && auth()->user()->level > $access->id) abort(401);
+            }
+
+            if (auth()->user()->level <= $restriction->level)
             {
                 return $next($request);
             }
@@ -32,7 +40,7 @@ class AdminAuthentication
         }
         else
         {
-            if (auth()->user()->roles->name == 'admin')
+            if (auth()->user()->roles->level <= $access->id)
             {
                 return $next($request);
             }
