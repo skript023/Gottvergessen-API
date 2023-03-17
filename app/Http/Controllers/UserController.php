@@ -127,13 +127,13 @@ class UserController extends Controller
                 $account['wallet_id'] = $wallet->id;
                 balance::create($account);
             }
-
-            return redirect()->intended('/dashboard/users');
         } 
         catch (\Throwable $th) 
         {
             return back()->withErrors("Registration", "Redigstration Failed");
         }
+
+        return redirect()->intended('/dashboard/users');
     }
 
     public function user_registration(Request $request)
@@ -178,14 +178,13 @@ class UserController extends Controller
                 $account['wallet_id'] = $wallet->id;
                 balance::create($account);
             }
-
-            return redirect()->intended('/');
         } 
         catch (\Throwable $th) 
         {
-            dd($th);
             return back()->withErrors("Registration", "Registration Failed");
         }
+
+        return redirect()->intended('/');
     }
 
     public function view_user()
@@ -245,12 +244,13 @@ class UserController extends Controller
         try
         {
             $user->update($data);
-            return redirect('/dashboard/profile');
         }
         catch (\Throwable $th) 
         {
             return back()->with("Failed", "Failed update profile");
         }
+
+        return redirect()->intended('/dashboard/profile');
     }
 
     public function update_profile(Request $request)
@@ -282,12 +282,13 @@ class UserController extends Controller
         try
         {
             $user->update($data);
-            return redirect()->intended('/dashboard/profile');
         }
         catch (\Throwable $th) 
         {
             return back()->with("Failed", "Failed update profile");
         }
+
+        return redirect()->intended('/dashboard/profile');
     }
 
     public function update_password(Request $request)
@@ -306,12 +307,13 @@ class UserController extends Controller
         try
         {
             $user->update($data);
-            return redirect()->intended('/dashboard/profile');
         }
         catch (\Throwable $th) 
         {
             return back()->with("Failed", "Failed update password");
         }
+
+        return redirect()->intended('/dashboard/profile');
     }
 
     public function profile()
