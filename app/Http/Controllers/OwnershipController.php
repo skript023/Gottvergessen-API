@@ -24,12 +24,13 @@ class OwnershipController extends Controller
         try 
         {
             $product->delete();
-            return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removed successfully')->with('error_code', 0);
         } 
         catch (\Throwable $th) 
         {
             return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removal failed, must be contain valid data')->with('error_code', Jenkins::hash('DELETE_ERROR'));
         }
+
+        return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removed successfully')->with('error_code', 0);
     }
 
     public function update_ownership(Request $request)
