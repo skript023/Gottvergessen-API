@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\balance;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\wallet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -91,6 +93,119 @@ class ApiUserController extends Controller
         return response()->json([
             'status' => Jenkins::hash('LOGOUT_SUCCESS'),
             'message' => 'Logout Success'
+        ]);
+    }
+
+    public function create_user(Request $request)
+    {
+        $request->validate([
+            'fullname' => 'required', 
+            'username' => 'required',
+            'email' => 'required:|email:dns', 
+            'password' => 'required|confirmed|min:6'
+        ]);
+
+        $data = $request->only([
+            'fullname', 
+            'username', 
+            'email',
+            'password'
+        ]);
+
+        if ($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = auth()->user()->fullname . '.' . $extension;
+            $file->storePubliclyAs('uploads/avatar', $filename, "public");
+
+            $data['image'] = $filename;
+        }
+
+        $data['ownership_id'] = $request->ownership;
+        $data['role_id'] = $request->role;
+        $data['expired'] = now()->addDays($request->access);
+
+        $data['status'] = $request->status;
+        $data['email_verified_at'] = now();
+        $data['created_date'] = now();
+        $data['recent_login'] = now();
+        $data['activity'] = 'Online';
+        $data['password'] = Hash::make($data['password']);
+        $account = [
+            'user_id' => 0,
+            'wallet_id' => 0,
+            'amount' => 0
+        ];
+
+        $wallets = wallet::all();
+
+        try 
+        {
+            $user = User::create($data);
+
+            $account['user_id'] = $user->id;
+            foreach ($wallets as $wallet)
+            {
+                $account['wallet_id'] = $wallet->id;
+                balance::create($account);
+            }
+        } 
+        catch (\Throwable $th) 
+        {
+            return response()->json([
+                'message' => 'User failed created'
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'User successfully created'
+        ]);
+    }
+
+    public function update_user(Request $request)
+    {
+        $request->validate([
+            'fullname' => 'required',
+            'username' => 'required',
+            'email' => 'required:|email:dns', 
+            'password' => 'required|confirmed|min:6'
+        ]);
+
+        $data = $request->only([
+            'fullname', 
+            'username', 
+            'email',
+            'password'
+        ]);
+
+        if ($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = auth()->user()->fullname . '.' . $extension;
+            $file->storePubliclyAs('uploads/avatar', $filename, "public");
+
+            $data['image'] = $filename;
+        }
+
+        $data['password'] = Hash::make($data['password']);
+
+        $user = user::find($request->id);
+
+        try
+        {
+            $user->update($data);
+        }
+        catch (\Throwable $th) 
+        {
+            return response()->json([
+                'message' => 'User information failed updated'
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'User information successfully updated'
         ]);
     }
 }

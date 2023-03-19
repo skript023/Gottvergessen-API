@@ -53,5 +53,6 @@ Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], fu
 
 Route::group(['middleware' => ['auth:sanctum', 'admin', 'verified']], function ()
 {
-    Route::post('/user/create');
+    Route::post('/user/create', [ApiUserController::class, 'create_user']);
+    Route::post('/user/update/{id}', [ApiUserController::class, 'update_user']);
 });
