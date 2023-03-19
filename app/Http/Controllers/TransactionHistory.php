@@ -92,14 +92,14 @@ class TransactionHistory extends Controller
         try 
         {
             transaction::create($data);
-
-            return redirect()->intended('/dashboard/transaction-history');
         } 
         catch (\Throwable $th) 
         {
             dd($th);
             return back()->withErrors("Registration", "Redigstration Failed");
         }
+
+        return redirect()->intended('/dashboard/transaction-history');
     }
     
     public function update_transaction(Request $request)
@@ -127,13 +127,13 @@ class TransactionHistory extends Controller
         try 
         {
             $transaction->update($data);
-            
-            return redirect()->intended('/dashboard/transaction-history');
         } 
         catch (\Throwable $th) 
         {
             return back()->withErrors("Registration", "Update Failed");
         }
+
+        return redirect()->intended('/dashboard/transaction-history');
     }
 
     public function delete_transaction(Request $request)
@@ -224,14 +224,13 @@ class TransactionHistory extends Controller
             {
                 transaction::create($transaction);
             }
-
-            return redirect()->intended('/dashboard/transaction-history');
         } 
         catch (\Throwable $th) 
         {
-            dd($th);
             return back()->withErrors("Registration", "Redigstration Failed");
         }
+
+        return redirect()->intended('/dashboard/transaction-history');
     }
 
     public function export()
