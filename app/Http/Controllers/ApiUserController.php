@@ -208,4 +208,20 @@ class ApiUserController extends Controller
             'message' => 'User information successfully updated'
         ]);
     }
+
+    public function delete_user(Request $request)
+    {
+        $user = User::find($request->delete);
+        if (isset($user))
+        {
+            $user->delete();
+            return response()->json([
+                'message' => 'User deleted successfully'
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Failed delete user'
+        ]);
+    }
 }
