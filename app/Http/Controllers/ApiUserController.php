@@ -215,6 +215,7 @@ class ApiUserController extends Controller
         if (isset($user))
         {
             $user->delete();
+            
             return response()->json([
                 'message' => 'User deleted successfully'
             ]);
