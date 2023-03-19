@@ -51,3 +51,7 @@ Route::group(['middleware' => ['auth:sanctum', 'ownership', 'subscription']], fu
     Route::get('/v1/heartbeat/device-check', [IntegrationTask::class, 'update_login_time']);
 });
 
+Route::group(['middleware' => ['auth:sanctum', 'admin', 'verified']], function ()
+{
+    Route::post('/user/create');
+});
