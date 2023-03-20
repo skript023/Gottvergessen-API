@@ -26,14 +26,13 @@ class RoleController extends Controller
         try 
         {
             role::create($data);
-            return redirect()->back();
         } 
         catch (\Throwable $th) 
         {
             return redirect()->back();
         }
 
-        return redirect()->back();
+        return redirect()->intended('/dashboard/role');
     }
 
     public function update_role(Request $request)

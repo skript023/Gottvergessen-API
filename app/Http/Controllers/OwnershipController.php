@@ -42,12 +42,13 @@ class OwnershipController extends Controller
         try 
         {
             $product->save();
-            return redirect()->intended('/dashboard/users');
         } 
         catch (\Throwable $th) 
         {
             return back()->withErrors('Update Error', 'Failed Update Ownerships');
         }
+        
+        return redirect()->intended('/dashboard/users');
     }
 
     public function update_user_ownership(Request $request)
@@ -59,13 +60,13 @@ class OwnershipController extends Controller
         try 
         {
             $owner->save();
-
-            return redirect()->intended('/dashboard/profile');
         } 
         catch (\Throwable $th) 
         {
             return back()->withErrors('Ownership', 'Failed update ownerships');
         }
+
+        return redirect()->intended('/dashboard/profile');
     }
 
     public function add_new_ownership(Request $request)
@@ -76,12 +77,12 @@ class OwnershipController extends Controller
         try 
         {
             ownership::create($data);
-
-            return redirect()->intended('/dashboard');
         } 
         catch (\Throwable $th) 
         {
             return back()->withErrors('Ownership', 'Failed add ownerships');
         }
+
+        return redirect()->intended('/dashboard');
     }
 }
