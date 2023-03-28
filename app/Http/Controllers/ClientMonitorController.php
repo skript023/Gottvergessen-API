@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ClientMonitorController extends Controller
 {
-    public function load_logs(Request $request)
+    public function load_logs()
     {
         $log = client_monitor::all();
 
@@ -53,12 +53,13 @@ class ClientMonitorController extends Controller
         if (!$log) return redirect()->back()->withErrors('Data not found');
         $log->delete();
 
-        return redirect()->back();
+        return redirect()->intended('/dashboard/logging');
     }
 
     public function clean_up()
     {
         $client = client_monitor::all();
+        
         $client->delete();
     }
 }
