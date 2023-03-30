@@ -34,7 +34,10 @@
                                 <td>{{ $restriction->route }}</td>
                                 <td>{{ $restriction->role->name }}</td>
                                 <td>
-                                    <span class="{{ $restriction->levels->id <= 3 ? 'badge badge-success' : 'badge badge-warning' }}"><i class="{{ $restriction->levels->id <= 3 ? 'zmdi zmdi-shield-security' : 'zmdi zmdi-settings' }}"></i> {{ $restriction->levels->name }}</span>
+                                    <span class="{{ $restriction->levels->badge}}">
+                                        <i class="{{ $restriction->levels->icon }}"></i> 
+                                        {{ $restriction->levels->name }}
+                                    </span>
                                 </td>
                                 <td>
                                     <div class="btn-group mx-auto">
