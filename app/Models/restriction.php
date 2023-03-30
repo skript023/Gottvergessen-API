@@ -33,4 +33,14 @@ class restriction extends Model
      */
     protected $casts = [
     ];
+
+    public function role()
+    {
+        return $this->hasOne(role::class, 'id', 'role_id');
+    }
+
+    public function level()
+    {
+        return $this->hasOne(access_level::class, 'id', 'level');
+    }
 }
