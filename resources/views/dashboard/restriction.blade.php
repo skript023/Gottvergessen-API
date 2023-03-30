@@ -1,5 +1,5 @@
 @extends('dashboard.includes.core')
-@section('title', 'User Management')
+@section('title', 'Restriction Management')
 
 @section('content')
 <div class="container-fluid">

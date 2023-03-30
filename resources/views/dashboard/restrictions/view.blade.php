@@ -1,17 +1,17 @@
 @extends('includes.core')
-@section('title', 'Activities Management')
-@section('modal-header', 'restriction Deletion')
+@section('title', 'Restriction Management')
+@section('modal-header', 'Restriction Deletion')
 @section('modal-message', 'Are you sure want to delete this restriction? the data will not be able to restored after deletion')
 @section('content')
 @include('components.modal-popup', [
     'data' => $restrictions, 
-    'url' => '/dashboard/users/restriction/delete/',
+    'url' => '/dashboard/restriction/delete/',
     'tag' => 'restriction-delete-'
 ])
 <div class="col-lg-12">
     <div class="my-4">
-        <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/users/restriction?page=add"> Add Restriction</a>
-        <a class="btn btn-light zmdi zmdi-download" href="/dashboard/users/restriction/download"> Download Restriction Report</a>
+        <a class="btn btn-light zmdi zmdi-collection-plus" href="/dashboard/restriction?page=add"> Add Restriction</a>
+        <a class="btn btn-light zmdi zmdi-download" href="/dashboard/restriction/download"> Download Restriction Report</a>
     </div>
     <div class="card">
         <div class="card-body">

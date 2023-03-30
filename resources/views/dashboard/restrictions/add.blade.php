@@ -3,7 +3,7 @@
     <div class="card-content p-2">
         <div class="card-body">
             <div class="card-title text-uppercase text-center py-3">Add Restriction</div>
-            <form action="/dashboard/users/restriction/add" method="post">
+            <form action="/dashboard/restriction/add" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="input-6">Access Level</label>

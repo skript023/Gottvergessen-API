@@ -224,6 +224,27 @@ class RestrictionRoute extends Seeder
             ],
 
             [
+                'route' => '/dashboard/restriction',
+                'level' => 1,
+                'role_id' => role::where('name', 'admin')->first()->id
+            ],
+            [
+                'route' => '/dashboard/restriction/add',
+                'level' => 1,
+                'role_id' => role::where('name', 'admin')->first()->id
+            ],
+            [
+                'route' => '/dashboard/restriction/update',
+                'level' => 1,
+                'role_id' => role::where('name', 'admin')->first()->id
+            ],
+            [
+                'route' => '/dashboard/restriction/delete',
+                'level' => 1,
+                'role_id' => role::where('name', 'admin')->first()->id
+            ],
+
+            [
                 'route' => '/admin/command/migration',
                 'level' => 1,
                 'role_id' => role::where('name', 'admin')->first()->id

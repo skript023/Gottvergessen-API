@@ -85,10 +85,10 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 
     Route::get('/dashboard/balance/', [UserBalance::class, 'all_user_balance']);
 
-    Route::get('/dashboard/users/restriction', [RestrictionRoute::class, 'index']);
-    Route::post('/dashboard/users/restriction/add', [RestrictionRoute::class, 'create']);
-    Route::post('/dashboard/users/restriction/update/{id}', [RestrictionRoute::class, 'update']);
-    Route::get('/dashboard/users/restriction/delete/{id}', [RestrictionRoute::class, 'delete']);
+    Route::get('/dashboard/restriction', [RestrictionRoute::class, 'index']);
+    Route::post('/dashboard/restriction/add', [RestrictionRoute::class, 'create']);
+    Route::post('/dashboard/restriction/update/{id}', [RestrictionRoute::class, 'update']);
+    Route::get('/dashboard/restriction/delete/{id}', [RestrictionRoute::class, 'delete']);
 
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
     Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);

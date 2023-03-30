@@ -5,7 +5,7 @@
             <hr>
             @foreach ($restrictions as $restriction)
                 @if ($restriction->id == request()->restriction)
-                    <form action="/dashboard/users/restriction/update/{{ $restriction->id }}" method="post" enctype="multipart/form-data">
+                    <form action="/dashboard/restriction/update/{{ $restriction->id }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="input-6">Type</label>
                         <select id="level" name="level" class="form-control text-center mb-3">
