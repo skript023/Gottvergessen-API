@@ -41,7 +41,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
                                         <li class="dropdown-divider"></li>
-                                        <a href="{{ auth()->user()->level <= 4 ? '/dashboard/users/restriction?page=edit&restriction=' . $restriction->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 4 ? 'disabled' : '' }}">Edit</li></a>
+                                        <a href="{{ auth()->user()->level <= 4 ? '/dashboard/restriction?page=edit&restriction=' . $restriction->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 4 ? 'disabled' : '' }}">Edit</li></a>
                                         <li class="dropdown-divider"></li>
                                         <a data-toggle="modal" data-target="{{ auth()->user()->level <= 3 ? '#restriction-delete-' . $restriction->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 3 ? 'disabled' : '' }}">Delete</li></a>
                                     </ul>
