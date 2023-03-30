@@ -72,7 +72,14 @@ class RestrictionRoute extends Controller
     {
         $restriction = restriction::find($request->id);
 
-        $restriction->delete();
+        try 
+        {
+            $restriction->delete();
+        } 
+        catch (\Throwable $th) 
+        {
+            return redirect('/dashboard');
+        }
 
         return redirect()->intended('/dashboard/users/restriction');
     }
