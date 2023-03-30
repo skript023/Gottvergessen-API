@@ -21,10 +21,9 @@
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Restriction</th>
-                        <th scope="col">Start Date</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Route</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Access Level</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -32,10 +31,9 @@
                         @foreach ($restrictions as $restriction)
                             <tr>
                                 <th scope="row">{{ $loop->index + 1 }}</th>
-                                <td>{{ $restriction->name }}</td>
-                                <td>{{ $restriction->start_date }}</td>
-                                <td>{{ $restriction->end_date }}</td>
-                                <td>{{ $restriction->status }}</td>
+                                <td>{{ $restriction->route }}</td>
+                                <td>{{ $restriction->role->name }}</td>
+                                <td>{{ $restriction->levels->name }}</td>
                                 <td>
                                 <div class="btn-group mx-auto">
                                     <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
