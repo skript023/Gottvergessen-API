@@ -17,38 +17,38 @@ class AccessLevel extends Seeder
         $levels = [
             [
                 'name' => 'Super Admin',
-                'badge badge-success',
-                'zmdi zmdi-globe',
+                'badge' => 'badge badge-success',
+                'icon' => 'zmdi zmdi-globe',
                 'description' => 'Administrator privilege'
             ],
             [
                 'name' => 'Admin',
-                'badge badge-primary',
-                'zmdi zmdi-globe-lock',
+                'badge' => 'badge badge-primary',
+                'icon' => 'zmdi zmdi-globe-lock',
                 'description' => 'Create, Read, Update & Delete Access'
             ],
             [
                 'name' => 'Sub Admin',
-                'badge badge-primary',
-                'zmdi zmdi-shield-security',
+                'badge' => 'badge badge-primary',
+                'icon' => 'zmdi zmdi-shield-security',
                 'description' => 'Create, Read, Update & Delete Access (Some Access Require Approval)'
             ],
             [
                 'name' => 'First Staff',
-                'badge badge-primary',
-                'zmdi zmdi-shield-check',
+                'badge' => 'badge badge-primary',
+                'icon' => 'zmdi zmdi-shield-check',
                 'description' => 'Create, Read & Update Only'
             ],
             [
                 'name' => 'Second Staff',
-                'badge badge-warning',
-                'zmdi zmdi-settings',
+                'badge' => 'badge badge-warning',
+                'icon' => 'zmdi zmdi-settings',
                 'description' => 'Create, Read Only'
             ],
             [
                 'name' => 'Watcher',
-                'badge badge-danger',
-                'zmdi zmdi-lock',
+                'badge' => 'badge badge-danger',
+                'icon' => 'zmdi zmdi-lock',
                 'description' => 'Read Only'
             ],
         ];
