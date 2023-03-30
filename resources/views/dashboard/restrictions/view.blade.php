@@ -23,7 +23,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Route</th>
                         <th scope="col">Role</th>
-                        <th scope="col">Access Level</th>
+                        <th scope="col">Minimum Level</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
