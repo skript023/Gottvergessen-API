@@ -16,6 +16,8 @@ class access_level extends Model
      */
     protected $fillable = [
         'name',
+        'badge',
+        'icon',
         'description'
     ];
 

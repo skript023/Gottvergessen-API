@@ -14,7 +14,8 @@ class RestrictionRoute extends Controller
         return view('dashboard.restriction', [
             'restrictions' => restriction::all(),
             'levels' => access_level::all(),
-            'roles' => role::all()
+            'roles' => role::all(),
+            'total_level' => access_level::all()->count()
         ]);
     }
 

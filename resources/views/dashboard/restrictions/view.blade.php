@@ -33,19 +33,21 @@
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $restriction->route }}</td>
                                 <td>{{ $restriction->role->name }}</td>
-                                <td>{{ $restriction->levels->name }}</td>
                                 <td>
-                                <div class="btn-group mx-auto">
-                                    <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Action
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
-                                        <li class="dropdown-divider"></li>
-                                        <a href="{{ auth()->user()->level <= 4 ? '/dashboard/restriction?page=edit&restriction=' . $restriction->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 4 ? 'disabled' : '' }}">Edit</li></a>
-                                        <li class="dropdown-divider"></li>
-                                        <a data-toggle="modal" data-target="{{ auth()->user()->level <= 3 ? '#restriction-delete-' . $restriction->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 3 ? 'disabled' : '' }}">Delete</li></a>
-                                    </ul>
-                                </div>
+                                    <span class="{{ $restriction->levels->id <= 3 ? 'badge badge-success' : 'badge badge-warning' }}"><i class="{{ $restriction->levels->id <= 3 ? 'zmdi zmdi-shield-security' : 'zmdi zmdi-settings' }}"></i> {{ $restriction->levels->name }}</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group mx-auto">
+                                        <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
+                                            <li class="dropdown-divider"></li>
+                                            <a href="{{ auth()->user()->level <= 4 ? '/dashboard/restriction?page=edit&restriction=' . $restriction->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 4 ? 'disabled' : '' }}">Edit</li></a>
+                                            <li class="dropdown-divider"></li>
+                                            <a data-toggle="modal" data-target="{{ auth()->user()->level <= 3 ? '#restriction-delete-' . $restriction->id : 'javascript:void();' }}"><li class="dropdown-item {{ auth()->user()->level > 3 ? 'disabled' : '' }}">Delete</li></a>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
