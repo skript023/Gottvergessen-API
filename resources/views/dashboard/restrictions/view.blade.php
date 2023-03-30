@@ -4,7 +4,7 @@
 @section('modal-message', 'Are you sure want to delete this restriction? the data will not be able to restored after deletion')
 @section('content')
 @include('components.modal-popup', [
-    'data' => $activities, 
+    'data' => $restrictions, 
     'url' => '/dashboard/users/restriction/delete/',
     'tag' => 'restriction-delete-'
 ])
@@ -15,13 +15,13 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title text-center">Existing Restriction in Server</h5>
+            <h5 class="card-title text-center">Existed Restriction in Server</h5>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">restriction</th>
+                        <th scope="col">Restriction</th>
                         <th scope="col">Start Date</th>
                         <th scope="col">End Date</th>
                         <th scope="col">Status</th>
