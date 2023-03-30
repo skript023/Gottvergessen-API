@@ -41,4 +41,37 @@ class RestrictionRoute extends Controller
 
         return redirect()->intended('/dashboard/user/restriction');
     }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'route' => 'required'
+        ]);
+
+        $data = $request->only([
+            'route',
+            'level',
+            'role'
+        ]);
+
+        $restriction = restriction::find($request->id);
+
+        try 
+        {
+            $restriction->update($data);
+        } 
+        catch (\Throwable $th) 
+        {
+            return redirect()->back();
+        }
+
+        return redirect()->intended('/dashboard/users/restriction');
+    }
+
+    public function delete(Request $request)
+    {
+        $restriction = restriction::find($request->id);
+
+        $restriction->delete();
+    }
 }
