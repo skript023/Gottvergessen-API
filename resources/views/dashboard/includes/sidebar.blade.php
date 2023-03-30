@@ -60,6 +60,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="/dashboard/restriction">
+                        <i class="zmdi zmdi-shield-security"></i> <span>Restriction</span>
+                    </a>
+                </li>
+                <li>
                     <a href="/dashboard/logging">
                         <i class="zmdi zmdi-alert-triangle"></i> <span>Logging</span>
                     </a>
