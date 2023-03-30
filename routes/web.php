@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientMonitorController;
 use App\Http\Controllers\NeuronReportActivity;
 use App\Http\Controllers\OwnershipController;
+use App\Http\Controllers\RestrictionRoute;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TransactionHistory;
 use App\Http\Controllers\UserBalance;
@@ -83,6 +84,11 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/wallets/delete/{id}', [UserWallets::class, 'delete_wallet']);
 
     Route::get('/dashboard/balance/', [UserBalance::class, 'all_user_balance']);
+
+    Route::get('/dashboard/users/restriction', [RestrictionRoute::class, 'index']);
+    Route::post('/dashboard/restriction/add', [RestrictionRoute::class, 'create']);
+    Route::post('/dashboard/restriction/update/{id}', [RestrictionRoute::class, 'update']);
+    Route::get('/dashboard/users/restriction/delete/{id}', [RestrictionRoute::class, 'delete']);
 
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
     Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);
