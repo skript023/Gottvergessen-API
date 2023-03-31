@@ -39,4 +39,9 @@ class access_level extends Model
     protected $casts = [
         
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'level');
+    }
 }
