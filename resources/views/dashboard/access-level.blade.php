@@ -13,7 +13,7 @@
         <div class="card col-md-4 mx-auto my-4">
             <div class="card-content p-2">
                 <div class="card-body">
-                    <div class="card-title text-uppercase text-center py-3">Add Role</div>
+                    <div class="card-title text-uppercase text-center py-3">Add Access Level</div>
                     <form action="/dashboard/access/add" method="post">
                         @csrf
                         <div class="form-group">
@@ -48,7 +48,7 @@
                             <tr>
                                 <td>{{$level->name}}</td>
                                 <td>
-                                    <a href="/dashboard/access?edit={{$level->id}}" class="btn btn-light">Update</a>
+                                    <a href="/dashboard/access?level={{$level->id}}" class="btn btn-light">Update</a>
                                     <button type="button" data-toggle="modal" data-target="#access-delete-{{ $level->id }}" class="btn btn-light">Delete</button>
                                 </td>
                             </tr>
