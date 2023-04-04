@@ -2177,6 +2177,16 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Gaji',
+                'description' => 'Gaji',
+                'office' => 'STO Gambir',
+                'type' => 'bank',
+                'expenditure' => 0,
+                'income' => 5928000,
+                'transaction_date' => now()->setDateTime(2023, 3, 29, 18, 31)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'KRL Commuter Line',
                 'description' => 'Commuter Line Depok - Gondangdia',
                 'office' => 'STO Gambir',
@@ -2267,6 +2277,16 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'Trans Jakarta',
+                'description' => 'Trans Jakarta 2Q Balaikota - Gondangdia',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -3500,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 31, 17, 13)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'KRL Commuter Line',
                 'description' => 'Commuter Line Gondangdia - Depok',
                 'office' => 'STO Gambir',
@@ -2277,13 +2297,63 @@ class TransactionSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
+                'title' => 'KRL Commuter Line',
+                'description' => 'Commuter Line Gondangdia - Kota',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -4000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 31, 17, 34)
+            ],
+            [
+                'user_id' => 1,
                 'title' => 'Trans Jakarta',
-                'description' => 'Trans Jakarta 2Q Balaikota - Gondangdia',
+                'description' => 'Trans Jakarta 12B Kota - Mangga Dua',
                 'office' => 'STO Gambir',
                 'type' => 'e-money',
                 'expenditure' => -3500,
                 'income' => 0,
-                'transaction_date' => now()->setDateTime(2023, 3, 31, 17, 13)
+                'transaction_date' => now()->setDateTime(2023, 3, 31, 17, 35)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Power Supply Seasonic',
+                'description' => 'Seasonic Focus Gold GX-750',
+                'office' => 'STO Gambir',
+                'type' => 'bank',
+                'expenditure' => -1900000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 31, 17, 40)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Nvidia RTX 3070',
+                'description' => 'Nvidia RTX 3070 - MSI Gaming Z Trio',
+                'office' => 'STO Gambir',
+                'type' => 'bank',
+                'expenditure' => -8500000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 31, 17, 45)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'Gojek',
+                'description' => 'Gojek Mangga dua - Kota',
+                'office' => 'STO Gambir',
+                'type' => 'gopay',
+                'expenditure' => -15000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 31, 17, 50)
+            ],
+            [
+                'user_id' => 1,
+                'title' => 'KRL Commuter',
+                'description' => 'KRL Commuter Line Jakarta Kota - Depoks',
+                'office' => 'STO Gambir',
+                'type' => 'e-money',
+                'expenditure' => -4000,
+                'income' => 0,
+                'transaction_date' => now()->setDateTime(2023, 3, 31, 17, 55)
             ],
             [
                 'user_id' => 1,
@@ -2295,6 +2365,7 @@ class TransactionSeeder extends Seeder
                 'income' => 0,
                 'transaction_date' => now()->setDateTime(2023, 3, 31, 18, 30)
             ],
+            
         ];
         
         foreach ($transactions as $transaction) 
