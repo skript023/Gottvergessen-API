@@ -21,8 +21,8 @@
                             @endforeach
                         </select>
                         <script>
-                            document.getElementById('level').value = '{{ $restriction->level->name }}';
-                            document.getElementById('role').value = '{{ $restriction->role->name }}';
+                            document.getElementById('level').value = '{{ $restriction->level->id }}';
+                            document.getElementById('role').value = '{{ $restriction->role->id }}';
                         </script>
                         <div class="form-group">
                             <label for="title">Route</label>
