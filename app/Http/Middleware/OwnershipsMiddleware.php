@@ -19,7 +19,7 @@ class OwnershipsMiddleware
     {
         $binary = binary::where('game', $request->name)->orWhere('file', $request->name)->first();
 
-        if (!$binary)
+        if (is_null($binary))
         {
             return response()->json([
             'id' => 0,
@@ -33,7 +33,7 @@ class OwnershipsMiddleware
             ], 404);
         }
 
-        if (auth()->user()->ownership_id <= $binary->ownership_id)
+        if (auth()->user()->ownership_id >= $binary->ownership_id)
         {
             return $next($request);
         }
