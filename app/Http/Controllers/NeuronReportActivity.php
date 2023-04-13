@@ -81,6 +81,15 @@ class NeuronReportActivity extends Controller
         return redirect()->intended('/dashboard/users/activity');
     }
 
+
+    public function all_activity()
+    {
+        return response()->json([
+            'message' => 'success',
+            'activities' => activity::all()
+        ]);
+    }
+
     public function export()
     {
         return new KegiatanNeuron;
