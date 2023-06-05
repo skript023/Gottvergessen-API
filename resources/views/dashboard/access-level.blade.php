@@ -39,8 +39,8 @@
                     <table class="table table-boardered">
                         <thead>
                         <tr>
-                       <th>Access Level</th>
-                       <th>Action</th>
+                        <th>Access Level</th>
+                        <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
