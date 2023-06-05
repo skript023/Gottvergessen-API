@@ -7,7 +7,7 @@
     'data' => $levels, 
     'url' => '/dashboard/access/delete/',
     'tag' => 'access-delete-'
-])
+]) 
 <div class="container">
     <div class="row">
         <div class="card col-md-4 mx-auto my-4">
