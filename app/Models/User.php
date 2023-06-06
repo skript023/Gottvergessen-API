@@ -93,7 +93,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function balance()
     {
-        return $this->hasOne(balance::class, 'id', 'user_id');
+        return $this->hasOne(balance::class, 'user_id', 'id');
     }
 
     public function transactions()
