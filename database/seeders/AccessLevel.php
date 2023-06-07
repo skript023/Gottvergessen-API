@@ -28,19 +28,19 @@ class AccessLevel extends Seeder
                 'description' => 'Create, Read, Update & Delete Access'
             ],
             [
-                'name' => 'Sub Admin',
+                'name' => 'Admin Assistant',
                 'badge' => 'badge badge-primary',
                 'icon' => 'zmdi zmdi-shield-security',
                 'description' => 'Create, Read, Update & Delete Access (Some Access Require Approval)'
             ],
             [
-                'name' => 'First Staff',
+                'name' => 'Staff',
                 'badge' => 'badge badge-primary',
                 'icon' => 'zmdi zmdi-shield-check',
                 'description' => 'Create, Read & Update Only'
             ],
             [
-                'name' => 'Second Staff',
+                'name' => 'Staff Assistant',
                 'badge' => 'badge badge-warning',
                 'icon' => 'zmdi zmdi-settings',
                 'description' => 'Create, Read Only'
