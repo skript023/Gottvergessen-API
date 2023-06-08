@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 class CreateActivitiesTable extends Migration
@@ -21,6 +22,11 @@ class CreateActivitiesTable extends Migration
             $table->string('status');
             $table->timestamps();
         });
+
+        Artisan::call( 'db:seed', [
+            '--class' => 'ActivitySeeder',
+            '--force' => true ]
+        );
     }
 
     /**

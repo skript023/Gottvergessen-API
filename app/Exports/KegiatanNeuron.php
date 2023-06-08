@@ -37,7 +37,7 @@ class KegiatanNeuron implements FromView, Responsable
     public function view() : View
     {
         return view('dashboard.activities.report', [
-            'activities' => activity::all()
+            'activities' => activity::orderBy('start_date', 'asc')->get()
         ]);
     }
 }
