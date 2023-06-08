@@ -299,9 +299,21 @@ class ActivitySeeder extends Seeder
                 'status' => 'completed',
             ],
             [
+                'name' => 'Meeting UAT flow provisioining end to end SCC 3.0',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,7)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,9)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
                 'name' => 'Membuat Order Dengan Product DDoS Protection',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,6,8)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,8)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Membuat Order Dengan Product ASTINet Single IP SDWAN & VPN IP Netmonk (2 Orders)',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,12)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,12)->toDateTimeString(),
                 'status' => 'completed',
             ],
         ];
