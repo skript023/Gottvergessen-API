@@ -23,11 +23,6 @@ class CreateBalancesTable extends Migration
             $table->foreign('wallet_id')->references('id')->on('wallets')->cascadeOnDelete();
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'BalanceSeeder',
-            '--force' => true ]
-        );
     }
 
     /**

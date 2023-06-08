@@ -25,11 +25,6 @@ class CreateClientMonitorsTable extends Migration
             $table->string('message')->nullable();
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'ClientMonitor',
-            '--force' => true ]
-        );
     }
 
     /**

@@ -22,11 +22,6 @@ class CreateActivitiesTable extends Migration
             $table->string('status');
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'ActivitySeeder',
-            '--force' => true ]
-        );
     }
 
     /**

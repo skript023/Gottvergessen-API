@@ -28,11 +28,6 @@ class CreateBinariesTable extends Migration
             $table->boolean('valid');
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'BinarySeeder',
-            '--force' => true ]
-        );
     }
 
     /**

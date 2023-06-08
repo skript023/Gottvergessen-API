@@ -24,10 +24,12 @@ class CreateRestrictionsTable extends Migration
             $table->timestamps();
         });
 
+        /*
         Artisan::call( 'db:seed', [
             '--class' => 'RestrictionRoute',
             '--force' => true ]
         );
+        */
     }
 
     /**

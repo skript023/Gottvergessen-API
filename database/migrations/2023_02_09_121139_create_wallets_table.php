@@ -21,11 +21,6 @@ class CreateWalletsTable extends Migration
             $table->string('currency');
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'WalletSeeder',
-            '--force' => true ]
-        );
     }
 
     /**

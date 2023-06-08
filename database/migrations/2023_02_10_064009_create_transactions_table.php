@@ -27,11 +27,6 @@ class CreateTransactionsTable extends Migration
             $table->timestamp('transaction_date');
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'TransactionSeeder',
-            '--force' => true ]
-        );
     }
 
     /**

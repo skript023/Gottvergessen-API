@@ -22,11 +22,6 @@ class CreateAccessLevelsTable extends Migration
             $table->string('description');
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'AccessLevel',
-            '--force' => true ]
-        );
     }
 
     /**

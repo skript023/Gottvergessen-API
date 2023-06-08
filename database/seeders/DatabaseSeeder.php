@@ -13,13 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(AccessLevel::class);
         $this->call(OwnershipSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(BinarySeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ClientMonitor::class);
+        $this->call(WalletSeeder::class);
         $this->call(TransactionSeeder::class);
         $this->call(BalanceSeeder::class);
-        $this->call(WalletSeeder::class);
+        $this->call(ActivitySeeder::class);
+        $this->call(RestrictionRoute::class);
     }
 }

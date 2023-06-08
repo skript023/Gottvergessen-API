@@ -21,11 +21,6 @@ class CreateOwnershipsTable extends Migration
             $table->string('term_of_payment')->default('monthly');
             $table->timestamps();
         });
-
-        Artisan::call( 'db:seed', [
-            '--class' => 'OwnershipSeeder',
-            '--force' => true ]
-        );
     }
 
     /**
