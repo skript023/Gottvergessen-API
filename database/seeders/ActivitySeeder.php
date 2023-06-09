@@ -64,7 +64,7 @@ class ActivitySeeder extends Seeder
                 'status' => 'completed',
             ],
             [
-                'name' => '[Zoom]Transfer Knowledge Pekerjaan Enhancement Product Pricing Tools: Ritel Product Management',
+                'name' => '[Meeting] Transfer Knowledge Pekerjaan Enhancement Product Pricing Tools: Ritel Product Management',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,3,31)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,3,31)->toDateTimeString(),
                 'status' => 'completed',
@@ -167,7 +167,7 @@ class ActivitySeeder extends Seeder
                 'status' => 'completed',
             ],
             [
-                'name' => 'Pembahasan Produk Modelling FAB IT Tools New Product DataComm Test Lanjutan 8IC FAB IT Tools untuk Produk NeuCentrIX Interconnect Layer 1',
+                'name' => '[Meeting] Pembahasan Produk Modelling FAB IT Tools New Product DataComm Test Lanjutan 8IC FAB IT Tools untuk Produk NeuCentrIX Interconnect Layer 1',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,5,5)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,5,5)->toDateTimeString(),
                 'status' => 'completed',
@@ -179,19 +179,13 @@ class ActivitySeeder extends Seeder
                 'status' => 'completed',
             ],
             [
-                'name' => 'Diskusi Penyiapan Product Modeling Layanan SCC 3.0 enhancement penambahan paketisasi layanan 2 & Development fitur burstable di IT Tools pada Product IP Transit dan turunannya',
+                'name' => '[Meeting] Diskusi Penyiapan Product Modeling Layanan SCC 3.0 enhancement penambahan paketisasi layanan 2 & Development fitur burstable di IT Tools pada Product IP Transit dan turunannya',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,5,9)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,5,9)->toDateTimeString(),
                 'status' => 'completed',
             ],
             [
-                'name' => 'Pembahasan Penyesuaian IT Tools Layanan SIP Trunk',
-                'start_date' => \Carbon\Carbon::createFromDate(2023,5,10)->toDateTimeString(),
-                'end_date' => \Carbon\Carbon::createFromDate(2023,5,10)->toDateTimeString(),
-                'status' => 'completed',
-            ],
-            [
-                'name' => 'Pembahasan Penyesuaian IT Tools Layanan SIP Trunk',
+                'name' => '[Meeting] Pembahasan Penyesuaian IT Tools Layanan SIP Trunk',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,5,10)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,5,10)->toDateTimeString(),
                 'status' => 'completed',
@@ -227,7 +221,7 @@ class ActivitySeeder extends Seeder
                 'status' => 'completed',
             ],
             [
-                'name' => 'Penyiapan FAB IT Tools penambahan fitur burstable Layanan IP Peering',
+                'name' => '[Meeting] Penyiapan FAB IT Tools penambahan fitur burstable Layanan IP Peering',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,5,19)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,5,19)->toDateTimeString(),
                 'status' => 'completed',
@@ -306,8 +300,20 @@ class ActivitySeeder extends Seeder
             ],
             [
                 'name' => 'Membuat Order Dengan Product DDoS Protection',
-                'start_date' => \Carbon\Carbon::createFromDate(2023,6,8)->toDateTimeString(),
-                'end_date' => \Carbon\Carbon::createFromDate(2023,6,8)->toDateTimeString(),
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,9)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,9)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => '[Meeting] Agenda : Show penyesuaian Activity Status Log',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,9)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,9)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => '[Meeting] Transfer Knowledge Enhancement C-CAREnt Deliverable II - Functionality C-CAREnt',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,9)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,9)->toDateTimeString(),
                 'status' => 'completed',
             ],
             [
