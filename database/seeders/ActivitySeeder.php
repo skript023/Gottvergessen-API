@@ -322,6 +322,31 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,12)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => '[Meeting] UAT flow provisioining end to end SCC 3.0',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,12)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Membuat Activation Order 3 IP Transit WIC Lokasi STO : MDC Sumatera Latlong : 3.5833491233160633 98.66804122924806 Bandwidth : 500 Mbps Request IPv6 : no BW Performance : yes',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,12)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,12)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Mengubah Order SCC Netflix 450mbs ke 700mbps',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,13)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,13)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Diskusi Error yang terjadi pada perubahan order SCC Netflix 700mbps',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,13)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,13)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            
         ];
         
         foreach ($activities as $activity) 
