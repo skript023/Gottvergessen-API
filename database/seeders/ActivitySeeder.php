@@ -364,6 +364,12 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => 'Mencari Double Sequence via Database Query',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
+                'status' => 'completed',
+            ],
             
         ];
         
