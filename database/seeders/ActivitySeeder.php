@@ -359,7 +359,7 @@ class ActivitySeeder extends Seeder
                 'status' => 'completed',
             ],
             [
-                'name' => 'Diskusi Terkait Update Milestone Sequence via Database Query',
+                'name' => '[Meeting On site] Diskusi Terkait Update Milestone Sequence via Database Query',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
                 'status' => 'completed',
