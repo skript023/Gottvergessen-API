@@ -418,6 +418,12 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => 'Membuat 2 Order Untuk Keperluan Test Product NCX WIB',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'status' => 'completed',
+            ],
             
             
         ];
