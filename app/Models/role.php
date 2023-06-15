@@ -41,4 +41,9 @@ class role extends Model
     {
         return $this->belongsToMany(User::class, 'role_id');
     }
+
+    public function access()
+    {
+        return $this->hasOne(restriction::class, 'role_id', 'id');
+    }
 }

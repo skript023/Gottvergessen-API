@@ -80,7 +80,24 @@ class NeuronReportActivity extends Controller
 
         return redirect()->intended('/dashboard/users/activity');
     }
+    
+    public function delete_activity(Request $request)
+    {
+        $activity = activity::where('id', $request->id)->first();
 
+        if (empty($activity)) return abort(404);
+
+        try 
+        {
+            $activity->delete();
+
+            return redirect()->intended('/dashboard/users/activity');
+        } 
+        catch (\Throwable $th) 
+        {
+            return redirect('/dashboard');
+        }
+    }
 
     public function all_activity()
     {
