@@ -18,7 +18,7 @@ class AdminAuthentication
      */
     public function handle(Request $request, Closure $next)
     {   
-        $access = access_level::where('name', 'Staff Assistant')->first();
+        $access = access_level::where('name', 'Staff')->first();
 
         if (is_null($request->id)) 
         {
