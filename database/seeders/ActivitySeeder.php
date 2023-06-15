@@ -403,7 +403,19 @@ class ActivitySeeder extends Seeder
             [
                 'name' => '[Meeting On site] Finalisasi UAT & Review untuk VPN IP Netmonk & ASTINet Single IP SDWAN',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
-                'end_date' => \Carbon\Carbon::createFromDate(2023,6,26)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,16)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => '[Meeting Online] Diskusi Requirement Produk Konfig HDC di NCX Bootcamp Perbaikan ISR CA DWS',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => '[Meeting Online] Testing Hasil Perbaikan ISR CA DWS',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
                 'status' => 'completed',
             ],
             
