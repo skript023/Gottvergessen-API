@@ -365,11 +365,48 @@ class ActivitySeeder extends Seeder
                 'status' => 'completed',
             ],
             [
+                'name' => 'Mencari Query Untuk Cek Double Sequence via Database SQL',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
                 'name' => 'Mencari Double Sequence via Database Query',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,14)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => 'Mencari Null Milestone via Database Query',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Melakukan Backup Data Pada Milestone yang Memiliki Nila Null',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Memperbaiki Null Milestone via Database Query',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Menambahkan milestone Fullfil billing complete yang tidak synchron antara root line item & child line item',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Finalisasi UAT & Review untuk VPN IP Netmonk & ASTINet Single IP SDWAN',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            
             
         ];
         
