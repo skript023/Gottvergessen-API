@@ -401,7 +401,7 @@ class ActivitySeeder extends Seeder
                 'status' => 'completed',
             ],
             [
-                'name' => 'Finalisasi UAT & Review untuk VPN IP Netmonk & ASTINet Single IP SDWAN',
+                'name' => '[Meeting] Finalisasi UAT & Review untuk VPN IP Netmonk & ASTINet Single IP SDWAN',
                 'start_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
                 'status' => 'completed',
