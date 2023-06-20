@@ -436,6 +436,12 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,19)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => 'Diskusi ASTINET Single IP SDWAN terkait order tes yang error',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,20)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,20)->toDateTimeString(),
+                'status' => 'completed',
+            ],
             
             
         ];
