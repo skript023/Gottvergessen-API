@@ -424,6 +424,18 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023,6,15)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => 'Membuat Modification Order 1 MO Upgrade BW untuk test product SCC 3.0',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,16)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,16)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Diskusi terkait VPN IP Netmonk Product WIB',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,6,19)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,6,19)->toDateTimeString(),
+                'status' => 'completed',
+            ],
             
             
         ];
