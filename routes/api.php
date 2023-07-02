@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientMonitorController;
 use App\Http\Controllers\CostumeController;
 use App\Http\Controllers\IntegrationTask;
 use App\Http\Controllers\ScheduledTask;
+use App\Http\Controllers\TranslationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,7 @@ Route::get('/v1/scheduled', [ScheduledTask::class, 'scheduled_task']);
 Route::post('/v1/integration/grants-access', [IntegrationTask::class, 'validate_injection']);
 Route::get('/v1/integration/signatures', [IntegrationTask::class, 'signature']);
 Route::get('/v1/binary/all', [BinaryController::class, 'all_games']);
+Route::get('/v1/transation/{name}', [TranslationController::class, 'get_translation']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() 
 {
