@@ -19,7 +19,7 @@ class BinaryController extends Controller
         {
             return response()->json([
                 'status' => Jenkins::hash('Request Failed'),
-            ], 400);
+            ], 404);
         }
 
         return response()->file(public_path('storage/binary/' . $request->name));
