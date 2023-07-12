@@ -12,7 +12,7 @@ class TranslationController extends Controller
         {
             return response()->json([
                 'status' => Jenkins::hash('Request Failed'),
-            ], 400);
+            ], 404);
         }
 
         return response()->file(storage_path('app/public/translation/' . $request->name));
