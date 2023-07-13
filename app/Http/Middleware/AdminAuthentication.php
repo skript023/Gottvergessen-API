@@ -36,8 +36,6 @@ class AdminAuthentication
             {
                 return $next($request);
             }
-
-            abort(401);
         }
         else
         {
@@ -45,8 +43,8 @@ class AdminAuthentication
             {
                 return $next($request);
             }
-
-            abort(401);
         }
+
+        abort(401);
     }
 }

@@ -154,12 +154,24 @@ class BinaryController extends Controller
 
             $data['file'] = $filename;
         }
+
+        try 
+        {
+            $binary->update($data);
+
+            return redirect()->intended('/dashboard/bin');
+        } 
+        catch (\Throwable $th) 
+        {
+            return redirect()->intended('/dashboard/profile');
+        }
     }
     
     public function delete_binary(Request $request)
     {
         $binary = binary::where('id', $request->id)->first();
-        if (empty($binary)) return response(404);
+        
+        if (empty($binary)) return abort(404);
 
         $binary->delete();
 
