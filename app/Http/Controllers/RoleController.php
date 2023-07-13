@@ -29,6 +29,8 @@ class RoleController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+            
             return redirect()->back();
         }
 

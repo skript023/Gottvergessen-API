@@ -54,6 +54,8 @@ class UserController extends Controller
         }
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->withErrors([
                 'username' => 'The provided credentials do not match our records.',
             ]);
@@ -130,6 +132,8 @@ class UserController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->withErrors("Registration", "Redigstration Failed");
         }
 
@@ -181,6 +185,8 @@ class UserController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->withErrors("Registration", "Registration Failed");
         }
 
@@ -247,6 +253,8 @@ class UserController extends Controller
         }
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->with("Failed", "Failed update profile");
         }
 
@@ -285,6 +293,8 @@ class UserController extends Controller
         }
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->with("Failed", "Failed update profile");
         }
 
@@ -310,6 +320,8 @@ class UserController extends Controller
         }
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+            
             return back()->with("Failed", "Failed update password");
         }
 

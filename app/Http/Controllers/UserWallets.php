@@ -43,6 +43,8 @@ class UserWallets extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back();
         }
     }
@@ -69,6 +71,8 @@ class UserWallets extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+            
             return back();
         }
     }

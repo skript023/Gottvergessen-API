@@ -95,7 +95,8 @@ class TransactionHistory extends Controller
         } 
         catch (\Throwable $th) 
         {
-            dd($th);
+            ExceptionMessageController::save_error($th);
+
             return back()->withErrors("Registration", "Redigstration Failed");
         }
 
@@ -130,6 +131,8 @@ class TransactionHistory extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->withErrors("Registration", "Update Failed");
         }
 
@@ -227,6 +230,8 @@ class TransactionHistory extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+            
             return back()->withErrors("Registration", "Redigstration Failed");
         }
 

@@ -20,6 +20,7 @@ class CreateExceptionMessagesTable extends Migration
             $table->string('file')->nullable();
             $table->string('message')->nullable();
             $table->string('trace')->nullable();
+            $table->timestamp('created_trace');
             $table->timestamps();
         });
     }

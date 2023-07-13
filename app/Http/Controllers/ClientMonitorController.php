@@ -41,7 +41,7 @@ class ClientMonitorController extends Controller
         {
             return response()->json([
                 "status" => Jenkins::hash("FAILED_RECEIVE_CLIENT_INFO"),
-                "message" => "Error : " . $th
+                "message" => "Error : " . $th->getMessage()
             ]);
         }
     }

@@ -17,7 +17,11 @@ class exception_message extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        
+        'line',
+        'code',
+        'file',
+        'message',
+        'trace'
     ];
 
     /**
@@ -26,7 +30,11 @@ class exception_message extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        
+        'line',
+        'code',
+        'file',
+        'message',
+        'trace'
     ];
 
     /**
@@ -35,6 +43,6 @@ class exception_message extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        
+        'created_trace' => 'datetime'
     ];
 }

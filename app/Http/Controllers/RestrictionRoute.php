@@ -37,6 +37,8 @@ class RestrictionRoute extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return redirect()->back();
         }
 
@@ -63,6 +65,8 @@ class RestrictionRoute extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return redirect()->back();
         }
 
@@ -79,6 +83,8 @@ class RestrictionRoute extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+            
             return redirect('/dashboard');
         }
 

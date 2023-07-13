@@ -60,6 +60,8 @@ class BinaryController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+            
             return response()->json([
                 'file' => 'NONE',
                 'version' => 'NONE',
@@ -108,6 +110,8 @@ class BinaryController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->withErrors("Binary Uploader", "Upload Binary Failed");
         }
 
@@ -163,6 +167,8 @@ class BinaryController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return redirect()->intended('/dashboard/profile');
         }
     }

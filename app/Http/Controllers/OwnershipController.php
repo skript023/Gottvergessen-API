@@ -27,6 +27,8 @@ class OwnershipController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removal failed, must be contain valid data')->with('error_code', Jenkins::hash('DELETE_ERROR'));
         }
 
@@ -45,6 +47,8 @@ class OwnershipController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->withErrors('Update Error', 'Failed Update Ownerships');
         }
         
@@ -63,6 +67,8 @@ class OwnershipController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+
             return back()->withErrors('Ownership', 'Failed update ownerships');
         }
 
@@ -80,6 +86,8 @@ class OwnershipController extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+            
             return back()->withErrors('Ownership', 'Failed add ownerships');
         }
 

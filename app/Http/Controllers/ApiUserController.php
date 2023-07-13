@@ -73,7 +73,7 @@ class ApiUserController extends Controller
         {
             return response()->json([
                 "status" => Jenkins::hash('BAD_REQUEST'),
-                "message" => 'Error : ' . $th,
+                "message" => 'Error : ' . $th->getMessage(),
                 "token" => "",
                 "fullname" => "",
                 "role" => "",
@@ -154,7 +154,7 @@ class ApiUserController extends Controller
         catch (\Throwable $th) 
         {
             return response()->json([
-                'message' => 'User failed created'
+                'message' => 'User failed created [' . $th->getMessage() . ']'
             ]);
         }
 
@@ -200,7 +200,7 @@ class ApiUserController extends Controller
         catch (\Throwable $th) 
         {
             return response()->json([
-                'message' => 'User information failed updated'
+                'message' => "User information failed updated [$th]"
             ]);
         }
 

@@ -36,7 +36,9 @@ class NeuronReportActivity extends Controller
         } 
         catch (\Throwable $th) 
         {
-            return back();
+            ExceptionMessageController::save_error($th);
+
+            return redirect()->back();
         }
 
         return redirect()->intended('/dashboard/users/activity');
@@ -75,7 +77,9 @@ class NeuronReportActivity extends Controller
         } 
         catch (\Throwable $th) 
         {
-            return back();
+            ExceptionMessageController::save_error($th);
+
+            return redirect()->back();
         }
 
         return redirect()->intended('/dashboard/users/activity');
@@ -95,6 +99,8 @@ class NeuronReportActivity extends Controller
         } 
         catch (\Throwable $th) 
         {
+            ExceptionMessageController::save_error($th);
+            
             return redirect('/dashboard');
         }
     }
