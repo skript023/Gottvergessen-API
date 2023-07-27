@@ -16,7 +16,7 @@ class AdminCommand extends Controller
     
     public function refresh_migration()
     {
-        Artisan::call('migrate:fresh');
+        Artisan::call('migrate:fresh --seed');
 
         return redirect()->intended('/dashboard/transaction-history');
     }
