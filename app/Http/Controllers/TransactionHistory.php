@@ -97,6 +97,10 @@ class TransactionHistory extends Controller
         {
             ExceptionMessageController::save_error($th);
 
+            $msg = $th->getMessage();
+
+            toastr()->error("Failed update transaction error : $msg");
+
             return back()->withErrors("Registration", "Redigstration Failed");
         }
 
@@ -133,8 +137,14 @@ class TransactionHistory extends Controller
         {
             ExceptionMessageController::save_error($th);
 
-            return back()->withErrors("Registration", "Update Failed");
+            $msg = $th->getMessage();
+
+            toastr()->error("Failed update transaction error : $msg");
+
+            return back();
         }
+
+        toastr()->success('Transaction successfully updated.');
 
         return redirect()->intended('/dashboard/transaction-history');
     }
@@ -148,7 +158,9 @@ class TransactionHistory extends Controller
             return redirect()->intended('/dashboard/transaction-history');
         }
 
-        return back()->with("Failed", "Failed delete transaction");
+        toastr()->error('Failed delete transaction');
+
+        return back();
     }
 
     public function instant_transaction(Request $request)

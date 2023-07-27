@@ -87,8 +87,12 @@ class OwnershipController extends Controller
         catch (\Throwable $th) 
         {
             ExceptionMessageController::save_error($th);
-            
-            return back()->withErrors('Ownership', 'Failed add ownerships');
+
+            $msg = $th->getMessage();
+
+            toastr()->error("Failed add ownerships $msg");
+        
+            return back();
         }
 
         return redirect()->intended('/dashboard');

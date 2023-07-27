@@ -13,8 +13,7 @@ class ExceptionMessageController extends Controller
             'line' => $th->getLine(),
             'code' => $th->getCode(),
             'file' => $th->getFile(),
-            'message' => $th->getMessage(),
-            'trace' => $th->getTraceAsString()
+            'message' => $th->getMessage()
         ];
 
         exception_message::create($data);

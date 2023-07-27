@@ -30,7 +30,9 @@ class RoleController extends Controller
         catch (\Throwable $th) 
         {
             ExceptionMessageController::save_error($th);
-            
+
+            toastr()->error('Role creation failed.');
+
             return redirect()->back();
         }
 
@@ -41,7 +43,7 @@ class RoleController extends Controller
     {
         $role = role::where('id', $request->id)->first();
 
-        if (empty($role)) return response(404);
+        if (empty($role)) toastr()->error('Role not found'); return back();
 
         $role->role = $request->role_name;
         $role->save();
@@ -53,7 +55,7 @@ class RoleController extends Controller
     {
         $role = role::where('id', $request->id)->first();
 
-        if (empty($role)) return abort(404);
+        if (empty($role)) toastr()->error('Role not found'); return back();
 
         $role->delete();
 

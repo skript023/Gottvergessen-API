@@ -39,6 +39,10 @@ class RestrictionRoute extends Controller
         {
             ExceptionMessageController::save_error($th);
 
+            $msg = $th->getMessage();
+
+            toastr()->error("Failed delete restriction, error $msg");
+
             return redirect()->back();
         }
 
@@ -67,6 +71,10 @@ class RestrictionRoute extends Controller
         {
             ExceptionMessageController::save_error($th);
 
+            $msg = $th->getMessage();
+
+            toastr()->error("Failed delete restriction, error $msg");
+
             return redirect()->back();
         }
 
@@ -84,6 +92,10 @@ class RestrictionRoute extends Controller
         catch (\Throwable $th) 
         {
             ExceptionMessageController::save_error($th);
+
+            $msg = $th->getMessage();
+
+            toastr()->error("Failed delete restriction, error $msg");
             
             return redirect('/dashboard');
         }

@@ -43,25 +43,37 @@ class UserController extends Controller
         ]);
         
         $credentials = $request->only(['username', 'password']);
+
+        if (filter_var($request->username, FILTER_VALIDATE_EMAIL))
+        {
+            $user = user::where('email', $request->username)->first();
+
+            $credentials['username'] = $user->username;
+        }
+
         try
         {
             if (auth()->attempt($credentials, $request->remember)) 
             {
                 $this->recent_login($request);
+                
                 $request->session()->regenerate();
+
                 return redirect()->intended('/dashboard/profile');
+            }
+            else
+            {
+                toastr()->error('The provided credentials do not match our records.', 'Login Failed');
             }
         }
         catch (\Throwable $th) 
         {
             ExceptionMessageController::save_error($th);
 
-            return back()->withErrors([
-                'username' => 'The provided credentials do not match our records.',
-            ]);
+            toastr()->error('Login failed, unable connect to server', 'Login Failed');
         }
 
-        return redirect()->back();
+        return back();
     }
 
     public function logout(Request $request)
@@ -134,7 +146,9 @@ class UserController extends Controller
         {
             ExceptionMessageController::save_error($th);
 
-            return back()->withErrors("Registration", "Redigstration Failed");
+            toastr()->error('Redigstration Failed');
+
+            return back();
         }
 
         return redirect()->intended('/dashboard/users');
@@ -187,7 +201,9 @@ class UserController extends Controller
         {
             ExceptionMessageController::save_error($th);
 
-            return back()->withErrors("Registration", "Registration Failed");
+            toastr()->error('Registration Failed');
+
+            return back();
         }
 
         return redirect()->intended('/');
@@ -211,10 +227,13 @@ class UserController extends Controller
         if (isset($user))
         {
             $user->delete();
+
             return redirect()->intended('/dashboard/users');
         }
 
-        return back()->with("Failed", "Failed delete user");
+        toastr()->error('Failed delete user');
+
+        return back();
     }
 
     public function update_user(Request $request)
@@ -255,7 +274,9 @@ class UserController extends Controller
         {
             ExceptionMessageController::save_error($th);
 
-            return back()->with("Failed", "Failed update profile");
+            toastr()->error('Failed update profile');
+
+            return back();
         }
 
         return redirect()->intended('/dashboard/profile');
@@ -295,7 +316,9 @@ class UserController extends Controller
         {
             ExceptionMessageController::save_error($th);
 
-            return back()->with("Failed", "Failed update profile");
+            toastr()->error('Failed update profile');
+
+            return back();
         }
 
         return redirect()->intended('/dashboard/profile');
@@ -322,7 +345,9 @@ class UserController extends Controller
         {
             ExceptionMessageController::save_error($th);
             
-            return back()->with("Failed", "Failed update password");
+            toastr()->error('Failed update password');
+
+            return back();
         }
 
         return redirect()->intended('/dashboard/profile');
@@ -358,7 +383,14 @@ class UserController extends Controller
 
     public function recent_login(Request $request)
     {
-        $user = User::where('username', $request->username)->first();
+        $data = $request->only(['username']);
+        if (filter_var($request->username, FILTER_VALIDATE_EMAIL))
+        {
+            $user = User::where('email', $request->username)->first();
+            $data['username'] = $user->username;
+        }
+
+        $user = User::where('username', $data['username'])->first();
         $user->recent_login = now();
         $user->save();
     }

@@ -105,17 +105,21 @@ class BinaryController extends Controller
         try 
         {
             binary::create($data);
-
-            return redirect()->intended('/dashboard/bin');
         } 
         catch (\Throwable $th) 
         {
             ExceptionMessageController::save_error($th);
 
-            return back()->withErrors("Binary Uploader", "Upload Binary Failed");
+            $message = $th->getMessage();
+
+            toastr()->error("Add binary failed error : $message");
+
+            return back();
         }
 
-        return back()->withErrors("Binary Uploader", "Upload Binary Failed");
+        toastr()->success('New Binary Added Successfully');
+
+        return redirect()->intended('/dashboard/bin');
     }
 
     public function load_binaries_data(Request $request)
@@ -147,7 +151,7 @@ class BinaryController extends Controller
         $data['valid'] = true;
 
         $binary = binary::where('id', $request->id)->first();
-        if (empty($binary)) return response(404);
+        if (empty($binary)) return toastr()->error('Existing data not found, please select existing binary');
 
         if ($request->hasFile('file'))
         {
@@ -162,15 +166,21 @@ class BinaryController extends Controller
         try 
         {
             $binary->update($data);
-
-            return redirect()->intended('/dashboard/bin');
         } 
         catch (\Throwable $th) 
         {
             ExceptionMessageController::save_error($th);
 
-            return redirect()->intended('/dashboard/profile');
+            $message = $th->getMessage();
+
+            toastr()->error("Binary update failed error : $message");
+
+            return back();
         }
+
+        toastr()->success('Binary successfully updated.');
+
+        return redirect()->intended('/dashboard/bin');
     }
     
     public function delete_binary(Request $request)

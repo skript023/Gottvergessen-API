@@ -50,7 +50,13 @@ class ClientMonitorController extends Controller
     {
         $log = client_monitor::where('id', $request->id)->first();
 
-        if (!$log) return redirect()->back()->withErrors('Data not found');
+        if (!$log) 
+        {
+            toastr()->error('Data not found'); 
+            
+            return back();
+        }
+        
         $log->delete();
 
         return redirect()->intended('/dashboard/logging');
