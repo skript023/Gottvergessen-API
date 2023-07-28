@@ -1,7 +1,7 @@
 <div class="col-lg-8 mx-auto my-4">
     <div class="card">
         <div class="card-body">
-            <div class="card-title">Update Transaction History</div>
+            <div class="card-title">Update Restriction</div>
             <hr>
             @foreach ($restrictions as $restriction)
                 @if ($restriction->id == request()->restriction)
