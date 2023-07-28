@@ -739,6 +739,12 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023,7,28)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => 'Buat ulang order AO1 untuk test lanjutan',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,7,28)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,7,28)->toDateTimeString(),
+                'status' => 'completed',
+            ],
             
         ];
         
