@@ -43,10 +43,22 @@ class RoleController extends Controller
     {
         $role = role::where('id', $request->id)->first();
 
-        if (empty($role)) toastr()->error('Role not found'); return back();
-
         $role->role = $request->role_name;
-        $role->save();
+        
+        try 
+        {
+            $role->save();
+        } 
+        catch (\Throwable $th) 
+        {
+            ExceptionMessageController::save_error($th);
+
+            $msg = $th->getMessage();
+
+            toastr()->error("Update role failed $msg"); 
+            
+            return back();
+        }
 
         return redirect()->back();
     }
@@ -55,7 +67,7 @@ class RoleController extends Controller
     {
         $role = role::where('id', $request->id)->first();
 
-        if (empty($role)) toastr()->error('Role not found'); return back();
+        if (is_null($role)) toastr()->error('Role not found'); return back();
 
         $role->delete();
 

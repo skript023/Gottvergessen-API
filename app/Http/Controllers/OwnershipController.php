@@ -29,6 +29,8 @@ class OwnershipController extends Controller
         {
             ExceptionMessageController::save_error($th);
 
+            toastr()->error("Delete ownership failed, request contain invalid data");
+
             return back()->with('header', 'Ownership Removal')->with('message', 'Ownership removal failed, must be contain valid data')->with('error_code', Jenkins::hash('DELETE_ERROR'));
         }
 
@@ -48,6 +50,10 @@ class OwnershipController extends Controller
         catch (\Throwable $th) 
         {
             ExceptionMessageController::save_error($th);
+
+            $msg = $th->getMessage();
+
+            toastr()->error("Ownership update failed error $msg");
 
             return back()->withErrors('Update Error', 'Failed Update Ownerships');
         }
@@ -69,6 +75,10 @@ class OwnershipController extends Controller
         {
             ExceptionMessageController::save_error($th);
 
+            $msg = $th->getMessage();
+
+            toastr()->error("Ownership update failed error $msg");
+
             return back()->withErrors('Ownership', 'Failed update ownerships');
         }
 
@@ -78,6 +88,7 @@ class OwnershipController extends Controller
     public function add_new_ownership(Request $request)
     {
         $request->validate(["ownership:required"]);
+        
         $data = $request->only(["ownership"]);
 
         try 
