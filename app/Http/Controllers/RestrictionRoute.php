@@ -41,7 +41,7 @@ class RestrictionRoute extends Controller
 
             $msg = $th->getMessage();
 
-            toastr()->error("Failed delete restriction, error $msg");
+            toastr()->error("Create role failed $msg");
 
             return redirect()->back();
         }
@@ -73,7 +73,7 @@ class RestrictionRoute extends Controller
 
             $msg = $th->getMessage();
 
-            toastr()->error("Failed delete restriction, error $msg");
+            toastr()->error("Update restriction failed $msg");
 
             return redirect()->back();
         }
@@ -95,9 +95,9 @@ class RestrictionRoute extends Controller
 
             $msg = $th->getMessage();
 
-            toastr()->error("Failed delete restriction, error $msg");
+            toastr()->error("Delete restriction failed $msg");
             
-            return redirect('/dashboard');
+            return back();
         }
 
         return redirect()->intended('/dashboard/users/restriction');

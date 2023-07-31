@@ -31,7 +31,9 @@ class RoleController extends Controller
         {
             ExceptionMessageController::save_error($th);
 
-            toastr()->error('Role creation failed.');
+            $msg = $th->getMessage();
+
+            toastr()->error("Create role failed $msg");
 
             return redirect()->back();
         }
@@ -60,17 +62,28 @@ class RoleController extends Controller
             return back();
         }
 
-        return redirect()->back();
+        return back();
     }
 
     public function delete_role(Request $request)
     {
         $role = role::where('id', $request->id)->first();
 
-        if (is_null($role)) toastr()->error('Role not found'); return back();
+        try 
+        {
+            $role->delete();
+        } 
+        catch (\Throwable $th) 
+        {
+            ExceptionMessageController::save_error($th);
 
-        $role->delete();
+            $msg = $th->getMessage();
 
-        return redirect()->back();
+            toastr()->error("Delete role failed $msg"); 
+            
+            return back();
+        }
+
+        return back();
     }
 }
