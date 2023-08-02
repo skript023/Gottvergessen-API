@@ -21,12 +21,12 @@
                             @endforeach
                         </select>
                         <script>
-                            document.getElementById('level').value = '{{ $restriction->level->id }}';
+                            document.getElementById('level').value = '{{ $restriction->levels->id }}';
                             document.getElementById('role').value = '{{ $restriction->role->id }}';
                         </script>
                         <div class="form-group">
                             <label for="title">Route</label>
-                            <input type="text" name="route" class="form-control form-control-rounded" id="title" value="{{ $restriction->name }}">
+                            <input type="text" name="route" class="form-control form-control-rounded" id="title" value="{{ $restriction->route }}">
                         </div>
                     </form>
                 @endif
