@@ -757,6 +757,54 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023,8,1)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => 'Membuat order DDoS Protection',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,2)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,2)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'membuat order MO Modify Order NeuCentrIX Interconnect Layer',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,3)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,3)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'UAT Enhancement CRM Application Fase 2 Deliverable 2',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,4)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,4)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Finalisasi UAT untuk semua skenario layanan SCC 3.0 AO, MO, SO, RO, DO',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,7)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,9)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Membuat order Modify product test DDOS Protection',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,7)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,7)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'membuat order scenario test 2 product SCC 3.0',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,7)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,7)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Meng completed kan AO1 SCC 3.0',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,8)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,8)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => '',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,1)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,1)->toDateTimeString(),
+                'status' => 'completed',
+            ],
             
         ];
         
