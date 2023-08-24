@@ -745,6 +745,18 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023,7,28)->toDateTimeString(),
                 'status' => 'completed',
             ],
+            [
+                'name' => 'Lanjutan UAT untuk semua skenario layanan SCC 3.0 AO, MO, SO, RO, DO',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,7,31)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,2)->toDateTimeString(),
+                'status' => 'completed',
+            ],
+            [
+                'name' => 'Buat order Akses Call Center',
+                'start_date' => \Carbon\Carbon::createFromDate(2023,8,1)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023,8,1)->toDateTimeString(),
+                'status' => 'completed',
+            ],
             
         ];
         
