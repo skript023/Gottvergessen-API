@@ -41,4 +41,9 @@ class activity extends Model
     protected $casts = [
         
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

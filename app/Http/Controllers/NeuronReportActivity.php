@@ -10,7 +10,7 @@ class NeuronReportActivity extends Controller
 {
     public function index()
     {
-        $activities = activity::all();
+        $activities = activity::where('user_id', auth()->user()->id)->get();
 
         return view('dashboard.activities', [
             'activities' => $activities

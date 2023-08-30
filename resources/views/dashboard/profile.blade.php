@@ -130,32 +130,17 @@
                                 <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
                                 <div class="table-responsive">
                                     <table class="table table-hover table-striped">
-                                        <tbody>                                    
-                                            <tr>
-                                                <td>
-                                                    <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
+                                        <tbody>   
+                                            @foreach ($user->activities->take(6) as $activity)
+                                                <tr>
+                                                    <td>
+                                                        <strong>
+                                                            {{ $activity->user->fullname }} Has {{ $activity->status }} Task
+                                                        </strong> 
+                                                        {{ $activity->name }}
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

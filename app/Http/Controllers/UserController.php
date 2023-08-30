@@ -48,6 +48,9 @@ class UserController extends Controller
         {
             $user = user::where('email', $request->username)->first();
 
+            if (empty($user)) 
+            toastr()->error('The provided credentials do not match our records.', 'Login Failed');
+
             $credentials['username'] = $user->username;
         }
 

@@ -46,7 +46,7 @@ class AccessLevel extends Seeder
                 'description' => 'Create, Read Only'
             ],
             [
-                'name' => 'Watcher',
+                'name' => 'Guest',
                 'badge' => 'badge badge-danger',
                 'icon' => 'zmdi zmdi-lock',
                 'description' => 'Read Only'

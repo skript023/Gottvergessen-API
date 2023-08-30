@@ -109,4 +109,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(transaction::class, 'id', 'user_id');
     }
+
+    public function activities()
+    {
+        return $this->hasMany(activity::class, 'user_id', 'id');
+    }
 }
