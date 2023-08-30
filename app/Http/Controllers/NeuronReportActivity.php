@@ -50,19 +50,32 @@ class NeuronReportActivity extends Controller
 
     public function close_activity(Request $request)
     {
-        $activity = activity::where('id', $request->id)->first();
+        $activity = activity::where('id', $request->id)->where('user_id', auth()->user()->id)->first();
 
-        $activity->status = 'Completed';
-        $activity->end_date = now();
+        try 
+        {
+            $activity->status = 'Completed';
+            $activity->end_date = now();
 
-        $activity->save();
+            $activity->save();
+        } 
+        catch (\Throwable $th) 
+        {
+            ExceptionMessageController::save_error($th);
+
+            $msg = $th->getMessage();
+
+            toastr()->error("Failed update activity, error $msg");
+
+            return back();
+        }
 
         return redirect()->intended('/dashboard/users/activity');
     }
 
     public function update_activity(Request $request)
     {
-        $activity = activity::where('id', $request->id)->first();
+        $activity = activity::where('id', $request->id)->where('user_id', auth()->user()->id)->first();
 
         $request->validate([
             'name' => 'required'
@@ -95,7 +108,7 @@ class NeuronReportActivity extends Controller
     
     public function delete_activity(Request $request)
     {
-        $activity = activity::where('id', $request->id)->first();
+        $activity = activity::where('id', $request->id)->where('user_id', auth()->user()->id)->first();
 
         if (empty($activity)) toastr()->error("Failed delete activity, activity not found."); return back();
 
