@@ -18,6 +18,7 @@ class CreateRestrictionsTable extends Migration
             $table->id();
             $table->string('route');
             $table->string('type');
+            $table->string('action');
             $table->unsignedBigInteger('level')->nullable();
             $table->unsignedBigInteger('role_id')->nullable();
             $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete();
