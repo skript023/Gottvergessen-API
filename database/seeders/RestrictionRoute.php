@@ -46,8 +46,8 @@ class RestrictionRoute extends Seeder
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
-                'route' => '/dashboard/role/edit',
-                'action' => 'edit',
+                'route' => '/dashboard/role/update',
+                'action' => 'update',
                 'type' => 'web',
                 'level' => 3,
                 'role_id' => role::where('name', 'admin')->first()->id
@@ -77,7 +77,7 @@ class RestrictionRoute extends Seeder
             ],
             [
                 'route' => '/dashboard/users/update',
-                'action' => 'edit',
+                'action' => 'update',
                 'type' => 'web',
                 'level' => 3,
                 'role_id' => role::where('name', 'admin')->first()->id
@@ -128,7 +128,7 @@ class RestrictionRoute extends Seeder
             ],
             [
                 'route' => '/dashboard/users/activity/update',
-                'action' => 'edit',
+                'action' => 'update',
                 'type' => 'web',
                 'level' => 3,
                 'role_id' => role::where('name', 'admin')->first()->id
@@ -207,8 +207,8 @@ class RestrictionRoute extends Seeder
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
-                'route' => '/dashboard/edit',
-                'action' => 'edit',
+                'route' => '/dashboard/update',
+                'action' => 'update',
                 'type' => 'web',
                 'level' => 3,
                 'role_id' => role::where('name', 'admin')->first()->id
@@ -244,7 +244,7 @@ class RestrictionRoute extends Seeder
             ],
             [
                 'route' => '/dashboard/transaction/update',
-                'action' => 'edit',
+                'action' => 'update',
                 'type' => 'web',
                 'level' => 3,
                 'role_id' => role::where('name', 'admin')->first()->id
@@ -280,7 +280,7 @@ class RestrictionRoute extends Seeder
             ],
             [
                 'route' => '/dashboard/wallets/update',
-                'action' => 'edit',
+                'action' => 'update',
                 'type' => 'web',
                 'level' => 3,
                 'role_id' => role::where('name', 'admin')->first()->id
@@ -317,7 +317,7 @@ class RestrictionRoute extends Seeder
             ],
             [
                 'route' => '/dashboard/restriction/update',
-                'action' => 'edit',
+                'action' => 'update',
                 'type' => 'web',
                 'level' => 1,
                 'role_id' => role::where('name', 'admin')->first()->id
