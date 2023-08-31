@@ -69,7 +69,7 @@
 	<footer class="footer">
         <div class="container">
             <div class="text-center">
-                Copyright © 2018 Dashboard Admin
+                Copyright ©  {{ now()->year }} Dashboard Admin
             </div>
         </div>
     </footer>

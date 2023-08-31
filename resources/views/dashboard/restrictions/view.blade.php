@@ -23,6 +23,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Route</th>
                         <th scope="col">Role</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Minimum Level</th>
                         <th scope="col">Action</th>
                         </tr>
@@ -33,6 +34,7 @@
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td>{{ $restriction->route }}</td>
                                 <td>{{ $restriction->role->name }}</td>
+                                <td>{{ $restriction->type }}</td>
                                 <td>
                                     <span class="{{ $restriction->levels->badge}}">
                                         <i class="{{ $restriction->levels->icon }}"></i> 
