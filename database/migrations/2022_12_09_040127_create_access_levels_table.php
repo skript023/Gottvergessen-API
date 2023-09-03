@@ -19,7 +19,10 @@ class CreateAccessLevelsTable extends Migration
             $table->string('name');
             $table->string('badge')->nullable();
             $table->string('icon')->nullable();
-            $table->string('description');
+            $table->boolean('create')->nullable();
+            $table->boolean('read')->nullable();
+            $table->boolean('update')->nullable();
+            $table->boolean('delete')->nullable();
             $table->timestamps();
         });
     }

@@ -28,12 +28,21 @@ class AdminAuthentication
 
             if (isset($request->page))
             {
-                if ($request->page == 'edit' && auth()->user()->level > $access->id) 
+                if ($request->page == 'edit' && auth()->user()->access_level->update == 0) 
                     abort(401);
             }
 
             if (auth()->user()->level <= $restriction->level)
             {
+                if (!auth()->user()->access_level->update && $restriction->action == 'edit')
+                    abort(401);
+
+                if (!auth()->user()->access_level->delete && $restriction->action == 'delete')
+                    abort(401);
+
+                if (!auth()->user()->access_level->create && $restriction->action == 'create')
+                    abort(401);
+
                 return $next($request);
             }
         }

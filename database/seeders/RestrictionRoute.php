@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\access_level;
 use App\Models\restriction;
 use App\Models\role;
 use Illuminate\Database\Seeder;
@@ -15,19 +16,23 @@ class RestrictionRoute extends Seeder
      */
     public function run()
     {
+        $guest = access_level::where('name', 'Guest')->first();
+        $data_management = access_level::where('name', 'Data Management')->first();
+        $admin = access_level::where('name', 'Admin')->first();
+
         $routes = [
             [
                 'route' => '/dashboard/statistic',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 5,
+                'level' => $guest->id,
                 'role_id' => role::where('name', 'staff')->first()->id
             ],
             [
                 'route' => '/admin',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -35,28 +40,28 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/role',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/role/add',
-                'action' => 'add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
-                'route' => '/dashboard/role/update',
+                'route' => '/dashboard/role/edit',
                 'action' => 'update',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/role/delete',
                 'action' => 'delete',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -65,35 +70,35 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/users',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 5,
+                'level' => $guest->id,
                 'role_id' => role::where('name', 'staff')->first()->id
             ],
             [
                 'route' => '/dashboard/users/add',
-                'action' => 'add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 5,
+                'level' => $guest->id,
                 'role_id' => role::where('name', 'staff')->first()->id
             ],
             [
                 'route' => '/dashboard/users/update',
                 'action' => 'update',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/delete',
                 'action' => 'delete', 
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/suspend',
                 'action' => 'suspend',
                 'type' => 'web',
-                'level' => 5,
+                'level' => $guest->id,
                 'role_id' => role::where('name', 'staff')->first()->id
             ],
 
@@ -101,14 +106,14 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/users/balance',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 5,
+                'level' => $guest->id,
                 'role_id' => role::where('name', 'staff')->first()->id
             ],
             [
                 'route' => '/dashboard/balance',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 2,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -116,42 +121,42 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/users/activity',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/add',
-                'action' => 'add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/update',
                 'action' => 'update',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/delete',
                 'action' => 'delete',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/close',
                 'action' => 'close',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/users/activity/download',
                 'action' => 'export',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -159,21 +164,21 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/logging',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/logs/delete',
                 'action' => 'delete',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/logs/delete/all',
                 'action' => 'delete',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -181,14 +186,14 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/bin',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/bin/add',
-                'action' => 'add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -196,28 +201,28 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/ownership',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
-                'route' => '/dashboard/add',
-                'action' => 'add',
+                'route' => '/dashboard/ownership/add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
-                'route' => '/dashboard/update',
+                'route' => '/dashboard/ownership/edit',
                 'action' => 'update',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
-                'route' => '/dashboard/delete',
+                'route' => '/dashboard/ownership/delete',
                 'action' => 'delete',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -225,42 +230,42 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/transaction-history',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/add',
-                'action' => 'add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/add-instant',
-                'action' => 'add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/update',
                 'action' => 'update',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/delete',
                 'action' => 'delete',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/transaction/download',
                 'action' => 'export',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -268,28 +273,28 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/wallets',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/wallets/add',
-                'action' => 'add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/wallets/update',
                 'action' => 'update',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/wallets/delete',
                 'action' => 'delete',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -297,7 +302,7 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/balances',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 3,
+                'level' => $data_management->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -305,28 +310,28 @@ class RestrictionRoute extends Seeder
                 'route' => '/dashboard/restriction',
                 'action' => 'view',
                 'type' => 'web',
-                'level' => 1,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/restriction/add',
-                'action' => 'add',
+                'action' => 'create',
                 'type' => 'web',
-                'level' => 1,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/restriction/update',
                 'action' => 'update',
                 'type' => 'web',
-                'level' => 1,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/dashboard/restriction/delete',
                 'action' => 'delete',
                 'type' => 'web',
-                'level' => 1,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
 
@@ -334,28 +339,28 @@ class RestrictionRoute extends Seeder
                 'route' => '/admin/command/migration',
                 'action' => 'system',
                 'type' => 'web',
-                'level' => 1,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/admin/command/migration-fresh',
                 'action' => 'system',
                 'type' => 'web',
-                'level' => 1,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/admin/command/maintenance',
                 'action' => 'system',
                 'type' => 'web',
-                'level' => 1,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
             [
                 'route' => '/admin/command/server-up',
                 'action' => 'system',
                 'type' => 'web',
-                'level' => 1,
+                'level' => $admin->id,
                 'role_id' => role::where('name', 'admin')->first()->id
             ],
         ];
