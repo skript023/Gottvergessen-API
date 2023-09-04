@@ -10,11 +10,9 @@ class OwnershipController extends Controller
 {
     public function load_ownerships(Request $request)
     {
-        $ownerships = ownership::all();
+        $ownerships = ownership::sortable()->paginate(5);
 
-        return view('dashboard.ownerships', [
-            'ownerships' => $ownerships,
-        ]);
+        return view('dashboard.ownerships', compact('ownerships')); 
     }
     
     public function delete_ownership(Request $request)
