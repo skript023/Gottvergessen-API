@@ -40,7 +40,7 @@ class restriction extends Model
     {
         return $this->hasOne(role::class, 'id', 'role_id');
     }
-
+    
     public function levels()
     {
         return $this->hasOne(access_level::class, 'id', 'level');

@@ -25,19 +25,19 @@ class AccessLevel extends Seeder
                 'delete' => true
             ],
             [
-                'name' => 'Data Management',
+                'name' => 'Staff',
                 'badge' => 'badge badge-primary',
                 'icon' => 'zmdi zmdi-shield-security',
                 'create' => true,
                 'read' => true,
                 'update' => true,
-                'delete' => true
+                'delete' => false
             ],
             [
-                'name' => 'Staff',
+                'name' => 'User',
                 'badge' => 'badge badge-primary',
                 'icon' => 'zmdi zmdi-shield-check',
-                'create' => true,
+                'create' => false,
                 'read' => true,
                 'update' => true,
                 'delete' => false

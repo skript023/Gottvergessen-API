@@ -16,8 +16,8 @@ class RestrictionRoute extends Seeder
      */
     public function run()
     {
-        $guest = access_level::where('name', 'Guest')->first();
-        $data_management = access_level::where('name', 'Data Management')->first();
+        $guest = access_level::where('name', 'User')->first();
+        $data_management = access_level::where('name', 'Staff')->first();
         $admin = access_level::where('name', 'Admin')->first();
 
         $routes = [

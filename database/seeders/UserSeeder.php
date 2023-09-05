@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
                 'hardware_uuid' => '$2y$10$UiHEEMO7lkFkuRMOHuNs2OA/WgnbfTzB6VcAjBn66U3NPXVgHdld2'
             ],
             [
-                'level' => 4,
+                'level' => 2,
                 'fullname' => 'Staff',
                 'username' => 'staff',
                 'email' => 'staff@gmail.com',
@@ -45,6 +45,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now()
             ],
             [
+                'level' => 3,
                 'fullname' => 'Putra Hadi',
                 'username' => 'QuinCantik12',
                 'email' => 'putrahadi1132@gmail.com',

@@ -44,6 +44,6 @@ class access_level extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'id', 'level');
+        return $this->hasOne(User::class, 'level', 'id');
     }
 }

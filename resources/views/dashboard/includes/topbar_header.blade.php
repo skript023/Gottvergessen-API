@@ -7,8 +7,8 @@
         </a>
         </li>
         <li class="nav-item">
-        <form class="search-bar">
-            <input type="text" class="form-control" placeholder="Enter keywords">
+        <form class="search-bar" method="POST">
+            <input type="text" class="form-control" placeholder="Enter keywords" id="search">
             <a href="javascript:void();"><i class="icon-magnifier"></i></a>
         </form>
         </li>

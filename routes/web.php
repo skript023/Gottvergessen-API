@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientMonitorController;
 use App\Http\Controllers\NeuronReportActivity;
 use App\Http\Controllers\OwnershipController;
-use App\Http\Controllers\RestrictionRoute;
+use App\Http\Controllers\RestrictionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TransactionHistory;
 use App\Http\Controllers\UserBalance;
@@ -33,6 +33,8 @@ Route::get('/register', fn() => view('register'));
 Route::post('/signup', [UserController::class, 'register']);
 
 Route::get('/logout', [UserController::class, 'logout']);
+Route::post('/dashboard/users/search', [UserController::class, 'search'])->name('users.search');
+Route::post('/dashboard/restriction/search', [RestrictionController::class, 'search'])->name('restrictions.search');
 
 Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 {
@@ -41,8 +43,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     
     Route::get('/dashboard/users', [UserController::class, 'users']);
     Route::post('/dashboard/users/add', [UserController::class, 'store']);
-    Route::post('/dashboard/users/update/{id}', [UserController::class, 'update_user']);
-    Route::post('/dashboard/users/delete/{id}', [UserController::class, 'delete_user']);
+    Route::post('/dashboard/users/update/{id}', [UserController::class, 'update']);
+    Route::post('/dashboard/users/delete/{id}', [UserController::class, 'delete']);
     Route::post('/dashboard/users/suspend/{id}', [UserController::class, 'banned_user']);
     
     Route::get('/dashboard/users/balance', [UserBalance::class, 'user_balance']);
@@ -85,10 +87,10 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 
     Route::get('/dashboard/balance/', [UserBalance::class, 'all_user_balance']);
 
-    Route::get('/dashboard/restriction', [RestrictionRoute::class, 'index']);
-    Route::post('/dashboard/restriction/add', [RestrictionRoute::class, 'store']);
-    Route::post('/dashboard/restriction/update/{id}', [RestrictionRoute::class, 'update']);
-    Route::get('/dashboard/restriction/delete/{id}', [RestrictionRoute::class, 'delete']);
+    Route::get('/dashboard/restriction', [RestrictionController::class, 'index']);
+    Route::post('/dashboard/restriction/add', [RestrictionController::class, 'store']);
+    Route::post('/dashboard/restriction/update/{id}', [RestrictionController::class, 'update']);
+    Route::get('/dashboard/restriction/delete/{id}', [RestrictionController::class, 'delete']);
 
     Route::get('/admin/command/migration', [AdminCommand::class, 'fresh_migration_only']);
     Route::get('/admin/command/migration-fresh', [AdminCommand::class, 'refresh_migration']);

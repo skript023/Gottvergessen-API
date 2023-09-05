@@ -221,7 +221,7 @@ class UserController extends Controller
         return redirect('/dashboard/profile');
     }
 
-    public function delete_user(Request $request)
+    public function delete(Request $request)
     {
         $user = User::find($request->delete);
         if (isset($user))
@@ -236,7 +236,96 @@ class UserController extends Controller
         return back();
     }
 
-    public function update_user(Request $request)
+    public function search(Request $request)
+    {
+        if ($request->ajax())
+        {
+            $result = '';
+
+            $users = User::with(['roles', 'ownerships', 'access_level'])->sortable()->paginate(10);
+
+            if(isset($request->keyword))
+            {
+                $users = User::with(['roles', 'ownerships', 'access_level'])->
+                whereHas('ownerships', function($q) use($request) {
+                    $q->where('type','LIKE','%' . $request->keyword . '%');
+                })->
+                whereHas('roles', function($q) use($request) {
+                    $q->where('name','LIKE','%' . $request->keyword . '%');
+                })->
+                orWhere('fullname','LIKE',"%$request->keyword%")->
+                orWhere('email', 'LIKE', "%$request->keyword%")->
+                sortable()->
+                get();
+            }
+
+            if ($users->count() == 0)
+            {
+                $result .= '<tr>
+                                <th>Not Found</th>
+                                <td>Not Found</td>
+                                <td>Not Found</td>
+                                <td>Not Found</td>
+                                <td>Not Found</td>
+                                <td>Not Found</td>
+                                <td>
+                                    <span class="badge badge-danger">
+                                        <i class="zmdi zmdi-lock"></i>
+                                        Not Found
+                                    </span>
+                                </td>
+                            </tr>';
+                        
+                return response()->json([
+                    'message' => $result
+                ]);
+            }
+
+            foreach ($users as $key => $user) 
+            {
+                $edit_action = auth()->user()->level <= 4 ? "users?page=edit&user=" . $user->id  : "javascript:void();";
+                $disabled = auth()->user()->level > 4 ? "disabled" : "";
+                $delete = auth()->user()->level <= 3 ? "#user-delete-" .  $user->id : "javascript:void();";
+                $suspend = auth()->user()->level <= 3 ? "#user-suspend-" .  $user->id : "javascript:void();";
+
+                $result .= '
+                <tr>
+                    <th scope="row">' . ($key + 1) . '</th>
+                    <td>' . $user->fullname . '</td>
+                    <td>' . $user->email . '</td>
+                    <td>' . $user->ownerships->type . '</td>
+                    <td>' . $user->computer_name . '</td>
+                    <td>' . $user->roles->name . '</td>
+                    <td>' . $user->activity  . '</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light btn-block waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right bg-dark-light">
+                                <li class="dropdown-divider"></li>
+                                <a href="' . $edit_action . '"><li class="dropdown-item' . $disabled . '">Edit User</li></a>
+                                <li class="dropdown-divider"></li>
+                                <a data-toggle="modal" data-target="' . $delete . '"><li class="dropdown-item ' . $disabled . '">Delete User</li></a>
+                                <li class="dropdown-divider"></li>
+                                <a data-toggle="modal" data-target="'. $suspend .'"><li class="dropdown-item ' . $disabled . '">Suspend User</li></a>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>';
+            }
+
+            return response()->json([
+                'message' => $result
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'unknown'
+        ]);
+    }
+
+    public function update(Request $request)
     {
         $request->validate([
             'fullname' => 'required',
