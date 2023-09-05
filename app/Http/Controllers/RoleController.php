@@ -10,7 +10,7 @@ class RoleController extends Controller
 {
     public function roles(Request $request)
     {
-        $roles = role::all();
+        $roles = role::sortable()->paginate(5);
 
         return view('dashboard.role', [
             'roles' => $roles

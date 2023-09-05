@@ -90,7 +90,7 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    public function add_user(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'fullname' => 'required', 
@@ -157,7 +157,7 @@ class UserController extends Controller
         return redirect()->intended('/dashboard/users');
     }
 
-    public function user_registration(Request $request)
+    public function register(Request $request)
     {
         $request->validate([
             'fullname' => 'required', 
@@ -212,13 +212,10 @@ class UserController extends Controller
         return redirect()->intended('/');
     }
 
-    public function view_user()
+    public function users()
     {
         return view('dashboard.users', [
-            'users' => user::all(),
-            'ownerships' => ownership::all(),
-            'roles' => role::all(),
-            'levels' => access_level::all()
+            'users' => user::with(['roles', 'ownerships', 'access_level'])->sortable()->paginate(10),
         ]);
 
         return redirect('/dashboard/profile');

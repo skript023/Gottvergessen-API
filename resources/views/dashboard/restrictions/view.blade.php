@@ -21,10 +21,10 @@
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Route</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Minimum Level</th>
+                        <th scope="col">@sortablelink('Route')</th>
+                        <th scope="col">@sortablelink('role.name', 'Role')</th>
+                        <th scope="col">@sortablelink('Type')</th>
+                        <th scope="col">@sortablelink('levels.name', 'Minimum Level')</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -59,6 +59,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $restrictions->links('pagination::bootstrap-4') }}
         </div>
     </div>
 </div>

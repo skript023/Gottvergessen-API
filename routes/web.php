@@ -30,7 +30,7 @@ Route::get('/', [UserController::class, 'home'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 
 Route::get('/register', fn() => view('register'));
-Route::post('/signup', [UserController::class, 'user_registration']);
+Route::post('/signup', [UserController::class, 'register']);
 
 Route::get('/logout', [UserController::class, 'logout']);
 
@@ -39,8 +39,8 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/statistic', [UserController::class, 'dashboard']);
     Route::get('/admin', [UserController::class, 'dashboard']);
     
-    Route::get('/dashboard/users', [UserController::class, 'view_user']);
-    Route::post('/dashboard/users/add', [UserController::class, 'add_user']);
+    Route::get('/dashboard/users', [UserController::class, 'users']);
+    Route::post('/dashboard/users/add', [UserController::class, 'store']);
     Route::post('/dashboard/users/update/{id}', [UserController::class, 'update_user']);
     Route::post('/dashboard/users/delete/{id}', [UserController::class, 'delete_user']);
     Route::post('/dashboard/users/suspend/{id}', [UserController::class, 'banned_user']);
@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
     Route::get('/dashboard/balance/', [UserBalance::class, 'all_user_balance']);
 
     Route::get('/dashboard/restriction', [RestrictionRoute::class, 'index']);
-    Route::post('/dashboard/restriction/add', [RestrictionRoute::class, 'create']);
+    Route::post('/dashboard/restriction/add', [RestrictionRoute::class, 'store']);
     Route::post('/dashboard/restriction/update/{id}', [RestrictionRoute::class, 'update']);
     Route::get('/dashboard/restriction/delete/{id}', [RestrictionRoute::class, 'delete']);
 

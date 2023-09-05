@@ -12,14 +12,12 @@ class RestrictionRoute extends Controller
     public function index()
     {
         return view('dashboard.restriction', [
-            'restrictions' => restriction::all(),
-            'levels' => access_level::all(),
-            'roles' => role::all(),
+            'restrictions' => restriction::with(['role', 'levels'])->sortable()->paginate(10),
             'total_level' => access_level::all()->count()
         ]);
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'route' => 'required'

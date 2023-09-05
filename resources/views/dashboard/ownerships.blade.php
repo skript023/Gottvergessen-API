@@ -14,16 +14,16 @@
         <div class="card col-md-4 mx-auto my-4">
             <div class="card-content p-2">
                 <div class="card-body">
-                    <div class="card-title text-uppercase text-center py-3">Add Product</div>
+                    <div class="card-title text-uppercase text-center py-3">Add Ownership</div>
                     <form action="/dashboard/role/add" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="input-6" class="text-center">Products</label>
+                            <label for="input-6" class="text-center">Ownerships</label>
                             <input type="text" name="role" class="form-control form-control-rounded text-center" id="input-6" placeholder="Enter Product Name" required>
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i> Add Product</button>
+                            <button type="submit" class="btn btn-light btn-round px-5 mx-auto d-block"><i class="icon-lock"></i> Add Ownership</button>
                         </div>
                     </form>
                     @isset(request()->edit)
@@ -37,11 +37,11 @@
             <div class="card-content p-2">
                 <div class="card-body">
                     <div class="card-title text-uppercase text-center py-3">Existed Ownerships</div>
-                    <table class="table table-boardered">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>@sortablelink('Type')</th>
-                                <th>@sortablelink('Price')</th>
+                                <th>@sortablelink('type', 'Ownerships')</th>
+                                <th>@sortablelink('price')</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -59,9 +59,9 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $ownerships->links('pagination::bootstrap-4') }}
             </div>
         </div>
-
     </div>
 </div>
 @endsection

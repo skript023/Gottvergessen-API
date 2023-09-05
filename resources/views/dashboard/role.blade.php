@@ -36,12 +36,12 @@
             <div class="card-content p-2">
                 <div class="card-body">
                     <div class="card-title text-uppercase text-center py-3">List Role</div>
-                    <table class="table table-boardered">
+                    <table class="table table-hover">
                         <thead>
-                        <tr>
-                       <th>Role Name</th>
-                       <th>Action</th>
-                        </tr>
+                            <tr>
+                                <th>@sortablelink('name', 'Role Name')</th>
+                                <th>Action</th>
+                            </tr>
                         </thead>
                         <tbody>
                             @foreach ($roles as $role)
@@ -56,6 +56,7 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $roles->links('pagination::bootstrap-4') }}
             </div>
         </div>
 

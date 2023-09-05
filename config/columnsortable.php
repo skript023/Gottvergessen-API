@@ -12,7 +12,6 @@ return [
                 'email', 
                 'name', 
                 'slug', 
-                'type', 
                 'game', 
                 'file', 
                 'target', 
@@ -20,7 +19,7 @@ return [
                 'prefix', 
                 'route',
                 'fullname',
-                'title'
+                'title',
             ],
             'class' => 'fa fa-sort-alpha',
         ],

@@ -36,7 +36,7 @@
             <div class="card-content p-2">
                 <div class="card-body">
                     <div class="card-title text-uppercase text-center py-3">List Role</div>
-                    <table class="table table-boardered">
+                    <table class="table table-hover">
                         <thead>
                         <tr>
                         <th>Access Level</th>
