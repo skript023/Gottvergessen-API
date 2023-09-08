@@ -464,7 +464,9 @@ class UserController extends Controller
     {
         if (auth()->check())
         {
-            return back();
+            return view('logged-in', [
+                'user' => auth()->user()
+            ]);
         }
         
         return view('login');

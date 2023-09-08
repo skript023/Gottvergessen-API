@@ -16,17 +16,15 @@ class VerifiedUserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->status === 'verified')
+        switch (auth()->user()->status) 
         {
-            return $next($request);
-        }
-        else if (auth()->user()->status === 'unverified')
-        {
-            return back()->withErrors("Unverified Account", "Please, check your email to verify your account");
-        }
-        else if (auth()->user()->status === 'suspended')
-        {
-            return redirect('/')->withErrors("Account Suspended", "Your account has been suspended, please contact administrator");
+            case 'verified':
+                return $next($request);
+            case 'unverified':
+                toastr()->info('Please, check your email to verify your account', 'Unverified Account');
+                return back();
+            case 'suspended':
+                return redirect('/')->withErrors("Account Suspended", "Your account has been suspended, please contact administrator");
         }
 
         abort(401);
