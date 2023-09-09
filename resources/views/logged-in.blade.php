@@ -13,14 +13,20 @@
                 <img src="https://via.placeholder.com/400x400" class="rounded-circle img-thumbnail mx-auto my-5 d-block" id="profile-img" alt="" style="width:300px;height:300px;object-fit:cover">
             @endif
 
+            <div class="text-center mt-3"><a href="/dashboard/profile">{{ $user->fullname }}</a></div>
+            <p>Status : <span class="badge badge-primary">{{ $user->status == 'verified' ? 'Active' : ($user->status == 'suspended' ? 'Suspended' : 'Unverified') }}</span></p>
+            
             <div class="form-row mt-4">
-                <div class="form-group mb-0 col-6">
+                <div class="form-group mb-3 col-6">
                     <a href="/dashboard/statistic" class="btn btn-light btn-block"><i class="fa fa-home"></i> Home</a>
                 </div>
-                <div class="form-group mb-0 col-6 text-right">
+                <div class="form-group mb-3 col-6 text-right">
                     <a href="/dashboard/profile" class="btn btn-light btn-block"><i class="fa fa-user-circle"></i> Profile</a>
                 </div>
             </div>
+
+            <a href="/logout" class="btn btn-light btn-block mb-0">Logout</a>
+            
         </div>
     </div>
 </div>
