@@ -35,6 +35,7 @@ Route::post('/signup', [UserController::class, 'register']);
 Route::get('/logout', [UserController::class, 'logout']);
 Route::post('/dashboard/users/search', [UserController::class, 'search'])->name('users.search');
 Route::post('/dashboard/restriction/search', [RestrictionController::class, 'search'])->name('restrictions.search');
+Route::get('/dashboard/users/activity/migrate', [NeuronReportActivity::class, 'migrate_to_mongodb']);
 
 Route::group(['middleware' => ['auth', 'admin', 'verified']], function()
 {

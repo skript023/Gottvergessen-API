@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\KegiatanNeuron;
 use App\Models\activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class NeuronReportActivity extends Controller
 {
@@ -136,6 +137,36 @@ class NeuronReportActivity extends Controller
             'message' => 'success',
             'activities' => activity::all()
         ]);
+    }
+
+    public function migrate_to_mongodb()
+    {
+        $activities = activity::all();
+
+        foreach ($activities as $key => $activity) 
+        {
+            $response = Http::post('https://activity-service.glitch.me/activity/add', [
+                "user_id" => '64fe6514ea1592bac652f126',
+                "name" => $activity->name,
+                "start_date" => $activity->start_date,
+                "end_date" => $activity->end_date,
+                "status" => $activity->status
+            ]);
+
+            if ($response->successful())
+            {
+                toastr()->success("success migrate $activity->name");
+            }
+            else
+            {
+                $status = $response->status();
+                $body = $response->body();
+
+                toastr()->error("Failed migrate status : $status code : $body");
+            }
+        }
+
+        return redirect()->intended('/dashboard/users/activity');
     }
 
     public function export()
