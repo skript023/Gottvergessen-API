@@ -145,7 +145,10 @@ class NeuronReportActivity extends Controller
 
         foreach ($activities as $key => $activity) 
         {
-            $response = Http::post('https://activity-service.glitch.me/activity/add', [
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Basic R290dHZlcmdlc3Nlbg=='
+            ])->post('https://crm-backend.glitch.me/activity/migration', [
                 "user_id" => '64fe6514ea1592bac652f126',
                 "name" => $activity->name,
                 "start_date" => $activity->start_date,
