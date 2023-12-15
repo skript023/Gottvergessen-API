@@ -1867,6 +1867,18 @@ class ActivitySeeder extends Seeder
                 'end_date' => \Carbon\Carbon::createFromDate(2023, 12, 8)->toDateTimeString(),
                 'status' => 'Completed',
             ],
+            [
+                'name' => 'Design Review Requirement Gathering Pekerjaan Enhancement c-Carent MSA for API CRM',
+                'start_date' => \Carbon\Carbon::createFromDate(2023, 12, 11)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023, 12, 11)->toDateTimeString(),
+                'status' => 'Completed',
+            ],
+            [
+                'name' => 'Transfer Knowledge MSA for API CRM Deliverable II - Upsert API CapabilityTransfer Knowledge MSA for API CRM Deliverable II - Upsert API Capability',
+                'start_date' => \Carbon\Carbon::createFromDate(2023, 12, 12)->toDateTimeString(),
+                'end_date' => \Carbon\Carbon::createFromDate(2023, 12, 12)->toDateTimeString(),
+                'status' => 'Completed',
+            ],
         ];
         
         foreach ($activities as $activity) 
