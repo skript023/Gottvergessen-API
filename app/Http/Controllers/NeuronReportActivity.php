@@ -168,8 +168,6 @@ class NeuronReportActivity extends Controller
                 toastr()->error("Failed migrate status : $status code : $body");
             }
         }
-
-        return redirect()->intended('/dashboard/users/activity');
     }
 
     public function export()
