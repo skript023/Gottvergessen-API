@@ -22,18 +22,18 @@
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Activity</th>
-                        <th scope="col">Start Date</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">@sortablelink('name', 'Activity')</th>
+                        <th scope="col">@sortablelink('start_date', 'Start Date')</th>
+                        <th scope="col">@sortablelink('end_date', 'End Date')</th>
+                        <th scope="col">@sortablelink('Status')</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($activities as $activity)
                             <tr>
-                                <th scope="row">{{ $loop->index + 1 }}</th>
-                                <td>{{ $activity->name }}</td>
+                                <th scope="row">{{ $activity->id }}</th>
+                                <td>{{ strlen($activity->name) >= 100 ? substr($activity->name . '...', 0, 100) : $activity->name }}</td>
                                 <td>{{ $activity->start_date }}</td>
                                 <td>{{ $activity->end_date }}</td>
                                 <td>{{ $activity->status }}</td>
@@ -57,6 +57,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $activities->links('pagination::bootstrap-4') }}
         </div>
     </div>
 </div>

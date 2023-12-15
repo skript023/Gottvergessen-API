@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class activity extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
     public $timestamps = true;
     
