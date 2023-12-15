@@ -139,6 +139,58 @@ class NeuronReportActivity extends Controller
         ]);
     }
 
+    public function create_to_mongodb(Request $request)
+    {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $data = $request->only([
+            'name'
+        ]);
+
+        $data['start_date'] = now();
+        $data['status'] = 'On Progress';
+
+        try 
+        {
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Basic R290dHZlcmdlc3Nlbg=='
+            ])->post('https://crm-backend.glitch.me/activity/migration', [
+                "user_id" => '64fe6514ea1592bac652f126',
+                "name" => $data->name,
+                "start_date" => $data->start_date,
+                "end_date" => $data->end_date,
+                "status" => $data->status
+            ]);
+
+            if ($response->successful())
+            {
+                toastr()->success("success migrate $activity->name");
+            }
+            else
+            {
+                $status = $response->status();
+                $body = $response->body();
+
+                toastr()->error("Failed migrate status : $status code : $body");
+            }
+        } 
+        catch (\Throwable $th) 
+        {
+            ExceptionMessageController::save_error($th);
+
+            $msg = $th->getMessage();
+
+            toastr()->error("Failed update activity, error $msg");
+
+            return back();
+        }
+
+        return redirect()->intended('/dashboard/users/activity');
+    }
+
     public function migrate_to_mongodb()
     {
         $activities = activity::all();
