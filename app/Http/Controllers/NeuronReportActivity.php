@@ -194,6 +194,7 @@ class NeuronReportActivity extends Controller
     public function migrate_to_mongodb()
     {
         $activities = activity::all();
+        set_time_limit(0);
 
         foreach ($activities as $key => $activity) 
         {
